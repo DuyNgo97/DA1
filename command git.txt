@@ -2,6 +2,7 @@
 - Trước khi bắt đầu code, hãy pull về trước
 - Phải up code ở Branch con trước khi Merge vào Branch mẹ
 - Phải merge vào Branch mẹ main_clone ngay sau khi hoàn thành code để tránh xung đột, và để phát hiện lỗi fix kịp thời.
+- Sau khi merge, cần phải up code main_clone lần nữa
 
 # Dùng để git clone source
     git clone https://github.com/DuyNgo97/da1.git
@@ -42,3 +43,5 @@
         git checkout main_clone
     B2: Tiến hành nhập code
         git merge [tên branch]
+
+// test
