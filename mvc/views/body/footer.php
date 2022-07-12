@@ -57,7 +57,7 @@
                 </span>
                 <span>
                     401 BROADWAY, 24TH FLOOR
-                    ORCHARD VIEW, LONDON, UK, khiem dep trai
+                    ORCHARD VIEW, LONDON, UK
                 </span>
             </div>
         </div>
