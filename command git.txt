@@ -24,7 +24,7 @@
     git push -u origin --delete [Tên Branch] // xoá Branch trên github
 
 # Lấy dữ liệu mới từ Branch mẹ
-    git pull // nếu không được dùng lệnh dưới
+    git pull // nếu không được dùng lệnh dưới, khuyến khích dùng lệnh dưới
     git pull origin [tên Branch cần lấy dữ liệu mới]
 
 # Up code
