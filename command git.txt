@@ -1,6 +1,6 @@
 ! Lưu ý: 
 - Trước khi bắt đầu code, hãy pull về trước
-- Phải up code ở Branch con trước khi Merge vào Branch mẹ
+- Phải up code ở Branch(ca nhan) con trước khi Merge vào Branch mẹ(main_clone)
 - Phải merge vào Branch mẹ main_clone ngay sau khi hoàn thành code để tránh xung đột, và để phát hiện lỗi fix kịp thời.
 - Sau khi merge, cần phải up code main_clone lần nữa
 
