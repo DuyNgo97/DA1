@@ -21,11 +21,10 @@
     git branch -d [Tên Branch cần xoá] // chỉ xoá Branch trên máy, không xoá được trên github.
 
 # Xoá Branch Remote
-    git push -u origin --delete [Tên Branch] // xoá Branch trên github
+    git push origin --delete [Tên Branch] // xoá Branch trên github
 
 # Lấy dữ liệu mới từ Branch mẹ
-    git pull // nếu không được dùng lệnh dưới, khuyến khích dùng lệnh dưới
-    git pull origin [tên Branch cần lấy dữ liệu mới]
+    git pull origin [tên Branch]
 
 # Up code
     B1: Dùng cái nào cũng được
@@ -35,13 +34,20 @@
     B2: Commit
         git commit -m 'nội dung commit'
     B3: Up code
+        * đẩy thay đổi lên nhánh branch hiện tại
         git push
-        git push -u origin [Tên Brand cần up code]
+        * đẩy thay đổi lên 1 nhánh branch khác 
+        git push origin [tên Brand]
+        git push --set-upstream  origin [tên branch] 
 
 # Nhập code với nhau
     B1: Phải về branch main_clone
         git checkout main_clone
     B2: Tiến hành nhập code
         git merge [tên branch]
+
+# Up code lên đồng thời tạo branch mới
+    git push origin [branch hiện tại]:[branch mới]
+    cd: git push origin khiem:br_khiem
 
 // test 123
