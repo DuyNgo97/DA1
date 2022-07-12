@@ -3,12 +3,16 @@ class controller
 {
     public function model($model)
     {
-        require_once "mvc/model/" . $model . ".php";
-        return $a = new $model;
+        require_once './mvc/models/'.$model.'.php';
+
+        return new $model();
     }
 
     public function view($view, $data = [])
     {
-        require_once "mvc/views/" . $view . ".php";
+        if (file_exists('./mvc/views/'.$view.'.php')) {
+            require_once './mvc/views/'.$view.'.php';
+        }
     }
 }
+?>
