@@ -49,5 +49,3 @@
 # Up code lên đồng thời tạo branch mới
     git push origin [branch hiện tại]:[branch mới]
     cd: git push origin khiem:br_khiem
-
-// test 123
