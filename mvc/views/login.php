@@ -12,7 +12,6 @@
 </head>
 
 <body>
-    123124
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
