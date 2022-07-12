@@ -6,7 +6,7 @@
                 <div>Chi nhánh</div>
                 <div>Theo dõi đơn hàng</div>
             </div>
-            <div>không ngại va chạm 2</div>
+            <div>không ngại va chạm</div>
             <div class="d-flex gap-3">
                 <div>Liên hệ</div>
                 +84 9999999999

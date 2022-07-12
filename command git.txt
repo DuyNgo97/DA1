@@ -1,0 +1,51 @@
+! Lưu ý: 
+- Trước khi bắt đầu code, hãy pull về trước
+- Phải up code ở Branch con trước khi Merge vào Branch mẹ
+- Phải merge vào Branch mẹ main_clone ngay sau khi hoàn thành code để tránh xung đột, và để phát hiện lỗi fix kịp thời.
+- Sau khi merge, cần phải up code main_clone lần nữa
+
+# Dùng để git clone source
+    git clone https://github.com/DuyNgo97/da1.git
+
+# Kiểm tra xem đang ở Branch nào
+    git branch
+
+# Tạo Branch mới từ Branch khác
+    git checkout -b [Tên Branch mới] [Tên Branch cũ]
+    vd: git checkout -b khiem main_clone // tạo branch khiem từ main_clone
+
+# Chuyển Branch làm việc
+    git checkout [Tên Branch cần chuyển đến]
+
+# Xoá Branch Local
+    git branch -d [Tên Branch cần xoá] // chỉ xoá Branch trên máy, không xoá được trên github.
+
+# Xoá Branch Remote
+    git push origin --delete [Tên Branch] // xoá Branch trên github
+
+# Lấy dữ liệu mới từ Branch mẹ
+    git pull origin [tên Branch]
+
+# Up code
+    B1: Dùng cái nào cũng được
+        git add .
+        git add --all
+        git add -A
+    B2: Commit
+        git commit -m 'nội dung commit'
+    B3: Up code
+        * đẩy thay đổi lên nhánh branch hiện tại
+        git push
+        * đẩy thay đổi lên 1 nhánh branch khác 
+        git push origin [tên Brand]
+        git push --set-upstream  origin [tên branch] 
+
+# Nhập code với nhau
+    B1: Phải về branch main_clone
+        git checkout main_clone
+    B2: Tiến hành nhập code
+        git merge [tên branch]
+
+# Up code lên đồng thời tạo branch mới
+    git push origin [branch hiện tại]:[branch mới]
+    cd: git push origin khiem:br_khiem
