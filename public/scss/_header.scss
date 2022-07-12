@@ -1,0 +1,79 @@
+// header
+.header {
+    .navbar {
+        .container-fluid {
+
+            .navbar-brand {
+                padding: 0;
+                margin-right: 0 !important;
+            }
+
+            .navbar-collapse {
+                flex-grow: 0;
+            }
+
+            .navbar-collapse-1 {
+                display: none;
+            }
+
+            .navbar-collapse-2 {
+                .navbar-nav {
+                    .muti-nav {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        width: 100%;
+                        justify-content: space-evenly;
+
+                        .box-1,
+                        .box-2 {
+                            width: 48%;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            // chỉnh đường viên navbar-toggler
+            .navbar-toggler {
+                box-shadow: none;
+                border: none;
+            }
+
+            .navbar-right {
+                margin-right: 10px;
+
+                ul {
+                    gap: 0.8rem;
+                    flex-direction: row;
+                }
+            }
+
+            // res container-fluid
+            @include media-breakpoint-up(sm) {
+                .navbar-brand {
+                    margin-right: 0 !important;
+                }
+            }
+
+            @include media-breakpoint-up(md) {
+
+                .navbar-brand {
+                    margin-left: -5rem;
+                }
+
+                .navbar-right {
+                    margin-right: 0;
+                }
+
+                .navbar-collapse-1 {
+                    display: block;
+                }
+
+                .navbar-collapse-2 {
+                    display: none !important;
+                }
+            }
+        }
+    }
+}
