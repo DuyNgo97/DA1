@@ -1,18 +1,11 @@
 <?php
-class controller
-{
-    public function model($model)
-    {
-        require_once './mvc/models/'.$model.'.php';
-
-        return new $model();
+class controller{
+    public function model($model){
+        require_once"mvc/model/".$model.".php";
+        return $a = new $model;
     }
 
-    public function view($view, $data = [])
-    {
-        if (file_exists('./mvc/views/'.$view.'.php')) {
-            require_once './mvc/views/'.$view.'.php';
-        }
+    public function view($view,$data=[]){
+        require_once"mvc/views/".$view.".php";
     }
 }
-?>
