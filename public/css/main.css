@@ -11212,6 +11212,7 @@ textarea.form-control-lg {
 .content .slick-app {
   margin: 1rem 0;
   display: flex;
+  width: 100%;
 }
 .content .slick-app .item {
   width: 20%;
@@ -11252,7 +11253,7 @@ textarea.form-control-lg {
   display: block;
 }
 .content .slick-app .item:hover img {
-  opacity: 2;
+  opacity: 1;
 }
 .content .featured-products {
   margin-bottom: 1rem;

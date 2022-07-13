@@ -354,6 +354,7 @@
     .slick-app {
         margin: 1rem 0;
         display: flex;
+        width: 100%;
 
         .item {
             width: 20%;
@@ -399,7 +400,7 @@
                 }
 
                 img {
-                    opacity: 2;
+                    opacity: 1;
                 }
             }
         }
