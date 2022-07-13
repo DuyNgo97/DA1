@@ -6,11 +6,7 @@
                 <div>Chi nhánh</div>
                 <div>Theo dõi đơn hàng</div>
             </div>
-<<<<<<< HEAD
-            <div>không ngại va chạm</div>
-=======
             <div>VA CHẠM SHOP</div>
->>>>>>> origin/bach
             <div class="d-flex gap-3">
                 <div>Liên hệ</div>
                 +84 9999999999
