@@ -6,7 +6,7 @@
                 <div>Chi nhánh</div>
                 <div>Theo dõi đơn hàng</div>
             </div>
-            <div>không ngại va chạm 2</div>
+            <div>VA CHẠM SHOP</div>
             <div class="d-flex gap-3">
                 <div>Liên hệ</div>
                 +84 9999999999
@@ -41,7 +41,7 @@
             </div>
             <!-- Logo -->
             <a class="navbar-brand" href="#">
-                <img src="/public/images/logo-b.png" alt="">
+                <img src="public/images/logoshop.png" alt="">
             </a>
             <!-- Navbar right -->
             <div class="navbar-right">
