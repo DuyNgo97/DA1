@@ -41,7 +41,7 @@
             </div>
             <!-- Logo -->
             <a class="navbar-brand" href="#">
-                <img src="/public/images/logo-b.png" alt="">
+                <img src="public/images/logo_shop.png" alt="">
             </a>
             <!-- Navbar right -->
             <div class="navbar-right">

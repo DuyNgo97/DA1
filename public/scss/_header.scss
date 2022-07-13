@@ -6,6 +6,10 @@
             .navbar-brand {
                 padding: 0;
                 margin-right: 0 !important;
+
+                img {
+                    width: 140px;
+                }
             }
 
             .navbar-collapse {
@@ -60,6 +64,10 @@
 
                 .navbar-brand {
                     margin-left: -5rem;
+
+                    img {
+                        margin-left: -63px;
+                    }
                 }
 
                 .navbar-right {

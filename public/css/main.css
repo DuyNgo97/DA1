@@ -10890,6 +10890,9 @@ textarea.form-control-lg {
   padding: 0;
   margin-right: 0 !important;
 }
+.header .navbar .container-fluid .navbar-brand img, .header .navbar .container-sm .navbar-brand img, .header .navbar .container-md .navbar-brand img, .header .navbar .container-lg .navbar-brand img, .header .navbar .container-xl .navbar-brand img, .header .navbar .container-xxl .navbar-brand img {
+  width: 140px;
+}
 .header .navbar .container-fluid .navbar-collapse, .header .navbar .container-sm .navbar-collapse, .header .navbar .container-md .navbar-collapse, .header .navbar .container-lg .navbar-collapse, .header .navbar .container-xl .navbar-collapse, .header .navbar .container-xxl .navbar-collapse {
   flex-grow: 0;
 }
@@ -10932,6 +10935,9 @@ textarea.form-control-lg {
 @media (min-width: 768px) {
   .header .navbar .container-fluid .navbar-brand, .header .navbar .container-sm .navbar-brand, .header .navbar .container-md .navbar-brand, .header .navbar .container-lg .navbar-brand, .header .navbar .container-xl .navbar-brand, .header .navbar .container-xxl .navbar-brand {
     margin-left: -5rem;
+  }
+  .header .navbar .container-fluid .navbar-brand img, .header .navbar .container-sm .navbar-brand img, .header .navbar .container-md .navbar-brand img, .header .navbar .container-lg .navbar-brand img, .header .navbar .container-xl .navbar-brand img, .header .navbar .container-xxl .navbar-brand img {
+    margin-left: -63px;
   }
   .header .navbar .container-fluid .navbar-right, .header .navbar .container-sm .navbar-right, .header .navbar .container-md .navbar-right, .header .navbar .container-lg .navbar-right, .header .navbar .container-xl .navbar-right, .header .navbar .container-xxl .navbar-right {
     margin-right: 0;
@@ -11205,10 +11211,12 @@ textarea.form-control-lg {
 }
 .content .slick-app {
   margin: 1rem 0;
-  /* display: flex; */
+  display: flex;
 }
 .content .slick-app .item {
-  /* width: 20%; */
+  width: 20%;
+}
+.content .slick-app .item .item {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -11218,19 +11226,19 @@ textarea.form-control-lg {
   background: rgb(255, 255, 255);
   background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(229, 229, 229) 100%);
 }
-.content .slick-app .item img {
+.content .slick-app .item .item img {
   width: 50%;
   opacity: 0.25;
   margin: auto;
   transition: all 0.5s ease 0s;
   margin-bottom: 30px;
 }
-.content .slick-app .item span {
+.content .slick-app .item .item span {
   text-transform: uppercase;
   font-weight: 600;
   font-size: 24px;
 }
-.content .slick-app .item a {
+.content .slick-app .item .item a {
   display: none;
   color: #fff;
   background-color: #16b26e;
@@ -11242,10 +11250,10 @@ textarea.form-control-lg {
   margin: 0 auto;
   text-transform: uppercase;
 }
-.content .slick-app .item:hover a {
+.content .slick-app .item .item:hover a {
   display: block;
 }
-.content .slick-app .item:hover img {
+.content .slick-app .item .item:hover img {
   opacity: 1;
 }
 .content .featured-products {
