@@ -11494,14 +11494,39 @@ textarea.form-control-lg {
 .form-checkout {
   margin-top: 108px;
 }
-.form-checkout #form-wrapper .ab .tab-content .form-name {
+.form-checkout #form-wrapper .form-name-1 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-.form-checkout #form-wrapper .ab .tab-content .form-name .bc {
-  width: 50%;
-  margin: auto;
+.form-checkout #form-wrapper .form-name-1 .bc {
+  display: flex;
+  justify-content: center;
+}
+.form-checkout #form-wrapper .form-name-1 .bc .ba {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.form-checkout #form-wrapper .form-name-1 .bc .ba .label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.form-checkout #form-wrapper .form-name-1 .bc .ba input[type=text] {
+  width: 100%;
+}
+.form-checkout #form-wrapper .form-name-2 {
+  display: flex;
+}
+.form-checkout #form-wrapper .form-name-2 .ba {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.form-checkout #form-wrapper .form-name-2 .ba input[type=text] {
+  width: 90%;
 }
 
 @media (min-width: 768px) {
@@ -11511,4 +11536,4 @@ textarea.form-control-lg {
   #form-wrapper {
     top: 0px !important;
   }
-}/*# sourceMappingURL=main.css.map */
+}

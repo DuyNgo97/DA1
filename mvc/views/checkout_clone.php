@@ -40,13 +40,23 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                             <form class=" row" action="">
-                                <div class="form-name col-12">
+                                <div class="form-name-1 col-12">
                                     <div class="bc col-6 ">
-                                        <input type="text">
+                                        <div class="ba">
+                                            <label class="label" for="">First name ship</label>
+                                            <input type="text">
+                                        </div>
                                     </div>
-
-
-                                    <div class="bc col-6">
+                                    <div class="bc col-6 ">
+                                        <div class="ba">
+                                            <label class="label" for="">First name ship</label>
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-name-2 col-12">
+                                    <div class="ba">
+                                        <label class="label" for="">Email</label>
                                         <input type="text">
                                     </div>
                                 </div>
