@@ -11490,3 +11490,25 @@ textarea.form-control-lg {
 .footer .item-col a:hover {
   color: #fff;
 }
+
+.form-checkout {
+  margin-top: 108px;
+}
+.form-checkout #form-wrapper .ab .tab-content .form-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.form-checkout #form-wrapper .ab .tab-content .form-name .bc {
+  width: 50%;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  #form-wrapper #form-cart-menu {
+    width: auto !important;
+  }
+  #form-wrapper {
+    top: 0px !important;
+  }
+}/*# sourceMappingURL=main.css.map */

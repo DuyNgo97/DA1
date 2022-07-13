@@ -1,0 +1,95 @@
+    .form-checkout {
+        margin-top: 108px;
+        #form-wrapper {
+            .ab {
+                .tab-content {
+                    .form-name {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        .bc {
+                            width: 50%;
+                            margin: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @include media-breakpoint-up(sm) {}
+    
+    @include media-breakpoint-up(md) {
+        #form-wrapper #form-cart-menu {
+            width: auto !important;
+        }
+        #form-wrapper {
+            top: 0px !important;
+        }
+        @include media-breakpoint-up(lg) {}
+    }
+    
+    // @media screen and (min-width: 1024px) {
+    //     #form-wrapper {
+    //         left: calc(50vw - 512px);
+    //     }
+    // }
+    // @media screen and (max-width: 1023px) {
+    //     #form-wrapper #form-cart-menu {
+    //         width: auto !important;
+    //     }
+    //     #form-wrapper {
+    //         top: 0px !important;
+    //     }
+    // }
+    // @media screen and (max-width: 1023px) {
+    //     #form-left-wrapper {
+    //         width: 100% !important;
+    //     }
+    // }
+    // @media screen and (max-width: 700px) {
+    //     .input-small {
+    //         width: 50%;
+    //     }
+    //     .input-medium {
+    //         width: 100%;
+    //     }
+    // }
+    // @media screen and (max-width: 475px) {
+    //     .input-small {
+    //         width: 100%;
+    //     }
+    //     .input-medium {
+    //         width: 100%;
+    //     }
+    // }
+    // @media screen and (min-width: 1024px) {
+    //     #form-cart-menu {
+    //         position: absolute;
+    //         right: 0;
+    //         top: 0;
+    //     }
+    // }
+    // @media screen and (max-width: 1023px) {
+    //     #form-cart-menu {
+    //         border-bottom-left-radius: 3px !important;
+    //         border-top-right-radius: 0px !important;
+    //         border-top-left-radius: 0px !important;
+    //         position: relative !important;
+    //         top: 0;
+    //     }
+    // }
+    // @media screen and (max-width: 1023px) {
+    //     #form-submit {
+    //         input[type='submit'] {
+    //             width: 33.3%;
+    //         }
+    //     }
+    // }
+    // @media screen and (max-width: 475px) {
+    //     #form-submit {
+    //         input[type='submit'] {
+    //             width: 100%;
+    //         }
+    //     }
+    // }
