@@ -10892,7 +10892,7 @@ textarea.form-control-lg {
 }
 .header .navbar .container-fluid .navbar-brand img, .header .navbar .container-sm .navbar-brand img, .header .navbar .container-md .navbar-brand img, .header .navbar .container-lg .navbar-brand img, .header .navbar .container-xl .navbar-brand img, .header .navbar .container-xxl .navbar-brand img {
   width: 80px;
-  transform: translateX(-60px);
+  transform: translateX(-80px);
 }
 .header .navbar .container-fluid .navbar-collapse, .header .navbar .container-sm .navbar-collapse, .header .navbar .container-md .navbar-collapse, .header .navbar .container-lg .navbar-collapse, .header .navbar .container-xl .navbar-collapse, .header .navbar .container-xxl .navbar-collapse {
   flex-grow: 0;
@@ -11494,4 +11494,4 @@ textarea.form-control-lg {
 }
 .footer .item-col a:hover {
   color: #fff;
-}/*# sourceMappingURL=main.css.map */
+}
