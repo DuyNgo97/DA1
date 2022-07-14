@@ -26,6 +26,8 @@
     }
 
     .product-main-body {
+
+        // Danh mục
         .category {
             .category-title-h4 {
                 font-size: 18px;
@@ -46,6 +48,66 @@
                 background-color: #e1e1e1;
                 content: "";
                 left: 0;
+            }
+        }
+
+        // Show sản phẩm
+        .product-show {
+            .product-item {
+                &:hover {
+                    .item-info {
+                        box-shadow: 0 1rem 3rem rgba($black, .175);
+                    }
+                }
+            }
+
+            .item-info {
+                box-shadow: 0 .125rem .25rem rgba($black, .075);
+
+                // Tag
+                .tag-item {
+
+                    .discout-item,
+                    .new-item {
+                        border-radius: 0.3rem;
+                        padding: 5px 6px;
+
+                        span {
+                            font-weight: 500;
+                        }
+                    }
+
+                    .discout-item {
+                        background-color: rgb(226, 31, 61);
+                        color: #fff;
+
+                    }
+
+                    .new-item {
+                        background-color: #000;
+                        color: #fff;
+                    }
+                }
+
+                .img-thumbnail {
+                    width: 100%;
+                    height: 120px;
+                    border: none;
+
+                    img {
+                        min-width: 100%;
+                        max-height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .product-cate span {
+                    font-weight: 600;
+                }
+
+                .product-name a {
+                    text-decoration: none;
+                }
             }
         }
 
@@ -70,6 +132,16 @@
             }
         }
 
+        .product-main-body {
+            .product-show {
+                .item-info {
+                    .img-thumbnail {
+                        height: 165px;
+                    }
+                }
+            }
+        }
+
     }
 
     @include media-breakpoint-up(lg) {
@@ -86,6 +158,14 @@
             }
         }
 
-        .product-main-body {}
+        .product-main-body {
+            .product-show {
+                .item-info {
+                    .img-thumbnail {
+                        height: 180px;
+                    }
+                }
+            }
+        }
     }
 }
