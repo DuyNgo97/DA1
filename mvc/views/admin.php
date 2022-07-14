@@ -30,8 +30,12 @@
             <i class="fas fa-bell"></i>
 
             <div class="user">
-                <img src="public/images/blog-1.jpg" alt="">
+                <button class="userbtn">admin</button>
+               <!-- <img src="public/images/blog-1.jpg" alt=""> --!>
                 <!-- <i class="fas fa-users"></i>-->
+                <div class="user-content">
+                    <a href="#">Đăng xuất</a>
+                </div>
 
             </div>
 
