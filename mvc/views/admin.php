@@ -31,10 +31,10 @@
 
             <div class="user">
                 <button class="userbtn">admin</button>
-               <!-- <img src="public/images/blog-1.jpg" alt=""> --!>
+                <!-- <img src="public/images/blog-1.jpg" alt=""> --!>
                 <!-- <i class="fas fa-users"></i>-->
                 <div class="user-content">
-                    <a href="#">Đăng xuất</a>
+                    <a href="home/dangxuat" target="_self">Đăng xuất</a>
                 </div>
 
             </div>

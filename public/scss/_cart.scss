@@ -45,15 +45,25 @@
                     text-align: center;
 
                     .product-name {
+                        a{
+                            text-decoration: none;
+                            text-transform: uppercase;
+                        }
                         font-weight: 600;
 
                         .product-info {
-                            font-size: 14px;
+                            font-size: 15px;
                             margin-top: 15px;
-
-                            .value {
-                                font-weight: 400;
+                            
+                            div{
+                                text-align: left;
+                                // margin-left: 35px;
+                                margin: 2.5px 0px 2.5px 35px;
+                                .value {
+                                    font-weight: 400;
+                                }
                             }
+                            
                         }
                     }
 
