@@ -1,3 +1,17 @@
+<?php
+    if(isset($data['abc'])){
+      $abc = json_decode($data['abc']);
+    //   var_dump($abc);
+    // var_dump($abc[0][5]);
+    if($abc[0][5] != null){
+      $_SESSION['vaitro'] = $abc[0][5];
+    }else{
+      $_SESSION['vaitro'] = 'USER';
+    }
+    // var_dump($_SESSION);
+    $_SESSION['idUS'] = $abc[0][0];
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +31,44 @@
             <div class="signin-signup">
                 <!-- form login -->
                 <form action="login/dangnhap" class="sign-in-form" target="_self" method="POST">
-
+                    <?php
+                    
+                        if(isset($data['check'])){
+                        $kq = json_decode($data['check']);
+                        if($kq){
+                            echo '<h2 class="title" style="color:red">Đăng nhập thành công!</h2>';
+                            echo '<h2>Chuyển trang sau: <span id="num"></span>s.</h2>';
+                            echo '
+                            <script>
+                            var x = 3;
+                            function dem(){ 
+                            x--;
+                            if(x != 0){
+                                document.getElementById("num").innerHTML= x;
+                                setTimeout("dem()",1000);
+                                }else{
+                                    document.getElementById("num").innerHTML= "";
+                                    window.location.href ="home";
+                                }
+                            }
+                            dem();
+                            </script>
+                            ';
+                        }else{
+                            echo '<h2 class="title" style="color:red;">Đăng nhập thất bại!</h2>';
+                        }
+                        }
+                    ?>
+                    <?php
+                        if(isset($data['a'])){
+                            $check = json_decode($data['a']);
+                            if($check){
+                                echo '<h3 class="title" style="color:red;">Đăng ký thành công!</h3>';
+                            }else{
+                                echo '<h3 class="title" style="color:red;">Đăng ký thất bại!</h3>';
+                            }
+                        }
+                    ?>
                     <h2 class="title">Đăng nhập</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
