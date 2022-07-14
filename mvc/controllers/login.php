@@ -75,20 +75,4 @@
         }
 
         // dang xuat
-        
-        public function dangxuat(){
-            unset($_SESSION['user']);
-            session_destroy();
-            // $a = $this -> model('sanpham');
-            // $b = $this -> model ('danhmuc');
-
-            //view
-            $this -> view("home",
-            [
-                // "arrNV" => $a -> sanphambanchay(),
-                // "arrDM" => $b -> getDM(),
-                // "sanpham" => $a -> selectSP(),
-            ]
-            );
-        }
     }

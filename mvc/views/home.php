@@ -623,8 +623,7 @@
     </div> -->
 
     </div>
+    <?php include 'body/footer.php' ?>
 </body>
 
 </html>
-
-<?php include 'body/footer.php' ?>

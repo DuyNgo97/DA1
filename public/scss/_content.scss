@@ -354,55 +354,53 @@
     .slick-app {
         margin: 1rem 0;
         display: flex;
+        width: 100%;
 
         .item {
             width: 20%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border-right: 1px solid #e5e6e6;
+            padding: 100px 0;
+            position: relative;
+            background: rgb(255, 255, 255);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(229, 229, 229, 1) 100%);
 
-            .item {
-                display: flex;
-                flex-direction: column;
-                text-align: center;
-                border-right: 1px solid #e5e6e6;
-                padding: 100px 0;
-                position: relative;
-                background: rgb(255, 255, 255);
-                background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(229, 229, 229, 1) 100%);
+            img {
+                width: 50%;
+                opacity: 0.25;
+                margin: auto;
+                transition: all 0.5s ease 0s;
+                margin-bottom: 30px;
+            }
+
+            span {
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 24px;
+            }
+
+            a {
+                display: none;
+                color: #fff;
+                background-color: #16b26e;
+                position: absolute;
+                bottom: 10px;
+                left: 0;
+                right: 0;
+                width: 150px;
+                margin: 0 auto;
+                text-transform: uppercase;
+            }
+
+            &:hover {
+                a {
+                    display: block;
+                }
 
                 img {
-                    width: 50%;
-                    opacity: 0.25;
-                    margin: auto;
-                    transition: all 0.5s ease 0s;
-                    margin-bottom: 30px;
-                }
-
-                span {
-                    text-transform: uppercase;
-                    font-weight: 600;
-                    font-size: 24px;
-                }
-
-                a {
-                    display: none;
-                    color: #fff;
-                    background-color: #16b26e;
-                    position: absolute;
-                    bottom: 10px;
-                    left: 0;
-                    right: 0;
-                    width: 150px;
-                    margin: 0 auto;
-                    text-transform: uppercase;
-                }
-
-                &:hover {
-                    a {
-                        display: block;
-                    }
-
-                    img {
-                        opacity: 1;
-                    }
+                    opacity: 1;
                 }
             }
         }

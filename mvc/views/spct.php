@@ -28,9 +28,9 @@
 
                 <div class="img-bot">
                     <img src="./public/images/thuviendohoa.vn_365.png" alt="">
-                    <img src="./public/images/thuviendohoa.vn_365.png" alt="">
-                    <img src="./public/images/thuviendohoa.vn_365.png" alt="">
-                    <img src="./public/images/thuviendohoa.vn_365.png" alt="">
+                    <img src="./public/images/725x560-1.webp" alt="">
+                    <img src="./public/images/725x560-2.webp" alt="">
+                    <img src="./public/images/collection-img1.webp" alt="">
                 </div>
             </div>
             <div class="message">

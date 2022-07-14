@@ -11212,11 +11212,10 @@ textarea.form-control-lg {
 .content .slick-app {
   margin: 1rem 0;
   display: flex;
+  width: 100%;
 }
 .content .slick-app .item {
   width: 20%;
-}
-.content .slick-app .item .item {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -11226,19 +11225,19 @@ textarea.form-control-lg {
   background: rgb(255, 255, 255);
   background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(229, 229, 229) 100%);
 }
-.content .slick-app .item .item img {
+.content .slick-app .item img {
   width: 50%;
   opacity: 0.25;
   margin: auto;
   transition: all 0.5s ease 0s;
   margin-bottom: 30px;
 }
-.content .slick-app .item .item span {
+.content .slick-app .item span {
   text-transform: uppercase;
   font-weight: 600;
   font-size: 24px;
 }
-.content .slick-app .item .item a {
+.content .slick-app .item a {
   display: none;
   color: #fff;
   background-color: #16b26e;
@@ -11250,10 +11249,10 @@ textarea.form-control-lg {
   margin: 0 auto;
   text-transform: uppercase;
 }
-.content .slick-app .item .item:hover a {
+.content .slick-app .item:hover a {
   display: block;
 }
-.content .slick-app .item .item:hover img {
+.content .slick-app .item:hover img {
   opacity: 1;
 }
 .content .featured-products {
@@ -11517,14 +11516,26 @@ textarea.form-control-lg {
   border: 1px solid var(--bs-gray-300);
   border-radius: 10px;
   box-shadow: -10px 10px 5px rgba(109, 109, 109, 0.341);
+  overflow: hidden;
 }
 .container1 .main-product .imgs .img-top {
   height: 75%;
   width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  position: relative;
 }
 .container1 .main-product .imgs .img-top img {
   height: 100%;
   width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 .container1 .main-product .imgs .img-bot {
   border-top: 1px solid black;
