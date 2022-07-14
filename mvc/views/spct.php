@@ -68,9 +68,11 @@
                     <input type="number">
                 </div>
                 <div class="btnx">
-                    <button class="btn-add">
-                        ADD TO CART
-                    </button>
+                    <a href="cart" target="_self">
+                        <button class="btn-add">
+                            ADD TO CART
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

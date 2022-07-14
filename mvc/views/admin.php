@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,18 @@
     <title>admin</title>
     <base href="http://localhost/da1/" target="_blank">
     <link rel="stylesheet" href="public/css/admin.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
+
 <body>
     <div class="container">
         <div class="topbar">
-           
+
             <div class="logo">
-               <a href=""><h2>VaChamShop</h2></a>
+                <a href="home" target="_self">
+                    <h2>VaChamShop</h2>
+                </a>
             </div>
 
             <div class="search">
@@ -25,8 +30,8 @@
             <i class="fas fa-bell"></i>
 
             <div class="user">
-               <img src="public/images/blog-1.jpg" alt="">
-               <!-- <i class="fas fa-users"></i>-->
+                <img src="public/images/blog-1.jpg" alt="">
+                <!-- <i class="fas fa-users"></i>-->
 
             </div>
 
@@ -66,9 +71,9 @@
             </ul>
         </div>
         <div class="main">
-            
+
             <div class="cards">
-                
+
                 <div class="card">
                     <div class="card-content">
                         <div class="number">2</div>
@@ -76,7 +81,7 @@
                     </div>
 
                     <div class="icon-box">
-                        <i  class="fas fa-chart-bar" ></i>
+                        <i class="fas fa-chart-bar"></i>
                     </div>
                 </div>
 
@@ -87,7 +92,7 @@
                     </div>
 
                     <div class="icon-box">
-                        <i  class="fa fa-user" ></i>
+                        <i class="fa fa-user"></i>
                     </div>
                 </div>
 
@@ -98,7 +103,7 @@
                     </div>
 
                     <div class="icon-box">
-                        <i  class="fa fa-cubes" ></i>
+                        <i class="fa fa-cubes"></i>
                     </div>
                 </div>
 
@@ -109,20 +114,20 @@
                     </div>
 
                     <div class="icon-box">
-                        <i  class="fa fa-tags" ></i>
+                        <i class="fa fa-tags"></i>
                     </div>
                 </div>
             </div>
-            
+
             <div class="charts">
-                 <div class="chart">
-                        <h2>Biểu đồ sản phẩm tiêu thụ trong năm</h2>
-                        <canvas id="lineChart"></canvas>
-                 </div>
-                 <div class="chart" id="doughnut-chart">
-                        <h2>Biểu đồ sản phẩm</h2>
-                        <canvas id="doughnut"></canvas>
-                 </div>
+                <div class="chart">
+                    <h2>Biểu đồ sản phẩm tiêu thụ trong năm</h2>
+                    <canvas id="lineChart"></canvas>
+                </div>
+                <div class="chart" id="doughnut-chart">
+                    <h2>Biểu đồ sản phẩm</h2>
+                    <canvas id="doughnut"></canvas>
+                </div>
             </div>
 
         </div>
@@ -130,6 +135,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script src="public/js/chart1.js"></script>
     <script src="public/js/chart2.js"></script>
-    
+
 </body>
+
 </html>

@@ -27,11 +27,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="home" target="_self">Trang Chủ</a>
                     </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="product" target="_self">Cửa Hàng</a>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cửa Hàng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sản Phẩm</a>
+                        <a class="nav-link" href="product" target="_self">Sản Phẩm</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
@@ -42,7 +42,7 @@
                 </ul>
             </div>
             <!-- Logo -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="home" target="_self">
                 <img src="public/images/logo_shop.png" alt="">
             </a>
             <!-- Navbar right -->
@@ -56,7 +56,7 @@
                     <li class="nav-item d-none d-md-block">
                         <?php
                                 if(isset($_SESSION['user'])){ ?>
-                        <a href="text" target="_self" tabindex="0" class="nav-link fs-4" data-bs-toggle="popover"
+                        <a href="admin" target="_self" tabindex="0" class="nav-link fs-4" data-bs-toggle="popover"
                             data-bs-placement="top" data-bs-trigger="focus" title="Popover title"
                             data-bs-content="Here's some amazing content.">
                             <i class="bi bi-person-fill"><b><?= $_SESSION['user'] ?></b></i>
@@ -85,7 +85,7 @@
                             </a>
                         </li> -->
                     <li class="nav-item">
-                        <a tabindex="0" class="nav-link fs-4" href="#" data-bs-toggle="popover"
+                        <a tabindex="0" class="nav-link fs-4" href="cart" target="_self" data-bs-toggle="popover"
                             data-bs-placement="right" data-bs-trigger="focus" title="Popover title"
                             data-bs-content="Here's some amazing content.">
                             <i class="bi bi-cart position-relative">
@@ -105,11 +105,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Trang Chủ</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Cửa Hàng</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sản Phẩm</a>
+                        <a class="nav-link" href="product" target="_self">Sản Phẩm</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
@@ -119,13 +119,13 @@
                     </li>
                     <li class="nav-item muti-nav">
                         <div class="box-1">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="login" target="_self">
                                 <i class="bi bi-person-fill"></i> Đăng Nhập
                             </a>
                         </div>
                         |
                         <div class="box-2">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="login" target="_self">
                                 <i class="bi bi-shield-lock-fill"></i> Đăng Ký
                             </a>
                         </div>
