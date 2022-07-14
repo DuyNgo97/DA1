@@ -623,7 +623,7 @@
     </div> -->
 
     </div>
-    <?php include 'body/footer.php' ?>
+    <?php require_once 'mvc/views/body/footer.php' ?>
 </body>
 
 </html>
