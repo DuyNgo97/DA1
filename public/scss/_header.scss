@@ -66,6 +66,17 @@
                     margin-right: 0;
                 }
 
+                // Hover dropdown, nav
+                .dropstart-a {
+                    &:hover {
+                        .dropdown-menu {
+                            display: block;
+                            margin-top: 0;
+                            margin-left: -330px;
+                        }
+                    }
+                }
+
                 .drop-account {
                     width: 350px;
 
@@ -113,6 +124,16 @@
 
                 .navbar-collapse-1 {
                     display: block;
+
+                    .dropnav-a {
+                        &:hover {
+                            .dropdown-menu {
+                                display: block;
+                                margin-top: 0;
+                                margin-left: 0;
+                            }
+                        }
+                    }
                 }
 
                 .navbar-collapse-2 {

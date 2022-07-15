@@ -10936,6 +10936,11 @@ textarea.form-control-lg {
   .header .navbar .container-fluid .navbar-right, .header .navbar .container-sm .navbar-right, .header .navbar .container-md .navbar-right, .header .navbar .container-lg .navbar-right, .header .navbar .container-xl .navbar-right, .header .navbar .container-xxl .navbar-right {
     margin-right: 0;
   }
+  .header .navbar .container-fluid .dropstart-a:hover .dropdown-menu, .header .navbar .container-sm .dropstart-a:hover .dropdown-menu, .header .navbar .container-md .dropstart-a:hover .dropdown-menu, .header .navbar .container-lg .dropstart-a:hover .dropdown-menu, .header .navbar .container-xl .dropstart-a:hover .dropdown-menu, .header .navbar .container-xxl .dropstart-a:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    margin-left: -330px;
+  }
   .header .navbar .container-fluid .drop-account, .header .navbar .container-sm .drop-account, .header .navbar .container-md .drop-account, .header .navbar .container-lg .drop-account, .header .navbar .container-xl .drop-account, .header .navbar .container-xxl .drop-account {
     width: 350px;
   }
@@ -10972,6 +10977,11 @@ textarea.form-control-lg {
   }
   .header .navbar .container-fluid .navbar-collapse-1, .header .navbar .container-sm .navbar-collapse-1, .header .navbar .container-md .navbar-collapse-1, .header .navbar .container-lg .navbar-collapse-1, .header .navbar .container-xl .navbar-collapse-1, .header .navbar .container-xxl .navbar-collapse-1 {
     display: block;
+  }
+  .header .navbar .container-fluid .navbar-collapse-1 .dropnav-a:hover .dropdown-menu, .header .navbar .container-sm .navbar-collapse-1 .dropnav-a:hover .dropdown-menu, .header .navbar .container-md .navbar-collapse-1 .dropnav-a:hover .dropdown-menu, .header .navbar .container-lg .navbar-collapse-1 .dropnav-a:hover .dropdown-menu, .header .navbar .container-xl .navbar-collapse-1 .dropnav-a:hover .dropdown-menu, .header .navbar .container-xxl .navbar-collapse-1 .dropnav-a:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    margin-left: 0;
   }
   .header .navbar .container-fluid .navbar-collapse-2, .header .navbar .container-sm .navbar-collapse-2, .header .navbar .container-md .navbar-collapse-2, .header .navbar .container-lg .navbar-collapse-2, .header .navbar .container-xl .navbar-collapse-2, .header .navbar .container-xxl .navbar-collapse-2 {
     display: none !important;
