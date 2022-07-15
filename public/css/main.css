@@ -10933,14 +10933,42 @@ textarea.form-control-lg {
   }
 }
 @media (min-width: 768px) {
-  .header .navbar .container-fluid .navbar-brand, .header .navbar .container-sm .navbar-brand, .header .navbar .container-md .navbar-brand, .header .navbar .container-lg .navbar-brand, .header .navbar .container-xl .navbar-brand, .header .navbar .container-xxl .navbar-brand {
-    margin-left: -5rem;
-  }
-  .header .navbar .container-fluid .navbar-brand img, .header .navbar .container-sm .navbar-brand img, .header .navbar .container-md .navbar-brand img, .header .navbar .container-lg .navbar-brand img, .header .navbar .container-xl .navbar-brand img, .header .navbar .container-xxl .navbar-brand img {
-    margin-left: -63px;
-  }
   .header .navbar .container-fluid .navbar-right, .header .navbar .container-sm .navbar-right, .header .navbar .container-md .navbar-right, .header .navbar .container-lg .navbar-right, .header .navbar .container-xl .navbar-right, .header .navbar .container-xxl .navbar-right {
     margin-right: 0;
+  }
+  .header .navbar .container-fluid .drop-account, .header .navbar .container-sm .drop-account, .header .navbar .container-md .drop-account, .header .navbar .container-lg .drop-account, .header .navbar .container-xl .drop-account, .header .navbar .container-xxl .drop-account {
+    width: 350px;
+  }
+  .header .navbar .container-fluid .drop-account .avt-account, .header .navbar .container-sm .drop-account .avt-account, .header .navbar .container-md .drop-account .avt-account, .header .navbar .container-lg .drop-account .avt-account, .header .navbar .container-xl .drop-account .avt-account, .header .navbar .container-xxl .drop-account .avt-account {
+    display: flex;
+    justify-content: center;
+  }
+  .header .navbar .container-fluid .drop-account .avt-account img, .header .navbar .container-sm .drop-account .avt-account img, .header .navbar .container-md .drop-account .avt-account img, .header .navbar .container-lg .drop-account .avt-account img, .header .navbar .container-xl .drop-account .avt-account img, .header .navbar .container-xxl .drop-account .avt-account img {
+    border-radius: 50%;
+    width: 100px;
+  }
+  .header .navbar .container-fluid .drop-account .name-account, .header .navbar .container-sm .drop-account .name-account, .header .navbar .container-md .drop-account .name-account, .header .navbar .container-lg .drop-account .name-account, .header .navbar .container-xl .drop-account .name-account, .header .navbar .container-xxl .drop-account .name-account {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .header .navbar .container-fluid .drop-account .name-account a, .header .navbar .container-sm .drop-account .name-account a, .header .navbar .container-md .drop-account .name-account a, .header .navbar .container-lg .drop-account .name-account a, .header .navbar .container-xl .drop-account .name-account a, .header .navbar .container-xxl .drop-account .name-account a {
+    text-decoration: none;
+  }
+  .header .navbar .container-fluid .drop-account .drop-account-btn, .header .navbar .container-sm .drop-account .drop-account-btn, .header .navbar .container-md .drop-account .drop-account-btn, .header .navbar .container-lg .drop-account .drop-account-btn, .header .navbar .container-xl .drop-account .drop-account-btn, .header .navbar .container-xxl .drop-account .drop-account-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .header .navbar .container-fluid .drop-account .drop-account-btn .btn-box ul, .header .navbar .container-sm .drop-account .drop-account-btn .btn-box ul, .header .navbar .container-md .drop-account .drop-account-btn .btn-box ul, .header .navbar .container-lg .drop-account .drop-account-btn .btn-box ul, .header .navbar .container-xl .drop-account .drop-account-btn .btn-box ul, .header .navbar .container-xxl .drop-account .drop-account-btn .btn-box ul {
+    display: flex;
+  }
+  .header .navbar .container-fluid .drop-account .drop-account-btn .btn-box ul li, .header .navbar .container-sm .drop-account .drop-account-btn .btn-box ul li, .header .navbar .container-md .drop-account .drop-account-btn .btn-box ul li, .header .navbar .container-lg .drop-account .drop-account-btn .btn-box ul li, .header .navbar .container-xl .drop-account .drop-account-btn .btn-box ul li, .header .navbar .container-xxl .drop-account .drop-account-btn .btn-box ul li {
+    list-style: none;
+  }
+  .header .navbar .container-fluid .drop-account .drop-account-btn .btn-box a, .header .navbar .container-sm .drop-account .drop-account-btn .btn-box a, .header .navbar .container-md .drop-account .drop-account-btn .btn-box a, .header .navbar .container-lg .drop-account .drop-account-btn .btn-box a, .header .navbar .container-xl .drop-account .drop-account-btn .btn-box a, .header .navbar .container-xxl .drop-account .drop-account-btn .btn-box a {
+    text-decoration: none;
+    background-color: #198754;
+    color: #fff;
   }
   .header .navbar .container-fluid .navbar-collapse-1, .header .navbar .container-sm .navbar-collapse-1, .header .navbar .container-md .navbar-collapse-1, .header .navbar .container-lg .navbar-collapse-1, .header .navbar .container-xl .navbar-collapse-1, .header .navbar .container-xxl .navbar-collapse-1 {
     display: block;
@@ -10950,19 +10978,34 @@ textarea.form-control-lg {
   }
 }
 
-.content .carousel {
+.content .position-top {
+  position: relative;
+}
+.content .position-top .carousel {
   margin-top: 65.0667px;
 }
-.content .search .row .box .form-select {
+.content .position-top .search {
+  position: static;
+  background-color: rgb(8, 189, 81);
+}
+.content .position-top .search .row .box .form-select {
   margin-bottom: 0.7rem;
   box-shadow: none;
 }
-.content .search .row .btn {
+.content .position-top .search .row .btn {
   box-shadow: none;
 }
 @media (min-width: 768px) {
-  .content .search .row .box {
+  .content .position-top .search .row .box {
     margin-bottom: 0;
+  }
+}
+@media (min-width: 768px) {
+  .content .position-top .search {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    background-color: rgba(94, 248, 156, 0.4);
   }
 }
 .content .car-ed .row .box-item {
