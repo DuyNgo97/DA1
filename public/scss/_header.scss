@@ -66,6 +66,51 @@
                     margin-right: 0;
                 }
 
+                .drop-account {
+                    width: 350px;
+
+                    .avt-account {
+                        display: flex;
+                        justify-content: center;
+
+                        img {
+                            border-radius: 50%;
+                            width: 100px;
+                        }
+                    }
+
+                    .name-account {
+                        text-align: center;
+                        margin-top: 10px;
+
+                        a {
+                            text-decoration: none;
+                        }
+                    }
+
+                    .drop-account-btn {
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 10px;
+
+                        .btn-box {
+                            ul {
+                                display: flex;
+
+                                li {
+                                    list-style: none;
+                                }
+                            }
+
+                            a {
+                                text-decoration: none;
+                                background-color: #198754;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+
                 .navbar-collapse-1 {
                     display: block;
                 }

@@ -16,9 +16,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md bg-light">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- test -->
@@ -30,8 +28,16 @@
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="product" target="_self">Cửa Hàng</a>
                     </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="product" target="_self">Sản Phẩm</a>
+                    <li class="nav-item dropdown-center">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sản Phẩm
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="product" target="_self">Tất cả sản phẩm</a></li>
+                            <li><a class="dropdown-item" href="#">Sản phẩm 1</a></li>
+                            <li><a class="dropdown-item" href="#">Sản phẩm 2</a></li>
+                            <li><a class="dropdown-item" href="#">Sản phẩm 3</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>
@@ -53,45 +59,39 @@
                             <i class="bi bi-search"></i>
                         </a>
                     </li>
-                    <li class="nav-item d-none d-md-block">
-                        <?php
-                                if(isset($_SESSION['user'])){ ?>
-                        <a href="admin" target="_self" tabindex="0" class="nav-link fs-4" data-bs-toggle="popover"
-                            data-bs-placement="top" data-bs-trigger="focus" title="Popover title"
-                            data-bs-content="Here's some amazing content.">
-                            <i class="bi bi-person-fill"><b><?= $_SESSION['user'] ?></b></i>
-                        </a>
-                        <?php }else{ ?>
-
-                        <a href="login" target="_self" tabindex="0" class="nav-link fs-4" data-bs-toggle="popover"
-                            data-bs-placement="top" data-bs-trigger="focus" title="Popover title"
-                            data-bs-content="Here's some amazing content.">
+                    <!-- user -->
+                    <li class="nav-item d-none d-md-block dropstart">
+                        <a href="#" tabindex="0" class="nav-link fs-4" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                             <i class="bi bi-person-fill"></i>
                         </a>
-                        <?php }
-                            ?>
-                        </a>
+                        <div class="dropdown-menu dropdown-menu-start p-3">
+                            <div class="drop-account">
+                                <div class="avt-account">
+                                    <img src="public/images/avt.png" width="80px" alt="">
+                                </div>
+                                <div class="name-account">
+                                    <a href="#">Nguyễn Trung Khiêm</a>
+                                </div>
+                                <div class="drop-account-btn">
+                                    <div class="btn-box">
+                                        <ul class="d-flex p-0">
+                                            <li class="p-1">
+                                                <a class="btn" href="#">Tài Khoản</a>
+                                            </li>
+                                            <li class="p-1">
+                                                <a class="btn" href="#">Đăng xuất</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </li>
-                    <!-- Yêu thích -->
-                    <!-- <li class="nav-item d-none d-md-block">
-                            <a class="nav-link fs-4" href="#">
-                                <i class="bi bi-suit-heart position-relative">
-                                    <span
-                                        class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-black fw-normal"
-                                        style="font-size: 10px;">
-                                        2
-                                    </span>
-                                </i>
-                            </a>
-                        </li> -->
+                    <!-- cart -->
                     <li class="nav-item">
-                        <a tabindex="0" class="nav-link fs-4" href="cart" target="_self" data-bs-toggle="popover"
-                            data-bs-placement="right" data-bs-trigger="focus" title="Popover title"
-                            data-bs-content="Here's some amazing content.">
+                        <a tabindex="0" class="nav-link fs-4" href="cart" target="_self">
                             <i class="bi bi-cart position-relative">
-                                <span
-                                    class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-black fw-normal"
-                                    style="font-size: 10px;">
+                                <span class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-black fw-normal" style="font-size: 10px;">
                                     1
                                 </span>
                             </i>
@@ -99,7 +99,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- Navbar menu -->
+            <!-- Navbar menu Phone -->
             <div class="collapse navbar-collapse navbar-collapse-2" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -109,7 +109,16 @@
                         <a class="nav-link" href="#">Cửa Hàng</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="product" target="_self">Sản Phẩm</a>
+                        <!-- <a class="nav-link" href="product" target="_self">Sản Phẩm</a> -->
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sản Phẩm
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="product" target="_self">Tất cả sản phẩm</a></li>
+                            <li><a class="dropdown-item" href="#">Sản phẩm 1</a></li>
+                            <li><a class="dropdown-item" href="#">Sản phẩm 2</a></li>
+                            <li><a class="dropdown-item" href="#">Sản phẩm 3</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Blog</a>

@@ -1,1 +1,14 @@
 # .blog_post
+
+<?php
+                        if (isset($_SESSION['user'])) { ?>
+                            <a href="admin" target="_self" tabindex="0" class="nav-link fs-4">
+                                <i class="bi bi-person-fill"><b><?= $_SESSION['user'] ?></b></i>
+                            </a>
+                        <?php } else { ?>
+
+                            <a href="login" target="_self" tabindex="0" class="nav-link fs-4">
+                                <i class="bi bi-person-fill"></i>
+                            </a>
+                        <?php }
+                        ?>

@@ -21,7 +21,7 @@
     require_once 'mvc/views/body/header.php'
     ?>
     <div class="container-fluid p-0 content">
-        <div class="position-relative">
+        <div class="position-top">
             <!-- images carousel -->
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -42,12 +42,12 @@
                 </button>
             </div>
             <!-- Tìm mẫu xe - Search -->
-            <div class="search position-absolute bottom-0 w-100 p-3 bg-success">
-                <div class="text-center text-white mb-3 opacity-100">
+            <div class="search w-100 p-3">
+                <div class="text-center text-white mb-3">
                     <h4 class="fs-4">Tìm kiếm loại phụ tùng</h4>
                     <h2 class="fs-2">GIÁ ƯU ĐÃI!</h2>
                 </div>
-                <div class="row opacity-100">
+                <div class="row">
                     <div class="col-sm-6 col-md-3 box">
                         <select class="form-select" aria-label="Default select example">
                             <option selected>Chọn năm</option>

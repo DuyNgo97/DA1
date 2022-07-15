@@ -1,33 +1,46 @@
 // content
 .content {
 
-    // carousel
-    .carousel {
-        // khoảng cách top với header
-        margin-top: 65.0667px;
-    }
+    .position-top {
+        position: relative;
 
-    // search
-    .search {
-        z-index: 1;
-        opacity: 0.6;
+        // carousel
+        .carousel {
+            // khoảng cách top với header
+            margin-top: 65.0667px;
+        }
 
-        .row {
-            .box {
-                .form-select {
-                    margin-bottom: 0.7rem;
+        // search
+        .search {
+            position: static;
+            background-color: rgb(8, 189, 81);
+
+            .row {
+                .box {
+                    .form-select {
+                        margin-bottom: 0.7rem;
+                        box-shadow: none;
+                    }
+                }
+
+                .btn {
                     box-shadow: none;
                 }
-            }
 
-            .btn {
-                box-shadow: none;
-            }
-
-            @include media-breakpoint-up(md) {
-                .box {
-                    margin-bottom: 0;
+                @include media-breakpoint-up(md) {
+                    .box {
+                        margin-bottom: 0;
+                    }
                 }
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            .search {
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                background-color: rgba(94, 248, 156, 0.4);
             }
         }
     }
