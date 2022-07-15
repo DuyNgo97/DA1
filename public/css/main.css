@@ -11326,6 +11326,9 @@ textarea.form-control-lg {
 .content .blog-news .title-header h2, .content .blog-news .title-header .h2 {
   font-weight: bold;
 }
+.content .blog-news .blog-post {
+  margin: 0;
+}
 .content .blog-news .blog-post .card {
   padding: 0.5rem;
   justify-content: space-between;
@@ -12029,4 +12032,4 @@ textarea.form-control-lg {
   .page-cart {
     margin-top: 66.05px;
   }
-}/*# sourceMappingURL=main.css.map */
+}
