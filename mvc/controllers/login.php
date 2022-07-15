@@ -16,6 +16,9 @@
 
         // dang ky
         public function dangky(){
+            // Lấy ngày hiện tại
+            $today = date('Y-m-d');
+            $ngaytao = $today;
             if(isset($_POST['btn-dangky'])){
 
                 $name = $_POST['name'];
@@ -23,6 +26,7 @@
                 $taikhoan = $_POST['taikhoan'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
+                $sdt = $_POST['sdt'];
     
                     //model
     
@@ -31,7 +35,7 @@
                     //view
                     $this -> view('login',
                 [
-                    "a" => $a -> dangky($name,$diachi,$taikhoan,$email,$password),
+                    "a" => $a -> dangky($taikhoan,$password,$name,$email,$diachi,$sdt,$ngaytao),
                 ]);   
             }else{
                 //view
@@ -41,6 +45,7 @@
 
         // login
         function dangnhap(){
+
             if(isset($_POST['btn-dangnhap'])){
                 //model
                 $a = $this -> model('user');
@@ -63,7 +68,7 @@
                     $result = $a -> dangnhap($taikhoan, $password);
                     if($result == true){
                         $_SESSION['user'] = strtoupper($taikhoan);
-                        $abc = $a -> vaitro($taikhoan);
+                        $abc = $a -> vaitro($taikhoan,$password);
                         // $_SESSION['vaitro'] = json_decode($abc);
                         $this -> view("login", [
                         "check" => $result,

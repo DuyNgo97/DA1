@@ -1,11 +1,31 @@
 <?php
     class user extends db{
-        // Dang ki
-        public function dangky($name,$diachi,$taikhoan,$email,$password){
-            $check = false;
-            $sql = "INSERT INTO `user`(`name_user`, `taikhoan_user`, `password_user`, `email_user`, `vaitro_user`) 
-            VALUES ('$name','$taikhoan','$password','$email','USER')";
+        
+        //Lay id_info
+
+        public function id_info($name, $sdt){
+            $sql = "SELECT * FROM `infor` WHERE `name` = '$name' AND `sdt` = '$sdt'";
+            $result = mysqli_query($this -> conn, $sql);
+            $arr = mysqli_fetch_assoc($result);
+            return $arr['id_info'];
+        }
+
+        // insert information
+        public function insertInfo($name,$email,$diachi,$sdt,$ngaytao){
+            $sql = "INSERT INTO `infor`(`name`, `email`, `diachi`, `sdt`, `ngaytao`) VALUES ('$name','$email','$diachi','$sdt','$ngaytao')";
             if(mysqli_query($this -> conn,$sql)){
+                $a = $this -> id_info($name,$sdt);
+                return $a;
+            }            
+        }
+
+        // Dang ki
+        public function dangky($taikhoan,$password,$name,$email,$diachi,$sdt,$ngaytao){
+            $check = false;
+            $vaitro = 2;
+            $id_info = $this -> insertInfo($name,$email,$diachi,$sdt,$ngaytao);
+            $sql = "INSERT INTO `userss`(`us_taikhoan`, `us_password`, `id_vaitro`, `id_info`) VALUES ('$taikhoan','$password',$vaitro,$id_info)";
+            if(mysqli_query($this -> conn, $sql)){
                 $check = true;
             }
             return json_encode($check);
@@ -14,8 +34,9 @@
         // Login
         public function dangnhap($taikhoan,$password){
             $check = false;
-            $sql = "SELECT * FROM `user` WHERE `taikhoan_user` = '$taikhoan' and `password_user` = '$password'";
-            if($a = mysqli_query($this->conn,$sql)){
+            $sql = "SELECT * FROM `userss` WHERE `us_taikhoan`= '$taikhoan' AND `us_password` = '$password'";
+            $a = mysqli_query($this->conn,$sql);
+            if($a){
                 if(mysqli_num_rows($a) != 0){
                     $check = true; 
                 }
@@ -24,13 +45,15 @@
         }
 
         // Vai tro
-        public function vaitro($taikhoan){
-            $sql = "SELECT * FROM `user` WHERE `taikhoan_user` = '$taikhoan'";
-            $result = mysqli_query($this -> conn,$sql);
-            if($result){
-                $arr = mysqli_fetch_all($result);
+        
+            public function vaitro($taikhoan,$password){
+                $sql2 = "SELECT a.us_id,b.name_vaitro FROM `userss` a
+                INNER JOIN `vaitro` b
+                ON a.id_vaitro = b.id_vaitro
+                WHERE `us_taikhoan` = '$taikhoan' AND `us_password` = '$password'";
+                $result2 = mysqli_query($this -> conn,$sql2);
+                $arr = mysqli_fetch_all($result2);
+                return json_encode($arr);
             }
-            return json_encode($arr);
-        }
     }
 ?>

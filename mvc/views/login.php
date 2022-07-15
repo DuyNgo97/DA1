@@ -1,17 +1,25 @@
 <?php
     if(isset($data['abc'])){
       $abc = json_decode($data['abc']);
+    //   echo $abc['name_vaitro'];
     //   var_dump($abc);
+    //   echo $abc[0][0];
+    //   echo $abc[0][1];
     // var_dump($abc[0][5]);
-    if($abc[0][5] != null){
-      $_SESSION['vaitro'] = $abc[0][5];
-    }else{
-      $_SESSION['vaitro'] = 'USER';
-    }
+    // if($abc[0][5] != null){
+    // $_SESSION['vaitro'] = $abc[0][0];
+    // }else{
+    //   $_SESSION['vaitro'] = 'USER';
+    // }
+    // $_SESSION['idUS'] = $abc[0][1];
     // var_dump($_SESSION);
-    $_SESSION['idUS'] = $abc[0][0];
   }
 ?>
+<!-- <?php
+    $today = date('Y-m-d');
+    $a = date('d-m-Y',strtotime($today));
+    echo is_string($a); // 1 là chuỗi
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,6 +108,14 @@
                     <h2 class="title">Đăng ký</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Tài khoản" name="taikhoan" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Mật khẩu" name="password" />
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
                         <input type="text" placeholder="Họ và tên" name="name" />
                     </div>
                     <div class="input-field">
@@ -107,16 +123,12 @@
                         <input type="text" placeholder="Địa chỉ" name="diachi" />
                     </div>
                     <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Tài khoản" name="taikhoan" />
-                    </div>
-                    <div class="input-field">
                         <i class="fas fa-envelope"></i>
                         <input type="email" placeholder="Email" name="email" />
                     </div>
                     <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Mật khẩu" name="password" />
+                        <i class="fas fa-envelope"></i>
+                        <input type="number" placeholder="Số điện thoại" name="sdt" />
                     </div>
                     <input type="submit" class="btn" value="Đăng ký" name="btn-dangky" />
                     <p class="social-text">Hoặc Đăng ký với các nền tảng xã hội</p>
