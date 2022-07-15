@@ -9,6 +9,9 @@
 
     // search
     .search {
+        z-index: 1;
+        opacity: 0.6;
+
         .row {
             .box {
                 .form-select {

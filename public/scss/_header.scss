@@ -62,14 +62,6 @@
 
             @include media-breakpoint-up(md) {
 
-                .navbar-brand {
-                    margin-left: -5rem;
-
-                    img {
-                        margin-left: -63px;
-                    }
-                }
-
                 .navbar-right {
                     margin-right: 0;
                 }

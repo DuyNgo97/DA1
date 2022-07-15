@@ -10933,12 +10933,6 @@ textarea.form-control-lg {
   }
 }
 @media (min-width: 768px) {
-  .header .navbar .container-fluid .navbar-brand, .header .navbar .container-sm .navbar-brand, .header .navbar .container-md .navbar-brand, .header .navbar .container-lg .navbar-brand, .header .navbar .container-xl .navbar-brand, .header .navbar .container-xxl .navbar-brand {
-    margin-left: -5rem;
-  }
-  .header .navbar .container-fluid .navbar-brand img, .header .navbar .container-sm .navbar-brand img, .header .navbar .container-md .navbar-brand img, .header .navbar .container-lg .navbar-brand img, .header .navbar .container-xl .navbar-brand img, .header .navbar .container-xxl .navbar-brand img {
-    margin-left: -63px;
-  }
   .header .navbar .container-fluid .navbar-right, .header .navbar .container-sm .navbar-right, .header .navbar .container-md .navbar-right, .header .navbar .container-lg .navbar-right, .header .navbar .container-xl .navbar-right, .header .navbar .container-xxl .navbar-right {
     margin-right: 0;
   }
@@ -10952,6 +10946,10 @@ textarea.form-control-lg {
 
 .content .carousel {
   margin-top: 65.0667px;
+}
+.content .search {
+  z-index: 1;
+  opacity: 0.6;
 }
 .content .search .row .box .form-select {
   margin-bottom: 0.7rem;
