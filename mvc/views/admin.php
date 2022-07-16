@@ -51,10 +51,17 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="#1">
                         <i class="fas fa-users"></i>
                         <div>Quản lí tài khoản</div>
                     </a>
+                </li>
+
+                <li>
+                     <a href="#">
+                         <i class="fa fa-user"></i>
+                        <div>Phân Quyền</div>
+                     </a>
                 </li>
 
                 <li>
