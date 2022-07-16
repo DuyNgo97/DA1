@@ -42,6 +42,8 @@
             <div class="signin-signup">
                 <!-- form login -->
                 <form action="login/dangnhap" class="sign-in-form" target="_self" method="POST">
+                    <a href="home" target="_self"><img src="public/images/logo_shop.png" width="300px" height="100px"
+                            alt=""></a>
                     <?php
                     
                         if(isset($data['check'])){
@@ -80,6 +82,7 @@
                             }
                         }
                     ?>
+
                     <h2 class="title">Đăng nhập</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
