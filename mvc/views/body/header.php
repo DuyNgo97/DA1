@@ -16,7 +16,9 @@
     <!-- Navbar PC -->
     <nav class="navbar navbar-expand-md bg-light">
         <div class="container-fluid position-relative">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- test -->
@@ -26,7 +28,8 @@
                         <a class="nav-link active" aria-current="page" href="home" target="_self">Trang Chủ</a>
                     </li>
                     <li class="nav-item dropdown-center dropnav-a">
-                        <a class="nav-link" href="#" tabindex="0" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                        <a class="nav-link" href="#" tabindex="0" data-bs-toggle="dropdown" aria-expanded="false"
+                            data-bs-auto-close="outside">
                             Sản phẩm <i class="bi bi-caret-down-fill"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light">
@@ -58,37 +61,49 @@
                     </li>
                     <!-- user -->
                     <li class="nav-item d-none d-md-block dropstart dropstart-a">
-                        <a href="#" tabindex="0" class="nav-link fs-4" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                            <i class="bi bi-person-fill"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-start p-3">
-                            <div class="drop-account">
-                                <div class="avt-account">
-                                    <img src="public/images/avt.png" alt="">
-                                </div>
-                                <div class="name-account">
-                                    <a href="#">Nguyễn Trung Khiêm</a>
-                                </div>
-                                <div class="drop-account-btn">
-                                    <div class="btn-box">
-                                        <ul class="d-flex p-0">
-                                            <li class="p-1">
-                                                <a class="btn" href="#">Tài Khoản</a>
-                                            </li>
-                                            <li class="p-1">
-                                                <a class="btn" href="#">Đăng xuất</a>
-                                            </li>
-                                        </ul>
+                        <a href="#" tabindex="0" class="nav-link fs-4" data-bs-toggle="dropdown" aria-expanded="false"
+                            data-bs-auto-close="outside">
+                            <?php
+                                if(isset($_SESSION['nameUS'])){
+                                    ?>
+                            <i class="bi bi-person-fill"></i><?= $_SESSION['nameUS'] ?>
+                            <div class="dropdown-menu dropdown-menu-start p-3">
+                                <div class="drop-account">
+                                    <div class="avt-account">
+                                        <img src="<?= $_SESSION['urlUS'] ?>" alt="">
+                                    </div>
+                                    <div class="name-account">
+                                        <a href="admin"><?= $_SESSION['nameUS'] ?></a>
+                                    </div>
+                                    <div class="drop-account-btn">
+                                        <div class="btn-box">
+                                            <ul class="d-flex p-0">
+                                                <li class="p-1">
+                                                    <a class="btn" href="admin" target="_self">Tài Khoản</a>
+                                                </li>
+                                                <li class="p-1">
+                                                    <a class="btn" href="login/dangxuat" target="_self">Đăng xuất</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            <?php
+                                }else{ ?>
+                            <a href="login" target="_self"><i class="bi bi-person-fill"></i></a>
+                            <?php }
+                            ?>
+
+                        </a>
                     </li>
                     <!-- cart -->
                     <li class="nav-item">
                         <a tabindex="0" class="nav-link fs-4" href="cart" target="_self">
                             <i class="bi bi-cart position-relative">
-                                <span class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-black fw-normal" style="font-size: 10px;">
+                                <span
+                                    class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-black fw-normal"
+                                    style="font-size: 10px;">
                                     1
                                 </span>
                             </i>
@@ -107,7 +122,8 @@
                     </li> -->
                     <li class="nav-item">
                         <!-- <a class="nav-link" href="product" target="_self">Sản Phẩm</a> -->
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Sản Phẩm
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">

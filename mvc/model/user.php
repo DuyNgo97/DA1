@@ -47,9 +47,11 @@
         // Vai tro
         
             public function vaitro($taikhoan,$password){
-                $sql2 = "SELECT a.us_id,b.name_vaitro FROM `userss` a
+                $sql2 = "SELECT a.us_id,b.name_vaitro,c.name FROM `userss` a
                 INNER JOIN `vaitro` b
                 ON a.id_vaitro = b.id_vaitro
+                INNER JOIN `infor` c
+                ON a.id_info = c.id_info
                 WHERE `us_taikhoan` = '$taikhoan' AND `us_password` = '$password'";
                 $result2 = mysqli_query($this -> conn,$sql2);
                 $arr = mysqli_fetch_all($result2);

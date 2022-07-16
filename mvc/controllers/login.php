@@ -67,7 +67,7 @@
                 }else{
                     $result = $a -> dangnhap($taikhoan, $password);
                     if($result == true){
-                        $_SESSION['user'] = strtoupper($taikhoan);
+                        // $_SESSION['user'] = strtoupper($taikhoan);
                         $abc = $a -> vaitro($taikhoan,$password);
                         // $_SESSION['vaitro'] = json_decode($abc);
                         $this -> view("login", [
@@ -80,4 +80,19 @@
         }
 
         // dang xuat
+        public function dangxuat(){
+            // unset($_SESSION['user']);
+            session_destroy();
+            // $a = $this -> model('sanpham');
+            // $b = $this -> model ('danhmuc');
+
+            //view
+            $this -> view("login",
+            [
+                // "arrNV" => $a -> sanphambanchay(),
+                // "arrDM" => $b -> getDM(),
+                // "sanpham" => $a -> selectSP(),
+            ]
+            );
+        }
     }
