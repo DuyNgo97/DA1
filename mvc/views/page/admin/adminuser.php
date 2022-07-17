@@ -1,22 +1,47 @@
 <style>
-     #user-info{
-        padding: 25px;
-    }
-    #user-info table{
-        margin: 10px auto 0 auto;
-        text-align: center;
-    }
-    #user-info h1{
-        text-align: center;
-    }
-    a{
-       
-        text-decoration: none;
-    }
-    a:hover{
-        color: yellow;
-    }
+      .content-table{
+    border-collapse: collapse;
+    margin: 20px 150px;
+    font-size: 1.2em;
+    min-width: 1000px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0,0,0,15);
+   }
+
+   .content-table thead tr{
+    background-color: #299b63;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+   }
+   .content-table th, .content-table td {
+    padding: 12px 15px;
+   }
+
+   .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+   }
+   .content-table tbody tr td{
+     color: #808080;
+   }
+   .content-table tbody tr td a{
+    text-decoration: none;
+    color: #808080;
+   }
+   .content-table tbody tr td a:hover{
+    color: darkgreen;
+   }
+   .a h1 {
+    text-align: center;
+    padding-top: 50px;
+    color: #299b63;
+   }
+
+   
 </style>
+
+
 
 <div class="main">
 <?php
@@ -25,15 +50,9 @@
                 //  var_dump($arr);
             }
             ?>
-      <div id="user-info">
+      <div class="a" >
         <h1>Danh sách tài khoản</h1>
-        <!-- <div class="a1">
-        <form class="form1" action="" method="get">
-            <input type="text" placeholder="Search.." name="search">
-            <button type="submit" name="ok" value="tim"><i class="fa fa-search"></i></button>
-        </form>
-        </div> -->
-        <table border="1" id="user-listing" style="width:1000px">
+        <table class="content-table" >
             <thead>
                 <th scope="col">ID</th>
                 <th scope="col">tài khoản</th>
@@ -45,6 +64,7 @@
                 <th scope="col">Sửa</th>
                 <th scope="col">Xóa</th>
             </thead>
+            <tbody>
             <?php 
             foreach ($arr as $key => $u) { ?>
             <tr>
@@ -61,6 +81,8 @@
 
             <?php    }
             ?>
+            </tbody>
         </table>
 
 </div>
+
