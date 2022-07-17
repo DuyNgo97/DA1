@@ -43,36 +43,40 @@
 
         <div class="sidebar">
             <ul>
-                <li>
-                    <a href="#">
+                <li class="">
+                    <a href="admin" target="_self">
                         <i class="fas fa-chart-bar"></i>
                         <div>Thống kê</div>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#1">
+                    <a href="#" target="_self">
                         <i class="fas fa-users"></i>
                         <div>Quản lí tài khoản</div>
                     </a>
                 </li>
 
                 <li>
-                     <a href="#">
-                         <i class="fa fa-user"></i>
-                        <div>Phân Quyền</div>
-                     </a>
-                </li>
-
-                <li>
-                    <a href="#">
+                    <a href="admin/sanpham" target="_self">
                         <i class="fas fa-chalkboard-teacher"></i>
                         <div>Quản lí sản phẩm</div>
                     </a>
+                    <ul class="dropdown-menu">
+                        <a href="admin/sanpham" target="_self">
+                            <li>Danh sách sản phẩm</li>
+                        </a>
+                        <a href="admin/addsanpham" target="_self">
+                            <li>Thêm sản phẩm</li>
+                        </a>
+                        <a href="">
+                            <li>Thêm giảm giá</li>
+                        </a>
+                    </ul>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="#" target="_self">
                         <i class="fas fa-users"></i>
                         <div>Khuyến mãi</div>
                     </a>
@@ -81,7 +85,7 @@
 
             </ul>
         </div>
-        <div class="main">
+        <!-- <div class="main">
 
             <div class="cards">
 
@@ -141,12 +145,15 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
+        <?php
+            require_once "mvc/views/page/admin/".$data['viewpart'].".php";
+        ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script src="public/js/chart1.js"></script>
     <script src="public/js/chart2.js"></script>
-
+    <script src="public/js/admin.js"></script>
 </body>
 
 </html>

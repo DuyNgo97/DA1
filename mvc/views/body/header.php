@@ -60,6 +60,31 @@
                     <li class="nav-item d-none d-md-block dropstart dropstart-a">
                         <a href="#" tabindex="0" class="nav-link fs-4" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                             <?php
+<<<<<<< HEAD
+                                if(isset($_SESSION['nameUS'])){
+                                    ?>
+                            <i class="bi bi-person-fill"></i><span
+                                style="font-size: 18px; font-style: italic; color: green;"><?= $_SESSION['vaitro'] ?></span>
+                            <div class="dropdown-menu dropdown-menu-start p-3">
+                                <div class="drop-account">
+                                    <div class="avt-account">
+                                        <img src="<?= $_SESSION['urlUS'] ?>" alt="">
+                                    </div>
+                                    <div class="name-account">
+                                        <a href="admin"><?= $_SESSION['nameUS'] ?></a>
+                                    </div>
+                                    <div class="drop-account-btn">
+                                        <div class="btn-box">
+                                            <ul class="d-flex p-0">
+                                                <li class="p-1">
+                                                    <a class="btn" href="admin" target="_self">Tài Khoản</a>
+                                                </li>
+                                                <li class="p-1">
+                                                    <a class="btn" href="login/dangxuat" target="_self">Đăng
+                                                        xuất</a>
+                                                </li>
+                                            </ul>
+=======
                             if (isset($_SESSION['nameUS'])) {
                             ?>
                                 <i class="bi bi-person-fill"></i><?= $_SESSION['nameUS'] ?>
@@ -82,12 +107,40 @@
                                                     </li>
                                                 </ul>
                                             </div>
+>>>>>>> dce88c466ede29eef4f0af8ebbce2b0de8b81f33
                                         </div>
                                     </div>
                                 </div>
                             <?php
+<<<<<<< HEAD
+                                }else{ ?>
+                            <i class="bi bi-person-fill"></i>
+                            <div class="dropdown-menu dropdown-menu-start p-3">
+                                <div class="drop-account">
+                                    <div class="avt-account">
+                                        <img src="public/images/725x560-1.webp" alt="">
+                                    </div>
+                                    <div class="name-account">
+                                        <a href="admin"></a>
+                                    </div>
+                                    <div class="drop-account-btn">
+                                        <div class="btn-box">
+                                            <ul class="d-flex p-0">
+                                                <li class="p-1">
+                                                    <a class="btn" href="login" target="_self">Đăng nhập</a>
+                                                </li>
+                                                <li class="p-1">
+                                                    <a class="btn" href="login" target="_self">Đăng ký</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+=======
                             } else { ?>
                                 <a href="login" target="_self"><i class="bi bi-person-fill"></i></a>
+>>>>>>> dce88c466ede29eef4f0af8ebbce2b0de8b81f33
                             <?php }
                             ?>
 
