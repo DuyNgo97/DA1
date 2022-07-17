@@ -12,6 +12,16 @@
             ]
             );
         }
+        public function user(){
+            //model
+            $model = $this -> model('user');
+            //view
+            $this -> view("admin",[
+                "viewpart" => "adminuser",
+                "arrUs" => $model ->selectAllUser(),
+
+            ]);
+        }
 
         public function sanpham(){
             //model

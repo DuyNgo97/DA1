@@ -57,5 +57,17 @@
                 $arr = mysqli_fetch_all($result2);
                 return json_encode($arr);
             }
+
+        //user
+            public function selectAllUser(){
+                $sql = "SELECT * FROM `userss`";
+                $result = mysqli_query($this -> conn,$sql);
+                $arr = mysqli_fetch_all($result);
+                return json_encode($arr);
+            }
+
+            public function updateUser(){
+                
+            }
     }
 ?>

@@ -51,7 +51,7 @@
                 </li>
 
                 <li>
-                    <a href="#" target="_self">
+                    <a href="admin/user" target="_self">
                         <i class="fas fa-users"></i>
                         <div>Quản lí tài khoản</div>
                     </a>
