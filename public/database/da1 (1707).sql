@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th7 16, 2022 lúc 10:07 AM
+-- Thời gian đã tạo: Th7 17, 2022 lúc 01:20 PM
 -- Phiên bản máy phục vụ: 5.7.36
 -- Phiên bản PHP: 8.0.13
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `da1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `color`
+--
+
+DROP TABLE IF EXISTS `color`;
+CREATE TABLE IF NOT EXISTS `color` (
+  `id_color` int(11) NOT NULL AUTO_INCREMENT,
+  `name_color` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_color`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `color`
+--
+
+INSERT INTO `color` (`id_color`, `name_color`) VALUES
+(1, 'WHITE'),
+(2, 'BLACK'),
+(3, 'RED'),
+(4, 'BLUE'),
+(5, 'PINK'),
+(6, 'DEFAULT');
 
 -- --------------------------------------------------------
 
@@ -53,10 +78,10 @@ INSERT INTO `company` (`id_company`, `ten_company`) VALUES
 DROP TABLE IF EXISTS `danhgia`;
 CREATE TABLE IF NOT EXISTS `danhgia` (
   `id_danhgia` int(11) NOT NULL AUTO_INCREMENT,
-  `us_id` int(11) NOT NULL,
-  `id_sp` int(11) NOT NULL,
-  `danhgia` int(11) NOT NULL,
-  `binhluan` text NOT NULL,
+  `us_id` int(11) DEFAULT NULL,
+  `id_sp` int(11) DEFAULT NULL,
+  `danhgia` int(11) DEFAULT NULL,
+  `binhluan` text,
   PRIMARY KEY (`id_danhgia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -115,7 +140,15 @@ CREATE TABLE IF NOT EXISTS `hinhanh` (
   `url3` varchar(255) NOT NULL,
   `url4` varchar(255) NOT NULL,
   PRIMARY KEY (`id_hinhanh`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `hinhanh`
+--
+
+INSERT INTO `hinhanh` (`id_hinhanh`, `url_main`, `url1`, `url2`, `url3`, `url4`) VALUES
+(1, 'thuviendohoa.vn_365.png', 'thuviendohoa.vn_365.png', '725x560-1.webp', '725x560-2.webp', 'collection-img1.webp'),
+(2, 'den-bi-xenon4.jpg', 'den-2.jpg', 'den-3.png', 'den-4.jpg', 'den-5.jpg');
 
 -- --------------------------------------------------------
 
@@ -176,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `loai_sp_chi_tiet` (
   `id_loaispct` int(11) NOT NULL AUTO_INCREMENT,
   `name_chitiet` varchar(255) NOT NULL,
   PRIMARY KEY (`id_loaispct`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `loai_sp_chi_tiet`
@@ -191,7 +224,8 @@ INSERT INTO `loai_sp_chi_tiet` (`id_loaispct`, `name_chitiet`) VALUES
 (10, 'VỎ XE'),
 (11, 'GƯƠNG'),
 (12, 'ĐÈN'),
-(13, 'CAMERA');
+(13, 'CAMERA'),
+(14, 'KHÁC');
 
 -- --------------------------------------------------------
 
@@ -204,10 +238,14 @@ CREATE TABLE IF NOT EXISTS `sanpham` (
   `id_sp` int(11) NOT NULL AUTO_INCREMENT,
   `ten_sp` varchar(255) NOT NULL,
   `gia_sp` varchar(255) NOT NULL,
+  `id_color` int(11) NOT NULL,
+  `soluong_sp` int(11) DEFAULT NULL,
+  `giamgia` float DEFAULT NULL,
+  `id_trangthai` int(11) DEFAULT NULL,
   `mota` varchar(255) NOT NULL,
   `ngaytao` date NOT NULL,
-  `ngaycapnhat` date NOT NULL,
-  `id_danhgia` int(11) NOT NULL,
+  `ngaycapnhat` date DEFAULT NULL,
+  `id_danhgia` int(11) DEFAULT NULL,
   `id_company` int(11) NOT NULL,
   `id_loaisp` int(11) NOT NULL,
   `id_loaispct` int(11) NOT NULL,
@@ -217,8 +255,39 @@ CREATE TABLE IF NOT EXISTS `sanpham` (
   KEY `fkcompany` (`id_company`),
   KEY `fkloaisp` (`id_loaisp`),
   KEY `fkloaispct` (`id_loaispct`),
-  KEY `fkhinhanh` (`id_hinhanh`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fkhinhanh` (`id_hinhanh`),
+  KEY `fkcolor` (`id_color`),
+  KEY `fktrangthai` (`id_trangthai`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `sanpham`
+--
+
+INSERT INTO `sanpham` (`id_sp`, `ten_sp`, `gia_sp`, `id_color`, `soluong_sp`, `giamgia`, `id_trangthai`, `mota`, `ngaytao`, `ngaycapnhat`, `id_danhgia`, `id_company`, `id_loaisp`, `id_loaispct`, `id_hinhanh`) VALUES
+(1, 'C200', '1200000', 1, 100, NULL, 1, 'Luxury car', '2022-07-17', NULL, NULL, 1, 1, 5, 1),
+(2, 'ĐÈN BI XENON4', '12500000', 6, 50, NULL, 1, 'Đèn xe thế hệ mới', '2022-07-17', NULL, NULL, 3, 2, 12, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `trangthai`
+--
+
+DROP TABLE IF EXISTS `trangthai`;
+CREATE TABLE IF NOT EXISTS `trangthai` (
+  `id_trangthai` int(11) NOT NULL AUTO_INCREMENT,
+  `name_trangthai` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_trangthai`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `trangthai`
+--
+
+INSERT INTO `trangthai` (`id_trangthai`, `name_trangthai`) VALUES
+(1, 'Còn hàng'),
+(2, 'Hết hàng');
 
 -- --------------------------------------------------------
 
@@ -321,11 +390,13 @@ ALTER TABLE `donhangchitiet`
 -- Các ràng buộc cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
+  ADD CONSTRAINT `fkcolor` FOREIGN KEY (`id_color`) REFERENCES `color` (`id_color`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fkcompany` FOREIGN KEY (`id_company`) REFERENCES `company` (`id_company`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fkdanhgiasp` FOREIGN KEY (`id_danhgia`) REFERENCES `danhgia` (`id_danhgia`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fkhinhanh` FOREIGN KEY (`id_hinhanh`) REFERENCES `hinhanh` (`id_hinhanh`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fkloaisp` FOREIGN KEY (`id_loaisp`) REFERENCES `loaisp` (`id_loaisp`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fkloaispct` FOREIGN KEY (`id_loaispct`) REFERENCES `loai_sp_chi_tiet` (`id_loaispct`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fkloaispct` FOREIGN KEY (`id_loaispct`) REFERENCES `loai_sp_chi_tiet` (`id_loaispct`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fktrangthai` FOREIGN KEY (`id_trangthai`) REFERENCES `trangthai` (`id_trangthai`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `userss`
