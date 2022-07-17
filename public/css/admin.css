@@ -17,6 +17,25 @@
     z-index: 1;
 }
 
+:root {
+  /* ===== Colors ===== */
+  --primary-color: #0e4bf1;
+  --panel-color: #fff;
+  --text-color: #000;
+  --black-light-color: #707070;
+  --border-color: #e6e5e5;
+  --toggle-color: #ddd;
+  --box1-color: #4da3ff;
+  --box2-color: #ffe6ac;
+  --box3-color: #e7d1fc;
+  --title-icon-color: #fff;
+
+  /* ====== Transition ====== */
+  --tran-05: all 0.5s ease;
+  --tran-03: all 0.3s ease;
+  --tran-03: all 0.2s ease;
+}
+
 .logo h2{
     color: #299B63;
 }
@@ -121,6 +140,32 @@
 .sidebar ul li {
     width: 100%;
     list-style: none;
+    position: relative;
+    z-index: 10;
+}
+
+.sidebar ul li a{
+    font-size: 20px;
+}
+
+.sidebar ul li:hover ul{
+    display: block;
+}
+
+.sidebar ul li .dropdown-menu{
+    background-color: #299B63;
+    position: relative;
+    display: none;
+    margin-top: -5px;
+    /* padding-left: 24px; */
+}
+
+
+
+.sidebar ul li .dropdown-menu li{
+    margin-top: 10px;
+    font-size: 16px;
+    padding-left: 60px;
 }
 
 .sidebar ul li a{
@@ -287,6 +332,237 @@
         }
     
 }
+
+.dashboard {
+    position: relative;
+    /* left: 250px; */
+    background-color: var(--panel-color);
+    min-height: 100vh;
+    width: 100%;
+    padding: 10px 14px;
+    transition: var(--tran-05);
+  }
+  nav.close ~ .dashboard {
+    left: 73px;
+    width: calc(100% - 73px);
+  }
+  .dashboard .top {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    display: flex;
+    width: calc(100% - 250px);
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background-color: var(--panel-color);
+    transition: var(--tran-05);
+    z-index: 10;
+  }
+  nav.close ~ .dashboard .top {
+    left: 73px;
+    width: calc(100% - 73px);
+  }
+  .dashboard .top .sidebar-toggle {
+    font-size: 26px;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  .dashboard .top .search-box {
+    position: relative;
+    height: 45px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 30px;
+  }
+  .top .search-box input {
+    position: absolute;
+    border: 1px solid var(--border-color);
+    background-color: var(--panel-color);
+    padding: 0 25px 0 50px;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+  }
+  .top .search-box i {
+    position: absolute;
+    left: 15px;
+    font-size: 22px;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--black-light-color);
+  }
+  .top img {
+    width: 40px;
+    border-radius: 50%;
+  }
+  .dashboard .dash-content {
+    padding-top: 50px;
+  }
+  .dash-content .title {
+    display: flex;
+    align-items: center;
+    margin: 60px 0 30px 0;
+  }
+  .dash-content .title i {
+    position: relative;
+    height: 35px;
+    width: 35px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    color: var(--title-icon-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  .dash-content .title .text {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-left: 10px;
+  }
+  .dash-content .boxes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .dash-content .boxes .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    width: calc(100% / 3 - 15px);
+    padding: 15px 20px;
+    background-color: var(--box1-color);
+    transition: var(--tran-05);
+  }
+  .boxes .box i {
+    font-size: 35px;
+    color: var(--text-color);
+  }
+  .boxes .box .text {
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  .boxes .box .number {
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  .boxes .box.box2 {
+    background-color: var(--box2-color);
+  }
+  .boxes .box.box3 {
+    background-color: var(--box3-color);
+  }
+
+  .activity{
+    overflow-x: auto;
+  }
+
+  .dash-content .activity .activity-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .activity .activity-data {
+    display: flex;
+    /* overflow-x: scroll; */
+  }
+  
+  .activity-data form .colum-big{
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
+    width: 1656px;
+    padding-left: 50px;
+    padding-right: 100px;
+    box-sizing: border-box;
+  }
+
+  .activity-data form .colum-big .button-area{
+    margin-top: 100px;
+  }
+
+  .activity-data form .colum-big .button-area button{
+    width: 100px;
+    height: 30px;
+  }
+
+  .activity-data form .colum-big .colum-pro{
+    width: 33%;
+  }
+  .activity-data .data {
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+  }
+  
+  .activity-data .data-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color);
+  }
+  .activity-data .data .data-list {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 20px;
+    white-space: nowrap;
+    color: var(--text-color);
+  }
+  .data__list-style-name{
+    padding-bottom: 69px;
+    padding-top: 17px;
+    text-align: center;
+  }
+  .data__list-style-image{
+    padding-bottom: 40px;
+  }
+  
+  button {
+    background-color: #2454da;
+    width: 70px;
+    border-radius: 5px;
+    color: white;
+  }
+  button:hover {
+    background-color: rgb(153, 216, 246);
+  }
+
+  .activity2{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .activity2 .title span{
+    display: block;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .activity2 .activity-data form{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
 
 @media screen and (max-width:500px) {
     .topbar{
