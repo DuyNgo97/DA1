@@ -10889,9 +10889,18 @@ textarea.form-control-lg {
 .header .navbar .container-fluid .navbar-brand, .header .navbar .container-sm .navbar-brand, .header .navbar .container-md .navbar-brand, .header .navbar .container-lg .navbar-brand, .header .navbar .container-xl .navbar-brand, .header .navbar .container-xxl .navbar-brand {
   padding: 0;
   margin-right: 0 !important;
+  position: static;
 }
 .header .navbar .container-fluid .navbar-brand img, .header .navbar .container-sm .navbar-brand img, .header .navbar .container-md .navbar-brand img, .header .navbar .container-lg .navbar-brand img, .header .navbar .container-xl .navbar-brand img, .header .navbar .container-xxl .navbar-brand img {
   width: 140px;
+}
+@media (min-width: 768px) {
+  .header .navbar .container-fluid .navbar-brand, .header .navbar .container-sm .navbar-brand, .header .navbar .container-md .navbar-brand, .header .navbar .container-lg .navbar-brand, .header .navbar .container-xl .navbar-brand, .header .navbar .container-xxl .navbar-brand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 .header .navbar .container-fluid .navbar-collapse, .header .navbar .container-sm .navbar-collapse, .header .navbar .container-md .navbar-collapse, .header .navbar .container-lg .navbar-collapse, .header .navbar .container-xl .navbar-collapse, .header .navbar .container-xxl .navbar-collapse {
   flex-grow: 0;
