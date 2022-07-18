@@ -110,7 +110,7 @@ require_once 'mvc/views/body/header.php'
 							<div class="invalid-feedback">
 								Họ không được để trống
 							</div>
-						</div>
+						</div>l
 						<div class="col-md-6 mb-3">
 							<label for="lastName">Tên</label>
 							<input type="text" class="form-control" id="lastName" placeholder="" value="" required>
@@ -132,7 +132,7 @@ require_once 'mvc/views/body/header.php'
 
 					<div class="mb-3">
 						<label for="email">Email <span class="text-muted">(Optional)</span></label>
-						<input type="email" class="form-control" id="email" placeholder="VD: ...@gmail.com">
+						<input type="email" class="form-control" id="email" placeholder="...@email.com">
 						<div class="invalid-feedback">
 							Email không được để trống
 						</div>
