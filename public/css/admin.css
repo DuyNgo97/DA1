@@ -148,14 +148,14 @@
     font-size: 20px;
 }
 
-.sidebar ul li:hover ul{
+/* .sidebar ul li:hover ul{
     display: block;
-}
+} */
 
 .sidebar ul li .dropdown-menu{
     background-color: #299B63;
     position: relative;
-    display: none;
+    /* display: none; */
     margin-top: -5px;
     /* padding-left: 24px; */
 }
@@ -562,6 +562,11 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+  }
+
+  .img_upp img{
+    height: 100%;
+    width: 100%;
   }
 
 @media screen and (max-width:500px) {
