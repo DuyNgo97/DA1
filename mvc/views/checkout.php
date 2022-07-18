@@ -121,11 +121,11 @@ require_once 'mvc/views/body/header.php'
 					</div>
 
 					<div class="mb-3">
-						<label for="username">Tên đăng nhập</label>
+						<label for="sdt">Số điện thoại</label>
 						<div class="input-group">
 							<input type="text" class="form-control" id="username" placeholder="Tên đăng nhập" required>
 							<div class="invalid-feedback" style="width: 100%;">
-								Tên đăng nhập không được để trống
+								Số điện thoại không được để trống
 							</div>
 						</div>
 					</div>
