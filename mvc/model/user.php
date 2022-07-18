@@ -57,5 +57,30 @@
                 $arr = mysqli_fetch_all($result2);
                 return json_encode($arr);
             }
+
+        //user
+            public function selectAllUser(){
+                $sql = "SELECT a.us_id,a.us_taikhoan,a.us_password,b.name_vaitro,c.name,c.email,c.diachi,c.ngaytao,c.sdt 
+                FROM userss a INNER JOIN vaitro b 
+                ON a.us_id = b.id_vaitro 
+                INNER JOIN infor c 
+                ON a.us_id = c.id_info";
+                $result = mysqli_query($this -> conn,$sql);
+                $arr = mysqli_fetch_all($result);
+                return json_encode($arr);
+            }
+
+            public function Edit(){
+                $sql ="SELECT a.us_id,a.us_taikhoan,a.us_password,b.email,b.sdt FROM userss a 
+                INNER JOIN infor b 
+                ON a.us_id = b.id_info where us_id = 1";
+                $result = mysqli_query($this -> conn,$sql);
+                $arr = mysqli_fetch_all($result);
+                return json_encode($arr);
+            }
+
+            public function Update(){
+                
+            }
     }
 ?>

@@ -51,7 +51,7 @@
                 </li>
 
                 <li>
-                    <a href="#" target="_self">
+                    <a href="admin/user" target="_self">
                         <i class="fas fa-users"></i>
                         <div>Quản lí tài khoản</div>
                     </a>
@@ -63,15 +63,21 @@
                         <div>Quản lí sản phẩm</div>
                     </a>
                     <ul class="dropdown-menu">
-                        <a href="admin/sanpham" target="_self">
-                            <li>Danh sách sản phẩm</li>
-                        </a>
-                        <a href="admin/addsanpham" target="_self">
-                            <li>Thêm sản phẩm</li>
-                        </a>
-                        <a href="">
-                            <li>Thêm giảm giá</li>
-                        </a>
+                        <li>
+                            <a href="admin/sanpham" target="_self">
+                                Danh sách sản phẩm
+                            </a>
+                        </li>
+                        <li>
+                            <a href="admin/addsanpham" target="_self">
+                                Thêm sản phẩm
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_self">
+                                Thêm giảm giá
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

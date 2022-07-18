@@ -137,6 +137,7 @@
     margin-top: 20px;
 }
 
+
 .sidebar ul li {
     width: 100%;
     list-style: none;
@@ -144,15 +145,21 @@
     z-index: 10;
 }
 
-.sidebar ul li a{
+.sidebar ul li a {
     font-size: 20px;
+    width: 100%;
+    text-decoration: none;
+    color: whitesmoke;
+    height: 60px;
+    display: flex;
+    align-items: center;
 }
 
 /* .sidebar ul li:hover ul{
     display: block;
 } */
 
-.sidebar ul li .dropdown-menu{
+.sidebar ul li .dropdown-menu {
     background-color: #299B63;
     position: relative;
     /* display: none; */
@@ -166,16 +173,18 @@
     margin-top: 10px;
     font-size: 16px;
     padding-left: 60px;
+    background-color: #299B63;
+    color: #fff;
 }
 
-.sidebar ul li a{
-    width: 100%;
-    text-decoration: none;
-    color: #fff;
-    height: 60px;
-    display: flex;
-    align-items: center;
+.sidebar ul li .dropdown-menu li:hover{
+  background-color:#f5f5f5;
 }
+
+.sidebar ul li .dropdown-menu li:hover a {
+  color: #299B63;
+}
+
 
 
 .sidebar ul li a i{
@@ -183,8 +192,7 @@
     font-size: 24px;
     text-align: center;
 }
-
-
+            
 /*main bắt đầu từ đây*/
 .main{
     position: absolute;
@@ -212,12 +220,7 @@
     border-radius: 10px;
     box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
 }
-.sidebar li:hover{
-  background-color:#fff;
-}
-.sidebar li a:hover{
-    color: #299B63;
-}
+
  .card:hover{
     background-color: #299B63;
 }
