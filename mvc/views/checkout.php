@@ -18,6 +18,7 @@
 	<!-- Bootstrap core CSS -->
 	<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 	<style>
 		.bd-placeholder-img {
@@ -186,54 +187,60 @@ require_once 'mvc/views/body/header.php'
 						<input type="checkbox" class="custom-control-input" id="save-info">
 						<label class="custom-control-label" for="save-info">Lưu thông tin</label>
 					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="selectt" value="payment">
+						<label class="custom-control-label" for="selectt">Thanh toán qua thẻ ATM</label>
+					</div>
 					<hr class="mb-4">
 
-					<h4 class="mb-3">Thông tin thanh toán</h4>
+					<div class="payment">
+						<h4 class="mb-3">Thông tin thanh toán</h4>
 
-					<div class="d-block my-3">
-						<div class="custom-control custom-radio">
-							<input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-							<label class="custom-control-label" for="credit">Credit card</label>
-						</div>
-						<div class="custom-control custom-radio">
-							<input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-							<label class="custom-control-label" for="debit">Debit card</label>
-						</div>
-						<div class="custom-control custom-radio">
-							<input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-							<label class="custom-control-label" for="paypal">PayPal</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 mb-3">
-							<label for="cc-name">Tên chủ thẻ</label>
-							<input type="text" class="form-control" id="cc-name" placeholder="" required>
-							<small class="text-muted">Nhập tên được ghi trên thẻ</small>
-							<div class="invalid-feedback">
-								Nhập tên được ghi trên thẻ
+						<div class="d-block my-3">
+							<div class="col-md-14 mb-3">
+								<label for="zip">Chọn ngân hàng</label>
+								<select class="custom-select d-block w-100" id="state" name="paymentMethod" required>
+									<option value="">Chọn...</option>
+									<option>VIETCOMBANK(VCB)</option>
+									<option>SACOMBANK(SCB)</option>
+									<option>ACHAUBANK(ACB)</option>
+								</select>
+								<div class="invalid-feedback">
+									Vui lòng chọn ngân hàng
+								</div>
 							</div>
 						</div>
-						<div class="col-md-6 mb-3">
-							<label for="cc-number">Số thẻ</label>
-							<input type="text" class="form-control" id="cc-number" placeholder="" required>
-							<div class="invalid-feedback">
-								Nhập số thẻ được ghi trên thẻ
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="cc-name">Tên chủ thẻ</label>
+								<input type="text" class="form-control" id="cc-name" placeholder="" required>
+								<small class="text-muted">Nhập tên được ghi trên thẻ</small>
+								<div class="invalid-feedback">
+									Nhập tên được ghi trên thẻ
+								</div>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label for="cc-number">Số thẻ</label>
+								<input type="text" class="form-control" id="cc-number" placeholder="" required>
+								<div class="invalid-feedback">
+									Nhập số thẻ được ghi trên thẻ
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3 mb-3">
-							<label for="cc-expiration">Hạn thẻ</label>
-							<input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-							<div class="invalid-feedback">
-								Nhập hạn thẻ được ghi trên thẻ
+						<div class="row">
+							<div class="col-md-3 mb-3">
+								<label for="cc-expiration">Hạn thẻ</label>
+								<input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+								<div class="invalid-feedback">
+									Nhập hạn thẻ được ghi trên thẻ
+								</div>
 							</div>
-						</div>
-						<div class="col-md-3 mb-3">
-							<label for="cc-cvv">Mã an toàn</label>
-							<input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-							<div class="invalid-feedback">
-								Nhập mã an toàn
+							<div class="col-md-3 mb-3">
+								<label for="cc-cvv">Mã an toàn</label>
+								<input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+								<div class="invalid-feedback">
+									Nhập mã an toàn
+								</div>
 							</div>
 						</div>
 					</div>
@@ -253,3 +260,12 @@ require_once 'mvc/views/body/header.php'
 <?php include 'body/footer.php' ?>
 
 </html>
+
+<script type="text/javascript">
+            $(document).ready(function() {
+                $('input[type="checkbox"]').click(function() {
+                    var inputValue = $(this).attr("value");
+                    $("." + inputValue).toggle();
+                });
+            });
+        </script>
