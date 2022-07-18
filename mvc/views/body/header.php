@@ -63,35 +63,35 @@
                             if (isset($_SESSION['nameUS'])) {
                             ?>
                                 <i class="bi bi-person-fill"></i><?= $_SESSION['nameUS'] ?>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-start p-3">
-                            <div class="drop-account">
-                                <div class="avt-account">
-                                    <img src="<?= $_SESSION['urlUS'] ?>" alt="">
-                                </div>
-                                <div class="name-account">
-                                    <a href="admin"><?= $_SESSION['nameUS'] ?></a>
-                                </div>
-                                <div class="drop-account-btn">
-                                    <div class="btn-box">
-                                        <ul class="d-flex p-0">
-                                            <li class="p-1">
-                                                <a class="btn" href="admin" target="_self">Tài Khoản</a>
-                                            </li>
-                                            <li class="p-1">
-                                                <a class="btn" href="login/dangxuat" target="_self">Đăng xuất</a>
-                                            </li>
-                                        </ul>
+                                <div class="dropdown-menu dropdown-menu-start p-3">
+                                    <div class="drop-account">
+                                        <div class="avt-account">
+                                            <img src="<?= $_SESSION['urlUS'] ?>" alt="">
+                                        </div>
+                                        <div class="name-account">
+                                            <a href="admin"><?= $_SESSION['nameUS'] ?></a>
+                                        </div>
+                                        <div class="drop-account-btn">
+                                            <div class="btn-box">
+                                                <ul class="d-flex p-0">
+                                                    <li class="p-1">
+                                                        <a class="btn" href="admin" target="_self">Tài Khoản</a>
+                                                    </li>
+                                                    <li class="p-1">
+                                                        <a class="btn" href="login/dangxuat" target="_self">Đăng xuất</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    <?php
+                            <?php
                             } else { ?>
-                        <a href="login" target="_self"><i class="bi bi-person-fill"></i></a>
-                    <?php }
-                    ?>
+                                <a href="login" target="_self"><i class="bi bi-person-fill"></i></a>
+                            <?php }
+                            ?>
+
+                        </a>
                     </li>
                     <!-- cart -->
                     <li class="nav-item">
