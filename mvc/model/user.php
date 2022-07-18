@@ -70,13 +70,17 @@
                 return json_encode($arr);
             }
 
-            public function editUser(){
+            public function Edit(){
                 $sql ="SELECT a.us_id,a.us_taikhoan,a.us_password,b.email,b.sdt FROM userss a 
-                INNER JOIN infor b ON a.us_id = b.id_info
-                ";
+                INNER JOIN infor b 
+                ON a.us_id = b.id_info where us_id = 1";
                 $result = mysqli_query($this -> conn,$sql);
                 $arr = mysqli_fetch_all($result);
                 return json_encode($arr);
+            }
+
+            public function Update(){
+                
             }
     }
 ?>
