@@ -110,7 +110,7 @@ require_once 'mvc/views/body/header.php'
 							<div class="invalid-feedback">
 								Họ không được để trống
 							</div>
-						</div>l
+						</div>
 						<div class="col-md-6 mb-3">
 							<label for="lastName">Tên</label>
 							<input type="text" class="form-control" id="lastName" placeholder="" value="" required>
