@@ -22,6 +22,13 @@
 
             ]);
         }
+        public function edituser(){
+            $model = $this -> model('user');
+            $this -> view("admin",[
+            "viewpart" => "edituser",
+            "arrEd" => $model ->selectAllUser(),
+            ]);
+        }
 
         public function sanpham(){
             //model
