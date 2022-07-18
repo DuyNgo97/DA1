@@ -11951,6 +11951,14 @@ textarea.form-control-lg {
 .product-body .product-main-body .product-show .item-info .product-name a {
   text-decoration: none;
 }
+.product-body .product-main-body .product-show .item-info .product-info span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 .product-body .product-main-body .border-s {
   border: 2px solid #e1e1e1;
   border-radius: 0.8rem;

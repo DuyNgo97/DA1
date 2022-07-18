@@ -45,15 +45,6 @@
                         </button>
                     </div>
                 </div>
-                <!-- Baner -->
-                <!-- <div class="col-12 col-lg-4">
-                    <div class="banner_right">
-                        <img class="mw-100" src="public/images/car_1.jpg" alt="">
-                    </div>
-                    <div class="banner_right">
-                        <img class="mw-100" src="public/images/car_1.jpg" alt="">
-                    </div>
-                </div> -->
             </div>
             <!-- End product main top -->
             <!-- Product main body -->
@@ -114,17 +105,18 @@
                     </div>
                     <!-- Show sản phẩm -->
                     <div class="product-show-main d-flex row mt-3">
-                        <!-- item 1 -->
+                        <!-- item -->
                         <div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
                             <div class="item-info mb-3 p-2 border-s position-relative">
-                                <div class="tag-item position-absolute top-5 start-10">
+                                <!-- Không được xoá đoạn code comment dưới này !!! -->
+                                <!-- <div class="tag-item position-absolute top-5 start-10">
                                     <div class="discout-item mb-1">
                                         <span> - 10% </span>
                                     </div>
                                     <div class="new-item mb-1">
                                         <span> Mới </span>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="img-thumbnail">
                                     <img class="mw-100" src="public/images/den-1.png" alt="">
                                 </div>
@@ -140,163 +132,14 @@
                                     <div class="product-price">
                                         Giá: <span>2.000.000đ</span>
                                     </div>
-                                </div>
-                                <div class="product-btn d-flex justify-content-around">
-                                    <a class="btn buy fs-4" href="cart" target="_self">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a class="btn follow fs-4" href="#">
-                                        <i class="bi bi-suit-heart-fill"></i>
-                                    </a>
-                                    <a class="btn view fs-4" href="spct" target="_self">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end item -->
-                        <!-- item 2 -->
-                        <div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
-                            <div class="item-info mb-3 p-2 border-s position-relative">
-                                <div class="tag-item position-absolute top-5 start-10">
-                                    <div class="discout-item mb-1">
-                                        <span> - 10% </span>
+                                    <div class="product-nsx">
+                                        <Span>Hãng: ABC</Span>
                                     </div>
-                                    <div class="new-item mb-1">
-                                        <span> Mới </span>
-                                    </div>
-                                </div>
-                                <div class="img-thumbnail">
-                                    <img class="mw-100" src="public/images/den-2.jpg" alt="">
-                                </div>
-                                <div class="mb-2 mt-2">
-                                    <div class="product-name">
-                                        <a class="fs-5" href="spct" target="_self">
-                                            Đèn xe cao cấp loại 1
-                                        </a>
-                                    </div>
-                                    <div class="product-cate">
-                                        <span>Đèn xe</span>
-                                    </div>
-                                    <div class="product-price">
-                                        Giá: <span>2.000.000đ</span>
-                                    </div>
-                                </div>
-                                <div class="product-btn d-flex justify-content-around">
-                                    <a class="btn buy fs-4" href="cart" target="_self">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a class="btn follow fs-4" href="#">
-                                        <i class="bi bi-suit-heart-fill"></i>
-                                    </a>
-                                    <a class="btn view fs-4" href="spct" target="_self">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end item -->
-                        <!-- item 3 -->
-                        <div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
-                            <div class="item-info mb-3 p-2 border-s position-relative">
-                                <div class="tag-item position-absolute top-5 start-10">
-                                    <div class="new-item mb-1">
-                                        <span> Mới </span>
-                                    </div>
-                                </div>
-                                <div class="img-thumbnail">
-                                    <img class="mw-100" src="public/images/den-3.png" alt="">
-                                </div>
-                                <div class="mb-2 mt-2">
-                                    <div class="product-name">
-                                        <a class="fs-5" href="spct" target="_self">
-                                            Đèn xe cao cấp loại 1
-                                        </a>
-                                    </div>
-                                    <div class="product-cate">
-                                        <span>Đèn xe</span>
-                                    </div>
-                                    <div class="product-price">
-                                        Giá: <span>2.000.000đ</span>
-                                    </div>
-                                </div>
-                                <div class="product-btn d-flex justify-content-around">
-                                    <a class="btn buy fs-4" href="cart" target="_self">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a class="btn follow fs-4" href="#">
-                                        <i class="bi bi-suit-heart-fill"></i>
-                                    </a>
-                                    <a class="btn view fs-4" href="spct" target="_self">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end item -->
-                        <!-- item 4 -->
-                        <div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
-                            <div class="item-info mb-3 p-2 border-s position-relative">
-                                <div class="tag-item position-absolute top-5 start-10">
-                                    <div class="discout-item mb-1">
-                                        <span> - 10% </span>
-                                    </div>
-                                    <div class="new-item mb-1">
-                                        <span> Mới </span>
-                                    </div>
-                                </div>
-                                <div class="img-thumbnail">
-                                    <img class="mw-100" src="public/images/den-4.jpg" alt="">
-                                </div>
-                                <div class="mb-2 mt-2">
-                                    <div class="product-name">
-                                        <a class="fs-5" href="spct" target="_self">
-                                            Đèn xe cao cấp loại 1
-                                        </a>
-                                    </div>
-                                    <div class="product-cate">
-                                        <span>Đèn xe</span>
-                                    </div>
-                                    <div class="product-price">
-                                        Giá: <span>2.000.000đ</span>
-                                    </div>
-                                </div>
-                                <div class="product-btn d-flex justify-content-around">
-                                    <a class="btn buy fs-4" href="cart" target="_self">
-                                        <i class="bi bi-cart"></i>
-                                    </a>
-                                    <a class="btn follow fs-4" href="#">
-                                        <i class="bi bi-suit-heart-fill"></i>
-                                    </a>
-                                    <a class="btn view fs-4" href="spct" target="_self">
-                                        <i class="bi bi-eye-fill"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end item -->
-                        <!-- item 5 -->
-                        <div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
-                            <div class="item-info mb-3 p-2 border-s position-relative">
-                                <div class="tag-item position-absolute top-5 start-10">
-                                    <div class="new-item mb-1">
-                                        <span> Mới </span>
-                                    </div>
-                                </div>
-                                <div class="img-thumbnail">
-                                    <img class="mw-100" src="public/images/den-5.jpg" alt="">
-                                </div>
-                                <div class="mb-2 mt-2">
-                                    <div class="product-name">
-                                        <a class="fs-5" href="spct" target="_self">
-                                            Đèn xe cao cấp loại 1
-                                        </a>
-                                    </div>
-                                    <div class="product-cate">
-                                        <span>Đèn xe</span>
-                                    </div>
-                                    <div class="product-price">
-                                        Giá: <span>2.000.000đ</span>
+                                    <div class="product-info">
+                                        Mô tả:
+                                        <Span>
+                                            Đèn xe cao cấp đèn xe cao cấp đèn xe cao cấp
+                                        </Span>
                                     </div>
                                 </div>
                                 <div class="product-btn d-flex justify-content-around">
