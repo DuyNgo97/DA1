@@ -68,7 +68,8 @@
             <tbody>
             <?php 
             foreach ($arr as $key => $u) { ?>
-            <tr>
+         
+           <tr>
                 <td><?=$u[0] ?></td>
                 <td><?=$u[1] ?></td>
                 <td><?=$u[3] ?></td>
@@ -77,9 +78,10 @@
                 <td><?=$u[6] ?></td>
                 <td><?=$u[7] ?></td>
                 <td><?=$u[8] ?></td>
-                <td><a href="admin/edituser"><button>Sửa</button></a></td>
+                <td><a href="admin/edituser?id=<?=$u[0] ?>"><button>Sửa</button></a></td>
                 <td><a href="#"><button>Xóa</button></a></td>
             </tr>
+          
 
             <?php    }
             ?>

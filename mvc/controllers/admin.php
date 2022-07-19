@@ -26,7 +26,7 @@
             $model = $this -> model('user');
             $this -> view("admin",[
                 "viewpart" => "edituser",
-                "arrEd" => $model ->Edit(),
+                "arrEd" =>$model ->Edit(),
             ]);
         }
 
