@@ -1,12 +1,14 @@
 <div class="main">
-        <?php
-            if(isset($data["arrEd"])){
-                $arr = json_decode($data["arrEd"]);
-                    var_dump($arr);
-            }
+    <?php
+            // if(isset($data["arrEd"])){
+            //     $arr = json_decode($data["arrEd"]);
+                    // var_dump($arr);
+            // }
+            // echo $data['idUS'];
+            echo $data['id'];
         ?>
 
-        <!-- <form action="">
+    <!-- <form action="">
             <label for="">ID</label>
             <input type="text">
             <label for="">Tài khoản</label>

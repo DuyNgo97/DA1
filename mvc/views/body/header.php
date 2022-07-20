@@ -94,11 +94,6 @@
 
                                 }else{ ?>
                                 <i class="bi bi-person-fill"></i>
-                                <!-- =======
-                                if (isset($_SESSION['nameUS'])) {
-                                ?> -->
-                                <i class="bi bi-person-fill"></i><?= $_SESSION['nameUS'] ?>
-                                <!-- >>>>>>> becb2ba512ac8857380b8f324767ba6e65342d15 -->
                                 <div class="dropdown-menu dropdown-menu-start p-3">
                                     <div class="drop-account">
                                         <div class="avt-account">
@@ -121,9 +116,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <<<<<<< HEAD <!-- } else { ?> -->
-                                    <!-- <a href="login" target="_self"><i class="bi bi-person-fill"></i></a> -->
-                                    <?php }
+                                <!-- } else { ?> -->
+                                <!-- <a href="login" target="_self"><i class="bi bi-person-fill"></i></a> -->
+                                <?php }
                             ?>
 
                         </a>

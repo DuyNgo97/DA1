@@ -70,13 +70,25 @@
                 return json_encode($arr);
             }
 
-            public function Edit(){
-                $sql ="SELECT a.us_id,a.us_taikhoan,a.us_password,b.email,b.sdt FROM userss a 
-                INNER JOIN infor b 
-                ON a.us_id = b.id_info where us_id = 1";
-                $result = mysqli_query($this -> conn,$sql);
-                $arr = mysqli_fetch_all($result);
-                return json_encode($arr);
+            // public function Edit(){
+            //     $sql ="SELECT a.us_id,a.us_taikhoan,a.us_password,b.email,b.sdt FROM userss a 
+            //     INNER JOIN infor b 
+            //     ON a.us_id = b.id_info where us_id = 1";
+            //     $result = mysqli_query($this -> conn,$sql);
+            //     $arr = mysqli_fetch_all($result);
+            //     return json_encode($arr);
+            // }
+
+            public function UpdateIn4($id_us){
+                $check = false;
+                $sql = "SELECT a.id_info FROM `userss` a WHERE a.us_id = '$id_us'";
+                $result = mysqli_query($this -> conn, $sql);
+                $id = mysqli_fetch_all($result);
+                $sql = "UPDATE `infor` SET `id_info`='[value-1]',`name`='[value-2]',`email`='[value-3]',`diachi`='[value-4]',`sdt`='[value-5]',`ngaytao`='[value-6]' WHERE '$id[0][0]'";
+                if(mysqli_query($this -> conn, $sql)){
+                    $check = true;
+                }
+                return $check;
             }
 
             public function Update(){

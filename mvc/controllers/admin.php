@@ -22,12 +22,19 @@
 
             ]);
         }
-        public function edituser(){
-            $model = $this -> model('user');
+        public function edituser($id){
+            if(isset($_POST['btn-sua'])){
+                // $idu = $_GET['id'];
+                $id_us = $_POST['idUS'];
+                $model = $this -> model('user');
+                
             $this -> view("admin",[
                 "viewpart" => "edituser",
-                "arrEd" => $model ->Edit(),
-            ]);
+                // "arrEd" => $model ->UpdateIn4($id_us),
+                // "check" => $model -> updateIn4($id_us),
+                "id" => $id,
+            ]);   
+            }
         }
 
         public function sanpham(){
@@ -92,6 +99,18 @@
                     ]
                 );
             }     
+        }
+
+        public function danhmuc(){
+            //model
+            $model = $this -> model('adminPro');
+            //view
+
+            $this -> view('admin',
+            [
+                "viewpart" => "danhmucsp",
+                "arrDM" => $model -> selectDanhMuc(),
+            ]);
         }
     }
 
