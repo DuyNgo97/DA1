@@ -55,6 +55,18 @@
                         <i class="fas fa-users"></i>
                         <div>Quản lí tài khoản</div>
                     </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="" target="_self">
+                                phân quyền
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_self">
+                                thêm mã khuyến mãi
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li>

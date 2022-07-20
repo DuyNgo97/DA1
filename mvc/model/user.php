@@ -75,7 +75,7 @@
                 INNER JOIN infor b 
                 ON a.us_id = b.id_info where us_id = 1";
                 $result = mysqli_query($this -> conn,$sql);
-                $arr = mysqli_fetch_all($result);
+                $arr = mysqli_fetch_assoc($result);
                 return json_encode($arr);
             }
 
