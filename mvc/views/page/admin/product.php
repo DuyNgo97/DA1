@@ -1,3 +1,69 @@
+<style>
+h1 {
+    font-size: 30px;
+    color: black;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    /* position: absolute; */
+    /* overflow-x: auto; */
+    /* table-layout: fixed;  */
+}
+
+th {
+    height: 50px;
+    width: 100px;
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 16px;
+    color: black;
+    border-bottom: solid 1px #25c481;
+
+}
+
+td img {
+    height: 100px;
+    width: 200px;
+}
+
+
+/* demo styles */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+thead {
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4);
+    font-family: 'Roboto', sans-serif;
+}
+
+section {
+    margin: 50px;
+    overflow: auto;
+}
+
+
+
+
+/* for custom scrollbar for webkit browser*/
+</style>
 <div class="main">
     <?php
             if(isset($data["arrSP"])){
@@ -5,126 +71,71 @@
                 // var_dump($arr);
             }
             ?>
-    <section class="dashboard">
-        <div class="top">
-            <i class="uil uil-bars sidebar-toggle"></i>
+    <!-- new  -->
+    <section>
+        <!--for demo wrap-->
+        <h1>Danh sách sản phẩm</h1>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
 
-
-
-            <!--<img src="images/profile.jpg" alt="">-->
+            </table>
         </div>
-
-
-
-        <div class="dash-content" id="product">
-
-
-            <div class="activity">
-                <div class="title">
-                    <i class='bx bx-box'></i>
-                    <span class="text">Product</span>
-                </div>
-                <?php
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Hình chính</th>
+                        <th>HÌnh 1</th>
+                        <th>Hình 2</th>
+                        <th>HÌnh 3</th>
+                        <th>Hình 4</th>
+                        <th>color</th>
+                        <th>Giá tiền</th>
+                        <th>Số lượng</th>
+                        <th>Nhà sản xuất</th>
+                        <th>Mô tả</th>
+                        <th>Trạng thái</th>
+                        <th>Thể loại</th>
+                        <th>Mẫu mã</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
                     foreach ($arr as $key => $a) { ?>
-                <div class="activity-data">
-                    <div class="data names">
-                        <span class="data-title" style="width: 120px;text-align: center;">ID</span>
-                        <span class="data-list data__list-style-name"><?= $a[0] ?></span>
-                    </div>
-                    <div class="data email">
-                        <span class="data-title " style="width: 200px; text-align: center;">Tên sản phẩm</span>
-                        <span class="data-list data__list-style-name"><?= $a[1] ?></span>
-                    </div>
-                    <div class="data data joined">
-                        <span class="data-title" style="text-align: center;">Hình</span>
-                        <span class="data-list data__list-style-image"><img style="width: 42px;
-                            height: 42px;
-                            margin: 12px;
-                            border: 1px solid #9999;" src="public/images/<?= $a[13] ?>" alt=""></span>
-                    </div>
-                    <div class="data data joined">
-                        <span class="data-title" style="text-align: center;">Image1</span>
-                        <span class="data-list data__list-style-image"><img style="width: 42px;
-                            height: 42px;
-                            margin: 12px;
-                            border: 1px solid #9999;" src="public/images/<?= $a[14] ?>" alt=""></span>
-                    </div>
-                    <div class="data type">
-                        <span class="data-title" style="text-align: center;">Image2</span>
-                        <span class="data-list data__list-style-image"><img style="width: 42px;
-                            height: 42px;
-                            margin: 12px;
-                            border: 1px solid #9999;" src="public/images/<?= $a[15] ?>" alt=""></span>
-                    </div>
-                    <div class="data status">
-                        <span class="data-title" style="text-align: center;">Image3</span>
-                        <span class="data-list data__list-style-image"><img style="width: 42px;
-                            height: 42px;
-                            margin: 12px;
-                            border: 1px solid #9999;" src="public/images/<?= $a[16] ?>" alt=""></span>
-                    </div>
-                    <div class="data status">
-                        <span class="data-title" style="text-align: center;">Image4</span>
-                        <span class="data-list data__list-style-image"><img style="width: 42px;
-                            height: 42px;
-                            margin: 12px;
-                            border: 1px solid #9999;" src="public/images/<?= $a[17] ?>" alt=""></span>
-                    </div>
-                    <div class="data status">
-                        <span class="data-title" style="width: 100px;text-align: center;">Color</span>
-                        <span class="data-list data__list-style-name"><?= $a[3] ?></span>
-                    </div>
-                    <div class="data status">
-                        <span class="data-title" style="text-align: center;">Giá tiền</span>
-                        <span class="data-list data__list-style-name"><?= $a[2] ?></span>
-                    </div>
-                    <div class="data status">
-                        <span class="data-title" style="width: 100px;text-align: center;">Số lượng</span>
-                        <span class="data-list data__list-style-name"><?= $a[4] ?></span>
-                    </div>
-                    <div class="data status">
-                        <span class="data-title" style="width: 200px;text-align: center;">Nhà sản xuất</span>
-                        <span class="data-list data__list-style-name"><?= $a[10] ?></span>
-                    </div>
-                    <div class="data status">
-                        <span class="data-title" style="width: 300px; overflow: auto; text-align: center;">Mô tả</span>
-                        <span class="data-list data__list-style-name"><?= $a[7] ?></span>
-                    </div>
-                    <div class="data status" style="width: 100px;">
-                        <?php
+                    <tr>
+                        <td><?= $a[0] ?></td>
+                        <td><?= $a[1] ?></td>
+                        <td><img src="public/images/<?= $a[13] ?>" alt=""></td>
+                        <td><img src="public/images/<?= $a[14] ?>" alt=""></td>
+                        <td><img src="public/images/<?= $a[15] ?>" alt=""></td>
+                        <td><img src="public/images/<?= $a[16] ?>" alt=""></td>
+                        <td><img src="public/images/<?= $a[17] ?>" alt=""></td>
+                        <td><?= $a[3] ?></td>
+                        <td><?= $a[2] ?></td>
+                        <td><?= $a[4] ?></td>
+                        <td><?= $a[10] ?></td>
+                        <td><textarea name="" id="" cols="30" rows="10"><?= $a[7] ?></textarea></td>
+                        <td><?php
                             if($a[6] == 'Còn hàng'){
                                 $trangthai = 'Green';
                             }else{
                                 $trangthai = 'Red';
                             }
                         ?>
-                        <span class="data-title" style="text-align: center;">Trạng thái</span>
-                        <span class="data-list data__list-style-name"
-                            style="color: <?= $trangthai ?>;"><?= $a[6] ?></span>
-                    </div>
-                    <div class="data status" style="width: 100px;">
-                        <span class="data-title" style="text-align: center;">Thể loại</span>
-                        <span class="data-list data__list-style-name"><?= $a[11] ?></span>
-                    </div>
-                    <div class="data status" style="width: 150px;">
-                        <span class="data-title" style="text-align: center;">Mẫu mã</span>
-                        <span class="data-list data__list-style-name"><?= $a[12] ?></span>
-                    </div>
-                    <div class="data status" style="width: 100px;">
-                        <span class="data-title" style="text-align: center;">Edit</span>
-                        <span class="data-list data__list-style-name"><button>Sửa</button></span>
-                    </div>
-                    <div class="data status" style="width: 100px;">
-                        <span class="data-title" style="text-align: center;">Delete</span>
-                        <span class="data-list data__list-style-name"><button>Xoá</button></span>
-                    </div>
-                </div>
-                <?php }
-                ?>
-
-            </div>
-
-
-
+                            <?= $a[6] ?>
+                        </td>
+                        <td><?= $a[11] ?></td>
+                        <td><?= $a[12] ?></td>
+                        <td><button>Sửa</button></td>
+                        <td><button>Xoá</button></td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
     </section>
 </div>
