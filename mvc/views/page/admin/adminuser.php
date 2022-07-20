@@ -1,12 +1,12 @@
 <style>
       .content-table{
     border-collapse: collapse;
-    margin: 20px 150px;
+    margin: 20px 90px;
     font-size: 1.2em;
     min-width: 1000px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
-    box-shadow: 0 0 5px rgba(0,0,0,15);
+    box-shadow: 0 0 1.5px rgba(0,0,0,15);
    }
 
    .content-table thead tr{
@@ -16,7 +16,7 @@
     font-weight: bold;
    }
    .content-table th, .content-table td {
-    padding: 12px 15px;
+    padding: 12px 12px;
    }
 
    .content-table tbody tr {
@@ -56,11 +56,12 @@
             <thead>
                 <th scope="col">ID</th>
                 <th scope="col">tài khoản</th>
-                <th scope="col">mật khẩu</th>
-                <th scope="col">id_vaitro</th>
-                <th scope="col">id_info</th>
-                <th scope="col">id_voucher</th>
-                <th scope="col">id_danhgia</th>
+                <th scope="col">vai trò</th>
+                <th scope="col">Tên</th>
+                <th scope="col">email</th>
+                <th scope="col">dia chi</th>
+                <th scope="col">ngày tạo</th>
+                <th scope="col">số điện thoại</th>
                 <th scope="col">Sửa</th>
                 <th scope="col">Xóa</th>
             </thead>
@@ -70,13 +71,14 @@
             <tr>
                 <td><?=$u[0] ?></td>
                 <td><?=$u[1] ?></td>
-                <td><?=$u[2] ?></td>
                 <td><?=$u[3] ?></td>
                 <td><?=$u[4] ?></td>
                 <td><?=$u[5] ?></td>
                 <td><?=$u[6] ?></td>
-                <td><a href="#">Sửa</a></td>
-                <td><a href="#">Xóa</a></td>
+                <td><?=$u[7] ?></td>
+                <td><?=$u[8] ?></td>
+                <td><a href="admin/edituser"><button>Sửa</button></a></td>
+                <td><a href="#"><button>Xóa</button></a></td>
             </tr>
 
             <?php    }
