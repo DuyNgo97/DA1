@@ -1,3 +1,15 @@
+<?php
+    $arrPQ = ['ADMIN','CTV'];
+    if(!in_array($_SESSION['vaitro'],$arrPQ)){
+		// header('location: http://localhost/mvc-training/home');
+		echo '
+			<script>
+			alert("Bạn không đủ quyền truy cập!");
+			window.location = "http://localhost/da1/home";
+			</script>
+		';
+	} 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,6 +67,18 @@
                         <i class="fas fa-users"></i>
                         <div>Quản lí tài khoản</div>
                     </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="" target="_self">
+                                phân quyền
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_self">
+                                thêm mã khuyến mãi
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li>
@@ -71,6 +95,11 @@
                         <li>
                             <a href="admin/addsanpham" target="_self">
                                 Thêm sản phẩm
+                            </a>
+                        </li>
+                        <li>
+                            <a href="admin/danhmuc" target="_self">
+                                Thêm danh mục
                             </a>
                         </li>
                         <li>

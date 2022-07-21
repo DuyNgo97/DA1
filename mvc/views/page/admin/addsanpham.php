@@ -14,8 +14,18 @@
             <i class='bx bxl-dropbox'></i>
             <h1>Thêm sản phẩm</h1>
         </div>
+        <?php
+            if(isset($data['check'])){
+                if(!$data['check']){
+                    echo '<h1>File đã tồn tại!!!</h1>';
+                }else{
+                    echo '<h1>Thêm sản phẩm thành công</h1>';
+                    // echo $data['check'];
+                }
+            }
+        ?>
         <div class="activity-data">
-            <form action="admin" method="POST" enctype="multipart/form-data">
+            <form action="admin/resultAddsanpham" target="_self" method="POST" enctype="multipart/form-data">
                 <div class="colum-big">
                     <div class="colum-pro">
                         <div class="data status"><a class="data-list">Tên sản phẩm</a></div>
@@ -71,36 +81,48 @@
                     <div class="colum-pro">
                         <div class="data status"><a class="data-list">Hình sản phẩm</a></div>
                         <div class="dbl-field">
+                            <div class="img_upp" width="250px" height="100px"></div>
+                            <!-- <img src="public/images/410x560.webp" width="200px" height="100px" class="upimg" alt=""> -->
                             <div class="field">
-                                <input type="file" name="image" placeholder="ImageMain">
+
+                                <input type="file" class="imgPre" name="image" onchange="preimg()"
+                                    placeholder="ImageMain">
 
                             </div>
                         </div>
                         <div class="data status"><a class="data-list">Image1</a></div>
                         <div class="dbl-field">
+                            <div class="img_upp1" width="250px" height="100px"></div>
                             <div class="field">
-                                <input type="file" name="image1" placeholder="Image1">
+                                <input type="file" class="imgPre1" name="image1" onchange="preimg1()"
+                                    placeholder="Image1">
 
                             </div>
                         </div>
                         <div class="data status"><a class="data-list">Image2</a></div>
                         <div class="dbl-field">
+                            <div class="img_upp2" width="250px" height="100px"></div>
                             <div class="field">
-                                <input type="file" name="image2" placeholder="Image2">
+                                <input type="file" class="imgPre2" name="image2" placeholder="Image2"
+                                    onchange="preimg2()">
 
                             </div>
                         </div>
                         <div class="data status"><a class="data-list">Image3</a></div>
                         <div class="dbl-field">
                             <div class="field">
-                                <input type="file" name="image3" placeholder="Image3">
+                                <div class="img_upp3" width="250px" height="100px"></div>
+                                <input type="file" class="imgPre3" name="image3" placeholder="Image3"
+                                    onchange="preimg3()">
 
                             </div>
                         </div>
                         <div class="data status"><a class="data-list">Image4</a></div>
                         <div class="dbl-field">
                             <div class="field">
-                                <input type="file" name="image4" placeholder="Image4">
+                                <div class="img_upp4" width="250px" height="100px"></div>
+                                <input type="file" class="imgPre4" name="image4" placeholder="Image4"
+                                    onchange="preimg4()">
 
                             </div>
                         </div>
@@ -156,8 +178,11 @@
                             <textarea placeholder="Description" name="mota" rows="4" cols="50"></textarea>
                         </div>
                     </div>
+                    <div>
+
+                    </div>
                     <div class="button-area">
-                        <button type="submit">Thêm</button>
+                        <button type="submit" name="btn-addsp">Thêm</button>
                     </div>
                 </div>
             </form>
