@@ -1,6 +1,6 @@
 <?php
 
-class productTest extends db
+class product extends db
 {
     // Lấy danh sách sản phẩm
     public function selectAllProduct()

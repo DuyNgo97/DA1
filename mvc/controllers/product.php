@@ -15,4 +15,18 @@ class product extends controller
             ]
         );
     }
+
+    public function testproduct()
+    {
+        // model
+        $test = $this->model("selectAllProduct");
+
+        // view
+        $this->view(
+            "product",
+            [
+                // code
+            ]
+        );
+    }
 }
