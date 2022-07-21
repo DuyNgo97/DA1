@@ -15,23 +15,4 @@ class product extends controller
             ]
         );
     }
-
-    public function testproduct()
-    {
-        // model
-        $test = $this->model("productDB");
-
-        // view
-        $this->view(
-            "product",
-            [
-                'viewpart' => 'sanpham',
-                'arrSP' => $test -> selectAllProduct(),
-            ]
-        );
-    }
-
-    public function sanphamcuaxe(){
-        
-    }
 }
