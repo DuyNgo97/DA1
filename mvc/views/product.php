@@ -35,11 +35,13 @@
                                 <img src="public/images/car_3.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
@@ -63,7 +65,7 @@
                                     <a class="nav-link active" aria-current="page" href="#">Tất cả</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Cửa xe</a>
+                                    <a class="nav-link" href="product/sanphamcuaxe">Cửa xe</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Đèn</a>
@@ -91,7 +93,8 @@
                         <div class="border-s col-5 col-md-4 d-flex justify-content-center align-item-center">
                             <span style="padding: 6px 12px">Sắp xếp:</span>
                             <div class="dropdown">
-                                <button class="btn dropdown-toggle border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn dropdown-toggle border-0" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     Mặc định
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -106,17 +109,17 @@
                     <!-- Show sản phẩm -->
                     <div class="product-show-main d-flex row mt-3">
                         <!-- item -->
-                        <div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
+                        <!-- <div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
                             <div class="item-info mb-3 p-2 border-s position-relative">
-                                <!-- Không được xoá đoạn code comment dưới này !!! -->
-                                <!-- <div class="tag-item position-absolute top-5 start-10">
+                                Không được xoá đoạn code comment dưới này !!!
+                                <div class="tag-item position-absolute top-5 start-10">
                                     <div class="discout-item mb-1">
                                         <span> - 10% </span>
                                     </div>
                                     <div class="new-item mb-1">
                                         <span> Mới </span>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="img-thumbnail">
                                     <img class="mw-100" src="public/images/den-1.png" alt="">
                                 </div>
@@ -154,7 +157,8 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
+                        <?php require_once'mvc/views/page/product/'.$data['viewpart'].'.php' ?>
                         <!-- end item -->
                     </div>
                     <div class="navigation-s d-flex justify-content-center mt-3">

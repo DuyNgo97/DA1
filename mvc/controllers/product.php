@@ -19,14 +19,19 @@ class product extends controller
     public function testproduct()
     {
         // model
-        $test = $this->model("selectAllProduct");
+        $test = $this->model("productDB");
 
         // view
         $this->view(
             "product",
             [
-                // code
+                'viewpart' => 'sanpham',
+                'arrSP' => $test -> selectAllProduct(),
             ]
         );
+    }
+
+    public function sanphamcuaxe(){
+        
     }
 }

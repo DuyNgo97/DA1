@@ -1,6 +1,6 @@
 <?php
 
-class product extends db
+class productDB extends db
 {
     // Lấy danh sách sản phẩm
     public function selectAllProduct()
@@ -11,4 +11,6 @@ class product extends db
 
         return json_encode($arr);
     }
+
+    
 }
