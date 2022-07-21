@@ -119,6 +119,53 @@
                 "arrDM" => $model -> selectDanhMuc(),
             ]);
         }
+
+        public function addDanhMuc(){
+            if(isset($_POST['btn-add'])){
+                $tendm =$_POST['name-dm'];
+
+                //model
+                    $model = $this -> model('adminPro');
+                //view
+                $this->view("admin",[
+                    "viewpart" => "danhmucsp",
+                    "arrDM" => $model -> selectDanhMuc(),
+                    "check" => $model -> insertDM($tendm),
+                ]);
+            }
+        }
+
+        public function voucher(){
+
+            //model
+            $model = $this -> model('adminPro');
+
+            //view
+            $this -> view ("admin",[
+                "viewpart" => "vouchersp",
+                "arrVC" => $model -> selectVoucher(),
+            ]);
+        }
+
+        public function Addvoucher(){
+            if(isset($_POST['btn-add'])){
+                $tenvc = $_POST['name-vc'];
+                $mavc = $_POST['ma-vc'];
+                $giamgia = $_POST['giamgia'];
+                $dateTao = $_POST['date-tao'];
+                $dateKT = $_POST['date-ketthuc'];
+            //model
+            $model = $this -> model('adminPro');
+                
+            //view
+            $this -> view ("admin",[
+                "viewpart" => "vouchersp",
+                "arrVC" => $model -> selectVoucher(),
+                "check" => $model -> insertVoucher($tenvc,$mavc,$giamgia,$dateTao,$dateKT),
+            ]);
+            
+        }
+        }
     }
 
 ?>
