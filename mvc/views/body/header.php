@@ -93,7 +93,9 @@
                                 </div>
                                 <?php
 
-                                }else{ ?>
+                                
+
+                            } else { ?>
                                 <i class="bi bi-person-fill"></i>
                                 <div class="dropdown-menu dropdown-menu-start p-3">
                                     <div class="drop-account">
@@ -117,9 +119,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php
-                            }
-                            ?>
+                                <!-- } else { ?> -->
+                                <!-- <a href="login" target="_self"><i class="bi bi-person-fill"></i></a> -->
+                                <?php }
+                                ?>
                         </a>
                     </li>
                     <!-- cart -->
