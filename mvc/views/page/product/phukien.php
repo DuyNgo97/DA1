@@ -1,34 +1,25 @@
-<?php
-if(isset($data['arrSP'])){
-    $arrSP = json_decode($data['arrSP']);
-    // var_dump(json_decode($data['arrSP']));
-}
-    foreach ($arrSP as $key => $a) { ?>
-
-<?php }
-?>
-<!-- <div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
+<div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
     <div class="item-info mb-3 p-2 border-s position-relative">
-        Không được xoá đoạn code comment dưới này !!!
-        <div class="tag-item position-absolute top-5 start-10">
+        <!-- Không được xoá đoạn code comment dưới này !!! -->
+        <!-- <div class="tag-item position-absolute top-5 start-10">
             <div class="discout-item mb-1">
                 <span> - 10% </span>
             </div>
             <div class="new-item mb-1">
                 <span> Mới </span>
             </div>
-        </div>
+        </div> -->
         <div class="img-thumbnail">
             <img class="mw-100" src="public/images/den-1.png" alt="">
         </div>
         <div class="mb-2 mt-2">
             <div class="product-name">
                 <a class="fs-5" href="spct" target="_self">
-                    Đèn xe cao cấp loại 1
+                    Phụ kiện
                 </a>
             </div>
             <div class="product-cate">
-                <span>Đèn xe</span>
+                <span>Phụ kiện</span>
             </div>
             <div class="product-price">
                 Giá: <span>2.000.000đ</span>
@@ -55,4 +46,4 @@ if(isset($data['arrSP'])){
             </a>
         </div>
     </div>
-</div> -->
+</div>
