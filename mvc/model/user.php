@@ -60,27 +60,44 @@
 
         //user
             public function selectAllUser(){
-                $sql = "SELECT a.us_id,a.us_taikhoan,a.us_password,b.name_vaitro,c.name,c.email,c.diachi,c.ngaytao,c.sdt 
-                FROM userss a INNER JOIN vaitro b 
-                ON a.us_id = b.id_vaitro 
-                INNER JOIN infor c 
-                ON a.us_id = c.id_info";
+                $sql = "SELECT a.us_id,a.us_taikhoan,a.us_password,b.name_vaitro,c.name,c.email,c.diachi,c.ngaytao,c.sdt FROM userss a 
+                INNER JOIN vaitro b ON a.id_vaitro= b.id_vaitro 
+                INNER JOIN infor c ON a.id_info = c.id_info";
                 $result = mysqli_query($this -> conn,$sql);
                 $arr = mysqli_fetch_all($result);
                 return json_encode($arr);
+                // b.name_vaitro,INNER JOIN vaitro b 
+                // ON a.us_id = b.id_vaitro 
             }
 
-            public function Edit(){
-                $sql ="SELECT a.us_id,a.us_taikhoan,a.us_password,b.email,b.sdt FROM userss a 
-                INNER JOIN infor b 
-                ON a.us_id = b.id_info where us_id = 1";
+            public function Edit($id){
+                $sql ="SELECT * FROM `userss`a INNER JOIN `infor` b  ON a.us_id = b.id_info
+                 WHERE `us_id` = '$id'";
                 $result = mysqli_query($this -> conn,$sql);
-                $arr = mysqli_fetch_assoc($result);
+                $arr = mysqli_fetch_all($result);
                 return json_encode($arr);
+                
             }
 
-            public function Update(){
-                
+            public function Update($id,$password){
+                $check= false;
+                $sql="UPDATE `userss` SET us_password = $password WHERE `us_id` =  $id";
+                $result = mysqli_query($this -> conn,$sql);
+                // $arr = mysqli_fetch_assoc($result);
+                // return json_encode($arr);
+                if($result){
+                     $check = true;
+                }
+                return $check;
+            }
+            public function Delete($id){
+                $check= false;
+                $sql = "DELETE userss.*,infor.* FROM userss JOIN infor ON infor.id_info = userss.id_info WHERE userss.us_id = '$id'";
+                $result = mysqli_query($this -> conn,$sql);
+                if($result){
+                    $check = true;
+               }
+               return $check;
             }
     }
 ?>
