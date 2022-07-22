@@ -14,6 +14,8 @@ class product extends controller
                 "category" => "category",
                 "viewpart" => "show",
                 "arrCategory" => $model->getCategory(),
+                "arrCategoryXe" => $model->getCategoryXe(),
+                "arrCategoryPk" => $model->getCategoryPk(),
             ]
         );
     }
@@ -30,6 +32,8 @@ class product extends controller
                 "category" => "category",
                 "viewpart" => "xeoto",
                 "arrCategory" => $model->getCategory(),
+                "arrCategoryXe" => $model->getCategoryXe(),
+                "arrCategoryPk" => $model->getCategoryPk(),
             ]
         );
     }
@@ -46,6 +50,8 @@ class product extends controller
                 "category" => "category",
                 "viewpart" => "phukien",
                 "arrCategory" => $model->getCategory(),
+                "arrCategoryXe" => $model->getCategoryXe(),
+                "arrCategoryPk" => $model->getCategoryPk(),
             ]
         );
     }
