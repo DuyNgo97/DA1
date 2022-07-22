@@ -40,8 +40,10 @@
 	<link href="form-validation.css" rel="stylesheet">
 </head>
 <?php
-require_once 'mvc/views/body/header.php'
+require_once 'mvc/views/body/header.php';
 ?>
+
+
 
 <body class="bg-light">
 	<div class="container">
@@ -52,7 +54,13 @@ require_once 'mvc/views/body/header.php'
 
 		<div class="row">
 			<div class="col-md-4 order-md-2 mb-4">
-				<h4 class="d-flex justify-content-between align-items-center mb-3">
+
+			<!--Mini cart -->
+			<?php
+				require_once "mvc/views/checkouts/minicart.php";
+			?>
+			
+				<!-- <h4 class="d-flex justify-content-between align-items-center mb-3">
 					<span class="text-muted">Giỏ hàng</span>
 					<span class="badge badge-secondary badge-pill">3</span>
 				</h4>
@@ -97,8 +105,9 @@ require_once 'mvc/views/body/header.php'
 						<div class="input-group-append">
 							<button type="submit" class="btn btn-secondary">Redeem</button>
 						</div>
-					</div>
+					</div> -->
 				</form>
+				<!-- end minicart -->
 			</div>
 			<div class="col-md-8 order-md-1">
 				<h4 class="mb-3">Thông tin và địa chỉ nhận hàng</h4>
@@ -269,3 +278,5 @@ require_once 'mvc/views/body/header.php'
                 });
             });
         </script>
+
+
