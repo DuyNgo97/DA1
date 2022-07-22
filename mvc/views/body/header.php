@@ -64,14 +64,9 @@
                         <a href="#" tabindex="0" class="nav-link fs-4" data-bs-toggle="dropdown" aria-expanded="false"
                             data-bs-auto-close="outside">
                             <?php
-<<<<<<< HEAD
                             if (isset($_SESSION['nameUS'])) {
                             ?>
                             <!-- <i class="bi bi-person-fill"></i><?= $_SESSION['nameUS'] ?> -->
-=======
-                                if(isset($_SESSION['nameUS'])){
-                                    ?>
->>>>>>> duy
                             <i class="bi bi-person-fill"></i><span
                                 style="font-size: 18px; font-style: italic; color: green;"><?= $_SESSION['vaitro'] ?></span>
                             <div class="dropdown-menu dropdown-menu-start p-3">
@@ -122,14 +117,9 @@
                                         </div>
                                     </div>
                                 </div>
-<<<<<<< HEAD
-                                <?php
-                            }
-=======
                                 <!-- } else { ?> -->
                                 <!-- <a href="login" target="_self"><i class="bi bi-person-fill"></i></a> -->
                                 <?php }
->>>>>>> duy
                             ?>
                         </a>
                     </li>
