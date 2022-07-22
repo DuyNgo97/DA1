@@ -51,7 +51,7 @@
     <?php
             if(isset($data["arrUs"])){
                 $arr = json_decode($data["arrUs"]);
-                 var_dump($arr);
+                //  var_dump($arr);
             }
             ?>
     <div class="a">
