@@ -99,5 +99,40 @@
                }
                return $check;
             }
+            // phân quyền
+            public function pq(){
+                $sql ="SELECT a.us_id , a.us_taikhoan,b.name_vaitro FROM `userss` a 
+                INNER JOIN `vaitro` b ON a.id_vaitro = b.id_vaitro WHERE a.id_vaitro in (1,2,3)";
+                $result = mysqli_query($this-> conn,$sql);
+                $arr = mysqli_fetch_all($result);
+                return json_encode($arr);
+            }
+            public function vt(){
+                $sql= "SELECT * FROM `vaitro` where id_vaitro in (2,3)";
+                $result = mysqli_query($this-> conn,$sql);
+                $arr = mysqli_fetch_all($result);
+                return json_encode($arr);
+            }
+            public function editpq($id){
+                $sql ="SELECT a.us_id , a.us_taikhoan,b.name_vaitro FROM `userss` a 
+                INNER JOIN `vaitro` b ON a.id_vaitro = b.id_vaitro WHERE a.id_vaitro in (1,3) AND a.us_id ='$id' ";
+                $result = mysqli_query($this-> conn,$sql);
+                $arr = mysqli_fetch_all($result);
+                return json_encode($arr);
+
+            }
+
+            public function updatepq($id,$vaitro){
+                $check=false; 
+                $sql=" UPDATE `userss` SET `id_vaitro`= '$vaitro' WHERE us_id = '$id'";
+                $result = mysqli_query($this-> conn,$sql);
+                // $arr = mysqli_fetch_all($result);
+                // return json_encode($arr);
+                if($result){
+                    $check=true; 
+                }
+                return $check;
+
+            }
     }
 ?>

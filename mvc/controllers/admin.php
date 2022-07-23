@@ -57,6 +57,44 @@
             ]);
      }
     
+        // phan quyen
+            public function pq(){
+                $model = $this ->model('user');
+                $this -> view("admin",[
+                    "viewpart" => "pq",
+                    "arrPq" => $model -> pq(),  
+                     
+                ]);
+            }
+            public function Editpq($id){
+                $i = $id;
+                $model = $this ->model('user');
+                $this -> view("admin",[
+                    "viewpart" => "Pqedit",
+                    "id" => $i,
+                    "arrEpq" =>$model ->editpq($id),
+                    "arrvt" =>$model ->vt(),
+
+                ]);    
+            }
+
+            public function Updatepq(){
+                if(isset($_POST['submit'])){
+                    $id = $_POST['us_id'];
+                     $vaitro=$_POST['vt'];
+                     $model = $this -> model('user');
+                     $this -> view("admin",[
+                         "viewpart" => "pq",
+                         "id" => $id,
+                         "arrEpq" =>$model ->editpq($id),
+                         "check" =>$model ->updatepq($id,$vaitro),
+                         
+                         "arrvt" =>$model ->vt(),
+                         "arrPq" => $model -> pq(),  
+                        
+                        ]); 
+                }
+            }
 
         public function sanpham(){
             //model

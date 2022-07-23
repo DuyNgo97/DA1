@@ -69,13 +69,8 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="" target="_self">
+                            <a href="admin/pq" target="_self">
                                 phân quyền
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" target="_self">
-                                thêm mã khuyến mãi
                             </a>
                         </li>
                     </ul>
