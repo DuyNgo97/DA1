@@ -44,8 +44,8 @@ table {
 }
 
 .tbl-content1 {
-    height: 200px;
-    width: 300px;
+    /* height: 200px; */
+    /* width: 300px; */
     overflow-x: auto;
     margin-top: 0px;
     border: 1px solid #25c481;
@@ -57,6 +57,7 @@ table {
 tr {
     margin: 25px 0;
     background-color: #fff;
+    position: relative;
 
 }
 
@@ -119,8 +120,7 @@ th {
     font-size: 16px;
     color: black;
     text-transform: uppercase;
-    border: 1px solid #25c481;
-    position: relative;
+    /* border: 1px solid #25c481; */
 
 }
 
@@ -152,10 +152,12 @@ section {
 
 .add-danhmuc {
     height: 100%;
-    width: 100%;
+    width: 80%;
     background-color: white;
     box-sizing: border-box;
     padding-top: 25px;
+    margin-left: 10%;
+    padding-left: 5%;
     /* padding-left: 10%; */
 }
 
@@ -197,9 +199,9 @@ section {
 </style>
 <div class="main">
     <?php
-        if(isset($data['arrDM'])){
-            $arrDM = json_decode($data['arrDM']);
-            // var_dump($arrDM);
+        if(isset($data['arrVC'])){
+            $arrVC = json_decode($data['arrVC']);
+            // var_dump($arrVC);
         }
     ?>
 
@@ -208,33 +210,48 @@ section {
         <?php
             if(isset($data['check'])){
                 if(json_decode($data['check'])){
-                    echo '<h1 class = "title">Thêm danh mục thành công</h1>';
+                    echo '<h1 class = "title">Thêm voucher thành công</h1>';
                 }else{
-                    echo '<h1 class = "title">Thêm danh thất bại!!!</h1>';
+                    echo '<h1 class = "title">Thêm voucher thất bại!!!</h1>';
                 }
             }
         ?>
         <div class="tbl-header">
-            <h1>Danh sách danh mục</h1>
+            <h1>Danh sách voucher</h1>
         </div>
         <div class="tbl-content">
             <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên voucher</th>
+                        <th>Mã voucher</th>
+                        <th>Mức giảm</th>
+                        <th>Ngày bắt đầu</th>
+                        <th>Ngày kết thúc</th>
+                    </tr>
+                </thead>
                 <?php
-                    foreach ($arrDM as $key => $dm) { ?>
+                    foreach ($arrVC as $key => $arr) { ?>
                 <tr>
                     <th>
-                        <div class="edit">
+                        <!-- <div class="edit">
                             <a href="">EDIT</a>
-                        </div>
-                        <?= $dm[1] ?>
-                        <div class="edit">
+                        </div> -->
+                        <?= $arr[0] ?>
+                        <!-- <div class="edit">
                             <a href="">XÓA</a>
-                        </div>
+                        </div> -->
                     </th>
-
+                    <th><?= $arr[1] ?></th>
+                    <th><?= $arr[2] ?></th>
+                    <th><?= $arr[3] ?></th>
+                    <th><?= $arr[4] ?></th>
+                    <th><?= $arr[5] ?></th>
                 </tr>
                 <?php }
                 ?>
+
                 <!-- <tr>
                     <th>Tên danh mục</th>
                 </tr> -->
@@ -242,12 +259,20 @@ section {
         </div>
 
         <div class="tbl-header1">
-            <h1>Thêm danh mục</h1>
+            <h1>Thêm voucher</h1>
         </div>
         <div class="tbl-content1">
-            <form action="admin/addDanhMuc" class="add-danhmuc" method="POST" target="_self">
-                <label for="">Tên danh mục</label><br>
-                <input type="text" name="name-dm"><br>
+            <form action="admin/Addvoucher" class="add-danhmuc" method="POST" target="_self">
+                <label for="">Tên voucher</label><br>
+                <input type="text" name="name-vc"><br><br>
+                <label for="">Mã voucher</label><br>
+                <input type="text" name="ma-vc"><br><br>
+                <label for="">Mức giảm giá</label><br>
+                <input type="text" name="giamgia"><br><br>
+                <label for="">Ngày bắt đầu</label><br>
+                <input type="date" name="date-tao"><br><br>
+                <label for="">Ngày kết thúc</label><br>
+                <input type="date" name="date-ketthuc"><br><br>
                 <button name="btn-add" class="add-form1">Thêm</button>
             </form>
         </div>
