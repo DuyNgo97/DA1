@@ -168,9 +168,37 @@ class admin extends controller
             
         }
         }
+
+        public function deleteVoucher($id){
+            //model
+            $model = $this -> model('adminPro');
+
+            //view
+            $this -> view ("admin",[
+                "viewpart" => "vouchersp",
+                "arrVC" => $model -> selectVoucher(),
+                "delete" => $model ->deleteVC($id),
+            ]);
+        }
     
 
     public function danhmuc()
+    {
+        //model
+        $model = $this->model('adminPro');
+        
+        //view
+
+        $this->view(
+            'admin',
+            [
+                "viewpart" => "danhmucsp",
+                "arrDM" => $model->selectDanhMuc(),
+            ]
+        );
+    }
+
+    public function deleteDM($id)
     {
         //model
         $model = $this->model('adminPro');
@@ -181,7 +209,52 @@ class admin extends controller
             [
                 "viewpart" => "danhmucsp",
                 "arrDM" => $model->selectDanhMuc(),
+                "delete" => $model -> deleteDM($id), 
             ]
         );
+    }
+
+    public function typeSP(){
+        //model 
+        $model = $this -> model('adminPro');
+
+        //view
+        
+        $this -> view("admin",
+        [
+            "viewpart" => "typeSP",   
+            "arrDM" => $model -> selectArr("loai_sp_chi_tiet"),
+        ]);
+    }
+
+    public function addTypeSP(){
+        if(isset($_POST['btn-add'])){
+            $type = strtoupper($_POST['name-dm']);
+        //model
+
+        $model = $this -> model('adminPro');
+
+        //view
+        $this -> view("admin",
+        [
+            "viewpart" => "typeSP",   
+            "arrDM" => $model -> selectArr("loai_sp_chi_tiet"),
+            "check" => $model -> insertType($type),
+        ]);
+        }
+    }
+
+    public function deleteType($id,$nameType){
+        //model
+
+        $model = $this -> model('adminPro');
+
+        //view
+        $this -> view("admin",
+        [
+            "viewpart" => "typeSP",   
+            "arrDM" => $model -> selectArr("loai_sp_chi_tiet"),
+            "delete" => $model ->deleteType($id,$nameType),
+        ]);
     }
 }

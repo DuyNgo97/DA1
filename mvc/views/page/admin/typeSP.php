@@ -44,8 +44,8 @@ table {
 }
 
 .tbl-content1 {
-    /* height: 200px; */
-    /* width: 300px; */
+    height: 200px;
+    width: 300px;
     overflow-x: auto;
     margin-top: 0px;
     border: 1px solid #25c481;
@@ -57,43 +57,7 @@ table {
 tr {
     margin: 25px 0;
     background-color: #fff;
-    position: relative;
-}
 
-.fail {
-    color: white;
-    background-color: red;
-    transition: all 0.8s;
-}
-
-.fail th:hover {
-    background-color: white;
-    transition: all 0.8s;
-}
-
-.fail th:hover a {
-    color: red;
-    transition: all 0.8s;
-}
-
-.normal {
-    color: black;
-    background-color: #fff;
-    transition: all 0.8s;
-}
-
-.normal a {
-    color: black;
-    transition: all 0.8s;
-}
-
-.normal th:hover {
-    background-color: #25c481;
-    transition: all 0.8s;
-}
-
-.normal th:hover a {
-    color: #fff;
 }
 
 tr:hover .edit:nth-child(1) {
@@ -155,7 +119,8 @@ th {
     font-size: 16px;
     color: black;
     text-transform: uppercase;
-    /* border: 1px solid #25c481; */
+    border: 1px solid #25c481;
+    position: relative;
 
 }
 
@@ -187,12 +152,10 @@ section {
 
 .add-danhmuc {
     height: 100%;
-    width: 80%;
+    width: 100%;
     background-color: white;
     box-sizing: border-box;
     padding-top: 25px;
-    margin-left: 10%;
-    padding-left: 5%;
     /* padding-left: 10%; */
 }
 
@@ -234,23 +197,21 @@ section {
 </style>
 <div class="main">
     <?php
-        if(isset($data['arrVC'])){
-            $arrVC = json_decode($data['arrVC']);
-            // var_dump($arrVC);
+        if(isset($data['arrDM'])){
+            $arrDM = json_decode($data['arrDM']);
+            // var_dump($arrDM);
         }
     ?>
 
     <section>
         <!--for demo wrap-->
         <?php
-            $today = date("Y-m-d");
-            // echo $today;
             if(isset($data['check'])){
                 if(json_decode($data['check'])){
                     // echo '<h1 class = "title">Thêm thành công</h1>';
                     echo '<script>
                     alert("Thêm thành công!!!");
-                    window.location="admin/voucher";
+                    window.location="admin/typeSP";
                     </script>';
                 }else{
                     echo '
@@ -265,7 +226,7 @@ section {
                     echo'
                     <script>
                     alert("Xóa thành công!!!");
-                    window.location="admin/voucher";
+                    window.location="admin/typeSP";
                     </script>
                     ';
                 }else{
@@ -278,67 +239,26 @@ section {
             }
         ?>
         <div class="tbl-header">
-            <h1>Danh sách voucher</h1>
+            <h1>Danh sách thể loại</h1>
         </div>
         <div class="tbl-content">
             <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Tên voucher</th>
-                        <th>Mã voucher</th>
-                        <th>Mức giảm</th>
-                        <th>Ngày bắt đầu</th>
-                        <th>Ngày kết thúc</th>
-                        <th colspan="2">Tác vụ</th>
-                    </tr>
-                </thead>
                 <?php
-                    foreach ($arrVC as $key => $arr) { 
-                        if (strtotime($today) > strtotime($arr[5])) { 
-                            ?>
-                <tr class="fail">
+                    foreach ($arrDM as $key => $dm) { ?>
+                <tr>
                     <th>
-                        <!-- <div class="edit">
+                        <div class="edit">
                             <a href="">EDIT</a>
-                        </div> -->
-                        <?= $arr[0] ?>
-                        <!-- <div class="edit">
-                            <a href="">XÓA</a>
-                        </div> -->
+                        </div>
+                        <?= $dm[1] ?>
+                        <div class="edit">
+                            <a href="admin/deleteType/<?= $dm[0] ?>/<?= $dm[1] ?>" target="_self">XÓA</a>
+                        </div>
                     </th>
-                    <th><?= $arr[1] ?></th>
-                    <th><?= $arr[2] ?></th>
-                    <th><?= $arr[3] ?></th>
-                    <th><?= $arr[4] ?></th>
-                    <th><?= $arr[5] ?></th>
-                    <th><a href="admin/deleteVoucher/<?= $arr[0] ?>" target="_self">Xóa</a></th>
-                    <th><a href="" target="_self">Edit</a></th>
-                </tr>
-                <?php }else{ ?>
-                <tr class="normal">
-                    <th>
-                        <!-- <div class="edit">
-                            <a href="">EDIT</a>
-                        </div> -->
-                        <?= $arr[0] ?>
-                        <!-- <div class="edit">
-                            <a href="">XÓA</a>
-                        </div> -->
-                    </th>
-                    <th><?= $arr[1] ?></th>
-                    <th><?= $arr[2] ?></th>
-                    <th><?= $arr[3] ?></th>
-                    <th><?= $arr[4] ?></th>
-                    <th><?= $arr[5] ?></th>
-                    <th><a href="admin/deleteVoucher/<?= $arr[0] ?>" target="_self">Xóa</a></th>
-                    <th><a href="" target="_self">Edit</a></th>
-                </tr>
-                <?php }
-                ?>
-                <?php }
-                ?>
 
+                </tr>
+                <?php }
+                ?>
                 <!-- <tr>
                     <th>Tên danh mục</th>
                 </tr> -->
@@ -346,20 +266,12 @@ section {
         </div>
 
         <div class="tbl-header1">
-            <h1>Thêm voucher</h1>
+            <h1>Thêm thể loại</h1>
         </div>
         <div class="tbl-content1">
-            <form action="admin/Addvoucher" class="add-danhmuc" method="POST" target="_self">
-                <label for="">Tên voucher</label><br>
-                <input type="text" name="name-vc"><br><br>
-                <label for="">Mã voucher</label><br>
-                <input type="text" name="ma-vc"><br><br>
-                <label for="">Mức giảm giá</label><br>
-                <input type="text" name="giamgia"><br><br>
-                <label for="">Ngày bắt đầu</label><br>
-                <input type="date" name="date-tao"><br><br>
-                <label for="">Ngày kết thúc</label><br>
-                <input type="date" name="date-ketthuc"><br><br>
+            <form action="admin/addTypeSP" class="add-danhmuc" method="POST" target="_self">
+                <label for="">Tên thể loại</label><br>
+                <input type="text" name="name-dm"><br>
                 <button name="btn-add" class="add-form1">Thêm</button>
             </form>
         </div>

@@ -4,6 +4,8 @@ function loadFunction() {
   var dd = today.getDate();
   var mm = today.getMonth() + 1; //January is 0!
   var yyyy = today.getFullYear();
+  var time =
+    today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
 
   if (dd < 10) {
     dd = "0" + dd;
@@ -12,7 +14,7 @@ function loadFunction() {
     mm = "0" + mm;
   }
 
-  today = yyyy + "-" + mm + "-" + dd;
+  today = yyyy + "-" + mm + "-" + dd + "-" + time;
   return today;
 }
 document.getElementById("today").innerHTML =
