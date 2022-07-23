@@ -98,6 +98,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="admin/typeSP" target="_self">
+                                Thể loại sản phẩm
+                            </a>
+                        </li>
+                        <li>
                             <a href="admin/danhmuc" target="_self">
                                 Thêm danh mục
                             </a>
@@ -116,7 +121,24 @@
                         <div>Khuyến mãi</div>
                     </a>
                 </li>
-
+                <li>
+                    <a href="">
+                        <i class="fas fa-users"></i>
+                        Quản lí đơn hàng
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="admin/sanpham" target="_self">
+                                Thống kê
+                            </a>
+                        </li>
+                        <li>
+                            <a href="admin/addsanpham" target="_self">
+                                Thu nhập
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
             </ul>
         </div>

@@ -208,9 +208,33 @@ section {
         <?php
             if(isset($data['check'])){
                 if(json_decode($data['check'])){
-                    echo '<h1 class = "title">Thêm danh mục thành công</h1>';
+                    // echo '<h1 class = "title">Thêm thành công</h1>';
+                    echo '<script>
+                    alert("Thêm thành công!!!");
+                    window.location="admin/danhmuc";
+                    </script>';
                 }else{
-                    echo '<h1 class = "title">Thêm danh thất bại!!!</h1>';
+                    echo '
+                    <script>
+                    alert("Thao tác thất bại!!!");
+                    </script>
+                    ';
+                }
+            }
+            if(isset($data['delete'])){
+                if(json_decode($data['delete'])){
+                    echo'
+                    <script>
+                    alert("Xóa thành công!!!");
+                    window.location="admin/danhmuc";
+                    </script>
+                    ';
+                }else{
+                    echo '
+                    <script>
+                    alert("Thao tác thất bại!!!");
+                    </script>
+                    ';
                 }
             }
         ?>
@@ -228,7 +252,7 @@ section {
                         </div>
                         <?= $dm[1] ?>
                         <div class="edit">
-                            <a href="">XÓA</a>
+                            <a href="admin/deleteDM/<?= $dm[0] ?>" target="_self">XÓA</a>
                         </div>
                     </th>
 
