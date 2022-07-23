@@ -14,44 +14,25 @@ class product extends controller
                 "category" => "category",
                 "viewpart" => "show",
                 "arrCategory" => $model->getCategory(),
-                "arrCategoryXe" => $model->getCategoryXe(),
-                "arrCategoryPk" => $model->getCategoryPk(),
+                // "arrCategoryXe" => $model->getCategoryXe(),
+                // "arrCategoryPk" => $model->getCategoryPk(),
             ]
         );
     }
 
-    public function xeoto()
+    public function changeSP($id)
     {
         // model
         $model = $this->model('productdb');
-
-        // view
+        //view
         $this->view(
             "product",
             [
                 "category" => "category",
-                "viewpart" => "xeoto",
+                "viewpart" => "show",
                 "arrCategory" => $model->getCategory(),
-                "arrCategoryXe" => $model->getCategoryXe(),
-                "arrCategoryPk" => $model->getCategoryPk(),
-            ]
-        );
-    }
-
-    public function phukien()
-    {
-        // model
-        $model = $this->model('productdb');
-
-        // view
-        $this->view(
-            "product",
-            [
-                "category" => "category",
-                "viewpart" => "phukien",
-                "arrCategory" => $model->getCategory(),
-                "arrCategoryXe" => $model->getCategoryXe(),
-                "arrCategoryPk" => $model->getCategoryPk(),
+                "sanpham" => $model->getSp($id),
+                // "arrCategoryPk" => $model->getCategoryPk(),
             ]
         );
     }

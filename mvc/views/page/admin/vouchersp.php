@@ -58,7 +58,42 @@ tr {
     margin: 25px 0;
     background-color: #fff;
     position: relative;
+}
 
+.fail {
+    color: white;
+    background-color: red;
+    transition: all 0.8s;
+}
+
+.fail th:hover {
+    background-color: white;
+    transition: all 0.8s;
+}
+
+.fail th:hover a {
+    color: red;
+    transition: all 0.8s;
+}
+
+.normal {
+    color: black;
+    background-color: #fff;
+    transition: all 0.8s;
+}
+
+.normal a {
+    color: black;
+    transition: all 0.8s;
+}
+
+.normal th:hover {
+    background-color: #25c481;
+    transition: all 0.8s;
+}
+
+.normal th:hover a {
+    color: #fff;
 }
 
 tr:hover .edit:nth-child(1) {
@@ -208,11 +243,37 @@ section {
     <section>
         <!--for demo wrap-->
         <?php
+            $today = date("Y-m-d");
+            // echo $today;
             if(isset($data['check'])){
                 if(json_decode($data['check'])){
-                    echo '<h1 class = "title">Thêm voucher thành công</h1>';
+                    // echo '<h1 class = "title">Thêm thành công</h1>';
+                    echo '<script>
+                    alert("Thêm thành công!!!");
+                    window.location="admin/voucher";
+                    </script>';
                 }else{
-                    echo '<h1 class = "title">Thêm voucher thất bại!!!</h1>';
+                    echo '
+                    <script>
+                    alert("Thao tác thất bại!!!");
+                    </script>
+                    ';
+                }
+            }
+            if(isset($data['delete'])){
+                if(json_decode($data['delete'])){
+                    echo'
+                    <script>
+                    alert("Xóa thành công!!!");
+                    window.location="admin/voucher";
+                    </script>
+                    ';
+                }else{
+                    echo '
+                    <script>
+                    alert("Thao tác thất bại!!!");
+                    </script>
+                    ';
                 }
             }
         ?>
@@ -229,11 +290,14 @@ section {
                         <th>Mức giảm</th>
                         <th>Ngày bắt đầu</th>
                         <th>Ngày kết thúc</th>
+                        <th colspan="2">Tác vụ</th>
                     </tr>
                 </thead>
                 <?php
-                    foreach ($arrVC as $key => $arr) { ?>
-                <tr>
+                    foreach ($arrVC as $key => $arr) { 
+                        if (strtotime($today) > strtotime($arr[5])) { 
+                            ?>
+                <tr class="fail">
                     <th>
                         <!-- <div class="edit">
                             <a href="">EDIT</a>
@@ -248,7 +312,30 @@ section {
                     <th><?= $arr[3] ?></th>
                     <th><?= $arr[4] ?></th>
                     <th><?= $arr[5] ?></th>
+                    <th><a href="admin/deleteVoucher/<?= $arr[0] ?>" target="_self">Xóa</a></th>
+                    <th><a href="" target="_self">Edit</a></th>
                 </tr>
+                <?php }else{ ?>
+                <tr class="normal">
+                    <th>
+                        <!-- <div class="edit">
+                            <a href="">EDIT</a>
+                        </div> -->
+                        <?= $arr[0] ?>
+                        <!-- <div class="edit">
+                            <a href="">XÓA</a>
+                        </div> -->
+                    </th>
+                    <th><?= $arr[1] ?></th>
+                    <th><?= $arr[2] ?></th>
+                    <th><?= $arr[3] ?></th>
+                    <th><?= $arr[4] ?></th>
+                    <th><?= $arr[5] ?></th>
+                    <th><a href="admin/deleteVoucher/<?= $arr[0] ?>" target="_self">Xóa</a></th>
+                    <th><a href="" target="_self">Edit</a></th>
+                </tr>
+                <?php }
+                ?>
                 <?php }
                 ?>
 
