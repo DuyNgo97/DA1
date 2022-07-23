@@ -103,8 +103,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="" target="_self">
-                                Thêm giảm giá
+                            <a href="admin/voucher" target="_self">
+                                Tạo voucher
                             </a>
                         </li>
                     </ul>

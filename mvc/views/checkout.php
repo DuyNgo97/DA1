@@ -36,8 +36,23 @@
 			}
 		}
 	</style>
+
 	<!-- Custom styles for this template -->
 	<link href="form-validation.css" rel="stylesheet">
+	<?php
+	// Đã người dùng chưa đăng nhập -> hiển thị thông báo yêu cầu người dùng đăng nhập
+	// if (!isset($_SESSION['kh_tendangnhap_logged']) || empty($_SESSION['kh_tendangnhap_logged'])) {
+	// 	echo 'Vui lòng Đăng nhập trước khi Thanh toán! <a href="/php/myhand/backend/auth/login.php">Click vào đây để đến trang Đăng nhập</a>';
+	// 	die;
+	// } else {
+	// 	// Nếu giỏ hàng trong session rỗng, return
+	// 	if (!isset($_SESSION['giohangdata']) || empty($_SESSION['giohangdata'])) {
+	// 		echo 'Giỏ hàng rỗng. Vui lòng chọn Sản phẩm trước khi Thanh toán!';
+	// 		die;
+	// 	}
+	// }
+	?>
+
 </head>
 <?php
 require_once 'mvc/views/body/header.php';
@@ -55,16 +70,17 @@ require_once 'mvc/views/body/header.php';
 		<div class="row">
 			<div class="col-md-4 order-md-2 mb-4">
 
-			<!--Mini cart -->
-			<?php
-				require_once "mvc/views/checkouts/minicart.php";
-			?>
-			
-				<!-- <h4 class="d-flex justify-content-between align-items-center mb-3">
+				<!--Mini cart -->
+				
+
+				<h4 class="d-flex justify-content-between align-items-center mb-3">
 					<span class="text-muted">Giỏ hàng</span>
-					<span class="badge badge-secondary badge-pill">3</span>
+					
 				</h4>
-				<ul class="list-group mb-3">
+				<?php
+				require_once "mvc/views/checkouts/minicart.php";
+				?>
+				<!-- <ul class="list-group mb-3">
 					<li class="list-group-item d-flex justify-content-between lh-condensed">
 						<div>
 							<h6 class="my-0">Product name</h6>
@@ -97,7 +113,7 @@ require_once 'mvc/views/body/header.php';
 						<span>Tổng tiền (VND)</span>
 						<strong>20000 vnd</strong>
 					</li>
-				</ul>
+				</ul> -->
 
 				<form class="card p-2">
 					<div class="input-group">
@@ -105,7 +121,7 @@ require_once 'mvc/views/body/header.php';
 						<div class="input-group-append">
 							<button type="submit" class="btn btn-secondary">Redeem</button>
 						</div>
-					</div> -->
+					</div>
 				</form>
 				<!-- end minicart -->
 			</div>
@@ -113,18 +129,11 @@ require_once 'mvc/views/body/header.php';
 				<h4 class="mb-3">Thông tin và địa chỉ nhận hàng</h4>
 				<form class="needs-validation" novalidate>
 					<div class="row">
-						<div class="col-md-6 mb-3">
-							<label for="firstName">Họ</label>
+						<div class="col-md-12 mb-3">
+							<label for="firstName">Họ và tên</label>
 							<input type="text" class="form-control" id="firstName" placeholder="" value="" required>
 							<div class="invalid-feedback">
-								Họ không được để trống
-							</div>
-						</div>
-						<div class="col-md-6 mb-3">
-							<label for="lastName">Tên</label>
-							<input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-							<div class="invalid-feedback">
-								Tên không được để trống
+								Họ và tên không được để trống
 							</div>
 						</div>
 					</div>
@@ -271,12 +280,10 @@ require_once 'mvc/views/body/header.php';
 </html>
 
 <script type="text/javascript">
-            $(document).ready(function() {
-                $('input[type="checkbox"]').click(function() {
-                    var inputValue = $(this).attr("value");
-                    $("." + inputValue).toggle();
-                });
-            });
-        </script>
-
-
+	$(document).ready(function() {
+		$('input[type="checkbox"]').click(function() {
+			var inputValue = $(this).attr("value");
+			$("." + inputValue).toggle();
+		});
+	});
+</script>

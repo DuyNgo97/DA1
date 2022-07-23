@@ -15,7 +15,14 @@ class checkoutDB extends db
         // }
     }
 
-
+//     public function insertDH()
+//     {
+//         $dh_ngaytaoDH = date('d-m-Y');
+//         $diachi = '';
+//         $trangthai = 0;
+//         $sql = "INSERT INTO 'donhang' (dh_name,diachi,SDT,ngaytao_donhang,trangthai) VALUE ('$dh_name','$diachi','$SDT')";
+// ~~
+//     }
 
 
     
