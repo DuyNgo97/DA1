@@ -137,5 +137,31 @@
             $arr = mysqli_fetch_all($result);
             return json_encode($arr);
         }
+
+        public function insertDM($tendm){
+            $check = false;
+            $sql = "INSERT INTO `danhmuc`(`ten_danhmuc`) VALUES ('$tendm')";
+            if(mysqli_query($this -> conn, $sql)){
+                $check = true;
+            }
+            return json_encode($check);
+        }
+
+        public function selectVoucher(){
+            $sql = "SELECT * FROM `voucher`";
+            $result = mysqli_query($this -> conn, $sql);
+            $arr = mysqli_fetch_all($result);
+            return json_encode($arr);
+        }
+
+        public function insertVoucher($tenvc,$mavc,$giamgia,$dateTao,$dateKT){
+            $check = false;
+            $sql = "INSERT INTO `voucher`(`ten_voucher`, `code_voucher`, `mucgiam_voucher`, `ngayBD`, `ngayKT`) VALUES ('$tenvc','$mavc',$giamgia,'$dateTao','$dateKT')";
+            $result = mysqli_query($this -> conn, $sql);
+            if($result){
+                $check = true;
+            }
+            return json_encode($check);
+        }
     }
 ?>
