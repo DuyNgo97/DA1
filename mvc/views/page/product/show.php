@@ -1,7 +1,7 @@
 <?php
 if (isset($data['sanpham'])) {
     $sanpham = json_decode($data['sanpham']);
-    // var_dump($sanpham);
+    var_dump($sanpham);
 ?>
     <?php
     foreach ($sanpham as $key => $sp) { ?>
@@ -17,7 +17,7 @@ if (isset($data['sanpham'])) {
                 </div>
             </div> -->
                 <div class="img-thumbnail">
-                    <img class="mw-100" src="public/images/<?= $sp[15] ?>" alt="">
+                    <img class="mw-100" height="100%" src="public/images/<?= $sp[16] ?>" alt="">
                 </div>
                 <div class="mb-2 mt-2">
                     <div class="product-name">
