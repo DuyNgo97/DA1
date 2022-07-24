@@ -14,8 +14,22 @@ class product extends controller
                 "category" => "category",
                 "viewpart" => "show",
                 "arrCategory" => $model->getCategory(),
-                // "arrCategoryXe" => $model->getCategoryXe(),
-                // "arrCategoryPk" => $model->getCategoryPk(),
+            ]
+        );
+    }
+
+    public function all()
+    {
+        // model
+        $model = $this->model('productdb');
+        //view
+        $this->view(
+            "product",
+            [
+                "category" => "category",
+                "viewpart" => "show",
+                "arrCategory" => $model->getCategory(),
+                "arrallsp" => $model->getAllSp(),
             ]
         );
     }
