@@ -4,11 +4,7 @@
     <?php
             if(isset($data["arrUs"])){
                 $arr = json_decode($data["arrUs"]);
-<<<<<<< HEAD
-                //var_dump($arr);
-=======
                 //  var_dump($arr);
->>>>>>> f1e4ef1e540f0af798603cfa32a345053bc3d229
             }
             ?>
            
