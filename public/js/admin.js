@@ -1,9 +1,17 @@
 function loadFunction() {
   // body...
   var today = new Date();
+  today.toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
   var dd = today.getDate();
   var mm = today.getMonth() + 1; //January is 0!
   var yyyy = today.getFullYear();
+  var time =
+    today.getHours() +
+    "h-" +
+    today.getMinutes() +
+    "m-" +
+    today.getSeconds() +
+    "s";
 
   if (dd < 10) {
     dd = "0" + dd;
@@ -12,7 +20,7 @@ function loadFunction() {
     mm = "0" + mm;
   }
 
-  today = yyyy + "-" + mm + "-" + dd;
+  today = mm + "-" + dd + "-" + yyyy + "-" + time;
   return today;
 }
 document.getElementById("today").innerHTML =

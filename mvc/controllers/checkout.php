@@ -12,6 +12,18 @@
             ]
             );
         }
+        public function minicart(){
+            //model
+            $model = $this -> model('checkoutDB');
+
+            //view
+            $this -> view("checkout",[
+                "viewpart" => "minicart",
+                "arr" => $model ->minicart(),
+
+            ]);
+        }
+
     }
 
 ?>

@@ -11936,12 +11936,10 @@ textarea.form-control-lg {
 }
 .product-body .product-main-body .product-show .item-info .img-thumbnail {
   width: 100%;
-  height: 120px;
   border: none;
 }
 .product-body .product-main-body .product-show .item-info .img-thumbnail img {
   min-width: 100%;
-  max-height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }

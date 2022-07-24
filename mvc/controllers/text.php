@@ -6,5 +6,12 @@
                 
             ]);
         }
+        
+        public function xoa(){
+            $this -> view('text',[
+                
+            ]);
+        }
     }
+    
 ?>

@@ -106,6 +106,7 @@ section {
                 <tbody>
                     <?php
                     foreach ($arr as $key => $a) { ?>
+
                     <tr>
                         <td><?= $a[0] ?></td>
                         <td><?= $a[1] ?></td>
@@ -130,9 +131,10 @@ section {
                         </td>
                         <td><?= $a[11] ?></td>
                         <td><?= $a[12] ?></td>
-                        <td><button>Sửa</button></td>
+                        <td><a href="admin/editSanPham/<?= $a[0] ?>" target="_self"><button>Sửa</button></a></td>
                         <td><button>Xoá</button></td>
                     </tr>
+
                     <?php } ?>
                 </tbody>
             </table>
