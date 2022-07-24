@@ -19,29 +19,34 @@
     ?>
     <div class="account-body">
         <div class="account-main row m-0 d-flex justify-content-center ">
-            <div class="col-12 col-md-6 col-lg-4 ">
+            <!-- col left -->
+            <div class="col-12 col-md-6 col-lg-4 text-center">
                 <div class="account-infor border rounded text-center">
                     <div class="account-avartar mt-3 ">
-                        <img class="rounded-circle w-50" src="public/images/avt.png" alt="">
+                        <img class="rounded-circle" style="width: 30%;" src="public/images/avt.png" alt="">
                     </div>
                     <div class="account-name ">
-                        <h1>Họ và tên: Phan Tiến Bách</h1>
+                        <span class="fs-2">Nguyễn Trung Khiêm</span>
                     </div>
                     <div class="account-gmail ">
-                        <h2>Gmail: @.com</h2>
+                        <span class="fs-2">thagbachnguu@gmail.com</span>
                     </div>
                     <div class="account-phone">
-                        <h3>SDT: 01921919238123123123</h3>
+                        <span class="fs-2">0377800522</span>
                     </div>
                 </div>
+                <div class="change-avt mt-3">
+                    <a href="#" class="btn btn-danger">Đổi Avartar</a>
+                </div>
             </div>
+            <!-- col right -->
             <div class="col-12 col-md-6 col-lg-6 h-100">
                 <div class="account-setting border rounded">
                     <div class="reset-password d-flex  justify-content-between  align-items-center">
                         <div class="d-flex  align-items-center">
-                            <div class="me-2"><i class="bi bi-file-lock " style="font-size: 6rem;"></i></div>
+                            <div class="me-2"><i class="bi bi-file-lock " style="font-size: 4rem;"></i></div>
                             <div>
-                                <div style="font-size: 2rem;">Mật khẩu</div>
+                                <div style="font-size: 1.5rem;">Mật khẩu</div>
                                 <div>Thay đổi mật khẩu</div>
                             </div>
                         </div>
@@ -52,9 +57,9 @@
 
                     <div class="reset-password d-flex  justify-content-between  align-items-center">
                         <div class="d-flex  align-items-center">
-                            <div class="me-2"><i class="bi bi-phone" style="font-size: 6rem;"></i></div>
+                            <div class="me-2"><i class="bi bi-phone" style="font-size: 4rem;"></i></div>
                             <div>
-                                <div style="font-size: 2rem;">Số điện thoại</div>
+                                <div style="font-size: 1.5rem;">Số điện thoại</div>
                                 <div>Thay đổi số điện thoại</div>
                             </div>
                         </div>
@@ -65,9 +70,9 @@
 
                     <div class="reset-password d-flex  justify-content-between  align-items-center">
                         <div class="d-flex  align-items-center">
-                            <div class="ms-2 me-2"><i class="bi bi-envelope " style="font-size: 6rem;"></i></div>
+                            <div class="ms-2 me-2"><i class="bi bi-envelope " style="font-size: 4rem;"></i></div>
                             <div>
-                                <div style="font-size: 2rem;">Gmail</div>
+                                <div style="font-size: 1.5rem;">Gmail</div>
                                 <div>Thay đổi gmail</div>
                             </div>
                         </div>
@@ -80,9 +85,42 @@
                 <!-- đơn hàng -->
                 <div class="order border rounded mt-3 p-3">
                     <div>
-                        Lịch sử đơn hàng
+                        <h2>Lịch sử đơn hàng</h2>
                     </div>
-                    <div></div>
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Chi tiết đơn hàng</th>
+                                    <th scope="col">Ngày tạo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <a href="#"> Cửa xe</a>
+                                    </td>
+                                    <td>27/6/2022</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>
+                                        <a href="#"> Cửa xe</a>
+                                    </td>
+                                    <td>27/6/2022</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>
+                                        <a href="#"> Cửa xe</a>
+                                    </td>
+                                    <td>27/6/2022</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <!-- đóng đơn hàng -->
 
