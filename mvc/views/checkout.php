@@ -18,6 +18,7 @@
 	<!-- Bootstrap core CSS -->
 	<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 	<style>
 		.bd-placeholder-img {
@@ -35,12 +36,29 @@
 			}
 		}
 	</style>
+
 	<!-- Custom styles for this template -->
 	<link href="form-validation.css" rel="stylesheet">
+	<?php
+	// Đã người dùng chưa đăng nhập -> hiển thị thông báo yêu cầu người dùng đăng nhập
+	// if (!isset($_SESSION['kh_tendangnhap_logged']) || empty($_SESSION['kh_tendangnhap_logged'])) {
+	// 	echo 'Vui lòng Đăng nhập trước khi Thanh toán! <a href="/php/myhand/backend/auth/login.php">Click vào đây để đến trang Đăng nhập</a>';
+	// 	die;
+	// } else {
+	// 	// Nếu giỏ hàng trong session rỗng, return
+	// 	if (!isset($_SESSION['giohangdata']) || empty($_SESSION['giohangdata'])) {
+	// 		echo 'Giỏ hàng rỗng. Vui lòng chọn Sản phẩm trước khi Thanh toán!';
+	// 		die;
+	// 	}
+	// }
+	?>
+
 </head>
 <?php
-require_once 'mvc/views/body/header.php'
+require_once 'mvc/views/body/header.php';
 ?>
+
+
 
 <body class="bg-light">
 	<div class="container">
@@ -51,11 +69,18 @@ require_once 'mvc/views/body/header.php'
 
 		<div class="row">
 			<div class="col-md-4 order-md-2 mb-4">
+
+				<!--Mini cart -->
+				
+
 				<h4 class="d-flex justify-content-between align-items-center mb-3">
 					<span class="text-muted">Giỏ hàng</span>
-					<span class="badge badge-secondary badge-pill">3</span>
+					
 				</h4>
-				<ul class="list-group mb-3">
+				<?php
+				require_once "mvc/views/checkouts/minicart.php";
+				?>
+				<!-- <ul class="list-group mb-3">
 					<li class="list-group-item d-flex justify-content-between lh-condensed">
 						<div>
 							<h6 class="my-0">Product name</h6>
@@ -88,7 +113,7 @@ require_once 'mvc/views/body/header.php'
 						<span>Tổng tiền (VND)</span>
 						<strong>20000 vnd</strong>
 					</li>
-				</ul>
+				</ul> -->
 
 				<form class="card p-2">
 					<div class="input-group">
@@ -98,40 +123,34 @@ require_once 'mvc/views/body/header.php'
 						</div>
 					</div>
 				</form>
+				<!-- end minicart -->
 			</div>
 			<div class="col-md-8 order-md-1">
 				<h4 class="mb-3">Thông tin và địa chỉ nhận hàng</h4>
 				<form class="needs-validation" novalidate>
 					<div class="row">
-						<div class="col-md-6 mb-3">
-							<label for="firstName">Họ</label>
+						<div class="col-md-12 mb-3">
+							<label for="firstName">Họ và tên</label>
 							<input type="text" class="form-control" id="firstName" placeholder="" value="" required>
 							<div class="invalid-feedback">
-								Họ không được để trống
-							</div>
-						</div>
-						<div class="col-md-6 mb-3">
-							<label for="lastName">Tên</label>
-							<input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-							<div class="invalid-feedback">
-								Tên không được để trống
+								Họ và tên không được để trống
 							</div>
 						</div>
 					</div>
 
 					<div class="mb-3">
-						<label for="username">Tên đăng nhập</label>
+						<label for="sdt">Số điện thoại</label>
 						<div class="input-group">
 							<input type="text" class="form-control" id="username" placeholder="Tên đăng nhập" required>
 							<div class="invalid-feedback" style="width: 100%;">
-								Tên đăng nhập không được để trống
+								Số điện thoại không được để trống
 							</div>
 						</div>
 					</div>
 
 					<div class="mb-3">
 						<label for="email">Email <span class="text-muted">(Optional)</span></label>
-						<input type="email" class="form-control" id="email" placeholder="VD: ...@gmail.com">
+						<input type="email" class="form-control" id="email" placeholder="...@email.com">
 						<div class="invalid-feedback">
 							Email không được để trống
 						</div>
@@ -186,54 +205,60 @@ require_once 'mvc/views/body/header.php'
 						<input type="checkbox" class="custom-control-input" id="save-info">
 						<label class="custom-control-label" for="save-info">Lưu thông tin</label>
 					</div>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="selectt" value="payment">
+						<label class="custom-control-label" for="selectt">Thanh toán qua thẻ ATM</label>
+					</div>
 					<hr class="mb-4">
 
-					<h4 class="mb-3">Thông tin thanh toán</h4>
+					<div class="payment">
+						<h4 class="mb-3">Thông tin thanh toán</h4>
 
-					<div class="d-block my-3">
-						<div class="custom-control custom-radio">
-							<input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-							<label class="custom-control-label" for="credit">Credit card</label>
-						</div>
-						<div class="custom-control custom-radio">
-							<input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-							<label class="custom-control-label" for="debit">Debit card</label>
-						</div>
-						<div class="custom-control custom-radio">
-							<input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-							<label class="custom-control-label" for="paypal">PayPal</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 mb-3">
-							<label for="cc-name">Tên chủ thẻ</label>
-							<input type="text" class="form-control" id="cc-name" placeholder="" required>
-							<small class="text-muted">Nhập tên được ghi trên thẻ</small>
-							<div class="invalid-feedback">
-								Nhập tên được ghi trên thẻ
+						<div class="d-block my-3">
+							<div class="col-md-14 mb-3">
+								<label for="zip">Chọn ngân hàng</label>
+								<select class="custom-select d-block w-100" id="state" name="paymentMethod" required>
+									<option value="">Chọn...</option>
+									<option>VIETCOMBANK(VCB)</option>
+									<option>SACOMBANK(SCB)</option>
+									<option>ACHAUBANK(ACB)</option>
+								</select>
+								<div class="invalid-feedback">
+									Vui lòng chọn ngân hàng
+								</div>
 							</div>
 						</div>
-						<div class="col-md-6 mb-3">
-							<label for="cc-number">Số thẻ</label>
-							<input type="text" class="form-control" id="cc-number" placeholder="" required>
-							<div class="invalid-feedback">
-								Nhập số thẻ được ghi trên thẻ
+						<div class="row">
+							<div class="col-md-6 mb-3">
+								<label for="cc-name">Tên chủ thẻ</label>
+								<input type="text" class="form-control" id="cc-name" placeholder="" required>
+								<small class="text-muted">Nhập tên được ghi trên thẻ</small>
+								<div class="invalid-feedback">
+									Nhập tên được ghi trên thẻ
+								</div>
+							</div>
+							<div class="col-md-6 mb-3">
+								<label for="cc-number">Số thẻ</label>
+								<input type="text" class="form-control" id="cc-number" placeholder="" required>
+								<div class="invalid-feedback">
+									Nhập số thẻ được ghi trên thẻ
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3 mb-3">
-							<label for="cc-expiration">Hạn thẻ</label>
-							<input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-							<div class="invalid-feedback">
-								Nhập hạn thẻ được ghi trên thẻ
+						<div class="row">
+							<div class="col-md-3 mb-3">
+								<label for="cc-expiration">Hạn thẻ</label>
+								<input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+								<div class="invalid-feedback">
+									Nhập hạn thẻ được ghi trên thẻ
+								</div>
 							</div>
-						</div>
-						<div class="col-md-3 mb-3">
-							<label for="cc-cvv">Mã an toàn</label>
-							<input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-							<div class="invalid-feedback">
-								Nhập mã an toàn
+							<div class="col-md-3 mb-3">
+								<label for="cc-cvv">Mã an toàn</label>
+								<input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+								<div class="invalid-feedback">
+									Nhập mã an toàn
+								</div>
 							</div>
 						</div>
 					</div>
@@ -253,3 +278,12 @@ require_once 'mvc/views/body/header.php'
 <?php include 'body/footer.php' ?>
 
 </html>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('input[type="checkbox"]').click(function() {
+			var inputValue = $(this).attr("value");
+			$("." + inputValue).toggle();
+		});
+	});
+</script>

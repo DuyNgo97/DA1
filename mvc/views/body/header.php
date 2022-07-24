@@ -119,10 +119,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- } else { ?> -->
-                                <!-- <a href="login" target="_self"><i class="bi bi-person-fill"></i></a> -->
-                                <?php }
-                                ?>
+                                <?php
+                            }
+                            ?>
                         </a>
                     </li>
                     <!-- cart -->
