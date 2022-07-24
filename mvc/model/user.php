@@ -134,5 +134,29 @@
                 return $check;
 
             }
+
+            public function UpdateSDT($id,$SDT){
+                $check= false;
+                $sql="UPDATE `infor` SET sdt = $SDT WHERE `id_info` =  $id";
+                $result = mysqli_query($this -> conn,$sql);
+                // $arr = mysqli_fetch_assoc($result);
+                // return json_encode($arr);
+                if($result){
+                     $check = true;
+                }
+                return $check;
+            }
+
+            public function UpdateEmail($id,$Email){
+                $check= false;
+                $sql="UPDATE `infor` SET sdt = $Email WHERE `id_info` =  $id";
+                $result = mysqli_query($this -> conn,$sql);
+                // $arr = mysqli_fetch_assoc($result);
+                // return json_encode($arr);
+                if($result){
+                     $check = true;
+                }
+                return $check;
+            }
     }
 ?>

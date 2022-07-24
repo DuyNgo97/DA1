@@ -80,40 +80,8 @@ require_once 'mvc/views/body/header.php';
 				<?php
 				require_once "mvc/views/checkouts/minicart.php";
 				?>
-				<!-- <ul class="list-group mb-3">
-					<li class="list-group-item d-flex justify-content-between lh-condensed">
-						<div>
-							<h6 class="my-0">Product name</h6>
-							<small class="text-muted">Brief description</small>
-						</div>
-						<span class="text-muted">12000 vnd</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between lh-condensed">
-						<div>
-							<h6 class="my-0">Second product</h6>
-							<small class="text-muted">Brief description</small>
-						</div>
-						<span class="text-muted">8000 vnd</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between lh-condensed">
-						<div>
-							<h6 class="my-0">Third item</h6>
-							<small class="text-muted">Brief description</small>
-						</div>
-						<span class="text-muted">5000 vnd</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between bg-light">
-						<div class="text-success">
-							<h6 class="my-0">Voucher</h6>
-							<small>Giảm giá</small>
-						</div>
-						<span class="text-success">-5000 vnd</span>
-					</li>
-					<li class="list-group-item d-flex justify-content-between">
-						<span>Tổng tiền (VND)</span>
-						<strong>20000 vnd</strong>
-					</li>
-				</ul> -->
+				
+				
 
 				<form class="card p-2">
 					<div class="input-group">
@@ -141,7 +109,7 @@ require_once 'mvc/views/body/header.php';
 					<div class="mb-3">
 						<label for="sdt">Số điện thoại</label>
 						<div class="input-group">
-							<input type="text" class="form-control" id="username" placeholder="Tên đăng nhập" required>
+							<input type="text" class="form-control" id="username" placeholder="Nhập số điện thoại" required>
 							<div class="invalid-feedback" style="width: 100%;">
 								Số điện thoại không được để trống
 							</div>
@@ -287,3 +255,7 @@ require_once 'mvc/views/body/header.php';
 		});
 	});
 </script>
+
+
+
+
