@@ -115,7 +115,7 @@
             }
             public function editpq($id){
                 $sql ="SELECT a.us_id , a.us_taikhoan,b.name_vaitro FROM `userss` a 
-                INNER JOIN `vaitro` b ON a.id_vaitro = b.id_vaitro WHERE a.id_vaitro in (1,3) AND a.us_id ='$id' ";
+                INNER JOIN `vaitro` b ON a.id_vaitro = b.id_vaitro WHERE a.id_vaitro in (2,3) AND a.us_id ='$id' ";
                 $result = mysqli_query($this-> conn,$sql);
                 $arr = mysqli_fetch_all($result);
                 return json_encode($arr);

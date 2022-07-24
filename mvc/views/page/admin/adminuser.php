@@ -27,8 +27,12 @@
             <tbody>
                 <?php 
                 if(is_array($arr) || is_object($arr)){
-                 foreach ($arr as $key => $u) { ?>
-                
+                 foreach ($arr as $key => $u) { 
+                    if($u[0]==1 ){
+                        continue;
+                    }
+                    ?>
+                    
                     <td><?=$u[0] ?></td>
                     <td><?=$u[1] ?></td>
                     <td><?=$u[2] ?></td>

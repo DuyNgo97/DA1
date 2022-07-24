@@ -74,6 +74,7 @@
                     "id" => $i,
                     "arrEpq" =>$model ->editpq($id),
                     "arrvt" =>$model ->vt(),
+                 
 
                 ]);    
             }
@@ -88,7 +89,6 @@
                          "id" => $id,
                          "arrEpq" =>$model ->editpq($id),
                          "check" =>$model ->updatepq($id,$vaitro),
-                         
                          "arrvt" =>$model ->vt(),
                          "arrPq" => $model -> pq(),  
                         

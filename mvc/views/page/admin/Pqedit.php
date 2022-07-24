@@ -4,7 +4,7 @@
 <?php
             if(isset($data["arrEpq"])){
                  $arr = json_decode($data["arrEpq"]);
-                   var_dump($data["arrEpq"]);
+                  // var_dump($data["arrEpq"]);
                 
                
             }
@@ -14,14 +14,15 @@
                
               
            }
-          if(isset($check)){
-            echo'adsadad';
-          }
+           
+          // if(isset($data["check"])){
+          //   echo'adsadad';
+          // }
         ?>
-        <form action="admin/Updatepq/" method="post" target="_self">
+        <form action="admin/Updatepq" method="post" target="_self">
                 <div class="a">
                 
-                <h1>Sửa tài khoản</h1>
+                <h1>Sửa Vai Trò</h1>
                 <hr>
                 
                 <label for="id"><b>ID</b></label>

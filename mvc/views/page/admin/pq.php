@@ -18,7 +18,11 @@
             <tbody>
                 <?php 
                 // if(is_array($arr) || is_object($arr)){
-                 foreach ($arr as $key => $a) { ?>
+                 foreach ($arr as $key => $a) { 
+                    if($a[0]==1 ){
+                        continue;
+                    }
+                    ?>
                     <td><?=$a[0] ?></td>
                     <td><?=$a[1] ?></td>
                     <td><?=$a[2] ?></td>
