@@ -3,32 +3,40 @@
 <div class="main">
     <?php
             if(isset($data["arrEd"])){
-                $arr = json_decode($data["arrEd"]);
-                   // var_dump($arr);
+                 $arr = json_decode($data["arrEd"]);
+                //   var_dump($data["arrEd"]);
+                
+               
             }
+           
         ?>
-    <?php ?>
-    <form action="" method="POST">
+    <?php   //while($row= mysqli_fetch_assoc($data['arrEd'] )){  ?>
+    <form action="admin/updateuser" target="_self" method="POST">
         <div class="a">
+          
             <h1>Sửa tài khoản</h1>
             <hr>
-
+            
             <label for="id"><b>ID</b></label>
             <input type="text" name="us_id" value="<?= $data['id'] ?>">
             <label for="tk"><b>tên tài khoản</b></label>
-            <input type="text" name="tk">
+            <input type="text" name="tk" value="<?= $arr[0][1] ?>">
             <label for="psw"><b>Mật Khẩu</b></label>
-            <input type="password" name="psw">
-            <label for="em"><b>Email</b></label>
+            <input type="password" name="psw"value="" >
+            <!-- <label for="em"><b>Email</b></label>
             <input type="text" name="em">
             <label for="sdt"><b>Số điện thoại</b></label>
-            <input type="text" name="sdt">
-
+            <input type="text" name="sdt"> -->
+            <?php if(isset($data["check"])){
+                echo '<h1> update thanh cong <h1>';
+            } ?>
             <div class="clearfix">
-                <button type="submit" class="submit">Sửa</button>
+                <button type="submit" name="submit" class="submit">Sửa</button>
             </div>
         </div>
     </form>
+    <a href="admin/user" style="text-decoration: none; color:white;" target="_self"><button type="submit" class="submit">Quay về</button></a>
+    <?php //} ?>
     <!-- <form action="" method="POST">
 =======
     <!-- <form action="">
