@@ -63,6 +63,82 @@ class admin extends controller
         );
     }
 
+    public function editSanPham($idsp)
+    {
+        
+        //model
+        $model = $this->model('adminPro');
+        //view
+        $this->view(
+            "admin",
+            [
+                "viewpart" => "editsp",
+                "sanpham"=> $model -> selectOneSP($idsp), 
+                "arrColor" => $model->selectColor(),
+                "arrTheLoai" => $model->selectTheLoai(),
+                "arrloaispct" => $model->selectloaiSPCT(),
+                "arrComPaNy" => $model->selectloaiComPaNy(),
+                "arrTrangThai" => $model->trangThai(),
+            ]
+        );
+    }
+
+    public function resultEditSP($idsp){
+        if(isset($_POST['btn-edit'])){
+            $abc = unserialize($_SESSION['abc']);
+            
+            $tensp = $_POST['namesp'];
+            $giasp = $_POST['giasp'];
+            $color = $_POST['colorsp'];
+            $soluong = $_POST['soluongsp'];
+            $giamgia = $_POST['giamgia'];
+            $trangthai = $_POST['trangthaisp'];
+            $nsx = $_POST['company'];
+            $loaisp = $_POST['theloaisp'];
+            $mota = $_POST['mota'];
+            $id_hinhanh = $_POST['idImgOld'];
+
+            
+            $loaispct = $_POST['chitietsp'];
+            @$ngaytao = $_POST['date-Tao'];
+            $ngaycapnhat = $_POST['dateTao'];
+            
+            $test = array();
+            $test[] = $nsx;
+            $test[] = $loaisp;
+            $test[] = $loaispct;
+            $test[] = $mota;
+            $test[] = $ngaycapnhat;
+
+            $img = $_FILES['image'];
+            $img1 = $_FILES['image1'];
+            $img2 = $_FILES['image2'];
+            $img3 = $_FILES['image3'];
+            $img4 = $_FILES['image4'];
+            // $abc = unserialize($_POST['abc']);
+            //model
+            $model = $this->model('adminPro');
+            $model -> deleteArrIMG($abc);
+            //view
+            $this->view(
+                "admin",
+                [
+                    "viewpart" => "editsp",
+                    "sanpham"=> $model -> selectOneSP($idsp), 
+                    "arrColor" => $model->selectColor(),
+                    "arrTheLoai" => $model->selectTheLoai(),
+                    "arrloaispct" => $model->selectloaiSPCT(),
+                    "arrComPaNy" => $model->selectloaiComPaNy(),
+                    "arrTrangThai" => $model->trangThai(),
+                    "arrIMG" => $abc,
+                    "check" => $model -> updateSanPham($img,$img1,$img2,$img3,$img4,$tensp,$color,$giasp,$nsx,$trangthai,$soluong,$giamgia,$mota,$loaisp,$loaispct,$ngaycapnhat,$id_hinhanh,$idsp),
+                    "test" => $test,
+                ]
+            );
+            }
+        // var_dump($abc);
+    }
+
     public function addsanpham()
     {
         //model

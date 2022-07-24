@@ -25,6 +25,30 @@
             return json_encode($arr);
         }
 
+        public function selectOneSP($idsp){
+            $sql = "SELECT a.id_sp,a.ten_sp,a.gia_sp,b.name_color,a.soluong_sp,a.giamgia,
+            c.name_trangthai,a.mota,a.ngaytao,a.ngaycapnhat,
+            d.ten_company, e.ten_loaisp, f.name_chitiet,
+            g.url_main, g.url1,g.url2,g.url3,g.url4,a.id_hinhanh
+            FROM sanpham a
+            INNER JOIN color b
+            ON a.id_color = b.id_color
+            INNER JOIN trangthai c
+            ON a.id_trangthai = c.id_trangthai
+            INNER JOIN company d
+            ON a.id_company = d.id_company
+            INNER JOIN loaisp e
+            ON a.id_loaisp = e.id_loaisp
+            INNER JOIN loai_sp_chi_tiet f
+            ON a.id_loaispct = f.id_loaispct
+            INNER JOIN hinhanh g
+            ON a.id_hinhanh = g.id_hinhanh
+            WHERE a.id_sp = '$idsp'";
+            $result = mysqli_query($this -> conn,$sql);
+            $arr = mysqli_fetch_all($result);
+            return json_encode($arr);
+        }
+
         //lấy color
         public function selectColor(){
             $sql = "SELECT * FROM `color`";
@@ -208,6 +232,44 @@
                 $check = true;
             }
             return json_encode($check);
+        }
+
+        // Edit san pham
+
+        public function deleteArrIMG($abc){
+            foreach ($abc as $key => $a) {
+                $src = "public/images/".$a;
+                unlink($src);
+            }
+        }
+
+        public function updateIMGs($img,$img1,$img2,$img3,$img4,$loaispct,$ngaycapnhat,$id_hinhanh){
+            $src = $this -> moveIMG($img,$loaispct,$ngaycapnhat);
+            $src1 = $this -> moveIMG($img1,$loaispct,$ngaycapnhat);
+            $src2 = $this -> moveIMG($img2,$loaispct,$ngaycapnhat);
+            $src3 = $this -> moveIMG($img3,$loaispct,$ngaycapnhat);
+            $src4 = $this -> moveIMG($img4,$loaispct,$ngaycapnhat);
+            if($src === false || $src1 === false || $src2 === false || $src3 === false || $src4 === false){
+                $check = false;
+            }else{
+                $sql = "UPDATE `hinhanh` SET `url_main`='$src',`url1`='$src1',`url2`='$src2',`url3`='$src3',`url4`='$src4' WHERE `id_hinhanh` = '$id_hinhanh'";
+                    if(mysqli_query($this -> conn,$sql)){
+                        $idIMG = mysqli_insert_id($this -> conn);
+                        $check = $idIMG;
+                    }
+            }
+            return $check;
+        }
+
+        public function updateSanPham($img,$img1,$img2,$img3,$img4,$tensp,$color,$giasp,$nsx,$trangthai,$soluong,$giamgia,$mota,$loaisp,$loaispct,$ngaycapnhat,$id_hinhanh,$idsp){
+            $check = false;
+            $this -> updateIMGs($img,$img1,$img2,$img3,$img4,$loaispct,$ngaycapnhat,$id_hinhanh);
+            $sql = "UPDATE `sanpham` SET `ten_sp` = '$tensp',`soluong_sp` = $soluong,`gia_sp` = '$giasp', `giamgia` = $giamgia, `id_color` = $color, `id_trangthai` = $trangthai, `id_company` = $nsx, `id_loaisp` = $loaisp, `id_loaispct` = $loaispct , `mota` = '$mota', `ngaycapnhat` = '$ngaycapnhat' WHERE id_sp = $idsp";
+                $result = mysqli_query($this -> conn,$sql);
+                if($result){
+                    $check = true;
+                }    
+            return $check;
         }
     }
 ?>
