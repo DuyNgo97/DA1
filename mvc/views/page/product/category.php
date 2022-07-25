@@ -16,11 +16,11 @@ if (isset($data["arrCategory"])) {
         </li>
         <?php
         foreach ($danhmuc as $key => $dm) { ?>
-            <li class="nav-item">
-                <a class="nav-link" href="product/changeSP/<?= $dm[0] ?>" target="_seft">
-                    <?= $dm[1] ?> <i class="bi bi-plus"></i>
-                </a>
-            </li>
+        <li class="nav-item">
+            <a class="nav-link" href="product/changeSP/<?= $dm[0] ?>" target="_self">
+                <?= $dm[1] ?> <i class="bi bi-plus"></i>
+            </a>
+        </li>
         <?php }
         ?>
     </ul>

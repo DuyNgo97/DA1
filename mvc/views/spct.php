@@ -19,34 +19,46 @@
         require_once './mvc/views/body/header.php';
         ?>
     <div class="container1">
-
+        <?php
+            if(isset($data['arrSP'])){
+                $sp = json_decode($data['arrSP']);
+                // var_dump($sp);
+            }
+            if(isset($data['check'])){
+                $check = json_decode($data['check']);
+                // var_dump($check);
+            }
+        ?>
         <div class="main-product">
             <div class="imgs">
                 <div class="img-top">
-                    <img src="./public/images/thuviendohoa.vn_365.png" alt="">
+                    <img src="./public/images/<?= $sp[0][13] ?>" alt="">
                 </div>
 
                 <div class="img-bot">
-                    <img src="./public/images/thuviendohoa.vn_365.png" alt="">
-                    <img src="./public/images/725x560-1.webp" alt="">
-                    <img src="./public/images/725x560-2.webp" alt="">
-                    <img src="./public/images/collection-img1.webp" alt="">
+                    <img src="./public/images/<?= $sp[0][14] ?>" alt="">
+                    <img src="./public/images/<?= $sp[0][15] ?>" alt="">
+                    <img src="./public/images/<?= $sp[0][16] ?>" alt="">
+                    <img src="./public/images/<?= $sp[0][17] ?>" alt="">
                 </div>
             </div>
             <div class="message">
                 <h1>
-                    Vành xe cháy lắm!!!
+                    <?= $sp[0][1] ?>
                 </h1>
                 <div class="price-start">
-                    <span class="price">15.000.000 VNĐ</span>
+                    <span class="price"><?= $sp[0][2] ?> VNĐ</span>
                     <span class="start">5 Sao</span>
                 </div>
                 <div class="noidung">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                        <?= $sp[0][7] ?>
                     </p>
+                </div>
+                <div class="quantity">
+                    <label for="">Nhà sản xuất: </label>&ensp;
+                    <h3>
+                        <?= $sp[0][10] ?> </h3>
                 </div>
                 <div class="color">
                     <label for="">Color: </label>&ensp;
@@ -65,7 +77,7 @@
                 </div>
                 <div class="quantity">
                     <label for="">Số lượng: </label>&ensp;
-                    <input type="number">
+                    <input type="number" value="1">
                 </div>
                 <div class="btnx">
                     <a href="cart" target="_self">
@@ -91,66 +103,22 @@
                 <div class="change next" onclick="next()">Next</div>
                 <div class="change back" onclick="back()">Back</div>
                 <div class="slideshow">
-                    <div class="product">
-                        <div class="img">
-                            <img src="public/images/thuviendohoa.vn_365.png" alt="">
+                    <?php
+                        foreach ($check as $key => $ck) { ?>
+                    <form action="spct/sayhi/<?= $ck[3] ?>" method="POST" target="_self">
+                        <div class="product">
+                            <div class="img">
+                                <img src="public/images/<?= $ck[1] ?>" alt="">
+                            </div>
+                            <div class="mess-product">
+                                <h5><?= $ck[2] ?></h5>
+                                <p>Giá: <span><?= $ck[0] ?></span> VNĐ</p>
+                                <button>Xem thêm</button>
+                            </div>
                         </div>
-                        <div class="mess-product">
-                            <h1>ABS</h1>
-                            <p>Giá: <span>12.000.000</span> VNĐ</p>
-                            <button>Xem thêm</button>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="img">
-                            <img src="public/images/thuviendohoa.vn_365.png" alt="">
-                        </div>
-                        <div class="mess-product">
-                            <h1>ABS</h1>
-                            <p>Giá: <span>12.000.000</span> VNĐ</p>
-                            <button>Xem thêm</button>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="img">
-                            <img src="public/images/thuviendohoa.vn_365.png" alt="">
-                        </div>
-                        <div class="mess-product">
-                            <h1>ABS</h1>
-                            <p>Giá: <span>12.000.000</span> VNĐ</p>
-                            <button>Xem thêm</button>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="img">
-                            <img src="public/images/thuviendohoa.vn_365.png" alt="">
-                        </div>
-                        <div class="mess-product">
-                            <h1>ABS</h1>
-                            <p>Giá: <span>12.000.000</span> VNĐ</p>
-                            <button>Xem thêm</button>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="img">
-                            <img src="public/images/thuviendohoa.vn_365.png" alt="">
-                        </div>
-                        <div class="mess-product">
-                            <h1>ABS</h1>
-                            <p>Giá: <span>12.000.000</span> VNĐ</p>
-                            <button>Xem thêm</button>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="img">
-                            <img src="public/images/thuviendohoa.vn_365.png" alt="">
-                        </div>
-                        <div class="mess-product">
-                            <h1>ABS</h1>
-                            <p>Giá: <span>12.000.000</span> VNĐ</p>
-                            <button>Xem thêm</button>
-                        </div>
-                    </div>
+                    </form>
+                    <?php }
+                    ?>
                 </div>
             </div>
         </div>
