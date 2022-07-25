@@ -20,7 +20,7 @@ function loadFunction() {
     mm = "0" + mm;
   }
 
-  today = mm + "-" + dd + "-" + yyyy + "-" + time;
+  today = yyyy + "-" + mm + "-" + dd + "-" + time;
   return today;
 }
 document.getElementById("today").innerHTML =
