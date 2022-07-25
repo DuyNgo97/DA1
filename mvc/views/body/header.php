@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <header class="header fixed-top">
     <!-- Top header -->
     <div class="top-header d-none d-lg-block">
