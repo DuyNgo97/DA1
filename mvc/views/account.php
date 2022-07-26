@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="me-2">
-                            <a href="account/changepass" class="btn btn-danger">Thay đổi</a>
+                            <a href="./account/changepass" target="_self" class="btn btn-danger">Thay đổi</a>
                         </div>
                     </div>
 

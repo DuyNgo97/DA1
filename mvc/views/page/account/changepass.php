@@ -1,13 +1,13 @@
 <?php
-if (isset($data["arrUS"])) {
-    $arr = json_decode($data["arrUS"]);
-    // var_dump($data["arrUS"]);
-}
+// if (isset($data["arrUS"])) {
+//     $arr = json_decode($data["arrUS"]);
+//     // var_dump($data["arrUS"]);
+// }
 
 ?>
 
-
-<form action="account/changepass" method="post">
+<div class="main">
+<form action="./account/changepass" method="post">
 
     <label for="psw"><b>Mật Khẩu</b></label>
     <input type="password" name="psw" value="">
@@ -18,3 +18,4 @@ if (isset($data["arrUS"])) {
 
     <button type="submit" name="submit" class="submit">Sửa</button>
 </form>
+</div>
