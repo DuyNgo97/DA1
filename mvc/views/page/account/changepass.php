@@ -1,21 +1,20 @@
 <?php
-// if (isset($data["arrUS"])) {
-//     $arr = json_decode($data["arrUS"]);
-//     // var_dump($data["arrUS"]);
-// }
+if (isset($data["arrUs"])) {
+    $arr = json_decode($data["arrUs"]);
+    // var_dump($data["arrUs"]);
+}
 
 ?>
 
-<div class="main">
-<form action="./account/changepass" method="post">
 
-    <label for="psw"><b>Mật Khẩu</b></label>
-    <input type="password" name="psw" value="">
-
-    <?php if (isset($data["check"])) {
-        echo '<h1> update thanh cong <h1>';
-    } ?>
-
+<h1>
+    Đổi mật khẩu
+</h1>
+<label for="psw"><b>Mật Khẩu</b></label>
+<input type="password" name="psw" value="">
+<?php if (isset($data["check"])) {
+    echo '<h1> update thanh cong <h1>';
+} ?>
+<div class="clearfix">
     <button type="submit" name="submit" class="submit">Sửa</button>
-</form>
 </div>
