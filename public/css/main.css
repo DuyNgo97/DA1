@@ -11704,14 +11704,22 @@ textarea.form-control-lg {
   box-shadow: 0 0 5px greenyellow;
 }
 .container1 .main-product .message .quantity {
-  padding: 25px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 25px 25px 25px 0px;
+  overflow: hidden;
+  border-bottom: 0.5px solid rgb(107, 107, 107);
 }
 .container1 .main-product .message .quantity label {
-  width: 100px;
+  width: 200px;
 }
 .container1 .main-product .message .quantity input {
   width: 50px;
   height: 25px;
+}
+.container1 .main-product .message .quantity h1, .container1 .main-product .message .quantity .h1 {
+  transform: translateY(-15px);
 }
 .container1 .main-product .message .btnx {
   padding: 25px 0;
@@ -11816,7 +11824,7 @@ textarea.form-control-lg {
   transition: all 0.5s ease-in;
 }
 .product-tt .product-tt-main .wrap .slideshow .product {
-  height: 90%;
+  height: 100%;
   width: 300px;
   margin-left: 12.5px;
   display: flex;
@@ -11826,6 +11834,8 @@ textarea.form-control-lg {
   border-radius: 10px;
   border: 1px solid rgb(176, 175, 175);
   overflow: hidden;
+  padding-top: 20px;
+  padding-bottom: 20px;
   transition: all 0.5s ease-in;
 }
 .product-tt .product-tt-main .wrap .slideshow .product:hover {
@@ -11838,8 +11848,8 @@ textarea.form-control-lg {
   width: 90%;
 }
 .product-tt .product-tt-main .wrap .slideshow .product .img img {
-  height: 100%;
-  width: 100%;
+  height: 268px;
+  width: 268px;
   transition: all 0.5s ease-in;
 }
 .product-tt .product-tt-main .wrap .slideshow .product .img img:hover {
@@ -11852,6 +11862,9 @@ textarea.form-control-lg {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+.product-tt .product-tt-main .wrap .slideshow .product .mess-product h1, .product-tt .product-tt-main .wrap .slideshow .product .mess-product .h1 {
+  overflow: hidden;
 }
 .product-tt .product-tt-main .wrap .slideshow .product .mess-product button {
   height: 35px;
@@ -12100,4 +12113,8 @@ textarea.form-control-lg {
   .page-cart {
     margin-top: 66.05px;
   }
+}
+
+.account-body {
+  margin-top: 150px;
 }

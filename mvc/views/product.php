@@ -66,7 +66,9 @@
                     <!-- Top show sản phẩm -->
                     <div class="product-show-top d-flex justify-content-between">
                         <div class="border-s col-5 col-md-4 d-flex justify-content-center">
-                            <span style="padding: 6px 12px">30 Sản phẩm</span>
+                            <span style="padding: 6px 12px">
+                                <!-- đếm sp -->
+                            </span>
                         </div>
                         <div class="border-s col-5 col-md-4 d-flex justify-content-center align-item-center">
                             <span style="padding: 6px 12px">Sắp xếp:</span>

@@ -16,38 +16,89 @@ class admin extends controller
             ]
         );
     }
-    public function user()
-    {
+    public function user(){
         //model
-        $model = $this->model('user');
+        $model = $this -> model('user');
         //view
-        $this->view("admin", [
+        $this -> view("admin",[
             "viewpart" => "adminuser",
-            "arrUs" => $model->selectAllUser(),
+            "arrUs" => $model ->selectAllUser(),
+
         ]);
     }
-    // public function edituser($id){
-    //     if(isset($_POST['btn-sua'])){
-    //         // $idu = $_GET['id'];
-    //         $id_us = $_POST['idUS'];
-    //         $model = $this -> model('user');
 
-    //     $this -> view("admin",[
-    //         "viewpart" => "edituser",
-    //         // "arrEd" =>$model ->Edit(),
-    //     ]);
-    // }
-
-    public function edituser($id)
-    {
+    public function edituser($id){
         $i = $id;
-        // $model = $this -> model('user');
-
-        $this->view("admin", [
+        $model = $this -> model('user');
+        $this -> view("admin",[
             "viewpart" => "edituser",
             "id" => $i,
+            "arrEd" =>$model ->Edit($id),
+        
         ]);
     }
+    public function updateuser(){
+        if(isset($_POST['submit'])){
+            $id = $_POST['us_id'];
+             $password=$_POST['psw'];
+             $model = $this -> model('user');
+             $this -> view("admin",[
+                 "viewpart" => "edituser",
+                 "id" => $id,
+                 "check" =>$model ->Update($id,$password),
+                 "arrEd" =>$model ->Edit($id),
+                ]); 
+        }
+    }
+
+      public function delete($id){
+        $model = $this -> model('user');
+        $this -> view("admin",[
+            "viewpart" => "adminuser",      
+            "id" => $id,   
+            "arrDe" =>$model ->Delete($id), 
+            "arrUs" => $model ->selectAllUser(),   
+        ]);
+ }
+
+    // phan quyen
+        public function pq(){
+            $model = $this ->model('user');
+            $this -> view("admin",[
+                "viewpart" => "pq",
+                "arrPq" => $model -> pq(),  
+                 
+            ]);
+        }
+        public function Editpq($id){
+            $i = $id;
+            $model = $this ->model('user');
+            $this -> view("admin",[
+                "viewpart" => "Pqedit",
+                "id" => $i,
+                "arrEpq" =>$model ->editpq($id),
+                "arrvt" =>$model ->vt(),
+             
+
+            ]);    
+        }
+
+        public function Updatepq(){
+            if(isset($_POST['submit'])){
+                $id = $_POST['us_id'];
+                 $vaitro=$_POST['vt'];
+                 $model = $this -> model('user');
+                 $this -> view("admin",[
+                     "viewpart" => "pq",
+                     "id" => $id,
+                     "arrEpq" =>$model ->editpq($id),
+                     "check" =>$model ->updatepq($id,$vaitro),
+                     "arrvt" =>$model ->vt(),
+                     "arrPq" => $model -> pq(),  
+                    
+                    ]); 
+            }
+        }
 
     public function sanpham()
     {
