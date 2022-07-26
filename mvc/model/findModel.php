@@ -1,5 +1,6 @@
 <?php 
     class findModel extends db{
+        // tim theo ten sp
         public function find(){
             if(isset($_POST['btn-fi'])){
                 $ten_sp = $_POST['ten_sp'];
@@ -21,6 +22,48 @@
                     return json_encode($arr);
                 }
             }
+        }
+        // tim theo hang xe
+        public function findNC1(){
+            if(isset($_POST['btn-fi'])){
+                $hangxe = $_POST['hangxe'];
+                $sql = "SELECT a.* , b.ten_company
+                        FROM `sanpham` a
+                        INNER JOIN `company` b
+                        ON a.id_company = b.id_company
+                        WHERE b.ten_company
+                        LIKE N'%$hangxe%'";
+                $result = mysqli_query($this -> conn, $sql);
+                if(mysqli_num_rows($result) == 0){
+                    return false;
+                }else{
+                    $arr = mysqli_fetch_all($result);
+                    return json_encode($arr);
+                }
+            }
+        }
+        // tim theo loai sp
+        public function findNC2(){
+            if(isset($_POST['btn-fi'])){
+                $loaisp = $_POST['loaisp'];
+                $sql = "SELECT a.* , b.ten_loaisp
+                        FROM `sanpham` a
+                        INNER JOIN `loaisp` b
+                        ON a.id_loaisp = b.id_loaisp
+                        WHERE b.ten_loaisp
+                        LIKE N'%$loaisp%'";
+                $result = mysqli_query($this -> conn, $sql);
+                if(mysqli_num_rows($result) == 0){
+                    return false;
+                }else{
+                    $arr = mysqli_fetch_all($result);
+                    return json_encode($arr);
+                }
+            }
+        }
+        // tim theo gia
+        public function findNC3(){
+            
         }
     }
 ?>

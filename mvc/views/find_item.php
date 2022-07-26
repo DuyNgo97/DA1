@@ -37,16 +37,60 @@
 					<i class="fas fa-chart-bar"></i>
 					<div>Ô-TÔ</div>
 				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="" target="_self">
+							MERCEDES BENZ
+						</a>
+					</li>
+					<li>
+						<a href="" target="_self">
+							BMW
+						</a>
+					</li>
+					<li>
+						<a href="" target="_self">
+							AUDI
+						</a>
+					</li>
+					<li>
+						<a href="" target="_self">
+							HONDA
+						</a>
+					</li>
+				</ul>
 			</li>
 
 			<li>
 				<a href="" target="_self">
 					<i class="fas fa-users"></i>
-					<div>Phụ Tùng</div>
+					<div>PHỤ TÙNG</div>
 				</a>
+				<!-- <ul class="dropdown-menu">
+					<li>
+						<a href="" target="_self">
+							Gương
+						</a>
+					</li>
+					<li>
+						<a href="" target="_self">
+							Lốp xe
+						</a>
+					</li>
+					<li>
+						<a href="" target="_self">
+							Camera
+						</a>
+					</li>
+					<li>
+						<a href="" target="_self">
+							Khác...
+						</a>
+					</li>
+				</ul> -->
 			</li>
 
-			<li>
+			<!-- <li>
 				<a href="" target="_self">
 					<i class="fas fa-chalkboard-teacher"></i>
 					<div>Năm sản xuất</div>
@@ -73,12 +117,12 @@
 						</a>
 					</li>
 				</ul>
-			</li>
+			</li> -->
 
 			<li>
 				<a href="" target="_self">
 					<i class="fas fa-users"></i>
-					<div>Giá</div>
+					<div>GIÁ</div>
 				</a>
 				<ul class="dropdown-menu">
 					<li>
@@ -116,8 +160,8 @@
 						<div class="search">
 							<label for="" class="m-3">Nhập tên sản phẩm: </label>
 							<div class="position-relative">
-								<input type="text" class="form-control" id="" placeholder="Nhập tên sản phẩm muốn tìm kiếm vào đây?" value="" name="ten_sp" required>
-								<label class="position-absolute top-50 end-0 translate-middle-y me-4" for="search"><i class="test bi bi-search"></i></label>
+								<input type="text" class="form-control" id="" placeholder="Nhập tên sản phẩm muốn tìm kiếm vào đây?" value="" name="ten_sp">
+								<!-- <a href="find_item/ketqua" class="position-absolute top-50 end-0 translate-middle-y me-4"><i class="test bi bi-search"></i></a> -->
 								<!-- <div class="invalid-feedback">
 									Nhập tên sản phẩm cần tìm vào nhé!!!
 								</div> -->
@@ -134,24 +178,23 @@
 					<div class="row">
 						<div class="col-md-4 mb-3">
 							<label for="">Hãng Xe: </label>
-							<select class="custom-select d-block w-100" id="">
+							<select class="custom-select d-block w-100" id="" name="hangxe">
 								<option value="">Chọn...</option>
-								<option>BMW</option>
-								<option>Ferrari</option>
-								<option>Toyota</option>
+								<option value="1">Mercedes Benz</option>
+								<option value="2">BMW</option>
+								<option value="3">Audi</option>
+								<option value="4">Honda</option>
 							</select>
 							<!-- <div class="invalid-feedback">
 								
 							</div> -->
 						</div>
 						<div class="col-md-4 mb-3">
-							<label for="year">Năm sản xuất: </label>
-							<select class="custom-select d-block w-100" id="year">
+							<label for="">Loại: </label>
+							<select class="custom-select d-block w-100" id="">
 								<option value="">Chọn...</option>
-								<option>2022</option>
-								<option>2021</option>
-								<option>2020</option>
-								<option>2019</option>
+								<option value="1">Xe ô-tô</option>
+								<option value="2">Phụ kiện</option>
 							</select>
 							<!-- <div class="invalid-feedback">
 								
@@ -161,9 +204,9 @@
 							<label for="rice">Giá: </label>
 							<select class="custom-select d-block w-100" id="rice">
 								<option value="">Chọn...</option>
-								<option>Dưới 500 triệu VNĐ</option>
-								<option>Từ 500 triệu VNĐ - 1 tỷ VNĐ</option>
-								<option>Trên 1 tỷ VNĐ</option>
+								<option value="1">Dưới 500 triệu VNĐ</option>
+								<option value="2">Từ 500 triệu VNĐ - 1 tỷ VNĐ</option>
+								<option value="3">Trên 1 tỷ VNĐ</option>
 							</select>
 							<!-- <div class="invalid-feedback">
 								

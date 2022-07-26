@@ -53,7 +53,7 @@
             <div class="navbar-right">
                 <ul class="d-flex navbar-nav me-auto mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link fs-4" href="#">
+                        <a class="nav-link fs-4" href="find_item">
                             <i class="bi bi-search"></i>
                         </a>
                     </li>
