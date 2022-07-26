@@ -78,8 +78,8 @@ require_once 'mvc/views/body/header.php';
 					
 				</h4>
 				<?php
-				require_once "mvc/views/checkouts/minicart.php";
-				?>
+                require_once "mvc/views/page/checkouts/" . $data['viewpart'] . ".php";
+                ?>
 				
 				
 

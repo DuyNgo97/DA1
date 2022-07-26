@@ -1,3 +1,25 @@
+<?php
+if (isset($data['abc'])) {
+    $abc = json_decode($data['abc']);
+    //   echo $abc['name_vaitro'];
+    //   var_dump($abc);
+    //   echo $abc[0][0];
+    //   echo $abc[0][1];
+    // var_dump($abc[0][5]);
+    // if($abc[0][5] != null)
+
+    @$_SESSION['vaitro'] = $abc[0][1];
+    // }else{
+    //   $_SESSION['vaitro'] = 'USER';
+    // }
+    @$_SESSION['idUS'] = $abc[0][0];
+    @$_SESSION['nameUS'] = strtoupper($abc[0][2]);
+    @$_SESSION['urlUS'] = 'public/images/my-do-toa.jpeg';
+    // var_dump($_SESSION);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,23 +43,39 @@
         <div class="account-main row m-0 d-flex justify-content-center ">
             <!-- col left -->
             <div class="col-12 col-md-6 col-lg-4 text-center">
-                <div class="account-infor border rounded text-center">
-                    <div class="account-avartar mt-3 ">
-                        <img class="rounded-circle" style="width: 30%;" src="public/images/avt.png" alt="">
+                <?php
+
+                if (isset($_SESSION['idUS'])) {
+                ?>
+                    <div class="account-infor border rounded text-center">
+                        <div class="account-avartar mt-3 ">
+                            <img class="rounded-circle" style="width: 30%;" src="public/images/avt.png" alt="">
+                        </div>
+                        <div class="account-name ">
+                            <span class="fs-2"><?= $_SESSION['nameUS'] ?></span>
+                        </div>
+                        <?php
+                        if (isset($data["arrUs"])) {
+                            $arr = json_decode($data["arrUs"]);
+                            // var_dump($data["arrUs"]);
+                            $IDUS = $_SESSION['idUS'];
+                        ?>
+                            <div class="account-gmail ">
+                                <span class="fs-2"><?= $arr[$IDUS][5] ?></span>
+                            </div>
+                            <div class="account-phone">
+                                <span class="fs-2"><?= $arr[$IDUS][8] ?></span>
+                            </div>
+
                     </div>
-                    <div class="account-name ">
-                        <span class="fs-2">Nguyễn Trung Khiêm</span>
-                    </div>
-                    <div class="account-gmail ">
-                        <span class="fs-2">thagbachnguu@gmail.com</span>
-                    </div>
-                    <div class="account-phone">
-                        <span class="fs-2">0377800522</span>
-                    </div>
-                </div>
-                <div class="change-avt mt-3">
-                    <a href="#" class="btn btn-danger">Đổi Avartar</a>
-                </div>
+            <?php
+
+                        }
+                    }
+            ?>
+            <div class="change-avt mt-3">
+                <a href="#" class="btn btn-danger">Đổi Avartar</a>
+            </div>
             </div>
             <!-- col right -->
             <div class="col-12 col-md-6 col-lg-6 h-100">
@@ -50,7 +88,7 @@
     </div>
 
 
-    
+
 </body>
 
 

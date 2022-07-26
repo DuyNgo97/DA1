@@ -3,10 +3,12 @@
     class account extends controller{
         public function sayhi(){
             //model
+            $model = $this -> model('user');
             //view
             $this -> view("account",
             [
-                "viewpart" => "colright"
+                "viewpart" => "colright",
+                "arrUs" => $model ->selectAllUser(),
                 // "arrNV" => $a -> sanphambanchay(),
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
@@ -44,7 +46,7 @@
 
         public function Update(){
             if(isset($_POST['submit'])){
-                $id = $_POST['us_id'];
+                $id = $_SESSION['idUS'];
                  $password=$_POST['psw'];
                  $model = $this -> model('user');
                  $this -> view("account",[

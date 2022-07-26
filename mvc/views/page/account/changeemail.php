@@ -1,6 +1,6 @@
 <?php
-if (isset($data["arrUs"])) {
-    $arr = json_decode($data["arrUs"]);
+if (isset($data["arrEd"])) {
+    $arr = json_decode($data["arrEd"]);
     // var_dump($data["arrUs"]);
 }
 
