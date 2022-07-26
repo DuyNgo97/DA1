@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="me-2">
-                            <a href="#" class="btn btn-danger">Thay đổi</a>
+                            <a href="./account/changesdt" target="_self" class="btn btn-danger">Thay đổi</a>
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="me-2">
-                            <a href="#" class="btn btn-danger">Thay đổi</a>
+                            <a href="./account/changeemail" target="_self" class="btn btn-danger">Thay đổi</a>
                         </div>
                     </div>
 

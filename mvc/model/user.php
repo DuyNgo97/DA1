@@ -149,7 +149,7 @@
 
             public function UpdateEmail($id,$Email){
                 $check= false;
-                $sql="UPDATE `infor` SET sdt = $Email WHERE `id_info` =  $id";
+                $sql="UPDATE `infor` SET email = $Email WHERE `id_info` =  $id";
                 $result = mysqli_query($this -> conn,$sql);
                 // $arr = mysqli_fetch_assoc($result);
                 // return json_encode($arr);

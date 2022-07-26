@@ -1,62 +1,133 @@
 <?php
 
-    class account extends controller{
-        public function sayhi(){
-            //model
-            $model = $this -> model('user');
-            //view
-            $this -> view("account",
+class account extends controller
+{
+    public function sayhi()
+    {
+        //model
+        $model = $this->model('user');
+        //view
+        $this->view(
+            "account",
             [
                 "viewpart" => "colright",
-                "arrUs" => $model ->selectAllUser(),
+                "arrUs" => $model->selectAllUser(),
                 // "arrNV" => $a -> sanphambanchay(),
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
             ]
-            );
-        }
-    
+        );
+    }
 
-        public function changepass(){
-            //model
-            $model = $this -> model('user');
-            //view
-            $this -> view("account",
+    //change pass
+    public function changepass()
+    {
+        //model
+        $model = $this->model('user');
+        //view
+        $this->view(
+            "account",
             [
                 "viewpart" => "changepass",
-                "arrUs" => $model ->selectAllUser(),
+                "arrUs" => $model->selectAllUser(),
                 // "arrNV" => $a -> sanphambanchay(),
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
             ]
-            );
-        }
-
-        
-        public function edituser($id){
-            $i = $id;
-            $model = $this -> model('user');
-            $this -> view("account",[
+        );
+    }
+    public function Update()
+    {
+        if (isset($_POST['submit'])) {
+            $id = $_SESSION['idUS'];
+            $password = $_POST['psw'];
+            $model = $this->model('user');
+            $this->view("account", [
                 "viewpart" => "changepass",
-                "id" => $i,
-                "arrEd" =>$model ->Edit($id),
-            
+                "id" => $id,
+                "check" => $model->Update($id, $password),
+                "arrEd" => $model->Edit($id),
             ]);
-        }
-
-        public function Update(){
-            if(isset($_POST['submit'])){
-                $id = $_SESSION['idUS'];
-                 $password=$_POST['psw'];
-                 $model = $this -> model('user');
-                 $this -> view("account",[
-                     "viewpart" => "changepass",
-                     "id" => $id,
-                     "check" =>$model ->Update($id,$password),
-                     "arrEd" =>$model ->Edit($id),
-                    ]); 
-            }
         }
     }
 
-?>
+    //change sdt
+    public function changesdt()
+    {
+        //model
+        $model = $this->model('user');
+        //view
+        $this->view(
+            "account",
+            [
+                "viewpart" => "changesdt",
+                "arrUs" => $model->selectAllUser(),
+                // "arrNV" => $a -> sanphambanchay(),
+                // "arrDM" => $b -> getDM(),
+                // "sanpham" => $a -> selectSP(),
+            ]
+        );
+    }
+
+    public function UpdateSDT()
+    {
+        if (isset($_POST['submit'])) {
+            $id = $_SESSION['idUS'];
+            $SDT = $_POST['sdt'];
+            $model = $this->model('user');
+            $this->view("account", [
+                "viewpart" => "changesdt",
+                "id" => $id,
+                "check" => $model->UpdateSDT($id,$SDT),
+                "arrEd" => $model->Edit($id),
+            ]);
+        }
+    }
+
+
+    //change mail
+    public function changeemail()
+    {
+        //model
+        $model = $this->model('user');
+        //view
+        $this->view(
+            "account",
+            [
+                "viewpart" => "changeemail",
+                "arrUs" => $model->selectAllUser(),
+                // "arrNV" => $a -> sanphambanchay(),
+                // "arrDM" => $b -> getDM(),
+                // "sanpham" => $a -> selectSP(),
+            ]
+        );
+    }
+
+    public function UpdateEmail()
+    {
+        if (isset($_POST['submit'])) {
+            $id = $_SESSION['idUS'];
+            $Email = $_POST['email'];
+            $model = $this->model('user');
+            $this->view("account", [
+                "viewpart" => "changeemail",
+                "id" => $id,
+                "check" => $model->UpdateEmail($id,$Email),
+                "arrEd" => $model->Edit($id),
+            ]);
+        }
+    }
+
+
+    public function edituser($id)
+    {
+        $i = $id;
+        $model = $this->model('user');
+        $this->view("account", [
+            "viewpart" => "changepass",
+            "id" => $i,
+            "arrEd" => $model->Edit($id),
+
+        ]);
+    }
+}

@@ -8,11 +8,11 @@ if (isset($data["arrEd"])) {
 
 
 <h1>
-    Đổi mật khẩu
+    Đổi email
 </h1>
-<form action="account/Update" target="account.php" method="post">
-    <label for="psw"><b>Mật Khẩu</b></label>
-    <input type="password" name="psw" value="">
+<form action="account/UpdateEmail" target="account.php" method="post">
+    <label for="psw"><b>Email</b></label>
+    <input type="email" name="email" value="">
 
     <?php if (isset($data["check"])) {
         echo '<h1> update thanh cong <h1>';
