@@ -44,13 +44,13 @@
             ]);
         }
 
-        public function Update(){
+        public function update(){
             if(isset($_POST['submit'])){
                 $id = $_SESSION['idUS'];
                  $password=$_POST['psw'];
                  $model = $this -> model('user');
                  $this -> view("account",[
-                     "viewpart" => "changepass",
+                     "viewpart" => "update",
                      "id" => $id,
                      "check" =>$model ->Update($id,$password),
                      "arrEd" =>$model ->Edit($id),
@@ -58,5 +58,3 @@
             }
         }
     }
-
-?>
