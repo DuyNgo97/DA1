@@ -149,7 +149,7 @@
 
             public function UpdateEmail($id,$Email){
                 $check= false;
-                $sql="UPDATE `infor` SET email = $Email WHERE `id_info` =  $id";
+                $sql="UPDATE `infor` SET email = '$Email' WHERE `id_info` =  '$id'";
                 $result = mysqli_query($this -> conn,$sql);
                 // $arr = mysqli_fetch_assoc($result);
                 // return json_encode($arr);
@@ -157,6 +157,18 @@
                      $check = true;
                 }
                 return $check;
+            }
+
+            public function selectAllUs($id){
+                $sql = "SELECT a.us_id,a.us_taikhoan,a.us_password,b.name_vaitro,c.name,c.email,c.diachi,c.ngaytao,c.sdt FROM userss a 
+                INNER JOIN vaitro b ON a.id_vaitro= b.id_vaitro 
+                INNER JOIN infor c ON a.id_info = c.id_info
+                WHERE a.us_id = $id";
+                $result = mysqli_query($this -> conn,$sql);
+                $arr = mysqli_fetch_all($result);
+                return json_encode($arr);
+                // b.name_vaitro,INNER JOIN vaitro b 
+                // ON a.us_id = b.id_vaitro 
             }
     }
 ?>

@@ -59,12 +59,13 @@ if (isset($data['abc'])) {
                             $arr = json_decode($data["arrUs"]);
                             // var_dump($data["arrUs"]);
                             $IDUS = $_SESSION['idUS'];
+                            
                         ?>
                             <div class="account-gmail ">
-                                <span class="fs-2"><?= $arr[$IDUS][5] ?></span>
+                                <span class="fs-2"><?= $arr[0][5] ?></span>
                             </div>
                             <div class="account-phone">
-                                <span class="fs-2"><?= $arr[$IDUS][8] ?></span>
+                                <span class="fs-2">0<?= $arr[0][8] ?></span>
                             </div>
 
                     </div>

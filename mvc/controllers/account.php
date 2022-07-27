@@ -6,17 +6,30 @@ class account extends controller
     {
         //model
         $model = $this->model('user');
+        $id = $_SESSION['idUS'];
         //view
         $this->view(
             "account",
             [
                 "viewpart" => "colright",
-                "arrUs" => $model->selectAllUser(),
+                "arrUs" => $model->selectAllUs($id),
                 // "arrNV" => $a -> sanphambanchay(),
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
             ]
         );
+    }
+    
+    public function edituser($id)
+    {
+        $i = $id;
+        $model = $this->model('user');
+        $this->view("account", [
+            "viewpart" => "changepass",
+            "id" => $i,
+            "arrEd" => $model->Edit($id),
+
+        ]);
     }
 
     //change pass
@@ -24,12 +37,13 @@ class account extends controller
     {
         //model
         $model = $this->model('user');
+        $id = $_SESSION['idUS'];
         //view
         $this->view(
             "account",
             [
                 "viewpart" => "changepass",
-                "arrUs" => $model->selectAllUser(),
+                "arrUs" => $model->selectAllUs($id),
                 // "arrNV" => $a -> sanphambanchay(),
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
@@ -56,12 +70,13 @@ class account extends controller
     {
         //model
         $model = $this->model('user');
+        $id = $_SESSION['idUS'];
         //view
         $this->view(
             "account",
             [
                 "viewpart" => "changesdt",
-                "arrUs" => $model->selectAllUser(),
+                "arrUs" => $model->selectAllUs($id),
                 // "arrNV" => $a -> sanphambanchay(),
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
@@ -90,12 +105,13 @@ class account extends controller
     {
         //model
         $model = $this->model('user');
+        $id = $_SESSION['idUS'];
         //view
         $this->view(
             "account",
             [
                 "viewpart" => "changeemail",
-                "arrUs" => $model->selectAllUser(),
+                "arrUs" => $model->selectAllUs($id),
                 // "arrNV" => $a -> sanphambanchay(),
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
@@ -119,15 +135,5 @@ class account extends controller
     }
 
 
-    public function edituser($id)
-    {
-        $i = $id;
-        $model = $this->model('user');
-        $this->view("account", [
-            "viewpart" => "changepass",
-            "id" => $i,
-            "arrEd" => $model->Edit($id),
-
-        ]);
-    }
+    
 }
