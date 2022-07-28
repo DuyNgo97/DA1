@@ -93,7 +93,7 @@
                                 </div>
                                 <?php
 
-                                
+
 
                             } else { ?>
                                 <i class="bi bi-person-fill"></i>
@@ -121,7 +121,7 @@
                                 </div>
                                 <?php
                             }
-                            ?>
+                                ?>
                         </a>
                     </li>
                     <!-- cart -->
