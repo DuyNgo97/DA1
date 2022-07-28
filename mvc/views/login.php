@@ -93,6 +93,7 @@
                         <input type="password" placeholder="Mật khẩu" name="password" />
                     </div>
                     <input type="submit" value="Đăng nhập" class="btn solid" name="btn-dangnhap" />
+                    <p class="social-text"><a href="forgotpass">Quên mật khẩu?</a></p>
                     <p class="social-text">Hoặc Đăng nhập bằng các nền tảng xã hội</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
