@@ -1,20 +1,11 @@
 <?php
     if(isset($data['abc'])){
       $abc = json_decode($data['abc']);
-    //   echo $abc['name_vaitro'];
-    //   var_dump($abc);
-    //   echo $abc[0][0];
-    //   echo $abc[0][1];
-    // var_dump($abc[0][5]);
-    // if($abc[0][5] != null){
-        
+    $_SESSION['user'] = json_decode($data['abc']);
     @$_SESSION['vaitro'] = $abc[0][1];
-    // }else{
-    //   $_SESSION['vaitro'] = 'USER';
-    // }
     @$_SESSION['idUS'] = $abc[0][0];
     @$_SESSION['nameUS'] = strtoupper($abc[0][2]);
-    @$_SESSION['urlUS'] = 'public/images/my-do-toa.jpeg';
+    @$_SESSION['urlUS'] = 'public/images/chambien2.jpg';
     // var_dump($_SESSION);
   }
 ?>

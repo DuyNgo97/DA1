@@ -1,7 +1,7 @@
 <?php
 if (isset($data['sanpham'])) {
     $sanpham = json_decode($data['sanpham']);
-    var_dump($sanpham);
+    // var_dump($sanpham);
     foreach ($sanpham as $key => $sp) { ?>
 <div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
     <div class="item-info mb-3 p-2 border-s position-relative">

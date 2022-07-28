@@ -35,11 +35,13 @@
                                 <img src="public/images/car_3.jpg" class="d-block w-100" alt="...">
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
@@ -67,13 +69,34 @@
                     <div class="product-show-top d-flex justify-content-between">
                         <div class="border-s col-5 col-md-4 d-flex justify-content-center">
                             <span style="padding: 6px 12px">
-                                <!-- đếm sp -->
+                                <?php
+                                    if(isset($data['slsp'])){
+                                        $slsp = $data['slsp'];
+                                        $sotrang = ceil($slsp/6);
+                                        echo 'Có '.$slsp.' sản phẩm!';
+                                        // echo $sotrang;
+                                        // echo $sotrang;
+                                    }
+
+                                    // if(isset($data['arrallsp'])){
+                                    //     $slsp = $data['arrallslsp'];
+                                    //     $sotrang = ceil($slsp/6);
+                                    //     echo 'Có '.$slsp.' sản phẩm!';
+                                    // }
+
+                                    // if(isset($_data['idtl'])){
+                                        @$idtl = $data['idtl'];
+                                        // echo $idtl;
+                                    // }
+
+                                ?>
                             </span>
                         </div>
                         <div class="border-s col-5 col-md-4 d-flex justify-content-center align-item-center">
                             <span style="padding: 6px 12px">Sắp xếp:</span>
                             <div class="dropdown">
-                                <button class="btn dropdown-toggle border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn dropdown-toggle border-0" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                     Mặc định
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -101,9 +124,20 @@
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
-                                <li class="page-item shadow-none"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item shadow-none"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item shadow-none"><a class="page-link" href="#">3</a></li>
+                                <?php
+                                
+                                if(isset($idtl)){
+                                    for ($i=1; $i <= $sotrang ; $i++) { ?>
+                                <li class="page-item shadow-none"><a class="page-link"
+                                        href="product/changeSP/<?= $idtl ?>/<?= $i ?>" target="_self"><?= $i ?></a></li>
+                                <?php }}else{
+                                    for ($i=1; $i <= $sotrang ; $i++) { ?>
+                                <li class="page-item shadow-none"><a class="page-link" href="product/all/<?= $i ?>"
+                                        target="_self"><?= $i ?></a></li>
+                                <?php }
+                                }
+                                ?>
+
                                 <li class="page-item shadow-none">
                                     <a class="page-link" href="#" aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>

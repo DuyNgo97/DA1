@@ -33,7 +33,7 @@
                             Sản phẩm <i class="bi bi-caret-down-fill"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light">
-                            <li><a class="dropdown-item" href="product" target="_self">Tất cả sản phẩm</a></li>
+                            <li><a class="dropdown-item" href="product/all/1" target="_self">Tất cả sản phẩm</a></li>
                             <li><a class="dropdown-item" href="#">Sản phẩm 1</a></li>
                             <li><a class="dropdown-item" href="#">Sản phẩm 2</a></li>
                             <li><a class="dropdown-item" href="#">Sản phẩm 3</a></li>

@@ -47,7 +47,7 @@
         // Vai tro
         
             public function vaitro($taikhoan,$password){
-                $sql2 = "SELECT a.us_id,b.name_vaitro,c.name FROM `userss` a
+                $sql2 = "SELECT a.us_id,b.name_vaitro,c.name,c.email,c.diachi FROM `userss` a
                 INNER JOIN `vaitro` b
                 ON a.id_vaitro = b.id_vaitro
                 INNER JOIN `infor` c
@@ -68,6 +68,15 @@
                 return json_encode($arr);
                 // b.name_vaitro,INNER JOIN vaitro b 
                 // ON a.us_id = b.id_vaitro 
+            }
+
+            public function totalUS(){
+                $sql = "SELECT a.us_id,a.us_taikhoan,a.us_password,b.name_vaitro,c.name,c.email,c.diachi,c.ngaytao,c.sdt FROM userss a 
+                INNER JOIN vaitro b ON a.id_vaitro= b.id_vaitro 
+                INNER JOIN infor c ON a.id_info = c.id_info";
+                $result = mysqli_query($this -> conn,$sql);
+                $total = mysqli_num_rows($result);
+                return $total;
             }
 
             public function Edit($id){

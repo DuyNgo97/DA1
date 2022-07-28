@@ -11,25 +11,47 @@ class productdb extends db
         return json_encode($arrCategory);
     }
 
-    public function getSp($id)
+    public function getSp($id,$trang)
     {
+        $sosp = "6";
+        $begin = ($trang - 1)*$sosp;
         $sql_category = "SELECT a.*, b.url_main, c.*, d.* FROM `sanpham` a 
         INNER JOIN hinhanh b ON a.id_hinhanh = b.id_hinhanh 
         INNER JOIN loai_sp_chi_tiet c ON a.id_loaispct = c.id_loaispct 
         INNER JOIN company d ON a.id_company = d.id_company
-        WHERE `id_loaisp` = $id ORDER BY a.id_sp limit 9";
+        WHERE `id_loaisp` = $id ORDER BY a.id_sp limit $begin,$sosp";
         $query_category = mysqli_query($this->conn, $sql_category);
         $arrCategory = mysqli_fetch_all($query_category);
         return json_encode($arrCategory);
     }
-    public function getAllSp()
+    public function getAllSp($trang)
     {
+        $sosp = "6";
+        $begin = ($trang - 1)*$sosp;
         $sql = "SELECT a.*, b.url_main, c.*, d.* FROM `sanpham` a 
         INNER JOIN hinhanh b ON a.id_hinhanh = b.id_hinhanh 
         INNER JOIN loai_sp_chi_tiet c ON a.id_loaispct = c.id_loaispct 
-        INNER JOIN company d ON a.id_company = d.id_company ORDER BY a.id_sp DESC LIMIT 9; ";
+        INNER JOIN company d ON a.id_company = d.id_company ORDER BY a.id_sp DESC LIMIT $begin,$sosp";
         $query = mysqli_query($this->conn, $sql);
         $arr = mysqli_fetch_all($query);
+        return json_encode($arr);
+    }
+
+    public function totalSP(){
+        $sql = "SELECT * FROM `sanpham`";
+        if(mysqli_query($this -> conn, $sql)){
+            $total = mysqli_num_rows(mysqli_query($this -> conn, $sql));
+        }
+        return $total;
+    }
+
+    public function chart2(){
+        $sql = "SELECT a.id_loaisp, COUNT(*) as 'Total' FROM `sanpham` a 
+        GROUP BY a.id_loaisp";
+        $result = mysqli_query($this -> conn, $sql);
+        if($result){
+            $arr = mysqli_fetch_all($result);
+        }
         return json_encode($arr);
     }
 
@@ -80,5 +102,27 @@ class productdb extends db
         $result = mysqli_query($this -> conn,$sql);
         $arr = mysqli_fetch_all($result);
         return json_encode($arr);
+    }
+
+    public function slsp($id){
+        $sql_category = "SELECT a.*, b.url_main, c.*, d.* FROM `sanpham` a 
+        INNER JOIN hinhanh b ON a.id_hinhanh = b.id_hinhanh 
+        INNER JOIN loai_sp_chi_tiet c ON a.id_loaispct = c.id_loaispct 
+        INNER JOIN company d ON a.id_company = d.id_company
+        WHERE `id_loaisp` = $id ORDER BY a.id_sp";
+        $query_category = mysqli_query($this->conn, $sql_category);
+        $sl = mysqli_num_rows($query_category);
+	    return $sl; 
+    }
+
+    public function slspAll(){
+        $sql_category = "SELECT a.*, b.url_main, c.*, d.* FROM `sanpham` a 
+        INNER JOIN hinhanh b ON a.id_hinhanh = b.id_hinhanh 
+        INNER JOIN loai_sp_chi_tiet c ON a.id_loaispct = c.id_loaispct 
+        INNER JOIN company d ON a.id_company = d.id_company
+        ORDER BY a.id_sp";
+        $query_category = mysqli_query($this->conn, $sql_category);
+        $sl = mysqli_num_rows($query_category);
+	    return $sl; 
     }
 }

@@ -5,14 +5,19 @@ class admin extends controller
     public function sayhi()
     {
         //model
+        $model = $this -> model('user');
+        $model2 = $this -> model('productDB');
+        $model3 = $this -> model('adminPro');
         //view
         $this->view(
             "admin",
             [
                 "viewpart" => "chart",
-                // "arrNV" => $a -> sanphambanchay(),
-                // "arrDM" => $b -> getDM(),
-                // "sanpham" => $a -> selectSP(),
+                "totalDH" => $model3 -> totaldonhang(),
+                "totalUS" => $model -> totalUS(),
+                "totalPD" => $model2 -> totalSP(),
+                "totalVC" => $model3 -> totalvoucher(),
+                "chart2" => $model2 -> chart2(),
             ]
         );
     }
@@ -382,6 +387,70 @@ class admin extends controller
             "viewpart" => "typeSP",   
             "arrDM" => $model -> selectArr("loai_sp_chi_tiet"),
             "delete" => $model ->deleteType($id,$nameType),
+        ]);
+    }
+
+    public function quanlidonhang(){
+        
+        $model = $this -> model('adminPro');
+
+        //views
+        $this -> view('admin',[
+            'viewpart' => 'thongkedonhang',
+            'arr' => $model -> selectDonHang(),
+        ]);
+    }
+
+    public function xacnhan($id_donhang,$trangthai){
+        $model = $this -> model('adminPro');
+        $model -> changeTrangThai($id_donhang,$trangthai);
+        //views
+        $this -> view('admin',[
+            'viewpart' => 'thongkedonhang',
+            'arr' => $model -> selectDonHang(),
+        ]);
+    }
+
+    public function deleteDonHang($id_donhang){
+        $model = $this -> model('adminPro');
+        $model -> deleteDonHang($id_donhang);
+        //views
+        $this -> view('admin',[
+            'viewpart' => 'thongkedonhang',
+            'arr' => $model -> selectDonHang(),
+        ]);
+    }
+
+    public function thongKeDonHang(){
+        $model = $this -> model('adminPro');
+        //views
+        $this -> view('admin',[
+            'viewpart' => 'thongke',
+            'totalAll' => $model -> numsAlldonhang(),
+            'totalChua' => $model -> numsChuaXacNnhan(),
+            'totalXN' => $model -> numsXacNnhan(),
+        ]);
+    }
+
+    public function toTalMonth(){
+        $month = $_POST['month'];
+        $model = $this -> model('adminPro');
+        //views
+        $this -> view('admin',[
+            'viewpart' => 'thongke',
+            'totalAll' => $model -> numsAlldonhang(),
+            'totalChua' => $model -> numsChuaXacNnhan(),
+            'totalXN' => $model -> numsXacNnhan(),
+            'check' => $model -> Month($month),
+        ]);
+    }
+
+    public function xemchitiet($id_donhang){
+        $model = $this -> model('adminPro');
+        //views
+        $this -> view('admin',[
+            'viewpart' => 'xemchitiet',
+            'arrDH' => $model -> selectOneDH($id_donhang),
         ]);
     }
 }
