@@ -88,6 +88,7 @@ require_once 'mvc/views/body/header.php';
 
                     <!--Mini cart -->
 
+
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-muted">Giỏ hàng</span>
 
@@ -122,12 +123,6 @@ require_once 'mvc/views/body/header.php';
                             </tbody>
                         </table>
 
-                        <?php
-                // require_once "mvc/views/page/checkouts/" . $data['viewpart'] . ".php";
-                ?>
-
-
-
                     </ul>
                     <!-- <form class="card p-2">
                         <div class="input-group">
@@ -155,8 +150,8 @@ require_once 'mvc/views/body/header.php';
                     <div class="mb-3">
                         <label for="sdt">Số điện thoại</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="username" placeholder="Nhập số điện thoại"
-                                required>
+                            <input type="text" class="form-control" id="username" name="sdt"
+                                placeholder="Nhập số điện thoại" required>
                             <div class="invalid-feedback" style="width: 100%;">
                                 Số điện thoại không được để trống
                             </div>

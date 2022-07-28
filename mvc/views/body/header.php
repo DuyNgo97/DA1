@@ -55,7 +55,7 @@
             <div class="navbar-right">
                 <ul class="d-flex navbar-nav me-auto mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link fs-4" href="#">
+                        <a class="nav-link fs-4" href="find_item" target="_self">
                             <i class="bi bi-search"></i>
                         </a>
                     </li>
@@ -65,8 +65,7 @@
                             data-bs-auto-close="outside">
                             <?php
                             if (isset($_SESSION['nameUS'])) {
-                            ?>
-                            <!-- <i class="bi bi-person-fill"></i><?= $_SESSION['nameUS'] ?> -->
+                                if($_SESSION['vaitro'] == 'ADMIN'){?>
                             <i class="bi bi-person-fill"></i><span
                                 style="font-size: 18px; font-style: italic; color: green;"><?= $_SESSION['vaitro'] ?></span>
                             <div class="dropdown-menu dropdown-menu-start p-3">
@@ -94,32 +93,57 @@
                                 <?php
 
 
-
-                            } else { ?>
-                                <i class="bi bi-person-fill"></i>
+                            }else{ ?>
+                                <i class="bi bi-person-fill"></i><span
+                                    style="font-size: 18px; font-style: italic; color: green;"><?= $_SESSION['vaitro'] ?></span>
                                 <div class="dropdown-menu dropdown-menu-start p-3">
                                     <div class="drop-account">
                                         <div class="avt-account">
-                                            <img src="public/images/725x560-1.webp" alt="">
+                                            <img src="<?= $_SESSION['urlUS'] ?>" alt="">
                                         </div>
                                         <div class="name-account">
-                                            <a href="admin"></a>
+                                            <a href="admin"><?= $_SESSION['nameUS'] ?></a>
                                         </div>
                                         <div class="drop-account-btn">
                                             <div class="btn-box">
                                                 <ul class="d-flex p-0">
                                                     <li class="p-1">
-                                                        <a class="btn" href="login" target="_self">Đăng nhập</a>
+                                                        <a class="btn" href="account" target="_self">Tài Khoản</a>
                                                     </li>
                                                     <li class="p-1">
-                                                        <a class="btn" href="login" target="_self">Đăng ký</a>
+                                                        <a class="btn" href="login/dangxuat" target="_self">Đăng
+                                                            xuất</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php
+                                    <?php }
+                                } else { ?>
+                                    <i class="bi bi-person-fill"></i>
+                                    <div class="dropdown-menu dropdown-menu-start p-3">
+                                        <div class="drop-account">
+                                            <div class="avt-account">
+                                                <img src="public/images/725x560-1.webp" alt="">
+                                            </div>
+                                            <div class="name-account">
+                                                <a href="admin"></a>
+                                            </div>
+                                            <div class="drop-account-btn">
+                                                <div class="btn-box">
+                                                    <ul class="d-flex p-0">
+                                                        <li class="p-1">
+                                                            <a class="btn" href="login" target="_self">Đăng nhập</a>
+                                                        </li>
+                                                        <li class="p-1">
+                                                            <a class="btn" href="login" target="_self">Đăng ký</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
                             }
                                 ?>
                         </a>

@@ -285,7 +285,8 @@
             INNER JOIN userss b
             ON a.us_id = b.us_id
             INNER JOIN infor c
-            ON b.id_info = c.id_info";
+            ON b.id_info = c.id_info
+            Order by a.id_donhang";
             $result = mysqli_query($this -> conn, $sql);
             if($result){
                 $arr = mysqli_fetch_all($result);
