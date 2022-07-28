@@ -178,12 +178,12 @@
 					<div class="row">
 						<div class="col-md-4 mb-3">
 							<label for="">Hãng Xe: </label>
-							<select class="custom-select d-block w-100" id="" name="hangxe">
+							<select class="custom-select d-block w-100" id="" name="">
 								<option value="">Chọn...</option>
-								<option value="1">Mercedes Benz</option>
-								<option value="2">BMW</option>
-								<option value="3">Audi</option>
-								<option value="4">Honda</option>
+								<option value="">Mercedes Benz</option>
+								<option value="">BMW</option>
+								<option value="">Audi</option>
+								<option value="">Honda</option>
 							</select>
 							<!-- <div class="invalid-feedback">
 								

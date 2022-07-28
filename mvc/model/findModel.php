@@ -27,12 +27,16 @@
         public function findNC1(){
             if(isset($_POST['btn-fi'])){
                 $hangxe = $_POST['hangxe'];
-                $sql = "SELECT a.* , b.ten_company
+                $sql = "SELECT a.*, b.url_main, c.ten_company, d.name_chitiet
                         FROM `sanpham` a
-                        INNER JOIN `company` b
-                        ON a.id_company = b.id_company
-                        WHERE b.ten_company
-                        LIKE N'%$hangxe%'";
+                        INNER JOIN `hinhanh` b
+                        ON a.id_hinhanh = b.id_hinhanh
+                        INNER JOIN `company` c
+                        ON a.id_company = c.id_company
+                        INNER JOIN `loai_sp_chi_tiet` d
+                        ON a.id_loaispct = d.id_loaispct
+                        WHERE a.ten_sp
+                        LIKE N'%$hangxe%' ";
                 $result = mysqli_query($this -> conn, $sql);
                 if(mysqli_num_rows($result) == 0){
                     return false;

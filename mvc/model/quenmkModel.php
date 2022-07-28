@@ -16,7 +16,12 @@ class quenmkModel extends db{
                 $newpass = substr(md5(rand(0,999999)),0,8); 
                 $sendMail = GuiMail($email, $nameUS, $newpass);
                 $change = $this -> updatePass($newpass, $idUS);
+                
+                echo "<script>alert('Gửi Email thành công, kiểm tra email và đăng nhập lại!!!');window.location='http://localhost/da1/login'; </script>";
             }
+            // else{
+            //     echo "<script>alert('Email không tồn tại!');window.location='http://localhost/da1/forgotpass'; </script>";
+            // }
         }
     }
 // cập nhật mật khẩu mới vào database 
@@ -59,7 +64,7 @@ class quenmkModel extends db{
         $mail = new PHPMailer(true);//true:enables exceptions
         try {
             //Server settings
-            $mail->SMTPDebug = 2;                                    // Enable verbose debug output
+            $mail->SMTPDebug = 0;                                    // Enable verbose debug output
             $mail->isSMTP();                                         // Set mailer to use SMTP
             $mail->CharSet = "utf-8";
             $mail->Host = 'smtp.gmail.com';                          // Specify main and backup SMTP servers
@@ -89,10 +94,9 @@ class quenmkModel extends db{
                 )
             ));
             $mail->send();
-            echo 'Gửi Mail thành công';
-    
+            // echo "<script>alert('Gửi Email thành công, kiểm tra email và đăng nhập lại!!!');window.location='http://localhost/da1/login'; </script>";
         } catch (Exception $e) {
-                echo 'Mail không gửi được. Lỗi: ', $mail->ErrorInfo;
+            echo "Lỗi!!!", $mail->ErrorInfo;
         }
     }
 ?>

@@ -1,13 +1,13 @@
 <?php 
-    if(isset($data['timkiem'])){ 
-        $arrTK = json_decode($data['timkiem']);
-        // var_dump($arrTK);
+    if(isset($data['hangxe'])){ 
+        $arrHX = json_decode($data['hangxe']);
+        // var_dump($arrHX);
     }
 ?>
     <div class="row">
 <?php              
-        if(is_array($arrTK) || is_object($arrTK)){       
-            foreach($arrTK as $key => $tk){ ?>
+        if(is_array($arrHX) || is_object($arrHX)){       
+            foreach($arrHX as $key => $hx){ ?>
             <!-- item -->
             
                 <div class="product-item card-pd col-6 col-md-6 col-lg-4 text-center">
@@ -22,27 +22,27 @@
                             </div>
                         </div> -->
                         <div class="img-thumbnail">
-                            <img class="mw-100" height="" src="public/images/<?= $tk[16] ?>" alt="">
+                            <img class="mw-100" height="" src="public/images/<?= $hx[16] ?>" alt="">
                         </div>
                         <div class="mb-2 mt-2">
                             <div class="product-name">
                                 <a class="fs-5" href="spct" target="_self">
-                                    <?= $tk[1] ?>
+                                    <?= $hx[1] ?>
                                 </a>
                             </div>
                             <div class="product-cate">
-                                <span><?= $tk[18] ?></span>
+                                <span><?= $hx[18] ?></span>
                             </div>
                             <div class="product-price">
-                                Giá: <span><?= $tk[2] ?></span>
+                                Giá: <span><?= $hx[2] ?></span>
                             </div>
                             <div class="product-nsx">
-                                <Span><?= $tk[17] ?></Span>
+                                <Span><?= $hx[17] ?></Span>
                             </div>
                             <div class="product-info">
                                 Mô tả:
                                 <Span>
-                                <?= $tk[7] ?>
+                                <?= $hx[7] ?>
                                 </Span>
                             </div>
                         </div>
