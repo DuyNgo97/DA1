@@ -18,7 +18,7 @@ class product extends controller
         );
     }
 
-    public function all()
+    public function all($trang)
     {
         // model
         $model = $this->model('productdb');
@@ -29,13 +29,15 @@ class product extends controller
                 "category" => "category",
                 "viewpart" => "show",
                 "arrCategory" => $model->getCategory(),
-                "arrallsp" => $model->getAllSp(),
+                "arrallsp" => $model->getAllSp($trang),
+                "slsp" => $model -> slspAll(),
             ]
         );
     }
 
-    public function changeSP($id)
+    public function changeSP($id,$trang)
     {
+        $idtheloai = $id;
         // model
         $model = $this->model('productdb');
         //view
@@ -45,7 +47,9 @@ class product extends controller
                 "category" => "category",
                 "viewpart" => "show",
                 "arrCategory" => $model->getCategory(),
-                "sanpham" => $model->getSp($id),
+                "sanpham" => $model->getSp($id,$trang),
+                "slsp" => $model -> slsp($id), 
+                "idtl" => $idtheloai,
                 // "arrCategoryPk" => $model->getCategoryPk(),
             ]
         );

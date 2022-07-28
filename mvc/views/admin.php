@@ -8,7 +8,11 @@
 			window.location = "http://localhost/da1/home";
 			</script>
 		';
-	} 
+	}
+    if(isset($data['chart2'])){
+        $chart2 = json_decode($data['chart2']);
+        // var_dump($chart2);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +26,48 @@
     <link rel="stylesheet" href="public/css/admin.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Tên SP', 'Số lượng'],
+            // ['Work', 11],
+            // ['Eat', 2],
+            // ['Commute', 2],
+            // ['Watch TV', 2],
+            // ['Sleep', 7]
+            <?php
+                $sum = 0;
+                foreach ($chart2 as $a) {
+                    if($a[0] == 1){
+                        $a[0] = 'Xe ô tô';
+                    }else{
+                        $a[0] = 'Phụ kiện';
+                    }
+                    echo "['".$a[0]."',".$a[1]."],";
+                    $sum += $a[1];
+                }
+            ?>
+        ]);
+
+        var options = {
+            title: 'My Daily Activities',
+            is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+    }
+    </script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 </head>
 
 <body>
@@ -117,13 +163,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="admin/quanlidonhang" target="_self">
                         <i class="fas fa-users"></i>
                         Quản lí đơn hàng
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="admin/sanpham" target="_self">
+                            <a href="admin/thongKeDonHang" target="_self">
                                 Thống kê
                             </a>
                         </li>
@@ -137,74 +183,76 @@
 
             </ul>
         </div>
-        <!-- <div class="main">
-
-            <div class="cards">
-
-                <div class="card">
-                    <div class="card-content">
-                        <div class="number">2</div>
-                        <div class="card-name">thống kê</div>
-                    </div>
-
-                    <div class="icon-box">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                        <div class="number">5</div>
-                        <div class="card-name">Người dùng</div>
-                    </div>
-
-                    <div class="icon-box">
-                        <i class="fa fa-user"></i>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                        <div class="number">5</div>
-                        <div class="card-name">sản phẩm</div>
-                    </div>
-
-                    <div class="icon-box">
-                        <i class="fa fa-cubes"></i>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-content">
-                        <div class="number">5</div>
-                        <div class="card-name">khuyến mãi</div>
-                    </div>
-
-                    <div class="icon-box">
-                        <i class="fa fa-tags"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="charts">
-                <div class="chart">
-                    <h2>Biểu đồ sản phẩm tiêu thụ trong năm</h2>
-                    <canvas id="lineChart"></canvas>
-                </div>
-                <div class="chart" id="doughnut-chart">
-                    <h2>Biểu đồ sản phẩm</h2>
-                    <canvas id="doughnut"></canvas>
-                </div>
-            </div>
-
-        </div> -->
         <?php
             require_once "mvc/views/page/admin/".$data['viewpart'].".php";
         ?>
     </div>
+    <script>
+    new Morris.Line({
+        // ID of the element in which to draw the chart.
+        element: 'myfirstchart',
+        // Chart data records -- each entry in this array corresponds to a point on
+        // the chart.
+        data: [{
+                month: '1',
+                value: 0
+            },
+            {
+                month: '2',
+                value: 0
+            },
+            {
+                month: '3',
+                value: 0
+            },
+            {
+                month: '4',
+                value: 0
+            },
+            {
+                month: '5',
+                value: 0
+            },
+            {
+                month: '6',
+                value: 0
+            },
+            {
+                month: '7',
+                value: 434000000
+            },
+            {
+                month: '8',
+                value: 0
+            },
+            {
+                month: '9',
+                value: 0
+            },
+            {
+                month: '10',
+                value: 0
+            },
+            {
+                month: '11',
+                value: 0
+            },
+            {
+                month: '12',
+                value: 0
+            },
+        ],
+        // The name of the data record attribute that contains x-values.
+        xkey: 'month',
+        // A list of names of data record attributes that contain y-values.
+        ykeys: ['value'],
+        // Labels for the ykeys -- will be displayed when you hover over the
+        // chart.
+        labels: ['Thu nhập '],
+        // yLabels: "month",
+    });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
-    <script src="public/js/chart1.js"></script>
-    <script src="public/js/chart2.js"></script>
     <script src="public/js/admin.js"></script>
 </body>
 

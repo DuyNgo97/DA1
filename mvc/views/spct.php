@@ -1,3 +1,12 @@
+<?php
+    if(isset($data['arrColor'])){
+        $arrColor = json_decode($data['arrColor']);
+        $arrTheLoai = json_decode($data['arrTheLoai']);
+        $arrloaiSPCT = json_decode($data['arrloaispct']);
+        $arrComPaNy = json_decode($data['arrComPaNy']);
+        $arrTrangThai = json_decode($data['arrTrangThai']);
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,66 +38,86 @@
                 // var_dump($check);
             }
         ?>
-        <div class="main-product">
-            <div class="imgs">
-                <div class="img-top">
-                    <img src="./public/images/<?= $sp[0][13] ?>" alt="">
-                </div>
+        <form action="cart/addToCart" method="POST" target="_self">
+            <div class="main-product">
+                <div class="imgs">
+                    <div class="img-top">
+                        <img src="./public/images/<?= $sp[0][13] ?>" alt="">
+                        <input type="hidden" value="<?= $sp[0][13] ?>" name="img">
+                    </div>
 
-                <div class="img-bot">
-                    <img src="./public/images/<?= $sp[0][14] ?>" alt="">
-                    <img src="./public/images/<?= $sp[0][15] ?>" alt="">
-                    <img src="./public/images/<?= $sp[0][16] ?>" alt="">
-                    <img src="./public/images/<?= $sp[0][17] ?>" alt="">
+                    <div class="img-bot">
+                        <img src="./public/images/<?= $sp[0][14] ?>" alt="">
+                        <img src="./public/images/<?= $sp[0][15] ?>" alt="">
+                        <img src="./public/images/<?= $sp[0][16] ?>" alt="">
+                        <img src="./public/images/<?= $sp[0][17] ?>" alt="">
+                    </div>
                 </div>
-            </div>
-            <div class="message">
-                <h1>
-                    <?= $sp[0][1] ?>
-                </h1>
-                <div class="price-start">
-                    <span class="price"><?= $sp[0][2] ?> VNĐ</span>
-                    <span class="start">5 Sao</span>
-                </div>
-                <div class="noidung">
-                    <p>
-                        <?= $sp[0][7] ?>
-                    </p>
-                </div>
-                <div class="quantity">
-                    <label for="">Nhà sản xuất: </label>&ensp;
-                    <h3>
-                        <?= $sp[0][10] ?> </h3>
-                </div>
-                <div class="color">
-                    <label for="">Color: </label>&ensp;
-                    <input type="radio"> <span>black</span> &emsp;
-                    <input type="radio"> <span>red</span>&emsp;
-                    <input type="radio"> <span>yellow</span>&emsp;
-                    <input type="radio"> <span>pink</span>
-                </div>
-                <div class="size">
-                    <label for="">Size: </label>&ensp;
-                    <input type="checkbox" value=""> <span>17 x 9</span> &emsp;
-                    <input type="checkbox" value=""> <span>18 x 10</span> &emsp;
-                    <input type="checkbox" value=""> <span>19 x 9</span> &emsp; &emsp; &emsp; &emsp; &ensp;
-                    &emsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" value=""> <span>20 x 10</span> &emsp;
-                </div>
-                <div class="quantity">
-                    <label for="">Số lượng: </label>&ensp;
-                    <input type="number" value="1">
-                </div>
-                <div class="btnx">
-                    <a href="cart" target="_self">
-                        <button class="btn-add">
+                <div class="message">
+                    <input type="hidden" value="<?= $sp[0][0] ?>" name="id">
+                    <h1>
+                        <?= $sp[0][1] ?>
+                    </h1>
+                    <input type="hidden" value="<?= $sp[0][1] ?>" name="name">
+                    <div class="price-start">
+                        <span class="price"><?= $sp[0][2] ?> VNĐ</span>
+                        <input type="hidden" value="<?= $sp[0][2] ?>" name="price">
+                        <span class="start">5 Sao</span>
+                    </div>
+                    <div class="noidung">
+                        <p>
+                            <?= $sp[0][7] ?>
+                        </p>
+                        <input type="hidden" value="<?= $sp[0][7] ?>" name="note">
+                    </div>
+                    <div class="quantity">
+                        <label for="">Nhà sản xuất: </label>&ensp;
+                        <h3>
+                            <?= $sp[0][10] ?> </h3>
+                        <input type="hidden" value="<?= $sp[0][10] ?>" name="company">
+                    </div>
+                    <div class="quantity">
+                        <label for="">Thể loại: </label>&ensp;
+                        <h3>
+                            <?= $sp[0][12] ?> </h3>
+                        <input type="hidden" value="<?= $sp[0][12] ?>" name="theloai">
+                    </div>
+                    <div class="color">
+                        <label for="color">Color</label>
+                        <select id="color" name="colorsp">
+                            <?php
+                                        foreach ($arrColor as $key => $color) { ?>
+                            <option style="background-color: <?= $color[1] ?>;" value="<?= $color[0] ?>">
+                                <?= $color[1] ?>
+                            </option>
+                            <?php }
+                                    ?>
+                        </select>
+                    </div>
+                    <?php
+                    if(isset($sp[0][5])){ ?>
+                    <div class="quantity">
+                        <label for="">Ưu đãi: </label>&ensp;
+                        <h3><?= $sp[0][5] ?>%</h3>
+                    </div>
+                    <input type="hidden" value="<?= $sp[0][5] ?>" name="giamgia">
+                    <?php }
+                ?>
+                    <div class="quantity">
+                        <label for="">Số lượng: </label>&ensp;
+                        <input type="number" value="1">
+                        <input type="hidden" value="1" name="soluong">
+                    </div>
+                    <div class="btnx">
+                        <!-- <a href="cart" target="_self"> -->
+                        <button class="btn-add" name="btn-addToCart">
                             ADD TO CART
                         </button>
-                    </a>
+                        <!-- </a> -->
+                    </div>
                 </div>
             </div>
-        </div>
-
+        </form>
 
     </div>
     <div class="product-tt">

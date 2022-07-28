@@ -1,32 +1,24 @@
 <?php
 class checkoutDB extends db
 {
-
-
-    //Lay tu` bang san pham
-    public function minicart()
-    {
-        // if (isset($_GET['id'])) {
-        //     $id = $_GET['id'];
-        $sql = "SELECT * FROM `sanpham`";
-        $result = mysqli_query($this->conn, $sql);
-        $arr = mysqli_fetch_all($result);
-        return json_encode($arr);
-        // }
+    public function insertDonHang($idUS,$total,$trangthai,$thanhtoan,$a,$sdt,$note){
+        $sql = "INSERT INTO `donhang`(`us_id`, `total`, `trangthai`, `hinhthucTT`, `ngaytao_donhang`, `SDT`, `note`)
+         VALUES ($idUS,'$total',$trangthai,$thanhtoan,'$a','$sdt','$note')";
+        $result = mysqli_query($this -> conn, $sql);
+        $id = mysqli_insert_id($this->conn);
+        return $id;
     }
-
-    //Them vao don hang
-    // public function insertDH($name, $diachi, $sdt, $ngaytao)
-    // {
-    //     $check = false;
-    //     $vaitro = 2;
-    //     $ngaytao = getdate("Y,m,d");
-    //     $id_info = $this->insertDH($name, $diachi, $sdt, $ngaytao);
-    //     $sql = "INSERT INTO `donhang`(`id_donhang`, `diachi`, `SDT`, `ngaytao_donhang`,`us_id`,`id_voucher`,`total`,`trangthai`,`hinhthucTT`) 
-    //     VALUES ('1','1123','049332','2022/04/20','2','2','200','1','2')";
-    //     if (mysqli_query($this->conn, $sql)) {
-    //         $check = true;
-    //     }
-    //     return json_encode($check);
-    // }
+    
+    public function insertDHCT($arrSP,$idUS,$total,$trangthai,$thanhtoan,$a,$sdt,$note){
+        $check = false;
+        $idDH = $this -> insertDonHang($idUS,$total,$trangthai,$thanhtoan,$a,$sdt,$note);
+        foreach ($arrSP as $key => $sp) {
+            $sql = "INSERT INTO `donhangchitiet`(`id_donhang`, `id_sp`, `soluong_sp`) VALUES ($idDH,$sp[id],$sp[quantity])";
+            if(mysqli_query($this -> conn,$sql)){
+               $check = true; 
+            }
+        }
+        unset($_SESSION['cart']);
+        return $check;
+    }
 }

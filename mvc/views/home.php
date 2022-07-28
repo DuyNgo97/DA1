@@ -172,22 +172,26 @@
                     aria-orientation="vertical">
                     <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
                         data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
-                        aria-selected="true">Nội thất</button>
+                        aria-selected="true">SEDAN</button>
                     <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
                         data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
-                        aria-selected="false">Đèn</button>
+                        aria-selected="false">SUV</button>
                     <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
                         data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
-                        aria-selected="false">Hiệu suất</button>
+                        aria-selected="false">ĐÈN</button>
                     <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill"
                         data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
-                        aria-selected="false">Bánh xe</button>
+                        aria-selected="false">CAMERA</button>
                 </div>
                 <div class="tab-content" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                         aria-labelledby="v-pills-home-tab" tabindex="0">
                         <!-- Hiện ra 3 sản phẩm -->
                         <div class="row">
+                            <?php
+                                if(isset($data['sp1'])){
+                                    $sp = json_decode($data['sp1']);
+                                    foreach ($sp as $key => $sp) { ?>
                             <div class="col-4 box-item">
                                 <div class="hover">
                                     <a class="btn" href="#">
@@ -195,10 +199,10 @@
                                     </a>
                                 </div>
                                 <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
+                                    <img src="public/images/<?= $sp[3] ?>" width="80%" alt="">
                                 </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
+                                <div class="name-sp"><?= $sp[1] ?></div>
+                                <div class="price-sp"><?= $sp[2] ?></div>
                                 <div class="start-sp">
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-fill"></i>
@@ -207,46 +211,31 @@
                                     <i class="bi bi-star-fill"></i> (4)
                                 </div>
                             </div>
-                            <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
-                                </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
-                                <div class="start-sp">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i> (4)
-                                </div>
-                            </div>
-                            <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
-                                </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
-                                <div class="start-sp">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i> (4)
-                                </div>
-                            </div>
+                            <?php }
+                            }
+                            ?>
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
                         aria-labelledby="v-pills-profile-tab" tabindex="0">
                         <!-- Hiện ra 3 sản phẩm -->
                         <div class="row">
+                            <?php
+                                if(isset($data['sp1'])){
+                                    $sp = json_decode($data['sp2']);
+                                    foreach ($sp as $key => $sp) { ?>
                             <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
+                                <div class="hover">
+                                    <a class="btn" href="#">
+                                        Mua ngay
+                                    </a>
                                 </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
+                                <div class="thumnail-sp">
+                                    <img src="public/images/<?= $sp[3] ?>" width="80%" alt="">
+                                </div>
+                                <div class="name-sp"><?= $sp[1] ?></div>
+                                <div class="price-sp"><?= $sp[2] ?></div>
                                 <div class="start-sp">
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-fill"></i>
@@ -255,46 +244,31 @@
                                     <i class="bi bi-star-fill"></i> (4)
                                 </div>
                             </div>
-                            <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
-                                </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
-                                <div class="start-sp">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i> (4)
-                                </div>
-                            </div>
-                            <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
-                                </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
-                                <div class="start-sp">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i> (4)
-                                </div>
-                            </div>
+                            <?php }
+                            }
+                            ?>
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
                         aria-labelledby="v-pills-messages-tab" tabindex="0">
                         <!-- Hiện ra 3 sản phẩm -->
                         <div class="row">
+                            <?php
+                                if(isset($data['sp1'])){
+                                    $sp = json_decode($data['sp3']);
+                                    foreach ($sp as $key => $sp) { ?>
                             <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
+                                <div class="hover">
+                                    <a class="btn" href="#">
+                                        Mua ngay
+                                    </a>
                                 </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
+                                <div class="thumnail-sp">
+                                    <img src="public/images/<?= $sp[3] ?>" width="80%" alt="">
+                                </div>
+                                <div class="name-sp"><?= $sp[1] ?></div>
+                                <div class="price-sp"><?= $sp[2] ?></div>
                                 <div class="start-sp">
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-fill"></i>
@@ -303,46 +277,31 @@
                                     <i class="bi bi-star-fill"></i> (4)
                                 </div>
                             </div>
-                            <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
-                                </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
-                                <div class="start-sp">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i> (4)
-                                </div>
-                            </div>
-                            <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
-                                </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
-                                <div class="start-sp">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i> (4)
-                                </div>
-                            </div>
+                            <?php }
+                            }
+                            ?>
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="v-pills-settings" role="tabpanel"
                         aria-labelledby="v-pills-settings-tab" tabindex="0">
                         <!-- Hiện ra 3 sản phẩm -->
                         <div class="row">
+                            <?php
+                                if(isset($data['sp1'])){
+                                    $sp = json_decode($data['sp4']);
+                                    foreach ($sp as $key => $sp) { ?>
                             <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
+                                <div class="hover">
+                                    <a class="btn" href="#">
+                                        Mua ngay
+                                    </a>
                                 </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
+                                <div class="thumnail-sp">
+                                    <img src="public/images/<?= $sp[3] ?>" width="80%" alt="">
+                                </div>
+                                <div class="name-sp"><?= $sp[1] ?></div>
+                                <div class="price-sp"><?= $sp[2] ?></div>
                                 <div class="start-sp">
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-fill"></i>
@@ -351,34 +310,10 @@
                                     <i class="bi bi-star-fill"></i> (4)
                                 </div>
                             </div>
-                            <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="public/images/den-bi-xenon4.jpg" width="80%" alt="">
-                                </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
-                                <div class="start-sp">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i> (4)
-                                </div>
-                            </div>
-                            <div class="col-4 box-item">
-                                <div class="thumnail-sp">
-                                    <img src="http://localhost/images/den-bi-xenon4.jpg" width="80%" alt="">
-                                </div>
-                                <div class="name-sp">Đèn ô tô</div>
-                                <div class="price-sp">1.300.000 VNĐ</div>
-                                <div class="start-sp">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i> (4)
-                                </div>
-                            </div>
+                            <?php }
+                            }
+                            ?>
+
                         </div>
                     </div>
                 </div>
