@@ -88,14 +88,13 @@ require_once 'mvc/views/body/header.php';
 
                     <!--Mini cart -->
 
-<<<<<<< HEAD
 
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-muted">Giỏ hàng</span>
 
                     </h4>
                     <?php
-				require_once "mvc/views/checkouts/minicart.php";
+				// require_once "mvc/views/checkouts/minicart.php";
 				?>
                     <ul class="list-group mb-3">
                         <table>
@@ -126,29 +125,16 @@ require_once 'mvc/views/body/header.php';
                                 </tr>
                             </tbody>
                         </table>
-=======
-				<h4 class="d-flex justify-content-between align-items-center mb-3">
-					<span class="text-muted">Giỏ hàng</span>
-					
-				</h4>
-				<?php
-                require_once "mvc/views/page/checkouts/" . $data['viewpart'] . ".php";
-                ?>
-				
-				
->>>>>>> d135c3a8b742c51a072a0b80cd7a2b131a439c57
 
                     </ul>
-
-<<<<<<< HEAD
                     <!-- <form class="card p-2">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Nhập mã giảm giá">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-secondary">Redeem</button>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Nhập mã giảm giá">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary">Redeem</button>
+                            </div>
                         </div>
-                    </div>
-                </form> -->
+    </form> -->
                     <!-- end minicart -->
                 </div>
                 <div class="col-md-7 order-md-1">
@@ -164,23 +150,11 @@ require_once 'mvc/views/body/header.php';
                             </div>
                         </div>
                     </div>
-=======
-					<div class="mb-3">
-						<label for="sdt">Số điện thoại</label>
-						<div class="input-group">
-							<input type="text" class="form-control" id="username" placeholder="Nhập số điện thoại" required>
-							<div class="invalid-feedback" style="width: 100%;">
-								Số điện thoại không được để trống
-							</div>
-						</div>
-					</div>
->>>>>>> d135c3a8b742c51a072a0b80cd7a2b131a439c57
-
                     <div class="mb-3">
                         <label for="sdt">Số điện thoại</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="username" name="sdt"
-                                placeholder="Nhập số điện thoại" required>
+                            <input type="text" class="form-control" id="username" placeholder="Nhập số điện thoại"
+                                name="sdt" required>
                             <div class="invalid-feedback" style="width: 100%;">
                                 Số điện thoại không được để trống
                             </div>
@@ -255,24 +229,9 @@ require_once 'mvc/views/body/header.php';
 </html>
 
 <script type="text/javascript">
-<<<<<<< HEAD
 $(document).ready(function() {
     $('input[type="checkbox"]').click(function() {
         var inputValue = $(this).attr("value");
         $("." + inputValue).toggle();
     });
 });
-</script>
-=======
-	$(document).ready(function() {
-		$('input[type="checkbox"]').click(function() {
-			var inputValue = $(this).attr("value");
-			$("." + inputValue).toggle();
-		});
-	});
-</script>
-
-
-
-
->>>>>>> d135c3a8b742c51a072a0b80cd7a2b131a439c57
