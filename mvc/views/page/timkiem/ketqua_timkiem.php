@@ -65,6 +65,8 @@
             <!-- end item -->
     <?php     
             }
+        }else{
+            echo '<h1>Không tìm thấy sản phẩm nèo :((</h1>';
         }
 ?>
     </div>

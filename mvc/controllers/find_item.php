@@ -23,7 +23,7 @@
                 [
                     "viewpart" => "ketqua_timkiem",
                     "timkiem" => $model -> find(),
-                    "hangxe" => $model -> findNC1(),
+                    // "hangxe" => $model -> findNC1(),
                     // "loai" => $model -> findNC2(),
                     // "rice" => $model -> findNC3(),
                     // "arrNV" => $a -> sanphambanchay(),
