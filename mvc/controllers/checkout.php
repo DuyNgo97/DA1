@@ -7,8 +7,8 @@
             //view
             $this -> view("checkout",
             [
-                "viewpart" => "minicart",
-                "arr" => $model ->minicart(),
+                // "viewpart" => "",
+                // "arr" => $model ->minicart(),
                 // "arrNV" => $a -> sanphambanchay(),
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
