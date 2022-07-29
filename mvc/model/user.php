@@ -181,7 +181,7 @@
             }
 
             public function getDonHangUS($idUS){
-                $sql = "SELECT * FROM `donhang` WHERE `us_id` = '$idUS'";
+                $sql = "SELECT a.id_donhang,a.us_id,a.ngaytao_donhang,a.total FROM `donhang` a WHERE `us_id` = '$idUS'";
                 $result = mysqli_query($this -> conn, $sql);
                 $arr = mysqli_fetch_all($result);
                 return json_encode($arr);

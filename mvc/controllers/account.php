@@ -18,6 +18,7 @@ class account extends controller
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
                 "minipart" => "lichsudonhang",
+                "donhang" => $model -> getDonHangUS($idUS),
             ]
         );
     }
@@ -136,6 +137,21 @@ class account extends controller
         }
     }
 
+    // Xem chi tiet don hang user
 
+    public function xemchitiet($id_donhang){
+        $idUS = $_SESSION['idUS'];
+        //model
+        $model = $this->model('user');
+        $model2 = $this -> model('adminPro');
+        $id = $_SESSION['idUS'];
+        //view
+        $this->view(
+            "xemchitietdonhang",
+            [
+                'arrDH' => $model2 -> selectOneDH($id_donhang),
+            ]
+        );
+    }
     
 }

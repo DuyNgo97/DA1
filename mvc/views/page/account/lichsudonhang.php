@@ -8,36 +8,27 @@
             <thead>
                 <tr>
                     <th scope="col">ID đơn hàng</th>
-                    <th scope="col">Chi tiết</th>
-                    <th scope="col">Ngày tạo</th>
                     <th>Total</th>
+                    <th scope="col">Ngày tạo</th>
+                    <th scope="col">Tác vụ</th>
                 </tr>
             </thead>
             <tbody>
+                <?php
+                    if(isset($donhang)){
+                        foreach ($donhang as $key => $dh) { ?>
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row"><?= $dh[0] ?></th>
+
+                    <td><?= number_format($dh[3], 0, '', ',') ?> VND</td>
+                    <td><?= date("d/m/Y",strtotime($dh[2])) ?></td>
                     <td>
-                        <a href="#"> Cửa xe</a>
+                        <a href="account/xemchitiet/<?= $dh[0] ?>" target="_self"> Xem chi tiết</a>
                     </td>
-                    <td>27/6/2022</td>
-                    <td></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>
-                        <a href="#"> Cửa xe</a>
-                    </td>
-                    <td>27/6/2022</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>
-                        <a href="#"> Cửa xe</a>
-                    </td>
-                    <td>27/6/2022</td>
-                    <td></td>
-                </tr>
+                <?php       }
+                        }
+                ?>
             </tbody>
         </table>
     </div>
