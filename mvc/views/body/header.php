@@ -152,11 +152,20 @@
                     <li class="nav-item">
                         <a tabindex="0" class="nav-link fs-4" href="cart" target="_self">
                             <i class="bi bi-cart position-relative">
+                                <?php
+                                    if(isset($_SESSION['cart'])){ ?>
                                 <span
                                     class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-black fw-normal"
                                     style="font-size: 10px;">
-                                    1
+                                    <?= count($_SESSION['cart']) ?>
                                 </span>
+                                <?php }else{ ?>
+                                <span
+                                    class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-black fw-normal"
+                                    style="font-size: 10px;"> 0
+                                </span>
+                                <?php }
+                                ?>
                             </i>
                         </a>
                     </li>

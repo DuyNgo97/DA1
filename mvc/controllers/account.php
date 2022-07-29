@@ -4,6 +4,7 @@ class account extends controller
 {
     public function sayhi()
     {
+        $idUS = $_SESSION['idUS'];
         //model
         $model = $this->model('user');
         $id = $_SESSION['idUS'];
@@ -16,6 +17,7 @@ class account extends controller
                 // "arrNV" => $a -> sanphambanchay(),
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
+                "minipart" => "lichsudonhang",
             ]
         );
     }

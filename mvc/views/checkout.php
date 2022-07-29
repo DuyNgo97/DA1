@@ -151,7 +151,7 @@ require_once 'mvc/views/body/header.php';
                         <label for="sdt">Số điện thoại</label>
                         <div class="input-group">
                             <input type="text" class="form-control" id="username" name="sdt"
-                                placeholder="Nhập số điện thoại" required>
+                                placeholder="Nhập số điện thoại" value="<?= $_SESSION['user'][0][5] ?>" required>
                             <div class="invalid-feedback" style="width: 100%;">
                                 Số điện thoại không được để trống
                             </div>

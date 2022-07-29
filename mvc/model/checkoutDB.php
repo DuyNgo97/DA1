@@ -13,7 +13,7 @@ class checkoutDB extends db
         $check = false;
         $idDH = $this -> insertDonHang($idUS,$total,$trangthai,$thanhtoan,$a,$sdt,$note);
         foreach ($arrSP as $key => $sp) {
-            $sql = "INSERT INTO `donhangchitiet`(`id_donhang`, `id_sp`, `soluong_sp`) VALUES ($idDH,$sp[id],$sp[quantity])";
+            $sql = "INSERT INTO `donhangchitiet`(`id_donhang`, `id_sp`,`us_id`, `soluong_sp`) VALUES ($idDH,$sp[id],$idUS,$sp[quantity])";
             if(mysqli_query($this -> conn,$sql)){
                $check = true; 
             }

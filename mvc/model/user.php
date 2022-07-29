@@ -47,7 +47,7 @@
         // Vai tro
         
             public function vaitro($taikhoan,$password){
-                $sql2 = "SELECT a.us_id,b.name_vaitro,c.name,c.email,c.diachi FROM `userss` a
+                $sql2 = "SELECT a.us_id,b.name_vaitro,c.name,c.email,c.diachi,c.sdt FROM `userss` a
                 INNER JOIN `vaitro` b
                 ON a.id_vaitro = b.id_vaitro
                 INNER JOIN `infor` c
@@ -178,6 +178,28 @@
                 return json_encode($arr);
                 // b.name_vaitro,INNER JOIN vaitro b 
                 // ON a.us_id = b.id_vaitro 
+            }
+
+            public function getDonHangUS($idUS){
+                $sql = "SELECT * FROM `donhang` WHERE `us_id` = '$idUS'";
+                $result = mysqli_query($this -> conn, $sql);
+                $arr = mysqli_fetch_all($result);
+                return json_encode($arr);
+            }
+
+            public function getIdDonHang($idUS){
+                $sql = "SELECT * FROM `donhang` WHERE `us_id` = '$idUS'";
+                $result = mysqli_query($this -> conn, $sql);
+                $id = mysqli_insert_id($this -> conn);
+                return $id;
+            }
+
+            public function getDonHangChiTiet($idUS){
+                $idDH = $this -> getIdDonHang($idUS);
+                $sql = "SELECT * FROM `donhangchitiet` WHERE `id_donhang` = '$idUS'";
+                $result = mysqli_query($this -> conn, $sql);
+                $arr = mysqli_fetch_all($result);
+                return json_encode($arr);
             }
     }
 ?>

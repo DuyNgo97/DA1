@@ -37,7 +37,8 @@
                     <div class="row">
                         <div class="col-md-12 col-lg-8">
                             <form action="cart/addToCart" method="POST" target="_self">
-
+                                <button type="submit" class="delete mt-2 btn btn-danger" name="btn-capnhat">
+                                    Cập nhật</button>
                                 <div class="items">
                                     <?php
                                 if(@$_SESSION['cart']){
@@ -48,8 +49,7 @@
                                         $total += ($cart['price'] * $cart['quantity']);
                                         $vanchuyen = 8000000;
                                         ?>
-                                    <button type="submit" class="delete mt-2 btn btn-danger" name="btn-capnhat">
-                                        Cập nhật</button>
+
                                     <div class="product">
                                         <div class="row">
                                             <div class="col-md-3">
