@@ -65,11 +65,12 @@ class user extends db
     }
 
     //user
-    public function selectAllUser($id)
+    public function selectAllUser()
     {
-        $sql = "SELECT a.us_id,a.us_taikhoan,a.us_password,a.id_img, b.name_vaitro,c.name,c.email,c.diachi,c.ngaytao,c.sdt FROM userss a 
-                INNER JOIN vaitro b ON a.id_vaitro= b.id_vaitro 
-                INNER JOIN infor c ON a.id_info = c.id_info";
+        $sql = "SELECT a.us_id, a.us_taikhoan, a.us_password, b.name_vaitro, c.name, c.email, c.diachi, c.ngaytao, c.sdt
+        FROM `userss` a 
+        INNER JOIN `vaitro` b ON a.id_vaitro = b.id_vaitro 
+        INNER JOIN `infor` c ON a.id_info = c.id_info ";
         $result = mysqli_query($this->conn, $sql);
         $arr = mysqli_fetch_all($result);
         return json_encode($arr);
@@ -87,19 +88,19 @@ class user extends db
         return $total;
     }
 
-    public function Edit($id)
-    {
-        $sql = "SELECT * FROM `userss`a INNER JOIN `infor` b  ON a.us_id = b.id_info
-                 WHERE `us_id` = '$id'";
-        $result = mysqli_query($this->conn, $sql);
+    public function Edit($id){
+        $sql ="SELECT * FROM `userss`a INNER JOIN `infor` b  ON a.us_id = b.id_info
+         WHERE `us_id` = '$id'";
+        $result = mysqli_query($this -> conn,$sql);
         $arr = mysqli_fetch_all($result);
         return json_encode($arr);
+        
     }
 
     public function Update($id, $password)
     {
         $check = false;
-        $sql = "UPDATE `userss` SET us_password = $password WHERE `us_id` =  $id";
+        $sql = "UPDATE `userss` SET `us_password` = '$password' WHERE `us_id` =  '$id'";
         $result = mysqli_query($this->conn, $sql);
         // $arr = mysqli_fetch_assoc($result);
         // return json_encode($arr);
@@ -184,10 +185,11 @@ class user extends db
 
     public function selectAllUs($id)
     {
-        $sql = "SELECT a.us_id,a.us_taikhoan,a.us_password,b.name_vaitro,c.name,c.email,c.diachi,c.ngaytao,c.sdt FROM userss a 
-                INNER JOIN vaitro b ON a.id_vaitro= b.id_vaitro 
-                INNER JOIN infor c ON a.id_info = c.id_info
-                WHERE a.us_id = $id";
+        $sql = "SELECT a.us_id, a.us_taikhoan, a.us_password, b.name_vaitro, c.name, c.email, c.diachi, c.ngaytao, c.sdt, c.url_img 
+        FROM `userss` a 
+        INNER JOIN `vaitro` b ON a.id_vaitro = b.id_vaitro 
+        INNER JOIN `infor` c ON a.id_info = c.id_info
+        WHERE a.us_id = $id";
         $result = mysqli_query($this->conn, $sql);
         $arr = mysqli_fetch_all($result);
         return json_encode($arr);
@@ -218,5 +220,18 @@ class user extends db
         $result = mysqli_query($this->conn, $sql);
         $arr = mysqli_fetch_all($result);
         return json_encode($arr);
+    }
+
+    public function UpdateAva($id, $ava)
+    {
+        $check = false;
+        $sql = "UPDATE `infor` SET `url_img` = '$ava' WHERE `id_info` =  '$id'";
+        $result = mysqli_query($this->conn, $sql);
+        // $arr = mysqli_fetch_assoc($result);
+        // return json_encode($arr);
+        if ($result) {
+            $check = true;
+        }
+        return $check;
     }
 }

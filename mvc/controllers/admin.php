@@ -50,8 +50,8 @@ class admin extends controller
              $this -> view("admin",[
                  "viewpart" => "edituser",
                  "id" => $id,
-                 "check" =>$model ->Update($id,$password),
                  "arrEd" =>$model ->Edit($id),
+                 "check" =>$model ->Update($id,$password),
                 ]); 
         }
     }

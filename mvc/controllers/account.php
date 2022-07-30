@@ -4,10 +4,10 @@ class account extends controller
 {
     public function sayhi()
     {
-        $idUS = $_SESSION['idUS'];
+        $id = $_SESSION['idUS'];
         //model
         $model = $this->model('user');
-        $id = $_SESSION['idUS'];
+       
         //view
         $this->view(
             "account",
@@ -18,7 +18,7 @@ class account extends controller
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
                 "minipart" => "lichsudonhang",
-                "donhang" => $model -> getDonHangUS($idUS),
+                "donhang" => $model -> getDonHangUS($id),
             ]
         );
     }
@@ -152,6 +152,39 @@ class account extends controller
                 'arrDH' => $model2 -> selectOneDH($id_donhang),
             ]
         );
+    }
+
+    public function changeava()
+    {
+        //model
+        $model = $this->model('user');
+        $id = $_SESSION['idUS'];
+        //view
+        $this->view(
+            "account",
+            [
+                "viewpart" => "changeava",
+                "arrUs" => $model->selectAllUs($id),
+                // "arrNV" => $a -> sanphambanchay(),
+                // "arrDM" => $b -> getDM(),
+                // "sanpham" => $a -> selectSP(),
+            ]
+        );
+    }
+
+    public function UpdateAva()
+    {
+        if (isset($_POST['submit'])) {
+            $id = $_SESSION['idUS'];
+            $ava = $_POST['img'];
+            $model = $this->model('user');
+            $this->view("account", [
+                "viewpart" => "changeava",
+                "id" => $id,
+                "check" => $model->UpdateAva($id, $ava),
+                "arrEd" => $model->Edit($id),
+            ]);
+        }
     }
     
 }
