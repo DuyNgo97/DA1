@@ -57,7 +57,7 @@ if (isset($data['donhang'])) {
                 ?>
                     <div class="account-infor border rounded text-center">
                         <div class="account-avartar mt-3 ">
-                            <img class="rounded-circle" style="width: 30%;" src="public/images/avartar/<?= $arr[0][9]?>" alt="">
+                            <img class="rounded-circle" style="width: 30%;" src="public/images/avatar/<?= $arr[0][9]?>" alt="">
                         </div>
                         <div class="account-name ">
                             <span class="fs-2"><?= $_SESSION['nameUS'] ?></span>

@@ -88,13 +88,13 @@ class user extends db
         return $total;
     }
 
-    public function Edit($id){
-        $sql ="SELECT * FROM `userss`a INNER JOIN `infor` b  ON a.us_id = b.id_info
+    public function Edit($id)
+    {
+        $sql = "SELECT * FROM `userss`a INNER JOIN `infor` b  ON a.us_id = b.id_info
          WHERE `us_id` = '$id'";
-        $result = mysqli_query($this -> conn,$sql);
+        $result = mysqli_query($this->conn, $sql);
         $arr = mysqli_fetch_all($result);
         return json_encode($arr);
-        
     }
 
     public function Update($id, $password)
@@ -224,7 +224,13 @@ class user extends db
 
     public function UpdateAva($id, $ava)
     {
+        if (isset($_FILES['img'])) {
+            $file = $_FILES['img'];
+            $ava = $file['name'];
+            move_uploaded_file($file['tmp_name'], 'public/images/avatar/'.$file['name']);
+          }
         $check = false;
+       
         $sql = "UPDATE `infor` SET `url_img` = '$ava' WHERE `id_info` =  '$id'";
         $result = mysqli_query($this->conn, $sql);
         // $arr = mysqli_fetch_assoc($result);
