@@ -85,7 +85,6 @@
                 $result = mysqli_query($this -> conn,$sql);
                 $arr = mysqli_fetch_all($result);
                 return json_encode($arr);
-                
             }
 
             public function Update($id,$password){

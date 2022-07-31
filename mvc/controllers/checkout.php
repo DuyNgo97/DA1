@@ -37,7 +37,7 @@
             $this -> view("tks",
             [
                 // 'check' => $model -> insertDonHang($idUS,$total,$trangthai,$thanhtoan,$a,$sdt,$note),
-                'check' => $model -> insertDHCT($arrSP,$idUS,$total,$trangthai,$thanhtoan,$a,$sdt,$note),
+                'check' => $model -> insertDHCT($arrSP,$idUS,$total,$trangthai,$thanhtoan,$a,$sdt,$note,$nameUS,$email),
             ]
             );
         }
