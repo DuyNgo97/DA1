@@ -90,7 +90,7 @@ class user extends db
 
     public function Edit($id)
     {
-        $sql = "SELECT * FROM `userss`a INNER JOIN `infor` b  ON a.us_id = b.id_info
+        $sql = "SELECT * FROM `userss`
          WHERE `us_id` = '$id'";
         $result = mysqli_query($this->conn, $sql);
         $arr = mysqli_fetch_all($result);
