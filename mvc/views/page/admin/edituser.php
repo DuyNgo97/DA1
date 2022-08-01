@@ -22,7 +22,7 @@
             <label for="tk"><b>tên tài khoản</b></label>
             <input type="text" name="tk" value="<?= $arr[0][1] ?>">
             <label for="psw"><b>Mật Khẩu</b></label>
-            <input type="password" name="psw"value="" >
+            <input type="password" name="psw" >
             <!-- <label for="em"><b>Email</b></label>
             <input type="text" name="em">
             <label for="sdt"><b>Số điện thoại</b></label>

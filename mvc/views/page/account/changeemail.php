@@ -10,12 +10,12 @@ if (isset($data["arrEd"])) {
 <h1>
     Đổi email
 </h1>
-<form action="account/UpdateEmail" target="account.php" method="post">
+<form action="account/UpdateEmail" target="_self" method="post">
     <label for="psw"><b>Email</b></label>
     <input type="email" name="email" value="">
 
     <?php if (isset($data["check"])) {
-        echo '<h1> update thanh cong <h1>';
+        echo "<script>alert('Đổi Email thành công!!');window.location='account'; </script>";
     } ?>
 
     <div class="clearfix">

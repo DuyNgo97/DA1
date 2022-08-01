@@ -4,10 +4,10 @@ class account extends controller
 {
     public function sayhi()
     {
-        $idUS = $_SESSION['idUS'];
+        $id = $_SESSION['idUS'];
         //model
         $model = $this->model('user');
-        $id = $_SESSION['idUS'];
+
         //view
         $this->view(
             "account",
@@ -18,11 +18,11 @@ class account extends controller
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
                 "minipart" => "lichsudonhang",
-                "donhang" => $model -> getDonHangUS($idUS),
+                "donhang" => $model->getDonHangUS($id),
             ]
         );
     }
-    
+
     public function edituser($id)
     {
         $i = $id;
@@ -96,7 +96,7 @@ class account extends controller
             $this->view("account", [
                 "viewpart" => "changesdt",
                 "id" => $id,
-                "check" => $model->UpdateSDT($id,$SDT),
+                "check" => $model->UpdateSDT($id, $SDT),
                 "arrEd" => $model->Edit($id),
             ]);
         }
@@ -131,7 +131,7 @@ class account extends controller
             $this->view("account", [
                 "viewpart" => "changeemail",
                 "id" => $id,
-                "check" => $model->UpdateEmail($id,$Email),
+                "check" => $model->UpdateEmail($id, $Email),
                 "arrEd" => $model->Edit($id),
             ]);
         }
@@ -139,19 +139,54 @@ class account extends controller
 
     // Xem chi tiet don hang user
 
-    public function xemchitiet($id_donhang){
+    public function xemchitiet($id_donhang)
+    {
         $idUS = $_SESSION['idUS'];
         //model
         $model = $this->model('user');
-        $model2 = $this -> model('adminPro');
+        $model2 = $this->model('adminPro');
         $id = $_SESSION['idUS'];
         //view
         $this->view(
             "xemchitietdonhang",
             [
-                'arrDH' => $model2 -> selectOneDH($id_donhang),
+                'arrDH' => $model2->selectOneDH($id_donhang),
             ]
         );
     }
-    
+
+    public function changeava()
+    {
+        //model
+        $model = $this->model('user');
+        $id = $_SESSION['idUS'];
+        //view
+        $this->view(
+            "account",
+            [
+                "viewpart" => "changeava",
+                "arrUs" => $model->selectAllUs($id),
+                // "arrNV" => $a -> sanphambanchay(),
+                // "arrDM" => $b -> getDM(),
+                // "sanpham" => $a -> selectSP(),
+            ]
+        );
+    }
+
+    public function UpdateAva()
+    {
+        if (isset($_POST['submit'])) {
+            $id = $_SESSION['idUS'];
+            $file = $_FILES['img'];
+            $ava = $file['name'];
+            $model = $this->model('user');
+            
+            $this->view("account", [
+                "viewpart" => "changeava",
+                "id" => $id,
+                "check" => $model->UpdateAva($id, $ava),
+                "arrEd" => $model->Edit($id),
+            ]);
+        }
+    }
 }
