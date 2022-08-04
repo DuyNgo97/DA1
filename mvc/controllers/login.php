@@ -26,6 +26,7 @@
                 $taikhoan = $_POST['taikhoan'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
+                //$password = password_hash($password,PASSWORD_DEFAUL);
                 $sdt = $_POST['sdt'];
     
                     //model

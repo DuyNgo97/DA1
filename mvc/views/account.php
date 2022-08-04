@@ -18,6 +18,11 @@ if (isset($data['abc'])) {
     // var_dump($_SESSION);
 }
 
+if (isset($data['donhang'])) {
+    $donhang = json_decode($data['donhang']);
+    // var_dump($donhang);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -44,39 +49,39 @@ if (isset($data['abc'])) {
             <!-- col left -->
             <div class="col-12 col-md-6 col-lg-4 text-center">
                 <?php
+                if (isset($data["arrUs"])) {
+                    $arr = json_decode($data["arrUs"]);
+                    // var_dump($data["arrUs"]);
+                    $IDUS = $_SESSION['idUS'];
 
-                if (isset($_SESSION['idUS'])) {
                 ?>
                     <div class="account-infor border rounded text-center">
                         <div class="account-avartar mt-3 ">
-                            <img class="rounded-circle" style="width: 30%;" src="public/images/avt.png" alt="">
+                            <img class="rounded-circle" style="width: 30%;" src="public/images/avatar/<?= $arr[0][9]?>" alt="">
                         </div>
                         <div class="account-name ">
                             <span class="fs-2"><?= $_SESSION['nameUS'] ?></span>
                         </div>
                         <?php
-                        if (isset($data["arrUs"])) {
-                            $arr = json_decode($data["arrUs"]);
-                            // var_dump($data["arrUs"]);
-                            $IDUS = $_SESSION['idUS'];
-                            
+
+
                         ?>
-                            <div class="account-gmail ">
-                                <span class="fs-2"><?= $arr[0][5] ?></span>
-                            </div>
-                            <div class="account-phone">
-                                <span class="fs-2">0<?= $arr[0][8] ?></span>
-                            </div>
+                        <div class="account-gmail ">
+                            <span class="fs-2"><?= $arr[0][5] ?></span>
+                        </div>
+                        <div class="account-phone">
+                            <span class="fs-2">0<?= $arr[0][8] ?></span>
+                        </div>
 
                     </div>
-            <?php
+                <?php
 
-                        }
-                    }
-            ?>
-            <div class="change-avt mt-3">
-                <a href="#" class="btn btn-danger">Đổi Avartar</a>
-            </div>
+                }
+
+                ?>
+                <div class="change-avt mt-3">
+                    <a href="account/changeava" target="_self" class="btn btn-danger">Đổi Avartar</a>
+                </div>
             </div>
             <!-- col right -->
             <div class="col-12 col-md-6 col-lg-6 h-100">

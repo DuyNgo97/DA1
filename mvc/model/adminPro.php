@@ -168,6 +168,13 @@
             return json_encode($arr);
         }
 
+        public function totalvoucher(){
+            $sql = "SELECT * FROM `voucher`";
+            $result = mysqli_query($this -> conn, $sql);
+            $total = mysqli_num_rows($result);
+            return $total;
+        }
+
         public function insertVoucher($tenvc,$mavc,$giamgia,$dateTao,$dateKT){
             $check = false;
             $sql = "INSERT INTO `voucher`(`ten_voucher`, `code_voucher`, `mucgiam_voucher`, `ngayBD`, `ngayKT`) VALUES ('$tenvc','$mavc',$giamgia,'$dateTao','$dateKT')";
@@ -270,6 +277,98 @@
                     $check = true;
                 }    
             return $check;
+        }
+
+        public function selectDonHang(){
+            $sql = "SELECT a.*, c.name, c.email, c.diachi 
+            FROM `donhang` a
+            INNER JOIN userss b
+            ON a.us_id = b.us_id
+            INNER JOIN infor c
+            ON b.id_info = c.id_info
+            Order by a.id_donhang";
+            $result = mysqli_query($this -> conn, $sql);
+            if($result){
+                $arr = mysqli_fetch_all($result);
+            }
+            return json_encode($arr);
+        }
+
+        public function changeTrangThai($id_donhang,$trangthai){
+            $sql = "UPDATE `donhang` SET `trangthai`= '$trangthai' WHERE `id_donhang` = '$id_donhang'";
+            mysqli_query($this -> conn, $sql);
+        }
+
+        public function deleteDonHang($id_donhang){
+            $sql = "DELETE FROM `donhang`  WHERE `id_donhang` = '$id_donhang'";
+            mysqli_query($this -> conn, $sql);
+            $sql2 = "DELETE FROM `donhangchitiet` WHERE `id_donhang` = '$id_donhang'";
+            mysqli_query($this -> conn, $sql2);
+        }
+
+        public function numsAlldonhang(){
+            $sql = "SELECT * FROM `donhang`";
+            $result = mysqli_query($this -> conn, $sql);
+            $total = mysqli_num_rows($result);
+            return $total;
+        }
+
+        public function numsChuaXacNnhan(){
+            $sql = "SELECT * FROM `donhang` WHERE `trangthai` = 0";
+            $result = mysqli_query($this -> conn, $sql);
+            $total = mysqli_num_rows($result);
+            return $total;
+        }
+
+        public function numsXacNnhan(){
+            $sql = "SELECT * FROM `donhang` WHERE `trangthai` = 1";
+            $result = mysqli_query($this -> conn, $sql);
+            $total = mysqli_num_rows($result);
+            return $total;
+        }
+
+        public function Month($month){
+            $sql = "SELECT SUM(a.total) as 'total' FROM donhang a WHERE month(a.ngaytao_donhang) = '$month' AND a.trangthai = '1'";
+            $result = mysqli_query($this -> conn, $sql);
+            return json_encode(mysqli_fetch_all($result));
+        }
+
+        public function selectXe($loaispct){
+            $sql = "SELECT a.id_sp,a.ten_sp,a.gia_sp,b.url_main
+            FROM `sanpham` a
+            INNER JOIN hinhanh b
+            ON a.id_hinhanh = b.id_hinhanh
+            WHERE a.id_loaispct = '$loaispct' 
+            LIMIT 3";
+            $result = mysqli_query($this -> conn, $sql);
+            $arr = mysqli_fetch_all($result);
+            return json_encode($arr);
+        }
+
+        public function selectOneDH($id_donhang){
+            $sql = "SELECT a.id_sp, a.soluong_sp, d.url_main,
+            b.ten_sp,b.gia_sp,b.giamgia,
+            c.name_color, e.ten_company
+            FROM `donhangchitiet` a
+            INNER JOIN sanpham b
+            ON a.id_sp = b.id_sp
+            INNER JOIN color c
+            ON b.id_color = c.id_color
+            INNER JOIN hinhanh d
+            ON b.id_hinhanh = d.id_hinhanh
+            INNER JOIN company e
+            ON e.id_company = b.id_company
+            WHERE id_donhang = '$id_donhang'";
+            $result = mysqli_query($this -> conn, $sql);
+            $arr = mysqli_fetch_all($result);
+            return json_encode($arr);
+        }
+
+        public function totaldonhang(){
+            $sql = "SELECT * FROM `donhang` WHERE `trangthai` = 0";
+            $result = mysqli_query($this -> conn, $sql);
+            $total = mysqli_num_rows($result);
+            return $total;
         }
     }
 ?>

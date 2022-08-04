@@ -3,12 +3,16 @@
     class home extends controller{
         public function sayhi(){
             //model
+
+            $model = $this -> model('adminPro');
+
             //view
             $this -> view("home",
             [
-                // "arrNV" => $a -> sanphambanchay(),
-                // "arrDM" => $b -> getDM(),
-                // "sanpham" => $a -> selectSP(),
+                "sp1" => $model -> selectXe('5'),
+                "sp2" => $model -> selectXe('6'),
+                "sp3" => $model -> selectXe('11'),
+                "sp4" => $model -> selectXe('13'),
             ]
             );
         }

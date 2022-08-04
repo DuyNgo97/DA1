@@ -10,12 +10,12 @@ if (isset($data["arrEd"])) {
 <h1>
     Đổi số điện thoại
 </h1>
-<form action="account/UpdateSDT" target="account.php" method="post">
+<form action="account/UpdateSDT" target="_self" method="post">
     <label for="psw"><b>Số điện thoại</b></label>
     <input class="form-control w-25 mb-2 type=" number" name="sdt" id="">
 
     <?php if (isset($data["check"])) {
-        echo '<h1> update thanh cong <h1>';
+        echo "<script>alert('Đổi số điện thoại thành công!!');window.location='account'; </script>";
     } ?>
 
     <div class="clearfix">

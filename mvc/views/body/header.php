@@ -16,7 +16,9 @@
     <!-- Navbar PC -->
     <nav class="navbar navbar-expand-md bg-light">
         <div class="container-fluid position-relative">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- test -->
@@ -26,11 +28,12 @@
                         <a class="nav-link active" aria-current="page" href="home" target="_self">Trang Chủ</a>
                     </li>
                     <li class="nav-item dropdown-center dropnav-a">
-                        <a class="nav-link" href="#" tabindex="0" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                        <a class="nav-link" href="#" tabindex="0" data-bs-toggle="dropdown" aria-expanded="false"
+                            data-bs-auto-close="outside">
                             Sản phẩm <i class="bi bi-caret-down-fill"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light">
-                            <li><a class="dropdown-item" href="product/all" target="_self">Tất cả sản phẩm</a></li>
+                            <li><a class="dropdown-item" href="product/all/1" target="_self">Tất cả sản phẩm</a></li>
                             <li><a class="dropdown-item" href="#">Sản phẩm 1</a></li>
                             <li><a class="dropdown-item" href="#">Sản phẩm 2</a></li>
                             <li><a class="dropdown-item" href="#">Sản phẩm 3</a></li>
@@ -52,18 +55,47 @@
             <div class="navbar-right">
                 <ul class="d-flex navbar-nav me-auto mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link fs-4" href="#">
+                        <a class="nav-link fs-4" href="find_item" target="_self">
                             <i class="bi bi-search"></i>
                         </a>
                     </li>
                     <!-- user -->
                     <li class="nav-item d-none d-md-block dropstart dropstart-a">
-                        <a href="#" tabindex="0" class="nav-link fs-4" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                        <a href="#" tabindex="0" class="nav-link fs-4" data-bs-toggle="dropdown" aria-expanded="false"
+                            data-bs-auto-close="outside">
                             <?php
                             if (isset($_SESSION['nameUS'])) {
-                            ?>
-                                <!-- <i class="bi bi-person-fill"></i><?= $_SESSION['nameUS'] ?> -->
-                                <i class="bi bi-person-fill"></i><span style="font-size: 18px; font-style: italic; color: green;"><?= $_SESSION['vaitro'] ?></span>
+                                if($_SESSION['vaitro'] == 'ADMIN'){?>
+                            <i class="bi bi-person-fill"></i><span
+                                style="font-size: 18px; font-style: italic; color: green;"><?= $_SESSION['vaitro'] ?></span>
+                            <div class="dropdown-menu dropdown-menu-start p-3">
+                                <div class="drop-account">
+                                    <div class="avt-account">
+                                        <img src="<?= $_SESSION['urlUS'] ?>" alt="">
+                                    </div>
+                                    <div class="name-account">
+                                        <a href="admin"><?= $_SESSION['nameUS'] ?></a>
+                                    </div>
+                                    <div class="drop-account-btn">
+                                        <div class="btn-box">
+                                            <ul class="d-flex p-0">
+                                                <li class="p-1">
+                                                    <a class="btn" href="admin" target="_self">Tài Khoản</a>
+                                                </li>
+                                                <li class="p-1">
+                                                    <a class="btn" href="login/dangxuat" target="_self">Đăng
+                                                        xuất</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+
+
+                            }else{ ?>
+                                <i class="bi bi-person-fill"></i><span
+                                    style="font-size: 18px; font-style: italic; color: green;"><?= $_SESSION['vaitro'] ?></span>
                                 <div class="dropdown-menu dropdown-menu-start p-3">
                                     <div class="drop-account">
                                         <div class="avt-account">
@@ -76,7 +108,7 @@
                                             <div class="btn-box">
                                                 <ul class="d-flex p-0">
                                                     <li class="p-1">
-                                                        <a class="btn" href="admin" target="_self">Tài Khoản</a>
+                                                        <a class="btn" href="account" target="_self">Tài Khoản</a>
                                                     </li>
                                                     <li class="p-1">
                                                         <a class="btn" href="login/dangxuat" target="_self">Đăng
@@ -86,11 +118,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                <?php
-
-
-
-                            } else { ?>
+                                    <?php }
+                                } else { ?>
                                     <i class="bi bi-person-fill"></i>
                                     <div class="dropdown-menu dropdown-menu-start p-3">
                                         <div class="drop-account">
@@ -114,7 +143,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                <?php
+                                    <?php
                             }
                                 ?>
                         </a>
@@ -123,9 +152,20 @@
                     <li class="nav-item">
                         <a tabindex="0" class="nav-link fs-4" href="cart" target="_self">
                             <i class="bi bi-cart position-relative">
-                                <span class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-black fw-normal" style="font-size: 10px;">
-                                    1
+                                <?php
+                                    if(isset($_SESSION['cart'])){ ?>
+                                <span
+                                    class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-black fw-normal"
+                                    style="font-size: 10px;">
+                                    <?= count($_SESSION['cart']) ?>
                                 </span>
+                                <?php }else{ ?>
+                                <span
+                                    class="position-absolute bottom-0 start-100 translate-middle badge rounded-pill bg-black fw-normal"
+                                    style="font-size: 10px;"> 0
+                                </span>
+                                <?php }
+                                ?>
                             </i>
                         </a>
                     </li>
@@ -142,7 +182,8 @@
                     </li> -->
                     <li class="nav-item">
                         <!-- <a class="nav-link" href="product" target="_self">Sản Phẩm</a> -->
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Sản Phẩm
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
