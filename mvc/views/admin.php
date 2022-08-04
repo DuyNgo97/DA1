@@ -88,7 +88,7 @@
             <i class="fas fa-bell"></i>
 
             <div class="user">
-                <button class="userbtn">admin</button>
+                <button class="userbtn"><?= $_SESSION['vaitro']?></button>
                 <!-- <img src="public/images/blog-1.jpg" alt=""> --!>
                 <!-- <i class="fas fa-users"></i>-->
                 <div class="user-content">
@@ -117,6 +117,11 @@
                         <li>
                             <a href="admin/pq" target="_self">
                                 phân quyền
+                            </a>
+                        </li>
+                        <li>
+                            <a href="admin/selectAllVoucher" target="_self">
+                                Voucher user
                             </a>
                         </li>
                     </ul>

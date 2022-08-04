@@ -111,14 +111,19 @@ require_once 'mvc/views/body/header.php';
                                 <tr>
                                     <td><?= $ca['name'] ?></td>
                                     <td><?= $ca['quantity'] ?></td>
-                                    <td><?= ($ca['quantity']*$ca['price']*(1-$ca['giamgia'])) ?> VND</td>
+                                    <td><?= ($ca['quantity']*$ca['price']*(1-$ca['giamgia']))  ?>
+                                        VND</td>
                                 </tr>
                                 <?php }
                             ?>
                                 <tr>
+                                    <td colspan="2">Phí vận chuyển</td>
+                                    <td>8000000 VND</td>
+                                </tr>
+                                <tr>
                                     <td colspan="2">Tổng tiền</td>
-                                    <td><?= $totalCart ?> VND</td>
-                                    <input type="hidden" name="total" value="<?= $totalCart ?>">
+                                    <td><?= $data['totalall'] ?> VND</td>
+                                    <input type="hidden" name="total" value="<?= $data['totalall'] ?>">
                                 </tr>
                             </tbody>
                         </table>

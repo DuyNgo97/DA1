@@ -141,6 +141,7 @@ class admin extends controller
 
     public function resultEditSP($idsp){
         if(isset($_POST['btn-edit'])){
+           
             $abc = unserialize($_SESSION['abc']);
             
             $tensp = $_POST['namesp'];
@@ -222,7 +223,7 @@ class admin extends controller
             $nsx = $_POST['company'];
             $trangthai = $_POST['trangthaisp'];
             $soluong = $_POST['soluongsp'];
-            $giamgia = isset($_POST['giamgiasp']) ? $_POST['giamgiasp'] : 0;
+            $giamgia = isset($_POST['giamgiasp']);
             $loaisp = $_POST['theloaisp'];
             $loaispct = $_POST['chitietsp'];
             $ngaytao = $_POST['dateTao'];
@@ -248,7 +249,7 @@ class admin extends controller
                     "arrloaispct" => $model->selectloaiSPCT(),
                     "arrComPaNy" => $model->selectloaiComPaNy(),
                     "arrTrangThai" => $model->trangThai(),
-                    "check" => $model->insertSanPham($img, $img1, $img2, $img3, $img4, $tensp, $color, $giasp, $nsx, $trangthai, $soluong, $giamgia, $mota, $loaisp, $loaispct, $ngaytao),
+                    "check" => $model->insertSanPham($img,$img1,$img2,$img3,$img4,$loaispct,$ngaytao,$tensp,$giasp,$color,$nsx,$trangthai,$soluong,$giamgia,$mota,$loaisp),
                 ]
             );
         }
@@ -310,6 +311,18 @@ class admin extends controller
                 "viewpart" => "vouchersp",
                 "arrVC" => $model -> selectVoucher(),
                 "delete" => $model ->deleteVC($id),
+            ]);
+        }
+
+        //Voucher user
+        public function selectAllVoucher(){
+            //model
+            $model = $this -> model('adminPro');
+
+            //view
+            $this -> view ("admin",[
+                "viewpart" => "voucherUS",
+                "arrVC" => $model -> selectAllVCUS(),
             ]);
         }
     

@@ -10,7 +10,7 @@
     <link rel="icon" href="public/images/logo.png">
     <!-- Boostrap -->
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
-
+    <link rel="stylesheet" href="style.css">
 
     <!-- Boostrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
@@ -44,10 +44,11 @@
                                 if(@$_SESSION['cart']){
                                     $cart = $_SESSION['cart'];
                                     // var_dump($cart);
+                                    $vanchuyen = 8000000;
                                     $total = 0;
                                     foreach ($_SESSION['cart'] as $key => $cart) { 
-                                        $total += ($cart['price'] * $cart['quantity']);
-                                        $vanchuyen = 8000000;
+                                        $total += ($cart['price'] * $cart['quantity'] * (1 - $cart['giamgia']));
+                                        
                                         ?>
 
                                     <div class="product">
@@ -123,7 +124,56 @@
                             </form>
                         </div>
                         <?php 
-                            if(isset($_SESSION['cart'])){ ?>
+                            if(isset($_SESSION['cart']) && isset($_SESSION['idUS'])){ ?>
+                        <div class="summary-main col-md-12 col-lg-4">
+                            <form action="checkout/sayhi" method="POST">
+                                <div class="summary">
+                                    <h3>Tổng thanh toán</h3>
+                                    <div class="summary-item"><span class="text">Tổng phụ</span><span
+                                            class="price"><?= @$total ?> VND</span></div>
+                                    <!-- <div class="summary-item"><span class="text">Giảm giá</span><span
+                                        class="price"><?= @$total *  @$_SESSION['cart']['giamgia']?>
+                                        VND</span></div> -->
+                                    <div class="summary-item"><span class="text">Phí vận chuyển</span><span
+                                            class="price">
+                                            <?= @$vanchuyen ?>VND
+                                        </span></div>
+                                    <div class="summary-item"><span class="text">Voucher</span><span class="price">
+                                            <?php
+                                    if(isset($data['arrVC'])){ 
+                                        $arrVC = json_decode($data['arrVC']);
+                                        ?>
+                                            <select id="color" name="giamg" onchange="change(this)">
+                                                <option value="0">None</option>
+                                                <?php
+                                        foreach ($arrVC as $key => $color) { ?>
+                                                <option value="<?= $color[1] ?>">
+                                                    <?= $color[0] ?>
+                                                </option>
+                                                <?php }
+                                    ?>
+                                            </select>
+                                            <?php }
+                                ?>
+                                        </span></div>
+                                    <input type="hidden" id="totalSP" value="<?= @$total ?>">
+                                    <input type="hidden" id="vanchuyen" value="<?= @$vanchuyen ?>">
+                                    <input type="hidden" id="tongcong" value="<?= @$total - @$vanchuyen?>"
+                                        name="tongcong">
+                                    <div class="summary-item"><span class="text">Tổng cộng</span><span class="price"
+                                            id="totaltong"><?= @$total - @$vanchuyen ?>
+                                            VND</span></div>
+                                    <input type="hidden" name="totalall" id="totalall"
+                                        value="<?= @$total - @$vanchuyen ?>">
+                                    <div class="btn-b">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block"
+                                            style="background-color:#198754 ;">
+                                            Thanh toán</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <?php } else{ ?>
                         <div class="summary-main col-md-12 col-lg-4">
                             <div class="summary">
                                 <h3>Tổng thanh toán</h3>
@@ -151,11 +201,17 @@
                 </div>
             </div>
         </section>
+        <?php
+            if(isset($data['item'])){
+                var_dump($data['item']);
+            }
+        ?>
     </main>
 </body>
 
 <?php
 include 'body/footer.php';
 ?>
+<script src="public/js/cart.js"></script>
 
 </html>

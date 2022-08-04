@@ -2,6 +2,9 @@
 
     class checkout extends controller{
         public function sayhi(){
+
+            $giamgia = $_POST['giamg'];
+            $totalall = $_POST['totalall'];  
             //model
             $model = $this -> model('checkoutDB');
             //view
@@ -12,6 +15,8 @@
                 // "arrNV" => $a -> sanphambanchay(),
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
+                "giamgia" => $giamgia,
+                "totalall" => $totalall, 
             ]
             );
         }

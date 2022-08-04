@@ -19,7 +19,8 @@
             INNER JOIN loai_sp_chi_tiet f
             ON a.id_loaispct = f.id_loaispct
             INNER JOIN hinhanh g
-            ON a.id_hinhanh = g.id_hinhanh";
+            ON a.id_hinhanh = g.id_hinhanh
+            ORDER BY a.id_sp ";
             $result = mysqli_query($this -> conn,$sql);
             $arr = mysqli_fetch_all($result);
             return json_encode($arr);
@@ -96,18 +97,18 @@
             $arr = $this -> nameSPCT($loaispct);
             // $path = "public/images/sanpham/".$loaispct."/".$loaispct.$ngaytao;
             $loaispct = strtolower($arr[0][1]);
-            $check = true;
+            $check = false;
             $url = "sanpham/".$loaispct."/".$ngaytao."-".$img['name'];
             $src = $ngaytao."-".$img['name'];
             $file_path = "public/images/sanpham/".$loaispct."/".$src;
             $tmp = $img['tmp_name'];
-            if(file_exists($file_path)){
-                $check = false;
-            }else{
+            // if(file_exists($file_path)){
+            //     $check = false;
+            // }else{
                     move_uploaded_file($tmp,$file_path);
                     $check = $url;
                 
-            }
+            // }
             return $check;
         }
 
@@ -118,19 +119,19 @@
             $src3 = $this -> moveIMG($img3,$loaispct,$ngaytao);
             $src4 = $this -> moveIMG($img4,$loaispct,$ngaytao);
             $check = false;
-            if($src === false || $src1 === false || $src2 === false || $src3 === false || $src4 === false){
-                $check = false;
-            }else{
+            // if($src === false || $src1 === false || $src2 === false || $src3 === false || $src4 === false){
+            //     $check = false;
+            // }else{
                 $sql = "INSERT INTO `hinhanh`(`url_main`, `url1`, `url2`, `url3`, `url4`) VALUES ('$src','$src1','$src2','$src3','$src4')";
                     if(mysqli_query($this -> conn,$sql)){
                         $idIMG = mysqli_insert_id($this -> conn);
-                        $check = $idIMG;
+                        return $idIMG;
                     }
-            }
+            // }
             return $check;
         }
 
-        public function insertSanPham($img,$img1,$img2,$img3,$img4,$tensp,$color,$giasp,$nsx,$trangthai,$soluong,$giamgia,$mota,$loaisp,$loaispct,$ngaytao){
+        public function insertSanPham($img,$img1,$img2,$img3,$img4,$loaispct,$ngaytao,$tensp,$giasp,$color,$nsx,$trangthai,$soluong,$giamgia,$mota,$loaisp){
             $check = false;
             $idIMG = $this -> insertIMG($img,$img1,$img2,$img3,$img4,$loaispct,$ngaytao);
             if($idIMG === false){
@@ -245,8 +246,8 @@
 
         public function deleteArrIMG($abc){
             foreach ($abc as $key => $a) {
-                $src = "public/images/".$a;
-                unlink($src);
+                @$src = "public/images/".$a;
+                unlink(@$src);
             }
         }
 
@@ -369,6 +370,23 @@
             $result = mysqli_query($this -> conn, $sql);
             $total = mysqli_num_rows($result);
             return $total;
+        }
+
+        //Voucher Userss
+
+        public function selectAllVCUS(){
+            $sql = "SELECT  c.id_voucher,c.ten_voucher,c.code_voucher,c.mucgiam_voucher,c.ngayKT,
+            a.us_taikhoan, d.name_vaitro
+            FROM `userss` a
+            INNER JOIN voucher_chitiet b
+            ON b.us_id = a.us_id
+            INNER JOIN voucher c
+            ON b.id_voucher = c.id_voucher
+            INNER JOIN vaitro d
+            ON d.id_vaitro = a.id_vaitro";
+        $result = mysqli_query($this->conn, $sql);
+        $arr = mysqli_fetch_all($result);
+        return json_encode($arr);
         }
     }
 ?>

@@ -6,19 +6,20 @@
             //view
             $model = $this -> model('cartSP');
 
-            $this -> view("cart",
-            [
-                // "arrNV" => $a -> sanphambanchay(),
-                // "arrDM" => $b -> getDM(),
-                // "sanpham" => $a -> selectSP(),
-                'arrCL' => $model -> getColor(),    
-
-            ]
-            );
+            if(isset($_SESSION['idUS'])){
+                $idUS = $_SESSION['idUS'];
+                $this -> view('cart',[
+                    'arrCL' => $model -> getColor(),
+                    'arrVC' => $model -> selectVCUS($idUS),
+                ]);
+            }else{
+                $this -> view('cart',[
+                    'arrCL' => $model -> getColor(),    
+                ]);
+            }
         }
 
         public function addToCart(){
-
             //model
             $model = $this -> model('cartSP');
             if(isset($_POST['btn-addToCart'])){
@@ -75,9 +76,31 @@
                     }     
                 }      
             }
-            $this -> view('cart',[
+            
+            if(isset($_SESSION['idUS'])){
+                $idUS = $_SESSION['idUS'];
+                $this -> view('cart',[
+                    'arrCL' => $model -> getColor(),
+                    'arrVC' => $model -> selectVCUS($idUS),
+                ]);
+            }else{
+                $this -> view('cart',[
                     'arrCL' => $model -> getColor(),    
-            ]);
+                ]);
+            }
+        }
+
+        public function addToCart2($id){
+
+            //model
+            $model = $this -> model('cartSP');
+            $model -> addSP($id);
+            //view
+                $this -> view('cart',[
+                    'arrCL' => $model -> getColor(),
+                    // 'item' => $model ->  selectOne($id),
+                ]);
+            
         }
 
         public function deleteCart($id,$color){

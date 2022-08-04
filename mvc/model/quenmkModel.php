@@ -1,41 +1,91 @@
 <?php
+
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    require "PHPMailer-master/src/PHPMailer.php"; 
+    require "PHPMailer-master/src/SMTP.php"; 
+    require "PHPMailer-master/src/Exception.php";
+
 class quenmkModel extends db{
-    public function content(){
-        if(isset($_POST['btn-qmk'])){
-            $email = $_POST['email'];
+
+    //Check email
+
+    public function checkMail($email){
+        $check = false;
+        $sql = "SELECT b.* 
+        FROM `userss` a
+        INNER JOIN infor b
+        ON a.id_info = b.id_info
+        WHERE b.email = '$email'";
+        $result = mysqli_query($this -> conn, $sql);
+        if(mysqli_num_rows($result) != 0){
+            $arr = mysqli_fetch_all($result);
+            $check = $arr[0][0];
+        }
+        return $check;
+    }
+
+    //Update code vào userss
+    
+    public function addCode($idInFo,$code){
+        $sql = "UPDATE `userss` 
+        SET `code`='$code'
+        WHERE `id_info` = '$idInFo'";
+        mysqli_query($this -> conn, $sql);
+    }
+
+    //Tiến hành gửi mail và tạo code
+
+    public function content($email){
+        $checkMail = $this -> checkMail($email);
+        if($checkMail !== false){
             $sql = "SELECT a.* , b.email
-                    FROM `userss` a
-                    INNER JOIN `infor` b
-                    ON a.id_info = b.id_info
-                    WHERE b.email = '$email' ";
+            FROM `userss` a
+            INNER JOIN `infor` b
+            ON a.id_info = b.id_info
+            WHERE b.email = '$email' ";
             $result = mysqli_query($this -> conn, $sql);
             if($result){
                 $user = mysqli_fetch_assoc($result);
                 $nameUS = $user['us_taikhoan'];
                 $idUS = $user['us_id'];
-                $newpass = substr(md5(rand(0,999999)),0,8); 
-                $sendMail = GuiMail($email, $nameUS, $newpass);
-                $change = $this -> updatePass($newpass, $idUS);
+                $code = substr(md5(rand(0,999999)),0,8);
+                $this -> addCode($checkMail,$code); 
+                $sendMail = $this -> GuiMail($email, $nameUS, $code);
+                // $change = $this -> updatePass($newpass, $idUS);
                 
-                echo "<script>alert('Gửi Email thành công, kiểm tra email và đăng nhập lại!!!');window.location='http://localhost/da1/login'; </script>";
+                echo "<script>alert('Gửi Email thành công, kiểm tra email và tiến hành xác thực!!!<$checkMail>');window.location='http://localhost/da1/forgotpass/code'; </script>";
             }
-            // else{
-            //     echo "<script>alert('Email không tồn tại!');window.location='http://localhost/da1/forgotpass'; </script>";
-            // }
-        }
+        }else{
+                echo "<script>alert('Email không tồn tại!');window.location='http://localhost/da1/forgotpass'; </script>";
+            }
     }
-// cập nhật mật khẩu mới vào database 
-    function updatePass($newpass, $idUS){
-        $check= false;
-        $sql = "UPDATE `userss`
-                SET us_password = '$newpass'
-                WHERE us_id = '$idUS'
-                ";
-        $result = mysqli_query($this->conn,$sql);
-        if($result){
+//  Check code
+
+    public function checkCode($code){
+        $check = false;
+        $sql = "SELECT * FROM `userss` WHERE `code` = '$code'";
+        $result = mysqli_query($this -> conn, $sql);
+        if(mysqli_num_rows($result) != 0){
             $check = true;
         }
         return $check;
+    }
+    
+// cập nhật mật khẩu mới vào database 
+    public function updatePass($pass, $code){
+        $check= false;
+        $sql = "UPDATE `userss` SET `us_password`='$pass' WHERE `code` = '$code'";
+        $result = mysqli_query($this->conn,$sql);
+        if($result){
+            $sql2 = "UPDATE `userss` SET `code`='0' WHERE `code` = '$code'";
+            $result2 = mysqli_query($this->conn,$sql2);
+            echo "<script>alert('Tạo mới thành công!!!');window.location='http://localhost/da1/login'; </script>";
+        }else{
+            echo "<script>alert('Fail!!!');window.location='http://localhost/da1/forgotpass/changePass; </script>";
+        }
+        
     }
 // random 1 chuỗi bất kì
 //     function rand_string($length){
@@ -47,19 +97,8 @@ class quenmkModel extends db{
 //         }
 //         return $str;
 //     }
-}
-?>
-
-<?php
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\Exception;
-
-    require "PHPMailer-master/src/PHPMailer.php"; 
-    require "PHPMailer-master/src/SMTP.php"; 
-    require "PHPMailer-master/src/Exception.php";
-
-    function GuiMail($email, $nameUS, $newpass){ 
-        
+    function GuiMail($email, $nameUS, $code){ 
+            
 
         $mail = new PHPMailer(true);//true:enables exceptions
         try {
@@ -81,11 +120,11 @@ class quenmkModel extends db{
             //Content
             $mail->isHTML(true);                                     // Set email format to HTML
             $mail->Subject = 'Quên mật khẩu?';
-            $mail->Body = "<p>Bạn đang yêu cầu lấy lại mật khẩu của tài khoản {$nameUS}</p> <br>
-                           <p>Chúng tôi gửi bạn lại mật khẩu mới: {$newpass}</p> <br>
-                           <p>Truy cập lại tài khoản để thay đổi mật khẩu của bạn</p> <br>
-                           <p>Cảm ơn bạn đã ủng hộ SHOP</p>
-                          ";
+            $mail->Body = "<p>Bạn đang yêu cầu lấy lại mật khẩu của tài khoản {$nameUS}.</p> <br>
+                        <p>Chúng tôi gửi bạn đoạn code xác nhận: {$code}.</p> <br>
+                        <p>Vui lòng xác thực mã code và tiền hành đổi lại password.</p> <br>
+                        <p>Cảm ơn bạn đã ủng hộ SHOP.</p>
+                        ";
             $mail->smtpConnect( array(
                 "ssl" => array(
                     "verify_peer" => false,
@@ -99,4 +138,5 @@ class quenmkModel extends db{
             echo "Lỗi!!!", $mail->ErrorInfo;
         }
     }
+}
 ?>

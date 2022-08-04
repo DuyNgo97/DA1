@@ -22,15 +22,44 @@ class user extends db
         }
     }
 
+    //check taikhoan va email
+
+    public function checkDK($taikhoan,$email){
+        $sql2 = "SELECT a.*,b.* 
+        FROM `userss` a
+        INNER JOIN infor b
+        ON a.id_info = b.id_info
+        WHERE a.us_taikhoan = '$taikhoan' and b.email = '$email'";
+        $result2 = mysqli_query($this -> conn, $sql2);
+        if(mysqli_num_rows($result2) != 0){
+
+        }else{
+          
+        }
+        // return $check;
+    }
+
     // Dang ki
     public function dangky($taikhoan, $password, $name, $email, $diachi, $sdt, $ngaytao)
-    {
+    {   
         $check = false;
-        $vaitro = 2;
-        $id_info = $this->insertInfo($name, $email, $diachi, $sdt, $ngaytao);
-        $sql = "INSERT INTO `userss`(`us_taikhoan`, `us_password`, `id_vaitro`, `id_info`) VALUES ('$taikhoan','$password',$vaitro,$id_info)";
-        if (mysqli_query($this->conn, $sql)) {
-            $check = true;
+        $sql2 = "SELECT * 
+        FROM `userss` a
+        INNER JOIN infor b
+        ON a.id_info = b.id_info
+        WHERE a.us_taikhoan = '$taikhoan' or b.email = '$email'";
+        mysqli_query($this -> conn, $sql2);
+        if(mysqli_num_rows(mysqli_query($this -> conn, $sql2)) == 0){
+            $vaitro = 2;
+            $id_info = $this->insertInfo($name, $email, $diachi, $sdt, $ngaytao);
+            $sql = "INSERT INTO `userss`(`us_taikhoan`, `us_password`, `id_vaitro`, `id_info`) VALUES ('$taikhoan','$password',$vaitro,$id_info)";
+            if (mysqli_query($this->conn, $sql)) {
+                $check = true;
+            }else{
+                $check = false;
+            }
+        }else{
+            echo "<script>alert('Tài khoản hoặc email đã tồn tại!!!');</script>";
         }
         return json_encode($check);
     }
@@ -200,6 +229,19 @@ class user extends db
     public function getDonHangUS($idUS)
     {
         $sql = "SELECT a.id_donhang,a.us_id,a.ngaytao_donhang,a.total FROM `donhang` a WHERE `us_id` = '$idUS'";
+        $result = mysqli_query($this->conn, $sql);
+        $arr = mysqli_fetch_all($result);
+        return json_encode($arr);
+    }
+
+    public function getVoucherUS($idUS){
+        $sql = "SELECT  c.id_voucher,c.ten_voucher,c.code_voucher,c.mucgiam_voucher,c.ngayKT
+        FROM `userss` a
+        INNER JOIN voucher_chitiet b
+        ON b.us_id = a.us_id
+        INNER JOIN voucher c
+        ON b.id_voucher = c.id_voucher
+        WHERE a.us_id = '$idUS'";
         $result = mysqli_query($this->conn, $sql);
         $arr = mysqli_fetch_all($result);
         return json_encode($arr);

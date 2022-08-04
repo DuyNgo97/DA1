@@ -84,3 +84,6 @@
 <?php
                 require_once "mvc/views/page/account/" . $data['minipart'] . ".php";
                 ?>
+<?php
+                require_once "mvc/views/page/account/" . $data['minipart2'] . ".php";
+                ?>

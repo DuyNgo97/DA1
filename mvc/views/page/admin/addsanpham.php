@@ -16,11 +16,10 @@
         </div>
         <?php
             if(isset($data['check'])){
-                if(!$data['check']){
-                    echo '<h1>File đã tồn tại!!!</h1>';
+                if($data['check']){
+                    echo '<h1>Thêm sản phẩm thành công</h1>';
                 }else{
                     echo '<h1>Thêm sản phẩm thành công</h1>';
-                    // echo $data['check'];
                 }
             }
         ?>

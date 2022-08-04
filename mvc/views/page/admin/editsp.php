@@ -302,7 +302,6 @@ section {
             if(isset($data['check'])){
                 if($data['check']){
                     echo "<script>
-                    alert('Update thanh cong');
                     window.location='admin/sanpham';
                     </script>";
                 }else{

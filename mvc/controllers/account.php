@@ -18,7 +18,9 @@ class account extends controller
                 // "arrDM" => $b -> getDM(),
                 // "sanpham" => $a -> selectSP(),
                 "minipart" => "lichsudonhang",
-                "donhang" => $model->getDonHangUS($id),
+                "minipart2" => "voucherUS",
+                "donhang" => $model-> getDonHangUS($id),
+                "voucher" => $model -> getVoucherUS($id),
             ]
         );
     }

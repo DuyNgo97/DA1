@@ -137,8 +137,14 @@ class checkoutDB extends db
             $noidung .= "Tổng tiền: ". number_format($total)." VND.";
             $this -> sendMail($email,$nameUS,$noidung);
         }
+        // $this -> addVoucher($idUS);
         unset($_SESSION['cart']);
         return $check;
+    }
+
+    public function addVoucher($idUS){
+        $sql = "UPDATE `userss` SET `id_voucher`='9' WHERE `us_id` = '$idUS'";
+        mysqli_query($this -> conn, $sql);
     }
 
     public function sendMail($email,$nameUS,$noidung){

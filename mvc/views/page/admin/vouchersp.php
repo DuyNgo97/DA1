@@ -1,3 +1,14 @@
+<?php
+    if($_SESSION['vaitro'] != "ADMIN"){
+		// header('location: http://localhost/mvc-training/home');
+		echo '
+			<script>
+			alert("Bạn không đủ quyền truy cập!");
+			window.location = "http://localhost/da1/admin";
+			</script>
+		';
+	}
+?>
 <style>
 h1 {
     font-size: 20px;

@@ -13,25 +13,23 @@
 
 <div class="main">
     <?php
-            if(isset($data["arrUs"])){
-                $arr = json_decode($data["arrUs"]);
+            if(isset($data["arrVC"])){
+                $arr = json_decode($data["arrVC"]);
                 //  var_dump($arr);
             }
             ?>
+    <h1 style="text-align: center;">Danh sách voucher của khách hàng</h1>
+    <div class="a" style="display: flex; align-items: center; justify-content: center;">
 
-    <div class="a">
-        <h1>Danh sách tài khoản</h1>
         <table class="content-table">
             <thead>
-                <th scope="col">ID</th>
-                <th scope="col">tài khoản</th>
-                <th scope="col">Mật khẩu</th>
-                <th scope="col">vai trò</th>
-                <th scope="col">Tên</th>
-                <th scope="col">email</th>
-                <th scope="col">dia chi</th>
-                <th scope="col">ngày tạo</th>
-                <th scope="col">số điện thoại</th>
+                <th scope="col">ID voucher</th>
+                <th scope="col">Tên voucher</th>
+                <th scope="col">Code</th>
+                <th scope="col">Giá trị</th>
+                <th scope="col">Ngày kết thúc</th>
+                <th scope="col">Tài khoản</th>
+                <th scope="col">Vai trò</th>
                 <th scope="col">Sửa</th>
                 <th scope="col">Xóa</th>
             </thead>
@@ -51,10 +49,8 @@
                 <td><?=$u[4] ?></td>
                 <td><?=$u[5] ?></td>
                 <td><?=$u[6] ?></td>
-                <td><?=$u[7] ?></td>
-                <td><?=$u[8] ?></td>
-                <td><a href="admin/edituser/<?=$u[0] ?>" target="_self"><button>Sửa</button></a></td>
-                <td><a href="admin/delete/<?=$u[0] ?>" target="_self"><button>Xóa</button></a></td>
+                <td><a href="" target="_self"><button>Sửa</button></a></td>
+                <td><a href="" target="_self"><button>Xóa</button></a></td>
                 </tr>
 
 
