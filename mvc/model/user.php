@@ -202,7 +202,7 @@ class user extends db
     public function Checkpass($id, $pswo, $password)
     {
 
-        $sql = "SELECT * FROM `userss` WHERE `us_id` = '$id' and `us_password` = $pswo";
+        $sql = "SELECT * FROM `userss` WHERE `us_id` = '$id' and `us_password` = '$pswo'";
         $checkpass = mysqli_query($this->conn, $sql);
 
         if (mysqli_num_rows($checkpass) === 1) {
