@@ -1,19 +1,19 @@
 <?php
-    if(isset($data['abc'])){
-      $abc = json_decode($data['abc']);
+if (isset($data['abc'])) {
+    $abc = json_decode($data['abc']);
     $_SESSION['user'] = json_decode($data['abc']);
     @$_SESSION['vaitro'] = $abc[0][1];
     @$_SESSION['idUS'] = $abc[0][0];
     @$_SESSION['nameUS'] = strtoupper($abc[0][2]);
     @$_SESSION['urlUS'] = 'public/images/chambien2.jpg';
     // var_dump($_SESSION);
-  }
+}
 ?>
 <!-- <?php
-    $today = date('Y-m-d');
-    $a = date('d-m-Y',strtotime($today));
-    echo is_string($a); // 1 là chuỗi
-?> -->
+        $today = date('Y-m-d');
+        $a = date('d-m-Y', strtotime($today));
+        echo is_string($a); // 1 là chuỗi
+        ?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="./public/css/style.css" />
     <link rel="icon" href="public/images/logo.png">
     <title>Đăng nhập & Đăng ký</title>
+    <script src="public/js/login.js"></script>
 </head>
 
 <body>
@@ -33,13 +34,12 @@
             <div class="signin-signup">
                 <!-- form login -->
                 <form action="login/dangnhap" class="sign-in-form" target="_self" method="POST">
-                    <a href="home" target="_self"><img src="public/images/logo_shop.png" width="300px" height="100px"
-                            alt=""></a>
+                    <a href="home" target="_self"><img src="public/images/logo_shop.png" width="300px" height="100px" alt=""></a>
                     <?php
-                    
-                        if(isset($data['check'])){
+
+                    if (isset($data['check'])) {
                         $kq = json_decode($data['check']);
-                        if($kq){
+                        if ($kq) {
                             echo '<h2 class="title" style="color:red">Đăng nhập thành công!</h2>';
                             echo '<h2>Chuyển trang sau: <span id="num"></span>s.</h2>';
                             echo '
@@ -58,33 +58,33 @@
                             dem();
                             </script>
                             ';
-                        }else{
+                        } else {
                             echo '<h2 class="title" style="color:red;">Đăng nhập thất bại!</h2>';
                         }
-                        }
+                    }
                     ?>
                     <?php
-                        if(isset($data['a'])){
-                            $check = json_decode($data['a']);
-                            if($check){
-                                echo '<h3 class="title" style="color:red;">Đăng ký thành công!</h3>';
-                            }else{
-                                echo '<h3 class="title" style="color:red;">Đăng ký thất bại!</h3>';
-                            }
+                    if (isset($data['a'])) {
+                        $check = json_decode($data['a']);
+                        if ($check) {
+                            echo '<h3 class="title" style="color:red;">Đăng ký thành công!</h3>';
+                        } else {
+                            echo '<h3 class="title" style="color:red;">Đăng ký thất bại!</h3>';
                         }
+                    }
                     ?>
 
                     <h2 class="title">Đăng nhập</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Tài khoản" name="taikhoan" />
+                        <input type="text" placeholder="Tài khoản" name="taikhoan" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Mật khẩu" name="password" />
+                        <input type="password" placeholder="Mật khẩu" name="password" required />
                     </div>
                     <input type="submit" value="Đăng nhập" class="btn solid" name="btn-dangnhap" />
-                    <p class="social-text"><a href="forgotpass">Quên mật khẩu?</a></p>
+                    <p class="social-text"><a href="forgotpass" target="_self">Quên mật khẩu?</a></p>
                     <p class="social-text">Hoặc Đăng nhập bằng các nền tảng xã hội</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -106,29 +106,29 @@
                     <h2 class="title">Đăng ký</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Tài khoản" name="taikhoan" />
+                        <input type="text" placeholder="Tài khoản" name="taikhoan" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Mật khẩu" name="password" />
+                        <input type="password" placeholder="Mật khẩu" name="password" required minlength="6" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Họ và tên" name="name" />
+                        <input type="text" placeholder="Họ và tên" name="name" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Địa chỉ" name="diachi" />
+                        <input type="text" placeholder="Địa chỉ" name="diachi" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" name="email" />
+                        <input type="email" placeholder="Email" id="email" name="email" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="number" placeholder="Số điện thoại" name="sdt" />
+                        <input type="number" placeholder="Số điện thoại" name="sdt" required />
                     </div>
-                    <input type="submit" class="btn" value="Đăng ký" name="btn-dangky" />
+                    <input type="submit" class="btn" value="Đăng ký" name="btn-dangky" onclick="checkEmail();" />
                     <p class="social-text">Hoặc Đăng ký với các nền tảng xã hội</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">

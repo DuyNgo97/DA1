@@ -4,7 +4,7 @@
     padding-top: 150px;
     width: 100%;
     // height: 120vh;
-    background: url("../images/bg-ptrn1.png");
+    background-color: #FFF;
     padding-bottom: 100px;
 
     .main-product {
@@ -262,6 +262,173 @@
             }
         }
     }
+
+}
+
+.comment{
+    background: url("../images/bg-ptrn1.png");
+    // height: 100vh;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    
+    .title-review{
+        height: 50px;
+        width: 40%;
+        margin-left: 30%;
+        // background-color: var(--bs-teal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h2{
+            color: var(--bs-teal);
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+    }
+
+    .user-com{
+        .main-review{
+            padding-top: 10px;
+            height: 80%;
+            width: 80%;
+            margin-left: 10%;
+            background-color: #FFF;
+            margin-bottom: 10px;
+    
+            .user-review{
+    
+                height: 25%;
+                width: 100%;
+                // background-color: aqua;
+                border-bottom: 1px solid var(--bs-teal);
+                padding-bottom: 2px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+    
+                .img-user{
+                    height: 100%;
+                    width: 30%;
+                    // background-color: aquamarine;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+    
+                    .img-us{
+                        height: 100%;
+                        width: 25%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        position: relative;
+    
+                        img{
+                            height: 80px;
+                            width: 80px;
+                            border-radius: 50%;
+                            position: absolute;
+                            left: 25px;
+                        }
+                    }
+    
+                    .profile{
+                        height: 100%;
+                        width: 75%;
+                        // background-color: bisque;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding-left: -50px;
+                    }    
+                }
+        
+                .message-review{
+                    width: 70%;
+                    display: flex;
+                    // align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    box-sizing: border-box;
+                    padding: 0 25px;
+                    
+                    p{
+                        height: 72px;
+                        overflow-y: auto;
+                        min-height: 72px;
+    
+                    }
+    
+                    i{
+                        font-size: 12px;
+                        // margin-left: -85%;
+                    }
+    
+                }
+    
+            }       
+        }
+
+        .write-comment{
+            margin-top: 10px;
+            margin-left: 10%;
+            width: 80%;
+            height: 150px;
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
+            // justify-content: center;
+            flex-direction: column;
+            position: relative;
+    
+            textarea{
+                height: 100%;
+                width: 100%;
+                border: none;
+                outline: none;
+            }
+
+            button{
+                width: 70px;
+                position: absolute;
+                bottom: 10px;
+                right: 25px;
+                color: white;
+                background-color: var(--bs-teal);
+                border: none;
+                &:hover{
+                    background-color: var(--bs-success);
+                }
+            }
+
+        }
+
+        .login{
+            width: 100%;
+            height: 50px;
+            // background-color: aqua;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            a{
+                font-size: 18px;
+                color: var(--bs-teal);
+                text-decoration: none;
+                transition: 0.8s linear;
+
+                &:hover{
+                    font-size: 22px;
+                    color: var(--bs-success);
+                }
+            }
+        }
+    }
+
+    
 }
 
 .product-tt {

@@ -5,105 +5,112 @@ class admin extends controller
     public function sayhi()
     {
         //model
-        $model = $this -> model('user');
-        $model2 = $this -> model('productDB');
-        $model3 = $this -> model('adminPro');
+        $model = $this->model('user');
+        $model2 = $this->model('productDB');
+        $model3 = $this->model('adminPro');
         //view
         $this->view(
             "admin",
             [
                 "viewpart" => "chart",
-                "totalDH" => $model3 -> totaldonhang(),
-                "totalUS" => $model -> totalUS(),
-                "totalPD" => $model2 -> totalSP(),
-                "totalVC" => $model3 -> totalvoucher(),
-                "chart2" => $model2 -> chart2(),
+                "totalDH" => $model3->totaldonhang(),
+                "totalUS" => $model->totalUS(),
+                "totalPD" => $model2->totalSP(),
+                "totalVC" => $model3->totalvoucher(),
+                "chart2" => $model2->chart2(),
             ]
         );
     }
-    public function user(){
+    public function user()
+    {
         //model
-        $model = $this -> model('user');
+        $model = $this->model('user');
         //view
-        $this -> view("admin",[
+        $this->view("admin", [
             "viewpart" => "adminuser",
-            "arrUs" => $model ->selectAllUser(),
+            "arrUs" => $model->selectAllUser(),
 
         ]);
     }
 
-    public function edituser($id){
+    public function edituser($id)
+    {
         $i = $id;
-        $model = $this -> model('user');
-        $this -> view("admin",[
+        $model = $this->model('user');
+        $this->view("admin", [
             "viewpart" => "edituser",
             "id" => $i,
-            "arrEd" =>$model ->Edit($id),
-        
+            "arrEd" => $model->Edit($id),
+
         ]);
     }
-    public function updateuser(){
-        if(isset($_POST['submit'])){
+    public function updateuser()
+    {
+        if (isset($_POST['submit'])) {
             $id = $_POST['us_id'];
-             $password=$_POST['psw'];
-             $model = $this -> model('user');
-             $this -> view("admin",[
-                 "viewpart" => "edituser",
-                 "id" => $id,
-                 "arrEd" =>$model ->Edit($id),
-                 "check" =>$model ->Update($id,$password),
-                ]); 
-        }
-    }
-
-      public function delete($id){
-        $model = $this -> model('user');
-        $this -> view("admin",[
-            "viewpart" => "adminuser",      
-            "id" => $id,   
-            "arrDe" =>$model ->Delete($id), 
-            "arrUs" => $model ->selectAllUser(),   
-        ]);
- }
-
-    // phan quyen
-        public function pq(){
-            $model = $this ->model('user');
-            $this -> view("admin",[
-                "viewpart" => "pq",
-                "arrPq" => $model -> pq(),  
-                 
+            $password = $_POST['psw'];
+            $model = $this->model('user');
+            $this->view("admin", [
+                "viewpart" => "edituser",
+                "id" => $id,
+                "arrEd" => $model->Edit($id),
+                "check" => $model->Update($id, $password),
             ]);
         }
-        public function Editpq($id){
-            $i = $id;
-            $model = $this ->model('user');
-            $this -> view("admin",[
-                "viewpart" => "Pqedit",
-                "id" => $i,
-                "arrEpq" =>$model ->editpq($id),
-                "arrvt" =>$model ->vt(),
-             
+    }
 
-            ]);    
-        }
+    public function delete($id)
+    {
+        $model = $this->model('user');
+        $this->view("admin", [
+            "viewpart" => "adminuser",
+            "id" => $id,
+            "arrDe" => $model->Delete($id),
+            "arrUs" => $model->selectAllUser(),
+        ]);
+    }
 
-        public function Updatepq(){
-            if(isset($_POST['submit'])){
-                $id = $_POST['us_id'];
-                 $vaitro=$_POST['vt'];
-                 $model = $this -> model('user');
-                 $this -> view("admin",[
-                     "viewpart" => "pq",
-                     "id" => $id,
-                     "arrEpq" =>$model ->editpq($id),
-                     "check" =>$model ->updatepq($id,$vaitro),
-                     "arrvt" =>$model ->vt(),
-                     "arrPq" => $model -> pq(),  
-                    
-                    ]); 
-            }
+    // phan quyen
+    public function pq()
+    {
+        $model = $this->model('user');
+        $this->view("admin", [
+            "viewpart" => "pq",
+            "arrPq" => $model->pq(),
+
+        ]);
+    }
+    public function Editpq($id)
+    {
+        $i = $id;
+        $model = $this->model('user');
+        $this->view("admin", [
+            "viewpart" => "Pqedit",
+            "id" => $i,
+            "arrEpq" => $model->editpq($id),
+            "arrvt" => $model->vt(),
+
+
+        ]);
+    }
+
+    public function Updatepq()
+    {
+        if (isset($_POST['submit'])) {
+            $id = $_POST['us_id'];
+            $vaitro = $_POST['vt'];
+            $model = $this->model('user');
+            $this->view("admin", [
+                "viewpart" => "pq",
+                "id" => $id,
+                "arrEpq" => $model->editpq($id),
+                "check" => $model->updatepq($id, $vaitro),
+                "arrvt" => $model->vt(),
+                "arrPq" => $model->pq(),
+
+            ]);
         }
+    }
 
     public function sanpham()
     {
@@ -121,7 +128,7 @@ class admin extends controller
 
     public function editSanPham($idsp)
     {
-        
+
         //model
         $model = $this->model('adminPro');
         //view
@@ -129,7 +136,7 @@ class admin extends controller
             "admin",
             [
                 "viewpart" => "editsp",
-                "sanpham"=> $model -> selectOneSP($idsp), 
+                "sanpham" => $model->selectOneSP($idsp),
                 "arrColor" => $model->selectColor(),
                 "arrTheLoai" => $model->selectTheLoai(),
                 "arrloaispct" => $model->selectloaiSPCT(),
@@ -139,11 +146,12 @@ class admin extends controller
         );
     }
 
-    public function resultEditSP($idsp){
-        if(isset($_POST['btn-edit'])){
-           
+    public function resultEditSP($idsp)
+    {
+        if (isset($_POST['btn-edit'])) {
+
             $abc = unserialize($_SESSION['abc']);
-            
+
             $tensp = $_POST['namesp'];
             $giasp = $_POST['giasp'];
             $color = $_POST['colorsp'];
@@ -155,11 +163,11 @@ class admin extends controller
             $mota = $_POST['mota'];
             $id_hinhanh = $_POST['idImgOld'];
 
-            
+
             $loaispct = $_POST['chitietsp'];
             @$ngaytao = $_POST['date-Tao'];
             $ngaycapnhat = $_POST['dateTao'];
-            
+
             $test = array();
             $test[] = $nsx;
             $test[] = $loaisp;
@@ -175,24 +183,24 @@ class admin extends controller
             // $abc = unserialize($_POST['abc']);
             //model
             $model = $this->model('adminPro');
-            $model -> deleteArrIMG($abc);
+            $model->deleteArrIMG($abc);
             //view
             $this->view(
                 "admin",
                 [
                     "viewpart" => "editsp",
-                    "sanpham"=> $model -> selectOneSP($idsp), 
+                    "sanpham" => $model->selectOneSP($idsp),
                     "arrColor" => $model->selectColor(),
                     "arrTheLoai" => $model->selectTheLoai(),
                     "arrloaispct" => $model->selectloaiSPCT(),
                     "arrComPaNy" => $model->selectloaiComPaNy(),
                     "arrTrangThai" => $model->trangThai(),
                     "arrIMG" => $abc,
-                    "check" => $model -> updateSanPham($img,$img1,$img2,$img3,$img4,$tensp,$color,$giasp,$nsx,$trangthai,$soluong,$giamgia,$mota,$loaisp,$loaispct,$ngaycapnhat,$id_hinhanh,$idsp),
+                    "check" => $model->updateSanPham($img, $img1, $img2, $img3, $img4, $tensp, $color, $giasp, $nsx, $trangthai, $soluong, $giamgia, $mota, $loaisp, $loaispct, $ngaycapnhat, $id_hinhanh, $idsp),
                     "test" => $test,
                 ]
             );
-            }
+        }
         // var_dump($abc);
     }
 
@@ -249,89 +257,93 @@ class admin extends controller
                     "arrloaispct" => $model->selectloaiSPCT(),
                     "arrComPaNy" => $model->selectloaiComPaNy(),
                     "arrTrangThai" => $model->trangThai(),
-                    "check" => $model->insertSanPham($img,$img1,$img2,$img3,$img4,$loaispct,$ngaytao,$tensp,$giasp,$color,$nsx,$trangthai,$soluong,$giamgia,$mota,$loaisp),
+                    "check" => $model->insertSanPham($img, $img1, $img2, $img3, $img4, $loaispct, $ngaytao, $tensp, $giasp, $color, $nsx, $trangthai, $soluong, $giamgia, $mota, $loaisp),
                 ]
             );
         }
     }
 
-        public function addDanhMuc(){
-            if(isset($_POST['btn-add'])){
-                $tendm =$_POST['name-dm'];
-
-                //model
-                    $model = $this -> model('adminPro');
-                //view
-                $this->view("admin",[
-                    "viewpart" => "danhmucsp",
-                    "arrDM" => $model -> selectDanhMuc(),
-                    "check" => $model -> insertDM($tendm),
-                ]);
-            }
-        }
-
-        public function voucher(){
+    public function addDanhMuc()
+    {
+        if (isset($_POST['btn-add'])) {
+            $tendm = $_POST['name-dm'];
 
             //model
-            $model = $this -> model('adminPro');
+            $model = $this->model('adminPro');
+            //view
+            $this->view("admin", [
+                "viewpart" => "danhmucsp",
+                "arrDM" => $model->selectDanhMuc(),
+                "check" => $model->insertDM($tendm),
+            ]);
+        }
+    }
+
+    public function voucher()
+    {
+
+        //model
+        $model = $this->model('adminPro');
+
+        //view
+        $this->view("admin", [
+            "viewpart" => "vouchersp",
+            "arrVC" => $model->selectVoucher(),
+        ]);
+    }
+
+    public function Addvoucher()
+    {
+        if (isset($_POST['btn-add'])) {
+            $tenvc = $_POST['name-vc'];
+            $mavc = $_POST['ma-vc'];
+            $giamgia = $_POST['giamgia'];
+            $dateTao = $_POST['date-tao'];
+            $dateKT = $_POST['date-ketthuc'];
+            //model
+            $model = $this->model('adminPro');
 
             //view
-            $this -> view ("admin",[
+            $this->view("admin", [
                 "viewpart" => "vouchersp",
-                "arrVC" => $model -> selectVoucher(),
+                "arrVC" => $model->selectVoucher(),
+                "check" => $model->insertVoucher($tenvc, $mavc, $giamgia, $dateTao, $dateKT),
             ]);
         }
+    }
 
-        public function Addvoucher(){
-            if(isset($_POST['btn-add'])){
-                $tenvc = $_POST['name-vc'];
-                $mavc = $_POST['ma-vc'];
-                $giamgia = $_POST['giamgia'];
-                $dateTao = $_POST['date-tao'];
-                $dateKT = $_POST['date-ketthuc'];
-            //model
-            $model = $this -> model('adminPro');
-                
-            //view
-            $this -> view ("admin",[
-                "viewpart" => "vouchersp",
-                "arrVC" => $model -> selectVoucher(),
-                "check" => $model -> insertVoucher($tenvc,$mavc,$giamgia,$dateTao,$dateKT),
-            ]);
-            
-        }
-        }
+    public function deleteVoucher($id)
+    {
+        //model
+        $model = $this->model('adminPro');
 
-        public function deleteVoucher($id){
-            //model
-            $model = $this -> model('adminPro');
+        //view
+        $this->view("admin", [
+            "viewpart" => "vouchersp",
+            "arrVC" => $model->selectVoucher(),
+            "delete" => $model->deleteVC($id),
+        ]);
+    }
 
-            //view
-            $this -> view ("admin",[
-                "viewpart" => "vouchersp",
-                "arrVC" => $model -> selectVoucher(),
-                "delete" => $model ->deleteVC($id),
-            ]);
-        }
+    //Voucher user
+    public function selectAllVoucher()
+    {
+        //model
+        $model = $this->model('adminPro');
 
-        //Voucher user
-        public function selectAllVoucher(){
-            //model
-            $model = $this -> model('adminPro');
+        //view
+        $this->view("admin", [
+            "viewpart" => "voucherUS",
+            "arrVC" => $model->selectAllVCUS(),
+        ]);
+    }
 
-            //view
-            $this -> view ("admin",[
-                "viewpart" => "voucherUS",
-                "arrVC" => $model -> selectAllVCUS(),
-            ]);
-        }
-    
 
     public function danhmuc()
     {
         //model
         $model = $this->model('adminPro');
-        
+
         //view
 
         $this->view(
@@ -354,116 +366,213 @@ class admin extends controller
             [
                 "viewpart" => "danhmucsp",
                 "arrDM" => $model->selectDanhMuc(),
-                "delete" => $model -> deleteDM($id), 
+                "delete" => $model->deleteDM($id),
             ]
         );
     }
 
-    public function typeSP(){
+    public function typeSP()
+    {
         //model 
-        $model = $this -> model('adminPro');
+        $model = $this->model('adminPro');
 
         //view
-        
-        $this -> view("admin",
-        [
-            "viewpart" => "typeSP",   
-            "arrDM" => $model -> selectArr("loai_sp_chi_tiet"),
-        ]);
+
+        $this->view(
+            "admin",
+            [
+                "viewpart" => "typeSP",
+                "arrDM" => $model->selectArr("loai_sp_chi_tiet"),
+            ]
+        );
     }
 
-    public function addTypeSP(){
-        if(isset($_POST['btn-add'])){
+    public function addTypeSP()
+    {
+        if (isset($_POST['btn-add'])) {
             $type = strtoupper($_POST['name-dm']);
-        //model
+            //model
 
-        $model = $this -> model('adminPro');
+            $model = $this->model('adminPro');
 
-        //view
-        $this -> view("admin",
-        [
-            "viewpart" => "typeSP",   
-            "arrDM" => $model -> selectArr("loai_sp_chi_tiet"),
-            "check" => $model -> insertType($type),
-        ]);
+            //view
+            $this->view(
+                "admin",
+                [
+                    "viewpart" => "typeSP",
+                    "arrDM" => $model->selectArr("loai_sp_chi_tiet"),
+                    "check" => $model->insertType($type),
+                ]
+            );
         }
     }
 
-    public function deleteType($id,$nameType){
+    public function deleteType($id, $nameType)
+    {
         //model
 
-        $model = $this -> model('adminPro');
+        $model = $this->model('adminPro');
 
         //view
-        $this -> view("admin",
-        [
-            "viewpart" => "typeSP",   
-            "arrDM" => $model -> selectArr("loai_sp_chi_tiet"),
-            "delete" => $model ->deleteType($id,$nameType),
-        ]);
+        $this->view(
+            "admin",
+            [
+                "viewpart" => "typeSP",
+                "arrDM" => $model->selectArr("loai_sp_chi_tiet"),
+                "delete" => $model->deleteType($id, $nameType),
+            ]
+        );
     }
 
-    public function quanlidonhang(){
-        
-        $model = $this -> model('adminPro');
+    public function quanlidonhang()
+    {
+
+        $model = $this->model('adminPro');
 
         //views
-        $this -> view('admin',[
+        $this->view('admin', [
             'viewpart' => 'thongkedonhang',
-            'arr' => $model -> selectDonHang(),
+            'arr' => $model->selectDonHang(),
         ]);
     }
 
-    public function xacnhan($id_donhang,$trangthai){
-        $model = $this -> model('adminPro');
-        $model -> changeTrangThai($id_donhang,$trangthai);
+    public function xacnhan($id_donhang, $trangthai)
+    {
+        $model = $this->model('adminPro');
+        $model->changeTrangThai($id_donhang, $trangthai);
         //views
-        $this -> view('admin',[
+        $this->view('admin', [
             'viewpart' => 'thongkedonhang',
-            'arr' => $model -> selectDonHang(),
+            'arr' => $model->selectDonHang(),
+            'dh' => $model->thongtindonhang($id_donhang),
+            // 'dh' => $model -> soLuongSP(41), 
+
         ]);
     }
 
-    public function deleteDonHang($id_donhang){
-        $model = $this -> model('adminPro');
-        $model -> deleteDonHang($id_donhang);
+    public function huyXacNhan($id_donhang, $trangthai)
+    {
+        $model = $this->model('adminPro');
+        $model->changeTrangThai($id_donhang, $trangthai);
         //views
-        $this -> view('admin',[
+        $this->view('admin', [
             'viewpart' => 'thongkedonhang',
-            'arr' => $model -> selectDonHang(),
+            'arr' => $model->selectDonHang(),
+            'dh' => $model->thongtindonhang2($id_donhang),
+            // 'dh' => $model -> soLuongSP(41), 
+
         ]);
     }
 
-    public function thongKeDonHang(){
-        $model = $this -> model('adminPro');
+    public function deleteDonHang($id_donhang)
+    {
+        $model = $this->model('adminPro');
+        $model->deleteDonHang($id_donhang);
         //views
-        $this -> view('admin',[
+        $this->view('admin', [
+            'viewpart' => 'thongkedonhang',
+            'arr' => $model->selectDonHang(),
+        ]);
+    }
+
+    public function thongKeDonHang()
+    {
+        $model = $this->model('adminPro');
+        //views
+        $this->view('admin', [
             'viewpart' => 'thongke',
-            'totalAll' => $model -> numsAlldonhang(),
-            'totalChua' => $model -> numsChuaXacNnhan(),
-            'totalXN' => $model -> numsXacNnhan(),
+            'totalAll' => $model->numsAlldonhang(),
+            'totalChua' => $model->numsChuaXacNnhan(),
+            'totalXN' => $model->numsXacNnhan(),
         ]);
     }
 
-    public function toTalMonth(){
+    public function toTalMonth()
+    {
         $month = $_POST['month'];
-        $model = $this -> model('adminPro');
+        $model = $this->model('adminPro');
         //views
-        $this -> view('admin',[
+        $this->view('admin', [
             'viewpart' => 'thongke',
-            'totalAll' => $model -> numsAlldonhang(),
-            'totalChua' => $model -> numsChuaXacNnhan(),
-            'totalXN' => $model -> numsXacNnhan(),
-            'check' => $model -> Month($month),
+            'totalAll' => $model->numsAlldonhang(),
+            'totalChua' => $model->numsChuaXacNnhan(),
+            'totalXN' => $model->numsXacNnhan(),
+            'check' => $model->Month($month),
         ]);
     }
 
-    public function xemchitiet($id_donhang){
-        $model = $this -> model('adminPro');
+    public function xemchitiet($id_donhang)
+    {
+        $model = $this->model('adminPro');
         //views
-        $this -> view('admin',[
+        $this->view('admin', [
             'viewpart' => 'xemchitiet',
-            'arrDH' => $model -> selectOneDH($id_donhang),
+            'arrDH' => $model->selectOneDH($id_donhang),
+        ]);
+    }
+
+    // Chức năng nhập hàng hóa
+
+    public function nhaphang()
+    {
+        $model = $this->model('adminPro');
+        //views
+        $this->view('admin', [
+            'viewpart' => 'nhapHang',
+            'arrHH' => $model->selectSPNhap(),
+        ]);
+    }
+
+    public function thucHienNhapHang($id)
+    {
+        $idsp = $id;
+        $model = $this->model('adminPro');
+        //views
+        $this->view('admin', [
+            'viewpart' => 'nhapHangChild',
+            'arrHH' => $model->selectOneSPNhap($id),
+        ]);
+    }
+
+    //update so luong hang hoa
+
+    public function updateSoLuong($id)
+    {
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        $idsp = $id;
+        $soluong = $_POST['soluong'];
+        $dateCapNhat = date("Y-m-d H:i:s");
+        $model = $this->model('adminPro');
+        if (isset($_POST['btn-xacnhan'])) {
+            //views
+            $this->view('admin', [
+                'viewpart' => 'nhapHang',
+                'arrHH' => $model->selectSPNhap(),
+                'check' => $model->updateSLSP($idsp, $soluong, $dateCapNhat),
+            ]);
+        }
+    }
+
+    //Phan hồi, bình luận về sản phẩm
+
+    public function binhLuanSP()
+    {
+        $model = $this->model('adminPro');
+        //views
+        $this->view('admin', [
+            'viewpart' => 'binhluanSP',
+            'arrBL' => $model->selectAllBinhLuan(),
+        ]);
+    }
+
+    public function deleteBL($id)
+    {
+        $model = $this->model('adminPro');
+        //views
+        $this->view('admin', [
+            'viewpart' => 'binhluanSP',
+            'arrBL' => $model->selectAllBinhLuan(),
+            'check' => $model->deleteBinhLuan($id),
         ]);
     }
 }
