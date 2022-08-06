@@ -1,4 +1,7 @@
 <?php
+
+use LDAP\Result;
+
 class user extends db
 {
 
@@ -186,6 +189,46 @@ class user extends db
         return $check;
     }
 
+    //Phần account 
+    public function EditAC($id)
+    {
+        $sql = "SELECT * FROM `userss`
+         WHERE `us_id` = '$id'";
+        $result = mysqli_query($this->conn, $sql);
+        $arr = mysqli_fetch_all($result);
+        return json_encode($arr);
+    }
+
+    public function Checkpass($id, $pswo, $password)
+    {
+
+        $sql = "SELECT * FROM `userss` WHERE `us_id` = '$id' and `us_password` = $pswo";
+        $checkpass = mysqli_query($this->conn, $sql);
+
+        if (mysqli_num_rows($checkpass) === 1) {
+            $sql = "UPDATE `userss` SET `us_password` = '$password' WHERE `us_id` =  '$id'";
+            mysqli_query($this->conn, $sql);
+            echo "<script>alert('Đổi mật khẩu thành công!!');window.location='account'; </script>";
+
+        } else {
+            echo "<script>alert('Mật khẩu cũ không đúng!!');window.location='changepass'; </script>";
+        }
+        return $checkpass;
+    }
+
+    // public function UpdatePass($id, $password)
+    // {
+    //     $check = false;
+    //     $sql = "UPDATE `userss` SET `us_password` = '$password' WHERE `us_id` =  '$id'";
+    //     $result = mysqli_query($this->conn, $sql);
+    //     // $arr = mysqli_fetch_assoc($result);
+    //     // return json_encode($arr);
+    //     if ($result) {
+    //         $check = true;
+    //     }
+    //     return $check;
+    // }
+
     public function UpdateSDT($id, $SDT)
     {
         $check = false;
@@ -269,10 +312,10 @@ class user extends db
         if (isset($_FILES['img'])) {
             $file = $_FILES['img'];
             $ava = $file['name'];
-            move_uploaded_file($file['tmp_name'], 'public/images/avatar/'.$file['name']);
-          }
+            move_uploaded_file($file['tmp_name'], 'public/images/avatar/' . $file['name']);
+        }
         $check = false;
-       
+
         $sql = "UPDATE `infor` SET `url_img` = '$ava' WHERE `id_info` =  '$id'";
         $result = mysqli_query($this->conn, $sql);
         // $arr = mysqli_fetch_assoc($result);
