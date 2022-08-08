@@ -152,93 +152,77 @@
 
     <div class="container">
         <div class="py-5 text-center tieude">
-            <h1>Tìm Kiếm Ô-Tô và Phụ Tùng</h1>
+            <h1>VA CHẠM SHOP XIN CHÀO</h1>
 
         </div>
 
         <div class="row">
             <div class="col-md-9 order-md-1">
-                <!-- <h4 class="mb-5 text-center">Tìm Kiếm Ô-tô và Phụ Tùng</h4> -->
-                <form class="needs-validation" novalidate action="find_item/ketqua" method="POST" target="_self">
-                    <div class="row">
-                        <div class="search">
-                            <label for="" class="m-3">Nhập tên sản phẩm: </label>
-                            <div class="position-relative">
-                                <input type="text" class="form-control" id=""
-                                    placeholder="Nhập tên sản phẩm muốn tìm kiếm vào đây?" value="" name="ten_sp">
-                                <!-- <a href="find_item/ketqua" class="position-absolute top-50 end-0 translate-middle-y me-4"><i class="test bi bi-search"></i></a> -->
-                                <!-- <div class="invalid-feedback">
-									Nhập tên sản phẩm cần tìm vào nhé!!!
-								</div> -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr class="mb-4">
-
-                    <div class="m-3">
-                        <label for="">Tìm kiếm nâng cao: </label>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label for="">Hãng Xe: </label>
-                            <select class="custom-select d-block w-100" id="" name="">
-                                <option value="">Chọn...</option>
-                                <option value="">Mercedes Benz</option>
-                                <option value="">BMW</option>
-                                <option value="">Audi</option>
-                                <option value="">Honda</option>
-                            </select>
-                            <!-- <div class="invalid-feedback">
-								
-							</div> -->
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="">Loại: </label>
-                            <select class="custom-select d-block w-100" id="">
-                                <option value="">Chọn...</option>
-                                <option value="1">Xe ô-tô</option>
-                                <option value="2">Phụ kiện</option>
-                            </select>
-                            <!-- <div class="invalid-feedback">
-								
-							</div> -->
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="rice">Giá: </label>
-                            <select class="custom-select d-block w-100" id="rice">
-                                <option value="">Chọn...</option>
-                                <option value="1">Dưới 500 triệu VNĐ</option>
-                                <option value="2">Từ 500 triệu VNĐ - 1 tỷ VNĐ</option>
-                                <option value="3">Trên 1 tỷ VNĐ</option>
-                            </select>
-                            <!-- <div class="invalid-feedback">
-								
-							</div> -->
-                        </div>
-                    </div>
-                    <hr class="mb-4">
-
-                    <!-- <div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="save-info">
-						<label class="custom-control-label" for="save-info">Lưu thông tin</label>
-					</div>
-					<hr class="mb-4"> -->
-
-                    <!-- <h4 class="mb-3">Thông tin thanh toán</h4> -->
-
-                    <button class="btn btn-primary btn-lg btn-block" name="btn-fi" type="submit"
-                        style="background-color:#198754 ;">Tìm Kiếm</button>
-                </form>
-            </div>
-        </div>
-        <div>
+            
             <?php 
-				if(isset($data['viewpart'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart'].".php";
+				if(isset($data['viewpart2'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart2'].".php";
 				}
-				?>
+			?>
+            <?php 
+				if(isset($data['viewpart3'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart3'].".php";
+				}
+			?>
+            <?php 
+				if(isset($data['viewpart4'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart4'].".php";
+				}
+			?>
+            <?php 
+				if(isset($data['viewpart5'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart5'].".php";
+				}
+			?>
+            <?php 
+				if(isset($data['viewpart6'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart6'].".php";
+				}
+			?>
+            <?php 
+				if(isset($data['viewpart7'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart7'].".php";
+				}
+			?>
+            <?php 
+				if(isset($data['viewpart8'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart8'].".php";
+				}
+			?>
+            <?php 
+				if(isset($data['viewpart9'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart9'].".php";
+				}
+			?>
+            <?php 
+				if(isset($data['viewpart10'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart10'].".php";
+				}
+			?>
+            <?php 
+				if(isset($data['viewpart11'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart11'].".php";
+				}
+			?>
+            <?php 
+				if(isset($data['viewpart12'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart12'].".php";
+				}
+			?>
+            <?php 
+				if(isset($data['viewpart13'])){
+					require_once "mvc/views/page/timkiem/".$data['viewpart13'].".php";
+				}
+			?>
+
+        </div>
+                
+            </div>
         </div>
     </div>
 
