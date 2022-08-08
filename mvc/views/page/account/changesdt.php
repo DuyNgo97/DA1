@@ -4,6 +4,7 @@ if (isset($data["arrEd"])) {
     // var_dump($data["arrUs"]);
 }
 
+
 ?>
 
 
@@ -12,14 +13,14 @@ if (isset($data["arrEd"])) {
 </h1>
 <form action="account/UpdateSDT" target="_self" method="post">
     <label for="psw"><b>Số điện thoại</b></label>
-    <input class="form-control w-25 mb-2 type=" number" name="sdt" id="">
+    <input type="number" placeholder="Số điện thoại" name="sdt" required />
 
     <?php if (isset($data["check"])) {
         echo "<script>alert('Đổi số điện thoại thành công!!');window.location='account'; </script>";
+        // echo $data['check'];
     } ?>
 
     <div class="clearfix">
         <button type="submit" name="submit" class="submit btn btn-danger">Sửa</button>
-        <a href="account"><button class="btn btn-danger">Quay lại</button></a>
     </div>
 </form>

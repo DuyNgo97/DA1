@@ -19,8 +19,8 @@ class account extends controller
                 // "sanpham" => $a -> selectSP(),
                 "minipart" => "lichsudonhang",
                 "minipart2" => "voucherUS",
-                "donhang" => $model-> getDonHangUS($id),
-                "voucher" => $model -> getVoucherUS($id),
+                "donhang" => $model->getDonHangUS($id),
+                "voucher" => $model->getVoucherUS($id),
             ]
         );
     }
@@ -72,7 +72,7 @@ class account extends controller
                 $pswo = validate($_POST['pswo']);
                 $password = validate($_POST['pswn']);
                 $pswr = validate($_POST['pswr']);
-                
+
 
                 if (empty($pswo)) {
                     echo "<script>alert('Mật khẩu cũ không được để trống!!');window.location='changepass'; </script>";
