@@ -49,31 +49,31 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-6 col-md-3 box">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Chọn năm</option>
-                            <option value="1">2022</option>
-                            <option value="2">2021</option>
-                            <option value="3">2020</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-6 col-md-3 box">
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" aria-label="Default select example" name="hangxe">
                             <option selected>Chọn hãng</option>
-                            <option value="1">Vinfast</option>
-                            <option value="2">BMW</option>
-                            <option value="3">Honda</option>
+                            <option value="Mercedes Benz">Mercedes Benz</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Honda">Honda</option>
                         </select>
                     </div>
                     <div class="col-sm-6 col-md-3 box">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Chọn mẫu</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                        <select class="form-select" aria-label="Default select example" name="loaixe">
+                            <option selected>Chọn loại</option>
+                            <option value="Ô-tô">Ô-tô</option>
+                            <option value="Phụ kiện">Phụ kiện</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 col-md-3 box">
+                        <select class="form-select" aria-label="Default select example" name="giaxe">
+                            <option selected>Chọn giá</option>
+                            <option value="Dưới 500 triệu">Dưới 500 triệu</option>
+                            <option value="Từ 500 triệu đến 1 tỷ">Từ 500 triệu đến 1 tỷ</option>
+                            <option value="Trên 1 tỷ">Trên 1 tỷ</option>
                         </select>
                     </div>
                     <div class="col-sm-6 col-md-3">
-                        <button type="button" class="btn btn-info w-100 text-white">Tìm kiếm <i class="bi bi-search"></i></button>
+                        <a href="#"><button type="button" class="btn btn-info w-100 text-white" name="btn-home">Tìm kiếm <i class="bi bi-search"></i></button></a>
                     </div>
                 </div>
             </div>
