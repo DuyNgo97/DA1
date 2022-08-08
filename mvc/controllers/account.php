@@ -55,21 +55,46 @@ class account extends controller
             ]
         );
     }
-    public function Update()
+    public function UpdatePass()
     {
+        $model = $this->model('user');
         if (isset($_POST['submit'])) {
             $id = $_SESSION['idUS'];
-            $password = $_POST['psw'];
-            $model = $this->model('user');
-            $this->view("account", [
-                "viewpart" => "changepass",
-                "id" => $id,
-                "check" => $model->Update($id, $password),
-                "arrEd" => $model->Edit($id),
-            ]);
+
+            if (isset($_POST['pswo']) && isset($_POST['pswn']) && isset($_POST['pswr'])) {
+                function validate($data)
+                {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+                $pswo = validate($_POST['pswo']);
+                $password = validate($_POST['pswn']);
+                $pswr = validate($_POST['pswr']);
+                
+
+                if (empty($pswo)) {
+                    echo "<script>alert('Mật khẩu cũ không được để trống!!');window.location='changepass'; </script>";
+                    exit();
+                } else if (empty($password)) {
+                    echo "<script>alert('Mật khẩu mới không được để trống!!');window.location='changepass'; </script>";
+                    exit();
+                } else if ($password !== $pswr) {
+                    echo "<script>alert('Mật khẩu nhập lại không khớp!!');window.location='changepass'; </script>";
+                    exit();
+                }
+                //view
+                $this->view("account", [
+                    "viewpart" => "changepass",
+                    "id" => $id,
+                    "checkpass" => $model->Checkpass($id, $pswo, $password),
+                    // "check" => $model->UpdatePass($id, $password),
+                    "arrEd" => $model->EditAC($id),
+                ]);
+            }
         }
     }
-
     //change sdt
     public function changesdt()
     {
@@ -99,7 +124,7 @@ class account extends controller
                 "viewpart" => "changesdt",
                 "id" => $id,
                 "check" => $model->UpdateSDT($id, $SDT),
-                "arrEd" => $model->Edit($id),
+                "arrEd" => $model->EditAC($id),
             ]);
         }
     }
@@ -134,7 +159,7 @@ class account extends controller
                 "viewpart" => "changeemail",
                 "id" => $id,
                 "check" => $model->UpdateEmail($id, $Email),
-                "arrEd" => $model->Edit($id),
+                "arrEd" => $model->EditAC($id),
             ]);
         }
     }
@@ -182,12 +207,12 @@ class account extends controller
             $file = $_FILES['img'];
             $ava = $file['name'];
             $model = $this->model('user');
-            
+
             $this->view("account", [
                 "viewpart" => "changeava",
                 "id" => $id,
                 "check" => $model->UpdateAva($id, $ava),
-                "arrEd" => $model->Edit($id),
+                "arrEd" => $model->EditAC($id),
             ]);
         }
     }

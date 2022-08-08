@@ -14,20 +14,20 @@
 
 <body>
     <?php
-        if(isset($data['check'])){
-            if($data['check']){
-                echo "<h1 style='color: red;'>Tạo mới thành công!</h1>";
-            }else{
-                echo "<h1 style='color: red;'>Tạo mới không thành công!</h1>";
-            }
+    if (isset($data['check'])) {
+        if ($data['check']) {
+            echo "<h1 style='color: red;'>Tạo mới thành công!</h1>";
+        } else {
+            echo "<h1 style='color: red;'>Tạo mới không thành công!</h1>";
         }
+    }
     ?>
     <form action="forgotpass/changePass" class="sign-in-form" target="_self" method="POST">
         <a href="home" target="_self"><img src="public/images/logo_shop.png" width="300px" height="100px" alt=""></a>
         <h2 class="title">Tạo mới password</h2>
         <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="password" placeholder="Vui lòng điền password mới!" name="pass" />
+            <input type="password" placeholder="Vui lòng điền password mới!" name="pass" required />
             <input type="hidden" value="<?= $data['code'] ?>" name="code">
         </div>
         <!-- <div class="input-field">

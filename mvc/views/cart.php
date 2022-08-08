@@ -18,13 +18,13 @@
 
 <body>
     <?php
-	require_once 'mvc/views/body/header.php'
-	?>
+    require_once 'mvc/views/body/header.php'
+    ?>
     <?php
-        if(isset($data['arrCL'])){
-            $arrCL = $data['arrCL'];
-            // var_dump($arrCL);
-        }
+    if (isset($data['arrCL'])) {
+        $arrCL = $data['arrCL'];
+        // var_dump($arrCL);
+    }
     ?>
     <main class="page-cart">
         <section class="shopping-cart dark">
@@ -41,160 +41,139 @@
                                     Cập nhật</button>
                                 <div class="items">
                                     <?php
-                                if(@$_SESSION['cart']){
-                                    $cart = $_SESSION['cart'];
-                                    // var_dump($cart);
-                                    $vanchuyen = 8000000;
-                                    $total = 0;
-                                    foreach ($_SESSION['cart'] as $key => $cart) { 
-                                        $total += ($cart['price'] * $cart['quantity'] * (1 - $cart['giamgia']));
-                                        
-                                        ?>
+                                    if (@$_SESSION['cart']) {
+                                        $cart = $_SESSION['cart'];
+                                        // var_dump($cart);
+                                        $vanchuyen = 8000000;
+                                        $total = 0;
+                                        foreach ($_SESSION['cart'] as $key => $cart) {
+                                            $total += ($cart['price'] * $cart['quantity'] * (1 - $cart['giamgia']));
 
-                                    <div class="product">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <img class="img-fluid mx-auto d-block image"
-                                                    src="public/images/<?= $cart['img'] ?>">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="col-md-5 product-name">
-                                                            <div class="product-name">
-                                                                <a href="#"><?= $cart['name'] ?></a>
-                                                                <div class="product-info">
-                                                                    <div><b>Hãng</b> : <span
-                                                                            class="value"><?= $cart['company'] ?></span>
-                                                                    </div>
-                                                                    <?php
-                                                                foreach ($arrCL as $keycl => $cl) {
-                                                                    if($cl[0] == $cart['color']){ ?>
-                                                                    <div><b>Màu sắc</b> : <span
-                                                                            class="value"><?= $cl[1] ?></span>
-                                                                    </div>
-                                                                    <?php }
-                                                                }
-                                                                ?>
-                                                                    <input id="quantity" type="hidden"
-                                                                        name="color[<?= $cart['id'] ?>]"
-                                                                        value="<?= $cart['color'] ?>"
-                                                                        class="form-control quantity-input">
-                                                                    <div><b>Ưu đãi</b> : <span
-                                                                            class="value"><?= $cart['giamgia'] ?></span>
+                                    ?>
+
+                                            <div class="product">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <img class="img-fluid mx-auto d-block image" src="public/images/<?= $cart['img'] ?>">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="info">
+                                                            <div class="row">
+                                                                <div class="col-md-5 product-name">
+                                                                    <div class="product-name">
+                                                                        <a href="#"><?= $cart['name'] ?></a>
+                                                                        <div class="product-info">
+                                                                            <div><b>Hãng</b> : <span class="value"><?= $cart['company'] ?></span>
+                                                                            </div>
+                                                                            <?php
+                                                                            foreach ($arrCL as $keycl => $cl) {
+                                                                                if ($cl[0] == $cart['color']) { ?>
+                                                                                    <div><b>Màu sắc</b> : <span class="value"><?= $cl[1] ?></span>
+                                                                                    </div>
+                                                                            <?php }
+                                                                            }
+                                                                            ?>
+                                                                            <input id="quantity" type="hidden" name="color[<?= $cart['id'] ?>]" value="<?= $cart['color'] ?>" class="form-control quantity-input">
+                                                                            <div><b>Ưu đãi</b> : <span class="value"><?= $cart['giamgia'] ?></span>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-md-1 quantity">
+                                                                    <label for="quantity">Số lượng:</label>
+                                                                    <input id="quantity" type="number" name="sl[<?= $cart['id'] ?>]" value="<?= $cart['quantity'] ?>" class="form-control quantity-input">
+                                                                    <a href="cart/deleteCart/<?= $cart['id'] ?>/<?= $cart['color'] ?>" target="_self"><button type="button" class="delete mt-2 btn btn-danger">
+                                                                            Xóa</button></a>
+                                                                    <button type="submit" style="display: none;" class="delete mt-2 btn btn-danger" name="btn-capnhat">
+                                                                        Cập nhật</button>
+                                                                </div>
+                                                                <div class="col-md-2 price">
+                                                                    <label for="quantity">Giá:</label><br>
+                                                                    <span><?= $cart['price'] ?></span>
+                                                                </div>
+                                                                <div class="col-md-2 price">
+                                                                    <label for="quantity">Thành tiền:</label><br>
+                                                                    <span><?= $cart['price'] * $cart['quantity'] * (1 - $cart['giamgia']) ?></span>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-1 quantity">
-                                                            <label for="quantity">Số lượng:</label>
-                                                            <input id="quantity" type="number"
-                                                                name="sl[<?= $cart['id'] ?>]"
-                                                                value="<?= $cart['quantity'] ?>"
-                                                                class="form-control quantity-input">
-                                                            <a href="cart/deleteCart/<?= $cart['id'] ?>/<?= $cart['color'] ?>"
-                                                                target="_self"><button type="button"
-                                                                    class="delete mt-2 btn btn-danger">
-                                                                    Xóa</button></a>
-                                                            <button type="submit" style="display: none;"
-                                                                class="delete mt-2 btn btn-danger" name="btn-capnhat">
-                                                                Cập nhật</button>
-                                                        </div>
-                                                        <div class="col-md-2 price">
-                                                            <label for="quantity">Giá:</label><br>
-                                                            <span><?= $cart['price'] ?></span>
-                                                        </div>
-                                                        <div class="col-md-2 price">
-                                                            <label for="quantity">Thành tiền:</label><br>
-                                                            <span><?= $cart['price'] * $cart['quantity'] * (1 - $cart['giamgia'])?></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <?php }}else{ ?>
-                                    <img src="public/images/noncart.png" alt="">
-                                    <img src="public/images/chambien2.jpg" class="chambien" alt="">
+                                        <?php }
+                                    } else { ?>
+                                        <img src="public/images/noncart.png" alt="">
+                                        <img src="public/images/chambien2.jpg" class="chambien" alt="">
                                     <?php }
-                                ?>
+                                    ?>
                                     <!-- } ?> -->
 
                                 </div>
                             </form>
                         </div>
-                        <?php 
-                            if(isset($_SESSION['cart']) && isset($_SESSION['idUS'])){ ?>
-                        <div class="summary-main col-md-12 col-lg-4">
-                            <form action="checkout/sayhi" method="POST">
+                        <?php
+                        if (isset($_SESSION['cart']) && isset($_SESSION['idUS'])) { ?>
+                            <div class="summary-main col-md-12 col-lg-4">
+                                <form action="checkout/sayhi" method="POST" target="_self">
+                                    <div class="summary">
+                                        <h3>Tổng thanh toán</h3>
+                                        <div class="summary-item"><span class="text">Tổng phụ</span><span class="price"><?= @$total ?> VND</span></div>
+                                        <!-- <div class="summary-item"><span class="text">Giảm giá</span><span
+                                        class="price"><?= @$total *  @$_SESSION['cart']['giamgia'] ?>
+                                        VND</span></div> -->
+                                        <div class="summary-item"><span class="text">Phí vận chuyển</span><span class="price">
+                                                <?= @$vanchuyen ?>VND
+                                            </span></div>
+                                        <div class="summary-item"><span class="text">Voucher</span><span class="price">
+                                                <?php
+                                                if (isset($data['arrVC'])) {
+                                                    $arrVC = json_decode($data['arrVC']);
+                                                ?>
+                                                    <select id="color" name="giamg" onchange="change(this)">
+                                                        <option value="0">None</option>
+                                                        <?php
+                                                        foreach ($arrVC as $key => $color) { ?>
+                                                            <option value="<?= $color[1] ?>">
+                                                                <?= $color[0] ?>
+                                                            </option>
+                                                        <?php }
+                                                        ?>
+                                                    </select>
+                                                <?php }
+                                                ?>
+                                            </span></div>
+                                        <input type="hidden" id="totalSP" value="<?= @$total ?>">
+                                        <input type="hidden" id="vanchuyen" value="<?= @$vanchuyen ?>">
+                                        <input type="hidden" id="tongcong" value="<?= @$total - @$vanchuyen ?>" name="tongcong">
+                                        <div class="summary-item"><span class="text">Tổng cộng</span><span class="price" id="totaltong"><?= @$total - @$vanchuyen ?>
+                                                VND</span></div>
+                                        <input type="hidden" name="totalall" id="totalall" value="<?= @$total - @$vanchuyen ?>">
+                                        <div class="btn-b">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" style="background-color:#198754 ;">
+                                                Thanh toán</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        <?php } else { ?>
+                            <div class="summary-main col-md-12 col-lg-4">
                                 <div class="summary">
                                     <h3>Tổng thanh toán</h3>
-                                    <div class="summary-item"><span class="text">Tổng phụ</span><span
-                                            class="price"><?= @$total ?> VND</span></div>
+                                    <div class="summary-item"><span class="text">Tổng phụ</span><span class="price"><?= @$total ?> VND</span></div>
                                     <!-- <div class="summary-item"><span class="text">Giảm giá</span><span
-                                        class="price"><?= @$total *  @$_SESSION['cart']['giamgia']?>
+                                        class="price"><?= @$total *  @$_SESSION['cart']['giamgia'] ?>
                                         VND</span></div> -->
-                                    <div class="summary-item"><span class="text">Phí vận chuyển</span><span
-                                            class="price">
+                                    <div class="summary-item"><span class="text">Phí vận chuyển</span><span class="price">
                                             <?= @$vanchuyen ?>VND
                                         </span></div>
-                                    <div class="summary-item"><span class="text">Voucher</span><span class="price">
-                                            <?php
-                                    if(isset($data['arrVC'])){ 
-                                        $arrVC = json_decode($data['arrVC']);
-                                        ?>
-                                            <select id="color" name="giamg" onchange="change(this)">
-                                                <option value="0">None</option>
-                                                <?php
-                                        foreach ($arrVC as $key => $color) { ?>
-                                                <option value="<?= $color[1] ?>">
-                                                    <?= $color[0] ?>
-                                                </option>
-                                                <?php }
-                                    ?>
-                                            </select>
-                                            <?php }
-                                ?>
-                                        </span></div>
-                                    <input type="hidden" id="totalSP" value="<?= @$total ?>">
-                                    <input type="hidden" id="vanchuyen" value="<?= @$vanchuyen ?>">
-                                    <input type="hidden" id="tongcong" value="<?= @$total - @$vanchuyen?>"
-                                        name="tongcong">
-                                    <div class="summary-item"><span class="text">Tổng cộng</span><span class="price"
-                                            id="totaltong"><?= @$total - @$vanchuyen ?>
+                                    <div class="summary-item"><span class="text">Tổng cộng</span><span class="price"><?= (@$total - (@$total *  @$cart['giamgia']) - @$vanchuyen) ?>
                                             VND</span></div>
-                                    <input type="hidden" name="totalall" id="totalall"
-                                        value="<?= @$total - @$vanchuyen ?>">
                                     <div class="btn-b">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block"
-                                            style="background-color:#198754 ;">
-                                            Thanh toán</button>
+                                        <a href="checkout" target="_self"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#198754 ;">
+                                                Thanh toán</button></a>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                        <?php } else{ ?>
-                        <div class="summary-main col-md-12 col-lg-4">
-                            <div class="summary">
-                                <h3>Tổng thanh toán</h3>
-                                <div class="summary-item"><span class="text">Tổng phụ</span><span
-                                        class="price"><?= @$total ?> VND</span></div>
-                                <!-- <div class="summary-item"><span class="text">Giảm giá</span><span
-                                        class="price"><?= @$total *  @$_SESSION['cart']['giamgia']?>
-                                        VND</span></div> -->
-                                <div class="summary-item"><span class="text">Phí vận chuyển</span><span class="price">
-                                        <?= @$vanchuyen ?>VND
-                                    </span></div>
-                                <div class="summary-item"><span class="text">Tổng cộng</span><span
-                                        class="price"><?= (@$total - (@$total *  @$cart['giamgia']) - @$vanchuyen) ?>
-                                        VND</span></div>
-                                <div class="btn-b">
-                                    <a href="checkout" target="_self"><button type="button"
-                                            class="btn btn-primary btn-lg btn-block" style="background-color:#198754 ;">
-                                            Thanh toán</button></a>
-                                </div>
                             </div>
-                        </div>
                         <?php }
                         ?>
                     </div>
@@ -202,9 +181,9 @@
             </div>
         </section>
         <?php
-            if(isset($data['item'])){
-                var_dump($data['item']);
-            }
+        if (isset($data['item'])) {
+            var_dump($data['item']);
+        }
         ?>
     </main>
 </body>

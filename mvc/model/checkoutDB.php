@@ -1,31 +1,34 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require "PHPMailer-master/src/PHPMailer.php"; 
-require "PHPMailer-master/src/SMTP.php"; 
+require "PHPMailer-master/src/PHPMailer.php";
+require "PHPMailer-master/src/SMTP.php";
 require "PHPMailer-master/src/Exception.php";
 
 class checkoutDB extends db
 {
-    public function insertDonHang($idUS,$total,$trangthai,$thanhtoan,$a,$sdt,$note){
+    public function insertDonHang($idUS, $total, $trangthai, $thanhtoan, $a, $sdt, $note)
+    {
         $sql = "INSERT INTO `donhang`(`us_id`, `total`, `trangthai`, `hinhthucTT`, `ngaytao_donhang`, `SDT`, `note`)
          VALUES ($idUS,'$total',$trangthai,$thanhtoan,'$a','$sdt','$note')";
-        $result = mysqli_query($this -> conn, $sql);
+        $result = mysqli_query($this->conn, $sql);
         $id = mysqli_insert_id($this->conn);
         return $id;
     }
-    
-    public function insertDHCT($arrSP,$idUS,$total,$trangthai,$thanhtoan,$a,$sdt,$note,$nameUS,$email){
+
+    public function insertDHCT($arrSP, $idUS, $total, $trangthai, $thanhtoan, $a, $sdt, $note, $nameUS, $email)
+    {
         $check = false;
-        $idDH = $this -> insertDonHang($idUS,$total,$trangthai,$thanhtoan,$a,$sdt,$note);
+        $idDH = $this->insertDonHang($idUS, $total, $trangthai, $thanhtoan, $a, $sdt, $note);
         foreach ($arrSP as $key => $sp) {
-            $sql = "INSERT INTO `donhangchitiet`(`id_donhang`, `id_sp`, `soluong_sp`) VALUES ($idDH,$sp[id],$sp[quantity])";
-            if(mysqli_query($this -> conn,$sql)){
-               $check = true; 
+            $sql = "INSERT INTO `donhangchitiet`(`id_donhang`, `id_sp`, `soluong_sp`, `id_us`) VALUES ($idDH,$sp[id],$sp[quantity],$idUS)";
+            if (mysqli_query($this->conn, $sql)) {
+                $check = true;
             }
         }
-        if($check){
+        if ($check) {
             $sql2 = "SELECT b.ten_sp, a.soluong_sp, b.gia_sp
             FROM `donhangchitiet` a
             INNER JOIN sanpham b
@@ -33,7 +36,7 @@ class checkoutDB extends db
             -- INNER JOIN donhang c
             -- ON c.id_donhang = a.id_donhang
             WHERE a.id_donhang = '$idDH'";
-            $rs = mysqli_query($this -> conn, $sql2);
+            $rs = mysqli_query($this->conn, $sql2);
             $dh = mysqli_fetch_all($rs);
             $tong = 0;
             $noidung = '<head>
@@ -105,8 +108,8 @@ class checkoutDB extends db
             </style>
             </head>';
             $noidung .= "
-            <p>Dear Mr/Ms ".$nameUS.",</p>
-            <p>Cảm ơn quý khách đã đặt hàng. Mã đơn hàng là: ".$idDH."</p>
+            <p>Dear Mr/Ms " . $nameUS . ",</p>
+            <p>Cảm ơn quý khách đã đặt hàng. Mã đơn hàng là: " . $idDH . "</p>
             <p>Đơn hàng đặt bao gồm:</p>
             <table cellpadding='0' cellspacing='0' border='0'>
                 <thead>
@@ -134,21 +137,23 @@ class checkoutDB extends db
                         </tbody>
                         </table>
                         ";
-            $noidung .= "Tổng tiền: ". number_format($total)." VND.";
-            $this -> sendMail($email,$nameUS,$noidung);
+            $noidung .= "Tổng tiền: " . number_format($total) . " VND.";
+            $this->sendMail($email, $nameUS, $noidung);
         }
         // $this -> addVoucher($idUS);
         unset($_SESSION['cart']);
         return $check;
     }
 
-    public function addVoucher($idUS){
+    public function addVoucher($idUS)
+    {
         $sql = "UPDATE `userss` SET `id_voucher`='9' WHERE `us_id` = '$idUS'";
-        mysqli_query($this -> conn, $sql);
+        mysqli_query($this->conn, $sql);
     }
 
-    public function sendMail($email,$nameUS,$noidung){
-        $mail = new PHPMailer(true);//true:enables exceptions
+    public function sendMail($email, $nameUS, $noidung)
+    {
+        $mail = new PHPMailer(true); //true:enables exceptions
         try {
             //Server settings
             $mail->SMTPDebug = 0;                                    // Enable verbose debug output
@@ -162,14 +167,14 @@ class checkoutDB extends db
             $mail->Port = 587;                                       // TCP port to connect to
 
             //Recipients
-            $mail->setFrom('vuthemanh18895hp@gmail.com','Va Chạm Shop'); 
-            $mail->addAddress($email,$nameUS);                       //mail và tên người nhận  
+            $mail->setFrom('vuthemanh18895hp@gmail.com', 'Va Chạm Shop');
+            $mail->addAddress($email, $nameUS);                       //mail và tên người nhận  
 
             //Content
             $mail->isHTML(true);                                     // Set email format to HTML
             $mail->Subject = 'Đơn hàng VCshop';
             $mail->Body = $noidung;
-            $mail->smtpConnect( array(
+            $mail->smtpConnect(array(
                 "ssl" => array(
                     "verify_peer" => false,
                     "verify_peer_name" => false,

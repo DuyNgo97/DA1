@@ -125,3 +125,17 @@ function preimg4() {
     reader.readAsDataURL(fileToLoad);
   }
 }
+
+// fetch("https://api2.binance.com/api/v3/ticker/24hr")
+//   .then((response) => response.json())
+//   .then((data) => {
+//     let rows = data.map(
+//       (row) => `
+//     <tr>
+//       <td>${row.symbol}</td>
+//       <td>${row.priceChange}</td>
+//     </tr>`
+//     ).catch((error) => {if (error) lasdfj;lkasdkjf});
+
+//     document.getElementById("table-data").innerHTML = rows.join("");
+//   });

@@ -300,7 +300,7 @@ section {
                     <th><?= 'Đã xác nhận' ?></th>
                     <th><?= $a[5] ?></th>
                     <th class="zoom"><?= $a[8] ?></th>
-                    <th><a href="admin/xacnhan/<?= $a[0] ?>/0" target="_self">Hủy Xác nhận</a></th>
+                    <th><a href="admin/huyXacNhan/<?= $a[0] ?>/0" target="_self">Hủy Xác nhận</a></th>
                     <th><a href="admin/deleteDonHang/<?= $a[0] ?>" target="_self">Xóa</a></th>
                     <th><a href="admin/xemchitiet/<?= $a[0] ?>" target="_self">Xem</a></th>
                 </tr>
@@ -312,5 +312,11 @@ section {
             </table>
 
         </div>
+        <?php
+            if(isset($data['dh'])){
+                $dh = json_decode($data['dh']);
+                var_dump($dh);
+            }
+        ?>
     </section>
 </div>

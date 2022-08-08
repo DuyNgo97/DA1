@@ -7,7 +7,16 @@ if(!in_array($_SESSION['vaitro'],$arrPQ)){
 		window.location = "http://localhost/da1/cart";
 		</script>
 	';
-} 
+}
+
+if(!isset($_SESSION['cart'])){
+    echo '
+    <script>
+    alert("Bạn chưa đăng nhập tài khoản!");
+    window.location = "http://localhost/da1/home";
+    </script>
+';
+}
 ?>
 <!doctype html>
 <html lang="en">

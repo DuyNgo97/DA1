@@ -12,13 +12,14 @@ if (isset($data["arrEd"])) {
 </h1>
 <form action="account/UpdateEmail" target="_self" method="post">
     <label for="psw"><b>Email</b></label>
-    <input type="email" name="email" value="">
+    <input class="form-control w-25 mb-2 type=" email" name="email" value="">
 
     <?php if (isset($data["check"])) {
         echo "<script>alert('Đổi Email thành công!!');window.location='account'; </script>";
     } ?>
 
     <div class="clearfix">
-        <button type="submit" name="submit" class="submit">Sửa</button>
+        <button type="submit" name="submit" class="submit btn btn-danger">Sửa</button>
+        <a href="account"><button class="btn btn-danger">Quay lại</button></a>
     </div>
 </form>
