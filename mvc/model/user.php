@@ -27,41 +27,40 @@ class user extends db
 
     //check taikhoan va email
 
-    public function checkDK($taikhoan,$email){
+    public function checkDK($taikhoan, $email)
+    {
         $sql2 = "SELECT a.*,b.* 
         FROM `userss` a
         INNER JOIN infor b
         ON a.id_info = b.id_info
         WHERE a.us_taikhoan = '$taikhoan' and b.email = '$email'";
-        $result2 = mysqli_query($this -> conn, $sql2);
-        if(mysqli_num_rows($result2) != 0){
-
-        }else{
-          
+        $result2 = mysqli_query($this->conn, $sql2);
+        if (mysqli_num_rows($result2) != 0) {
+        } else {
         }
         // return $check;
     }
 
     // Dang ki
     public function dangky($taikhoan, $password, $name, $email, $diachi, $sdt, $ngaytao)
-    {   
+    {
         $check = false;
         $sql2 = "SELECT * 
         FROM `userss` a
         INNER JOIN infor b
         ON a.id_info = b.id_info
         WHERE a.us_taikhoan = '$taikhoan' or b.email = '$email'";
-        mysqli_query($this -> conn, $sql2);
-        if(mysqli_num_rows(mysqli_query($this -> conn, $sql2)) == 0){
+        mysqli_query($this->conn, $sql2);
+        if (mysqli_num_rows(mysqli_query($this->conn, $sql2)) == 0) {
             $vaitro = 2;
             $id_info = $this->insertInfo($name, $email, $diachi, $sdt, $ngaytao);
             $sql = "INSERT INTO `userss`(`us_taikhoan`, `us_password`, `id_vaitro`, `id_info`) VALUES ('$taikhoan','$password',$vaitro,$id_info)";
             if (mysqli_query($this->conn, $sql)) {
                 $check = true;
-            }else{
+            } else {
                 $check = false;
             }
-        }else{
+        } else {
             echo "<script>alert('Tài khoản hoặc email đã tồn tại!!!');</script>";
         }
         return json_encode($check);
@@ -209,7 +208,6 @@ class user extends db
             $sql = "UPDATE `userss` SET `us_password` = '$password' WHERE `us_id` =  '$id'";
             mysqli_query($this->conn, $sql);
             echo "<script>alert('Đổi mật khẩu thành công!!');window.location='account'; </script>";
-
         } else {
             echo "<script>alert('Mật khẩu cũ không đúng!!');window.location='changepass'; </script>";
         }
@@ -232,14 +230,14 @@ class user extends db
     public function UpdateSDT($id, $SDT)
     {
         $check = false;
-        $sql = "UPDATE `infor` SET sdt = $SDT WHERE `id_info` =  $id";
+        $sql = "UPDATE `infor` SET sdt = '$SDT' WHERE `id_info` =  '$id'";
         $result = mysqli_query($this->conn, $sql);
         // $arr = mysqli_fetch_assoc($result);
         // return json_encode($arr);
         if ($result) {
             $check = true;
         }
-        return $check;
+        return $SDT;
     }
 
     public function UpdateEmail($id, $Email)
@@ -277,7 +275,8 @@ class user extends db
         return json_encode($arr);
     }
 
-    public function getVoucherUS($idUS){
+    public function getVoucherUS($idUS)
+    {
         $sql = "SELECT  c.id_voucher,c.ten_voucher,c.code_voucher,c.mucgiam_voucher,c.ngayKT
         FROM `userss` a
         INNER JOIN voucher_chitiet b

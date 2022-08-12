@@ -20,6 +20,6 @@ if (isset($data["arrEd"])) {
 
     <div class="clearfix">
         <button type="submit" name="submit" class="submit">Sửa</button>
-        <a href="account"><button class="btn btn-danger">Quay lại</button></a>
+        <!-- <a href="account"><button class="btn btn-danger">Quay lại</button></a> -->
     </div>
 </form>
