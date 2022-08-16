@@ -23,13 +23,13 @@ if (isset($data["arrUs"])) {
 
 
     <label for="psw"><b>Nhập Mật Khẩu Cũ</b></label>
-    <input class="form-control w-25 mb-2" type="password" name="pswo" value="">
+    <input class="form-control w-50 mb-2" type="password" name="pswo" value="">
 
     <label for="psw"><b>Nhập Mật Khẩu Mới</b></label>
-    <input class="form-control w-25 mb-2" type="password" name="pswn" value="">
+    <input class="form-control w-50 mb-2" type="password" name="pswn" value="">
 
     <label for="psw"><b>Nhập Lại Mật Khẩu Mới</b></label>
-    <input class="form-control w-25 mb-2" type="password" name="pswr" value="">
+    <input class="form-control w-50 mb-2" type="password" name="pswr" value="">
 
     
 

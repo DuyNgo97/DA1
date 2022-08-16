@@ -1,6 +1,6 @@
 <div class="account-setting border rounded">
 
-<div class="reset-password d-flex  justify-content-between  align-items-center mb-1">
+<div class="reset-password d-flex  justify-content-between  align-items-center mb-1 mt-2">
         <div class="d-flex  align-items-center">
             <div class="me-2"><i class="bi bi-person-badge-fill" style="font-size: 4rem;"></i></div>
             <div>

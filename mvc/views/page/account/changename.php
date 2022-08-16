@@ -6,19 +6,20 @@ if (isset($data["arrEd"])) {
 
 ?>
 
-<h1>
+
+<h1 class="ms-2 mt-2">
     Đổi tên người dùng
 </h1>
 <form action="account/UpdateName" target="_self" method="post">
 
-    <label for="psw"><b>Nhập tên mới</b></label>
-    <input class="form-control w-25 mb-2 type="text" name="name" value="">
+    <label class="ms-2" for="psw"><b>Nhập tên mới</b></label>
+    <input class="form-control w-50 mb-2 type= ms-2" text" name="name" value="">
 
     <?php if (isset($data["check"])) {
         echo "<script>alert('Đổi hình tên người dùng thành công!!');window.location='account'; </script>";
     } ?>
 
-    <div class="clearfix">
+    <div class="clearfix ms-2">
         <button type="submit" name="submit" class="submit btn btn-danger">Sửa</button>
     </div>
 </form>

@@ -14,10 +14,10 @@ if (isset($data["arrEd"])) {
 <form action="account/UpdateSDT" target="_self" method="post">
 
     <label for="psw"><b>Nhập Mật Khẩu Cũ</b></label>
-    <input class="form-control w-25 mb-2" type="password" name="pswo" value="">
+    <input class="form-control w-50 mb-2" type="password" name="pswo" value="">
 
     <label for="psw"><b>Số điện thoại</b></label>
-    <input class="form-control w-25 mb-2" type="number" placeholder="Số điện thoại" name="sdt" required />
+    <input class="form-control w-50 mb-2" type="number" placeholder="Số điện thoại" name="sdt" required />
 
 
 
