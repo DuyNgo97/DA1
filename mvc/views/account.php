@@ -42,7 +42,7 @@ if (isset($data['donhang'])) {
     <div class="account-body">
         <div class="account-main row m-0 d-flex justify-content-center ">
             <!-- col left -->
-            <div class="col-12 col-md-6 col-lg-4 text-center">
+            <div class="col-12 col-md-6 col-lg-4">
                 <?php
                 if (isset($data["arrUs"])) {
                     $arr = json_decode($data["arrUs"]);
@@ -50,22 +50,19 @@ if (isset($data['donhang'])) {
                     $IDUS = $_SESSION['idUS'];
 
                 ?>
-                    <div class="account-infor border rounded text-center">
-                        <div class="account-avartar mt-3 ">
+                    <div class="account-infor border rounded">
+                        <div class="account-avartar mt-3 text-center">
                             <img class="rounded-circle" style="width: 30%;" src="public/images/avatar/<?= $arr[0][9]?>" alt="">
                         </div>
-                        <div class="account-name ">
-                            <span class="fs-2"><?= $_SESSION['nameUS'] ?></span>
+                        <div class="account-name ms-3">
+                            <span class="fs-2">Tên: <?= $arr[0][4] ?></span>
                         </div>
-                        <?php
-
-
-                        ?>
-                        <div class="account-gmail ">
-                            <span class="fs-2"><?= $arr[0][5] ?></span>
+                        
+                        <div class="account-gmail ms-3">
+                            <span class="fs-2">Email: <?= $arr[0][5] ?></span>
                         </div>
-                        <div class="account-phone">
-                            <span class="fs-2">0<?= $arr[0][8] ?></span>
+                        <div class="account-phone ms-3">
+                            <span class="fs-2">SĐT: <?= $arr[0][8] ?></span>
                         </div>
 
                     </div>
@@ -74,7 +71,7 @@ if (isset($data['donhang'])) {
                 }
 
                 ?>
-                <div class="change-avt mt-3">
+                <div class="change-avt mt-3 text-center">
                     <a href="account/changeava" target="_self" class="btn btn-danger">Đổi Avartar</a>
                 </div>
             </div>

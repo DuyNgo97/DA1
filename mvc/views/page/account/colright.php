@@ -1,5 +1,19 @@
 <div class="account-setting border rounded">
-    <div class="reset-password d-flex  justify-content-between  align-items-center">
+
+<div class="reset-password d-flex  justify-content-between  align-items-center mb-1">
+        <div class="d-flex  align-items-center">
+            <div class="me-2"><i class="bi bi-person-badge-fill" style="font-size: 4rem;"></i></div>
+            <div>
+                <div style="font-size: 1.5rem;">Tên người dùng</div>
+                <div>Thay đổi tên</div>
+            </div>
+        </div>
+        <div class="me-2">
+            <a href="./account/changename" target="_self" class="btn btn-danger">Thay đổi</a>
+        </div>
+    </div>
+
+    <div class="reset-password d-flex  justify-content-between  align-items-center mb-1">
         <div class="d-flex  align-items-center">
             <div class="me-2"><i class="bi bi-file-lock " style="font-size: 4rem;"></i></div>
             <div>
@@ -12,7 +26,7 @@
         </div>
     </div>
 
-    <div class="reset-password d-flex  justify-content-between  align-items-center">
+    <div class="reset-password d-flex  justify-content-between  align-items-center mb-1">
         <div class="d-flex  align-items-center">
             <div class="me-2"><i class="bi bi-phone" style="font-size: 4rem;"></i></div>
             <div>
@@ -25,7 +39,7 @@
         </div>
     </div>
 
-    <div class="reset-password d-flex  justify-content-between  align-items-center">
+    <div class="reset-password d-flex  justify-content-between  align-items-center mb-1">
         <div class="d-flex  align-items-center">
             <div class="ms-2 me-2"><i class="bi bi-envelope " style="font-size: 4rem;"></i></div>
             <div>

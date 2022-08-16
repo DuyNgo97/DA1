@@ -120,11 +120,22 @@ class account extends controller
             $id = $_SESSION['idUS'];
             $SDT = $_POST['sdt'];
             $model = $this->model('user');
+            if (isset($_POST['pswo'])) {
+                function validate($data)
+                {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+                $pswo = validate($_POST['pswo']);
+            }
             $this->view("account", [
                 "viewpart" => "changesdt",
                 "id" => $id,
-                "check" => $model->UpdateSDT($id, $SDT),
+                // "check" => $model->UpdateSDT($id, $SDT),
                 "arrEd" => $model->EditAC($id),
+                "checkpass" => $model->CheckSDT($id, $pswo, $SDT),
             ]);
         }
     }
@@ -155,11 +166,56 @@ class account extends controller
             $id = $_SESSION['idUS'];
             $Email = $_POST['email'];
             $model = $this->model('user');
+            if (isset($_POST['pswo'])) {
+                function validate($data)
+                {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+                $pswo = validate($_POST['pswo']);
+            }
             $this->view("account", [
                 "viewpart" => "changeemail",
                 "id" => $id,
-                "check" => $model->UpdateEmail($id, $Email),
+                // "check" => $model->UpdateEmail($id, $Email),
                 "arrEd" => $model->EditAC($id),
+                "checkpass" => $model->CheckEmail($id, $pswo, $Email),
+            ]);
+        }
+    }
+
+    public function changename()
+    {
+        //model
+        $model = $this->model('user');
+        $id = $_SESSION['idUS'];
+        //view
+        $this->view(
+            "account",
+            [
+                "viewpart" => "changename",
+                "arrUs" => $model->selectAllUs($id),
+                // "arrNV" => $a -> sanphambanchay(),
+                // "arrDM" => $b -> getDM(),
+                // "sanpham" => $a -> selectSP(),
+            ]
+        );
+    }
+
+    public function UpdateName()
+    {
+        if (isset($_POST['submit'])) {
+            $id = $_SESSION['idUS'];
+            $name = $_POST['name'];
+            $model = $this->model('user');
+
+            $this->view("account", [
+                "viewpart" => "changename",
+                "id" => $id,
+                "arrEd" => $model->EditAC($id),
+                "check" => $model->UpdateName($id, $name),
             ]);
         }
     }
