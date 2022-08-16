@@ -71,7 +71,7 @@ if (isset($data['donhang'])) {
                 }
 
                 ?>
-                <div class="change-avt mt-3 text-center">
+                <div class="change-avt mt-3 text-center mb-3">
                     <a href="account/changeava" target="_self" class="btn btn-danger">Đổi Avartar</a>
                 </div>
             </div>
