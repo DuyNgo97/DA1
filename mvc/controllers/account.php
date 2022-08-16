@@ -118,7 +118,6 @@ class account extends controller
     {
         if (isset($_POST['submit'])) {
             $id = $_SESSION['idUS'];
-            $SDT = $_POST['sdt'];
             $model = $this->model('user');
             if (isset($_POST['pswo'])) {
                 function validate($data)
@@ -129,6 +128,13 @@ class account extends controller
                     return $data;
                 }
                 $pswo = validate($_POST['pswo']);
+                $SDT = validate($_POST['sdt']);
+
+               $length = strlen($SDT);
+                if ($length < 10) {
+                    echo "<script>alert('Vui lòng nhập số điện thoại 11 số!!');window.location='changesdt'; </script>";
+                    exit();
+                }
             }
             $this->view("account", [
                 "viewpart" => "changesdt",

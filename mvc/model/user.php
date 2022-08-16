@@ -234,7 +234,7 @@ class user extends db
         $checkpass = mysqli_query($this->conn, $sql);
 
         if (mysqli_num_rows($checkpass) === 1) {
-            $sql = "UPDATE `infor` SET sdt = '$SDT' WHERE `id_info` =  '$id'";
+            $sql = "UPDATE `infor` SET `sdt` = '$SDT' WHERE `id_info` =  '$id'";
             mysqli_query($this->conn, $sql);
             echo "<script>alert('Đổi SDT thành công!!');window.location='account'; </script>";
         } else {
@@ -250,7 +250,7 @@ class user extends db
         $checkpass = mysqli_query($this->conn, $sql);
 
         if (mysqli_num_rows($checkpass) === 1) {
-            $sql = "UPDATE `infor` SET email = '$Email' WHERE `id_info` =  '$id'";
+            $sql = "UPDATE `infor` SET `email` = '$Email' WHERE `id_info` =  '$id'";
             mysqli_query($this->conn, $sql);
             echo "<script>alert('Đổi email thành công!!');window.location='account'; </script>";
         } else {
