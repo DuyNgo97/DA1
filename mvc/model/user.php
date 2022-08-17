@@ -201,7 +201,7 @@ class user extends db
     public function Checkpass($id, $pswo, $password)
     {
 
-        $sql = "SELECT * FROM `userss` WHERE `us_id` = '$id' and `us_password` = $pswo";
+        $sql = "SELECT * FROM `userss` WHERE `us_id` = '$id' and `us_password` = '$pswo'";
         $checkpass = mysqli_query($this->conn, $sql);
 
         if (mysqli_num_rows($checkpass) === 1) {
@@ -227,23 +227,42 @@ class user extends db
     //     return $check;
     // }
 
-    public function UpdateSDT($id, $SDT)
+    public function CheckSDT($id, $pswo, $SDT)
     {
-        $check = false;
-        $sql = "UPDATE `infor` SET sdt = '$SDT' WHERE `id_info` =  '$id'";
-        $result = mysqli_query($this->conn, $sql);
-        // $arr = mysqli_fetch_assoc($result);
-        // return json_encode($arr);
-        if ($result) {
-            $check = true;
+
+        $sql = "SELECT * FROM `userss` WHERE `us_id` = '$id' and `us_password` = '$pswo'";
+        $checkpass = mysqli_query($this->conn, $sql);
+
+        if (mysqli_num_rows($checkpass) === 1) {
+            $sql = "UPDATE `infor` SET `sdt` = '$SDT' WHERE `id_info` =  '$id'";
+            mysqli_query($this->conn, $sql);
+            echo "<script>alert('Đổi SDT thành công!!');window.location='account'; </script>";
+        } else {
+            echo "<script>alert('Mật khẩu cũ không đúng!!');window.location='changesdt'; </script>";
         }
-        return $SDT;
+        return $checkpass;
     }
 
-    public function UpdateEmail($id, $Email)
+    public function CheckEmail($id, $pswo, $Email)
+    {
+
+        $sql = "SELECT * FROM `userss` WHERE `us_id` = '$id' and `us_password` = '$pswo'";
+        $checkpass = mysqli_query($this->conn, $sql);
+
+        if (mysqli_num_rows($checkpass) === 1) {
+            $sql = "UPDATE `infor` SET `email` = '$Email' WHERE `id_info` =  '$id'";
+            mysqli_query($this->conn, $sql);
+            echo "<script>alert('Đổi email thành công!!');window.location='account'; </script>";
+        } else {
+            echo "<script>alert('Mật khẩu cũ không đúng!!');window.location='changepass'; </script>";
+        }
+        return $checkpass;
+    }
+
+    public function UpdateName($id, $name)
     {
         $check = false;
-        $sql = "UPDATE `infor` SET email = '$Email' WHERE `id_info` =  '$id'";
+        $sql = "UPDATE `infor` SET `name` = '$name' WHERE `id_info` =  '$id'";
         $result = mysqli_query($this->conn, $sql);
         // $arr = mysqli_fetch_assoc($result);
         // return json_encode($arr);
@@ -252,6 +271,31 @@ class user extends db
         }
         return $check;
     }
+    // public function UpdateSDT($id, $SDT)
+    // {
+    //     $check = false;
+    //     $sql = "UPDATE `infor` SET sdt = '$SDT' WHERE `id_info` =  '$id'";
+    //     $result = mysqli_query($this->conn, $sql);
+    //     // $arr = mysqli_fetch_assoc($result);
+    //     // return json_encode($arr);
+    //     if ($result) {
+    //         $check = true;
+    //     }
+    //     return $SDT;
+    // }
+
+    // public function UpdateEmail($id, $Email)
+    // {
+    //     $check = false;
+    //     $sql = "UPDATE `infor` SET email = '$Email' WHERE `id_info` =  '$id'";
+    //     $result = mysqli_query($this->conn, $sql);
+    //     // $arr = mysqli_fetch_assoc($result);
+    //     // return json_encode($arr);
+    //     if ($result) {
+    //         $check = true;
+    //     }
+    //     return $check;
+    // }
 
     public function selectAllUs($id)
     {
