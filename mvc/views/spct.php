@@ -15,7 +15,9 @@ if (isset($data['arrColor'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sản phẩm chi tiết</title>
-    <base href="http://localhost/da1/" target="_blank">
+    <?php
+    require_once 'base.php';
+    ?>
     <link rel="icon" href="public/images/logo.png">
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
 
@@ -68,7 +70,7 @@ if (isset($data['arrColor'])) {
                     </h1>
                     <input type="hidden" value="<?= $sp[0][1] ?>" name="name">
                     <div class="price-start">
-                        <span class="price"><?= $sp[0][2] ?> VNĐ</span>
+                        <span class="price"><?= number_format($sp[0][2]) ?> VNĐ</span>
                         <input type="hidden" value="<?= $sp[0][2] ?>" name="price">
                         <span class="start">5 Sao</span>
                     </div>

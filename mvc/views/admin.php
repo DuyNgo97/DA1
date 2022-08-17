@@ -22,7 +22,9 @@ if (isset($data['chart2'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
-    <base href="http://localhost/da1/" target="_blank">
+    <?php
+    require_once 'base.php';
+    ?>
     <link rel="stylesheet" href="public/css/admin.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -106,25 +108,29 @@ if (isset($data['chart2'])) {
                         <div>Thống kê</div>
                     </a>
                 </li>
+                <?php
+                if ($_SESSION['vaitro'] == 'ADMIN') { ?>
+                    <li>
+                        <a href="admin/user" target="_self">
+                            <i class="fas fa-users"></i>
+                            <div>Quản lí tài khoản</div>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="admin/pq" target="_self">
+                                    phân quyền
+                                </a>
+                            </li>
+                            <li>
+                                <a href="admin/selectAllVoucher" target="_self">
+                                    Voucher user
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php }
+                ?>
 
-                <li>
-                    <a href="admin/user" target="_self">
-                        <i class="fas fa-users"></i>
-                        <div>Quản lí tài khoản</div>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="admin/pq" target="_self">
-                                phân quyền
-                            </a>
-                        </li>
-                        <li>
-                            <a href="admin/selectAllVoucher" target="_self">
-                                Voucher user
-                            </a>
-                        </li>
-                    </ul>
-                </li>
 
                 <li>
                     <a href="admin/sanpham" target="_self">
@@ -152,9 +158,16 @@ if (isset($data['chart2'])) {
                                 Thêm danh mục
                             </a>
                         </li>
+                        <?php if ($_SESSION['vaitro'] == 'ADMIN') { ?>
+                            <li>
+                                <a href="admin/voucher" target="_self">
+                                    Tạo voucher
+                                </a>
+                            </li>
+                        <?php } ?>
                         <li>
-                            <a href="admin/voucher" target="_self">
-                                Tạo voucher
+                            <a href="admin/buyOnline" target="_self">
+                                Biên bản bán hàng
                             </a>
                         </li>
                         <li>
@@ -183,18 +196,15 @@ if (isset($data['chart2'])) {
                         <i class="fas fa-users"></i>
                         Quản lí đơn hàng
                     </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="admin/thongKeDonHang" target="_self">
-                                Thống kê
-                            </a>
-                        </li>
-                        <li>
-                            <a href="admin/addsanpham" target="_self">
-                                Thu nhập
-                            </a>
-                        </li>
-                    </ul>
+                    <?php if ($_SESSION['vaitro'] == 'ADMIN') { ?>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="admin/thongKeDonHang" target="_self">
+                                    Thống kê
+                                </a>
+                            </li>
+                        </ul>
+                    <?php } ?>
                 </li>
 
             </ul>

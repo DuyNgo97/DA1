@@ -231,7 +231,7 @@ class admin extends controller
             $nsx = $_POST['company'];
             $trangthai = $_POST['trangthaisp'];
             $soluong = $_POST['soluongsp'];
-            $giamgia = isset($_POST['giamgiasp']);
+            $giamgia = $_POST['giamgiasp'];
             $loaisp = $_POST['theloaisp'];
             $loaispct = $_POST['chitietsp'];
             $ngaytao = $_POST['dateTao'];
@@ -573,6 +573,15 @@ class admin extends controller
             'viewpart' => 'binhluanSP',
             'arrBL' => $model->selectAllBinhLuan(),
             'check' => $model->deleteBinhLuan($id),
+        ]);
+    }
+
+    public function buyOnline()
+    {
+        $model = $this->model('adminPro');
+
+        $this->view('admin', [
+            'viewpart' => 'bienban',
         ]);
     }
 }

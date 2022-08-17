@@ -6,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tìm Kiếm</title>
-    <base href="http://localhost/da1/" target="_blank">
+    <?php
+    require_once 'base.php';
+    ?>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/">
     <link rel="icon" href="public/images/logo.png">
@@ -14,15 +16,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 
     <!-- Bootstrap core CSS -->
-    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/find.css">
     <style>
-    h1 {
-        margin-top: 10px;
-    }
+        h1 {
+            margin-top: 10px;
+        }
 
-    /* form{
+        /* form{
 			border: 1px solid green;
 		} */
     </style>
@@ -31,7 +32,7 @@
 <body>
     <!-- Đây là header -->
     <?php
-        require_once 'mvc/views/body/header.php';
+    require_once 'mvc/views/body/header.php';
     ?>
     <!-- Đây là body -->
     <div class="sidebar">
@@ -71,27 +72,27 @@
                     <div>PHỤ TÙNG</div>
                 </a>
                 <ul class="dropdown-menu">
-					<li>
-						<a href="find_item/clickguong" target="_self">
-							Gương
-						</a>
-					</li>
-					<li>
-						<a href="find_item/clicklight" target="_self">
-							Đèn Xe
-						</a>
-					</li>
-					<li>
-						<a href="find_item/clickcam" target="_self">
-							Camera
-						</a>
-					</li>
-					<!-- <li>
+                    <li>
+                        <a href="find_item/clickguong" target="_self">
+                            Gương
+                        </a>
+                    </li>
+                    <li>
+                        <a href="find_item/clicklight" target="_self">
+                            Đèn Xe
+                        </a>
+                    </li>
+                    <li>
+                        <a href="find_item/clickcam" target="_self">
+                            Camera
+                        </a>
+                    </li>
+                    <!-- <li>
 						<a href="" target="_self">
 							Khác...
 						</a>
 					</li> -->
-				</ul>
+                </ul>
             </li>
 
             <!-- <li>
@@ -158,84 +159,82 @@
 
         <div class="row">
             <div class="col-md-9 order-md-1">
-            
-            <?php 
-				if(isset($data['viewpart2'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart2'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart3'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart3'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart4'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart4'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart5'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart5'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart6'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart6'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart7'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart7'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart8'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart8'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart9'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart9'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart10'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart10'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart11'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart11'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart12'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart12'].".php";
-				}
-			?>
-            <?php 
-				if(isset($data['viewpart13'])){
-					require_once "mvc/views/page/timkiem/".$data['viewpart13'].".php";
-				}
-			?>
+
+                <?php
+                if (isset($data['viewpart2'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart2'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart3'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart3'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart4'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart4'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart5'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart5'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart6'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart6'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart7'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart7'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart8'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart8'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart9'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart9'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart10'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart10'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart11'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart11'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart12'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart12'] . ".php";
+                }
+                ?>
+                <?php
+                if (isset($data['viewpart13'])) {
+                    require_once "mvc/views/page/timkiem/" . $data['viewpart13'] . ".php";
+                }
+                ?>
+
+            </div>
 
         </div>
-                
-            </div>
-        </div>
+    </div>
     </div>
 
 
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
 <script>
-window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
+    window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
 </script>
-<script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous">
+<script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous">
 </script>
 <script src="https://getbootstrap.com/docs/4.3/examples/checkout/form-validation.js"></script>
 

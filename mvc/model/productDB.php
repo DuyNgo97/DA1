@@ -184,4 +184,34 @@ class productdb extends db
         $arr = mysqli_fetch_all($result);
         return json_encode($arr);
     }
+
+    // select sản phẩm theo danh mục
+
+    public function selectSPwithDM($idDM, $trang)
+    {
+        // $sosp = "6";
+        // $begin = ($trang - 1) * $sosp;
+        $sql_category = "SELECT a.*, b.url_main, c.*, d.* FROM `sanpham` a 
+        INNER JOIN hinhanh b ON a.id_hinhanh = b.id_hinhanh 
+        INNER JOIN loai_sp_chi_tiet c ON a.id_loaispct = c.id_loaispct 
+        INNER JOIN company d ON a.id_company = d.id_company
+        WHERE `id_danhmuc` = $idDM ORDER BY a.id_sp";
+        $query_category = mysqli_query($this->conn, $sql_category);
+        $arrCategory = mysqli_fetch_all($query_category);
+        return json_encode($arrCategory);
+    }
+
+    // số lượng sản phẩm theo danh mục
+
+    public function slspWithDM($idDM)
+    {
+        $sql_category = "SELECT a.*, b.url_main, c.*, d.* FROM `sanpham` a 
+        INNER JOIN hinhanh b ON a.id_hinhanh = b.id_hinhanh 
+        INNER JOIN loai_sp_chi_tiet c ON a.id_loaispct = c.id_loaispct 
+        INNER JOIN company d ON a.id_company = d.id_company
+        WHERE `id_danhmuc` = $idDM ORDER BY a.id_sp";
+        $query_category = mysqli_query($this->conn, $sql_category);
+        $sl = mysqli_num_rows($query_category);
+        return $sl;
+    }
 }

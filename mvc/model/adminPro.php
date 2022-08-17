@@ -28,6 +28,7 @@ class adminPro extends db
         return json_encode($arr);
     }
 
+
     public function selectOneSP($idsp)
     {
         $sql = "SELECT a.id_sp,a.ten_sp,a.gia_sp,b.name_color,a.soluong_sp,a.giamgia,
@@ -550,5 +551,15 @@ class adminPro extends db
             $check = true;
         }
         return $check;
+    }
+
+    // lấy danh mục
+
+    public function danhMuc()
+    {
+        $sql = "SELECT * FROM `danhmuc`";
+        $result = mysqli_query($this->conn, $sql);
+        $arr = mysqli_fetch_all($result);
+        return json_encode($arr);
     }
 }

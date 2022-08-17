@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tạo Password</title>
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <base href="http://localhost/da1/" target="_blank">
+    <?php
+    require_once 'base.php';
+    ?>
     <link rel="stylesheet" href="./public/css/forgot.css" />
     <link rel="icon" href="public/images/logo.png">
 </head>

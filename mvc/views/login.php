@@ -21,7 +21,9 @@ if (isset($data['abc'])) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-    <base href="http://localhost/da1/" target="_blank">
+    <?php
+    require_once 'base.php';
+    ?>
     <link rel="stylesheet" href="./public/css/style.css" />
     <link rel="icon" href="public/images/logo.png">
     <title>Đăng nhập & Đăng ký</title>

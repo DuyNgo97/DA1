@@ -6,7 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href=" https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <base href="http://localhost/da1/" target="_blank">
+    <?php
+    require_once 'base.php';
+    ?>
     <link rel="icon" href="public/images/logo.png">
     <!-- Boostrap -->
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
@@ -56,7 +58,7 @@
                                                     <div class="col-md-3">
                                                         <img class="img-fluid mx-auto d-block image" src="public/images/<?= $cart['img'] ?>">
                                                     </div>
-                                                    <div class="col-md-8">
+                                                    <div class="col-md-9">
                                                         <div class="info">
                                                             <div class="row">
                                                                 <div class="col-md-5 product-name">
@@ -89,11 +91,11 @@
                                                                 </div>
                                                                 <div class="col-md-2 price">
                                                                     <label for="quantity">Giá:</label><br>
-                                                                    <span><?= $cart['price'] ?></span>
+                                                                    <span><?= number_format($cart['price']) ?></span>
                                                                 </div>
                                                                 <div class="col-md-2 price">
                                                                     <label for="quantity">Thành tiền:</label><br>
-                                                                    <span><?= $cart['price'] * $cart['quantity'] * (1 - $cart['giamgia']) ?></span>
+                                                                    <span><?= number_format($cart['price'] * $cart['quantity'] * (1 - $cart['giamgia'])) ?></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -117,12 +119,12 @@
                                 <form action="checkout/sayhi" method="POST" target="_self">
                                     <div class="summary">
                                         <h3>Tổng thanh toán</h3>
-                                        <div class="summary-item"><span class="text">Tổng phụ</span><span class="price"><?= @$total ?> VND</span></div>
+                                        <div class="summary-item"><span class="text">Tổng phụ</span><span class="price"><?= number_format(@$total) ?> VND</span></div>
                                         <!-- <div class="summary-item"><span class="text">Giảm giá</span><span
                                         class="price"><?= @$total *  @$_SESSION['cart']['giamgia'] ?>
                                         VND</span></div> -->
                                         <div class="summary-item"><span class="text">Phí vận chuyển</span><span class="price">
-                                                <?= @$vanchuyen ?>VND
+                                                <?= number_format(@$vanchuyen) ?>VND
                                             </span></div>
                                         <div class="summary-item"><span class="text">Voucher</span><span class="price">
                                                 <?php
@@ -145,7 +147,7 @@
                                         <input type="hidden" id="totalSP" value="<?= @$total ?>">
                                         <input type="hidden" id="vanchuyen" value="<?= @$vanchuyen ?>">
                                         <input type="hidden" id="tongcong" value="<?= @$total - @$vanchuyen ?>" name="tongcong">
-                                        <div class="summary-item"><span class="text">Tổng cộng</span><span class="price" id="totaltong"><?= @$total - @$vanchuyen ?>
+                                        <div class="summary-item"><span class="text">Tổng cộng</span><span class="price" id="totaltong"><?= number_format(@$total - @$vanchuyen) ?>
                                                 VND</span></div>
                                         <input type="hidden" name="totalall" id="totalall" value="<?= @$total - @$vanchuyen ?>">
                                         <div class="btn-b">
@@ -159,14 +161,14 @@
                             <div class="summary-main col-md-12 col-lg-4">
                                 <div class="summary">
                                     <h3>Tổng thanh toán</h3>
-                                    <div class="summary-item"><span class="text">Tổng phụ</span><span class="price"><?= @$total ?> VND</span></div>
+                                    <div class="summary-item"><span class="text">Tổng phụ</span><span class="price"><?= number_format(@$total) ?> VND</span></div>
                                     <!-- <div class="summary-item"><span class="text">Giảm giá</span><span
                                         class="price"><?= @$total *  @$_SESSION['cart']['giamgia'] ?>
                                         VND</span></div> -->
                                     <div class="summary-item"><span class="text">Phí vận chuyển</span><span class="price">
-                                            <?= @$vanchuyen ?>VND
+                                            <?= number_format(@$vanchuyen) ?>VND
                                         </span></div>
-                                    <div class="summary-item"><span class="text">Tổng cộng</span><span class="price"><?= (@$total - (@$total *  @$cart['giamgia']) - @$vanchuyen) ?>
+                                    <div class="summary-item"><span class="text">Tổng cộng</span><span class="price"><?= number_format((@$total - (@$total *  @$cart['giamgia']) - @$vanchuyen)) ?>
                                             VND</span></div>
                                     <div class="btn-b">
                                         <a href="checkout" target="_self"><button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:#198754 ;">

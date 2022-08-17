@@ -1,3 +1,12 @@
+<!-- Trang tìm kiếm sản phẩm -->
+<?php
+if (isset($data['arr'])) {
+    $data = json_decode($data['arr']);
+    var_dump($data);
+} else {
+    echo "Vui lòng nhập tư liệu sản phẩm cần tìm";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,9 +64,7 @@
                 <div class="category col-lg-3">
                     <div class="border-s p-3">
                         <!-- Category -->
-                        <?php
-                        require_once "mvc/views/page/product/" . $data["category"] . ".php"
-                        ?>
+
                     </div>
                     <div class="banner-left mt-2 d-none d-lg-block">
                         <img class="mw-100" src="public/images/sale.png" alt="">
@@ -69,27 +76,7 @@
                     <div class="product-show-top d-flex justify-content-between">
                         <div class="border-s col-5 col-md-4 d-flex justify-content-center">
                             <span style="padding: 6px 12px">
-                                <?php
-                                if (isset($data['slsp'])) {
-                                    $slsp = $data['slsp'];
-                                    $sotrang = ceil($slsp / 6);
-                                    echo 'Có ' . $slsp . ' sản phẩm!';
-                                    // echo $sotrang;
-                                    // echo $sotrang;
-                                }
 
-                                // if(isset($data['arrallsp'])){
-                                //     $slsp = $data['arrallslsp'];
-                                //     $sotrang = ceil($slsp/6);
-                                //     echo 'Có '.$slsp.' sản phẩm!';
-                                // }
-
-                                // if(isset($_data['idtl'])){
-                                @$idtl = $data['idtl'];
-                                // echo $idtl;
-                                // }
-
-                                ?>
                             </span>
                         </div>
                         <div class="border-s col-5 col-md-4 d-flex justify-content-center align-item-center">
@@ -111,7 +98,7 @@
                     <div class="product-show-main d-flex row mt-3">
                         <!-- item -->
                         <?php
-                        require_once "mvc/views/page/product/" . $data["viewpart"] . ".php"
+                        require_once "mvc/views/page/product/findShow.php"
                         ?>
                         <!-- end item -->
                     </div>
@@ -123,18 +110,6 @@
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
-                                <?php
-
-                                if (isset($idtl) && isset($sotrang)) {
-                                    for ($i = 1; $i <= $sotrang; $i++) { ?>
-                                        <li class="page-item shadow-none"><a class="page-link" href="product/changeSP/<?= $idtl ?>/<?= $i ?>" target="_self"><?= $i ?></a></li>
-                                    <?php }
-                                } else {
-                                    for ($i = 1; $i <= $sotrang; $i++) { ?>
-                                        <li class="page-item shadow-none"><a class="page-link" href="product/all/<?= $i ?>" target="_self"><?= $i ?></a></li>
-                                <?php }
-                                }
-                                ?>
 
                                 <li class="page-item shadow-none">
                                     <a class="page-link" href="#" aria-label="Next">

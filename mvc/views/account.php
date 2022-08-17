@@ -1,17 +1,17 @@
 <?php
- if(isset($data['abc'])){
+if (isset($data['abc'])) {
     $abc = json_decode($data['abc']);
-  $_SESSION['user'] = json_decode($data['abc']);
-  @$_SESSION['vaitro'] = $abc[0][1];
-  @$_SESSION['idUS'] = $abc[0][0];
-  @$_SESSION['nameUS'] = strtoupper($abc[0][2]);
-  @$_SESSION['urlUS'] = 'public/images/chambien2.jpg';
+    $_SESSION['user'] = json_decode($data['abc']);
+    @$_SESSION['vaitro'] = $abc[0][1];
+    @$_SESSION['idUS'] = $abc[0][0];
+    @$_SESSION['nameUS'] = strtoupper($abc[0][2]);
+    @$_SESSION['urlUS'] = 'public/images/chambien2.jpg';
     // var_dump($_SESSION);
 }
-if (isset($_SESSION['idUS'])==false) {
+if (isset($_SESSION['idUS']) == false) {
     header("location:login");
     exit();
-} 
+}
 
 if (isset($data['donhang'])) {
     $donhang = json_decode($data['donhang']);
@@ -28,7 +28,9 @@ if (isset($data['donhang'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cá nhân</title>
-    <base href="http://localhost/da1/" target="_blank">
+    <?php
+    require_once 'base.php';
+    ?>
     <link rel="icon" href="public/images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
@@ -52,7 +54,7 @@ if (isset($data['donhang'])) {
                 ?>
                     <div class="account-infor border rounded text-center">
                         <div class="account-avartar mt-3 ">
-                            <img class="rounded-circle" style="width: 30%;" src="public/images/avatar/<?= $arr[0][9]?>" alt="">
+                            <img class="rounded-circle" style="width: 30%;" src="public/images/avatar/<?= $arr[0][9] ?>" alt="">
                         </div>
                         <div class="account-name ">
                             <span class="fs-2"><?= $_SESSION['nameUS'] ?></span>
