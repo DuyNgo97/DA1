@@ -69,7 +69,7 @@ if (isset($data['sanpham'])) {
                                         </div>
                                     </div> -->
                 <div class="img-thumbnail">
-                    <img class="mw-100" height="100%" src="public/images/<?= $sp[16] ?>" alt="" >
+                    <img class="mw-100" height="100%" src="public/images/<?= $sp[16] ?>" alt="">
                 </div>
                 <div class="mb-2 mt-2">
                     <div class="product-name">
